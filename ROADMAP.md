@@ -30,13 +30,13 @@ This document outlines the multi-phase roadmap for **FixMyFile**, tracking compl
 
 ## Phase 1: Core PDF Utilities
 
-**Phase Status:** `IN PROGRESS` (2 of 6 tools complete: JPG to PDF and PDF to Word are complete and functional; 4 tools remaining)
+**Phase Status:** `IN PROGRESS` (3 of 6 tools complete: JPG to PDF, PDF to Word, and PDF to JPG are complete and functional; 3 tools remaining)
 
 | # | Tool | Category | Path | Status | Target |
 |---|---|---|---|---|---|
 | 1 | **JPG to PDF** | PDF Conversion | `/jpg-to-pdf` | `COMPLETE` | Convert JPG/JPEG images to PDF in-browser. |
 | 2 | **PDF to Word** | PDF Conversion | `/pdf-to-word` | `COMPLETE` | Extract PDF text/layout into editable DOCX. |
-| 3 | **PDF to JPG** | PDF Conversion | `/pdf-to-jpg` | `NOT STARTED` | Render and extract PDF pages to JPG images. |
+| 3 | **PDF to JPG** | PDF Conversion | `/pdf-to-jpg` | `COMPLETE` | Render and extract PDF pages to JPG images. |
 | 4 | **Word to PDF** | PDF Conversion | `/word-to-pdf` | `NOT STARTED` | Convert DOC/DOCX documents to PDF format. |
 | 5 | **Merge PDF** | PDF Organization | `/merge-pdf` | `NOT STARTED` | Combine multiple PDF files into one. |
 | 6 | **Compress PDF** | PDF Optimization | `/compress-pdf` | `NOT STARTED` | Optimize PDF size while maintaining quality. |

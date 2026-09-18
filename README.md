@@ -73,12 +73,12 @@ FixMyFile strictly employs clean, canonical path-based URLs for every tool to op
 | `/` | Home / Tool Directory | Active Foundation |
 | `/jpg-to-pdf` | JPG to PDF | Complete · Functional In-Browser Converter |
 | `/pdf-to-word` | PDF to Word | Complete · Functional In-Browser Converter |
-| `/pdf-to-jpg` | PDF to JPG | Route Active · Implementation Coming Next |
+| `/pdf-to-jpg` | PDF to JPG | Complete · Functional In-Browser Converter |
 | `/word-to-pdf` | Word to PDF | Route Active · Implementation Coming Next |
 | `/merge-pdf` | Merge PDF | Route Active · Implementation Coming Next |
 | `/compress-pdf` | Compress PDF | Route Active · Implementation Coming Next |
 
-> **Note:** `/jpg-to-pdf` and `/pdf-to-word` are fully functional with client-side processing. The other 4 Phase 1 tools are currently implemented as route-level placeholders with their conversion engines coming next.
+> **Note:** `/jpg-to-pdf`, `/pdf-to-word`, and `/pdf-to-jpg` are fully functional with client-side processing. The other 3 Phase 1 tools are currently implemented as route-level placeholders with their conversion engines coming next.
 
 ---
 

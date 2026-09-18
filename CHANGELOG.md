@@ -4,6 +4,25 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-18] — Phase 1: PDF to JPG Converter Implementation
+
+### Added
+- Implemented functional client-side PDF to JPG converter at `/pdf-to-jpg`:
+  - Single-file PDF picker and drag-and-drop upload accepting `.pdf` and `application/pdf`.
+  - In-browser document inspection and page count detection using `pdfjs-dist`.
+  - High-definition per-page canvas rendering with calibrated resolution scale and white background fill.
+  - Client-side canvas conversion to JPEG (`image/jpeg`, 0.88 quality) preserving natural aspect ratios without distortion.
+  - Responsive results grid displaying rendered JPG previews, page numbers, pixel dimensions, and approximate file sizes.
+  - Individual page download buttons with sanitized filenames (`<original-name>-page-<number>.jpg`).
+  - Batch sequential "Download All JPGs" option for multi-page documents without external heavy dependencies.
+  - Interactive processing state with stage-by-stage messages and animated progress bar.
+  - Comprehensive client-side error handling for corrupted files, unsupported formats, and password-protected PDFs (`PasswordException`).
+  - Full reset/clear lifecycle with proper `URL.revokeObjectURL` cleanup and memory reclamation.
+  - Educational and SEO content (step-by-step conversion guide, key features, FAQ, and related tools).
+- Updated `toolsRegistry.js` marking `pdf-to-jpg` as `Ready`.
+
+---
+
 ## [2026-09-18] — Phase 1: PDF to Word Converter Implementation
 
 ### Added

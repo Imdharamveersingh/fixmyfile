@@ -18,12 +18,12 @@ This document provides a comprehensive inventory and status tracker for all tool
 |---|---|---|---|---|---|---|
 | 1 | **JPG to PDF** | PDF Conversion | Very High | Phase 1 | `/jpg-to-pdf` | `COMPLETE` |
 | 2 | **PDF to Word** | PDF Conversion | Very High | Phase 1 | `/pdf-to-word` | `COMPLETE` |
-| 3 | **PDF to JPG** | PDF Conversion | Very High | Phase 1 | `/pdf-to-jpg` | `NOT STARTED` |
+| 3 | **PDF to JPG** | PDF Conversion | Very High | Phase 1 | `/pdf-to-jpg` | `COMPLETE` |
 | 4 | **Word to PDF** | PDF Conversion | Very High | Phase 1 | `/word-to-pdf` | `NOT STARTED` |
 | 5 | **Merge PDF** | PDF Organization | Very High | Phase 1 | `/merge-pdf` | `NOT STARTED` |
 | 6 | **Compress PDF** | PDF Optimization | Very High | Phase 1 | `/compress-pdf` | `NOT STARTED` |
 
-*Note: Routes `/jpg-to-pdf` and `/pdf-to-word` are fully functional with client-side conversion and download. The other 4 Phase 1 routes display clean placeholder views with explicit notice that functional engines are coming next.*
+*Note: Routes `/jpg-to-pdf`, `/pdf-to-word`, and `/pdf-to-jpg` are fully functional with client-side conversion and download. The other 3 Phase 1 routes display clean placeholder views with explicit notice that functional engines are coming next.*
 
 ---
 

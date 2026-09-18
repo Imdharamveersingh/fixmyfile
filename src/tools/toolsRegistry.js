@@ -27,7 +27,7 @@ export const PHASE_1_TOOLS = [
     path: '/pdf-to-jpg',
     category: 'PDF Conversion',
     description: 'Extract pages from PDF files and save them as high-quality JPG images.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   },
   {
