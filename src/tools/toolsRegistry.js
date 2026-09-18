@@ -36,7 +36,7 @@ export const PHASE_1_TOOLS = [
     path: '/word-to-pdf',
     category: 'PDF Conversion',
     description: 'Convert DOC and DOCX documents directly into standardized PDF files.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   },
   {

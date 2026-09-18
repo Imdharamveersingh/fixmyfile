@@ -1707,5 +1707,35 @@
   font-weight: 600;
 }
 
+/* ============================================================
+   Word to PDF Tool Styles
+   ============================================================ */
+
+.docx-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.82rem;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+
+.docx-offscreen-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 820px;
+  background-color: #ffffff;
+  z-index: -9999;
+  pointer-events: none;
+}
+
+
 
 

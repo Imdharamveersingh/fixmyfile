@@ -4,6 +4,25 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-18] — Phase 1: Word to PDF Converter Implementation
+
+### Added
+- Implemented functional client-side Word to PDF converter at `/word-to-pdf`:
+  - Single-file DOCX picker and drag-and-drop upload supporting `.docx` format.
+  - Dedicated validation rejecting legacy binary `.doc` files with clear guidance to save as `.docx`.
+  - In-browser document rendering pipeline using `docx-preview` in a dedicated offscreen staging element.
+  - Multi-page capture using `html2canvas` preserving typography, headings, margins, and page breaks.
+  - Client-side A4 PDF compilation using `jsPDF` with automatic orientation matching and aspect-ratio preservation.
+  - Direct browser download of generated PDF with sanitized source filename (`<original-name>.pdf`).
+  - Interactive progress indicator tracking parsing, multi-page rendering, and PDF compilation.
+  - Robust client-side error handling for corrupted files, invalid formats, and rendering failures.
+  - Resource cleanup revoking object URLs and clearing staging elements to prevent memory leaks.
+  - Educational and SEO content (conversion guide, key features, FAQ, and related FixMyFile tools).
+- Added `docx-preview` dependency for client-side Word document rendering.
+- Updated `toolsRegistry.js` marking `word-to-pdf` as `Ready`.
+
+---
+
 ## [2026-09-18] — Phase 1: PDF to JPG Converter Implementation
 
 ### Added

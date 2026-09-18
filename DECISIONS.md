@@ -111,3 +111,15 @@ This document records the official technical and strategic decisions made for **
 - **Decision:** Adopt `pdfjs-dist` (Mozilla PDF.js) for client-side PDF document parsing/text extraction, and `docx` for browser-native OpenXML `.docx` compilation.
 - **Reason:** Both libraries are standard, highly mature, open-source, and support zero-backend browser execution with Web Workers. `docx` outputs valid PKZip-packaged `.docx` archives compatible with Microsoft Word and Google Docs.
 - **Impact:** Converts text-based PDFs entirely on the user's device. Scanned/image-only PDFs are explicitly recognized as requiring OCR, which is separated into a future dedicated tool.
+
+---
+
+## Decision: Client-Side Word to PDF Engine Selection (docx-preview + html2canvas + jsPDF)
+
+- **Date:** 2026-09-18
+- **Status:** Accepted
+- **Context:** Implementing browser-native Word (`.docx`) to PDF conversion required parsing OpenXML `.docx` documents, rendering complex typography/tables/headers into visual pages, and compiling those pages into a standard A4 PDF document without server-side compute or LibreOffice/headless Word binaries.
+- **Decision:** Adopt `docx-preview` for in-browser OpenXML document layout rendering, paired with `html2canvas` for high-resolution page rasterization, and standard `jsPDF` for multi-page A4 PDF document compilation.
+- **Reason:** `docx-preview` runs completely in-browser without server dependencies, faithfully interpreting Word XML into standard HTML/CSS. `html2canvas` and `jsPDF` work in tandem to capture exact visual pagination and assemble downloadable standard PDF files locally.
+- **Impact:** Word documents convert directly on user devices with 100% privacy, zero server cost, and preserved multi-page formatting.
+
