@@ -100,3 +100,14 @@ This document records the official technical and strategic decisions made for **
 - **Decision:** Adopt `jspdf` as the standard client-side PDF document generation library for FixMyFile.
 - **Reason:** `jspdf` is mature, well-maintained, lightweight, runs entirely in the browser, supports multi-page document compilation with dynamic page sizes and orientations, and requires no external binaries or backend services.
 - **Impact:** Images are converted and packaged directly in client memory; PDF generation is instant and private.
+
+---
+
+## Decision: Client-Side PDF to Word Engine Selection (pdfjs-dist + docx)
+
+- **Date:** 2026-09-18
+- **Status:** Accepted
+- **Context:** Implementing a browser-native PDF to Word converter required two distinct capabilities without backend servers: (1) extracting selectable text and page structure from PDF binaries, and (2) packaging extracted content into genuine Microsoft Word (`.docx`) OpenXML files.
+- **Decision:** Adopt `pdfjs-dist` (Mozilla PDF.js) for client-side PDF document parsing/text extraction, and `docx` for browser-native OpenXML `.docx` compilation.
+- **Reason:** Both libraries are standard, highly mature, open-source, and support zero-backend browser execution with Web Workers. `docx` outputs valid PKZip-packaged `.docx` archives compatible with Microsoft Word and Google Docs.
+- **Impact:** Converts text-based PDFs entirely on the user's device. Scanned/image-only PDFs are explicitly recognized as requiring OCR, which is separated into a future dedicated tool.

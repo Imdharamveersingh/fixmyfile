@@ -4,6 +4,22 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-18] — Phase 1: PDF to Word Converter Implementation
+
+### Added
+- Implemented functional client-side PDF to Word converter at `/pdf-to-word`:
+  - Single-file PDF upload via accessible file picker and drag-and-drop.
+  - In-browser PDF parsing and page count analysis using `pdfjs-dist`.
+  - Sequential text extraction preserving page sequence and line/paragraph grouping.
+  - Multi-page document structure with clean page breaks separating original PDF pages.
+  - Real Microsoft Word `.docx` package compilation using `docx` (`Packer.toBlob`).
+  - Direct browser download of generated `.docx` with sanitized source document filename (`<original-name>.docx`).
+  - Transparent error handling and detection for scanned/image-only PDFs lacking selectable text, explaining limitation and future OCR roadmap.
+  - High-quality on-page educational and SEO content (How-to guide, features, FAQ, scanned PDF transparency note, related tools).
+- Added `pdfjs-dist` and `docx` dependencies for client-side PDF parsing and DOCX document authoring.
+
+---
+
 ## [2026-09-18] — Phase 1: JPG to PDF Converter Implementation
 
 ### Added

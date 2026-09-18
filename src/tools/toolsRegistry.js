@@ -18,7 +18,7 @@ export const PHASE_1_TOOLS = [
     path: '/pdf-to-word',
     category: 'PDF Conversion',
     description: 'Convert PDF documents into editable Microsoft Word DOCX files.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   },
   {
