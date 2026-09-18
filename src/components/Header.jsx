@@ -7,7 +7,7 @@ export default function Header() {
       <div className="header-container">
         <Link to="/" className="brand-logo">
           <span className="brand-icon">⚡</span>
-          <span className="brand-name">ToolHub</span>
+          <span className="brand-name">FixMyFile</span>
           <span className="brand-badge">Phase 1</span>
         </Link>
         <nav className="site-nav">

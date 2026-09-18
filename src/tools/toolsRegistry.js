@@ -9,7 +9,7 @@ export const PHASE_1_TOOLS = [
     path: '/jpg-to-pdf',
     category: 'PDF Conversion',
     description: 'Convert JPG and JPEG images into clean, formatted PDF documents.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   },
   {

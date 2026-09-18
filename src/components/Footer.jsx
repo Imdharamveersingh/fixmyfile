@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-brand">
             <span className="brand-icon">⚡</span>
-            <span className="brand-title">ToolHub</span>
+            <span className="brand-title">FixMyFile</span>
           </div>
           <p className="footer-desc">
             Fast, client-focused online utility tools. Built for simplicity, speed, and privacy.
@@ -46,7 +46,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-bottom-container">
-          <p>&copy; {currentYear} ToolHub. All rights reserved.</p>
+          <p>&copy; {currentYear} FixMyFile. All rights reserved.</p>
           <div className="footer-bottom-links">
             <Link to="/">Home</Link>
             <span>•</span>
