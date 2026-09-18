@@ -1,0 +1,113 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  /* Color Palette - Clean, Modern Slate/Indigo Theme */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --bg-elevated: #ffffff;
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --primary-border: #bfdbfe;
+
+  --accent: #6366f1;
+  --accent-soft: #eef2ff;
+
+  --badge-bg: #e0e7ff;
+  --badge-text: #3730a3;
+
+  --success-bg: #ecfdf5;
+  --success-text: #065f46;
+  --warning-bg: #fffbeb;
+  --warning-text: #92400e;
+  --warning-border: #fde68a;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-app: #090d16;
+    --bg-surface: #0f172a;
+    --bg-surface-subtle: #1e293b;
+    --bg-elevated: #1e293b;
+    --border-subtle: #1e293b;
+    --border-strong: #334155;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-inverse: #0f172a;
+
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --primary-soft: rgba(59, 130, 246, 0.15);
+    --primary-border: rgba(59, 130, 246, 0.35);
+
+    --accent: #818cf8;
+    --accent-soft: rgba(129, 140, 248, 0.15);
+
+    --badge-bg: rgba(99, 102, 241, 0.2);
+    --badge-text: #a5b4fc;
+
+    --warning-bg: rgba(245, 158, 11, 0.12);
+    --warning-text: #fcd34d;
+    --warning-border: rgba(245, 158, 11, 0.25);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.5);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: var(--font-family);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
