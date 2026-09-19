@@ -54,7 +54,7 @@ export const PHASE_1_TOOLS = [
     path: '/compress-pdf',
     category: 'PDF Optimization',
     description: 'Reduce PDF file size while preserving optimal text and visual quality.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   }
 ];
