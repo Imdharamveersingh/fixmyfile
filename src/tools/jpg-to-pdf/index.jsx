@@ -21,17 +21,28 @@ export default function JpgToPdfTool() {
     }
   };
 
-  // Clean up object URLs on unmount
+  const imagesRef = useRef(images);
+  const convertedPdfUrlRef = useRef(convertedPdfUrl);
+
+  useEffect(() => {
+    imagesRef.current = images;
+  }, [images]);
+
+  useEffect(() => {
+    convertedPdfUrlRef.current = convertedPdfUrl;
+  }, [convertedPdfUrl]);
+
+  // Clean up object URLs on component unmount ONLY
   useEffect(() => {
     return () => {
-      images.forEach((item) => {
+      imagesRef.current.forEach((item) => {
         if (item.previewUrl) URL.revokeObjectURL(item.previewUrl);
       });
-      if (convertedPdfUrl) {
-        URL.revokeObjectURL(convertedPdfUrl);
+      if (convertedPdfUrlRef.current) {
+        URL.revokeObjectURL(convertedPdfUrlRef.current);
       }
     };
-  }, [images, convertedPdfUrl]);
+  }, []);
 
   // Handle files selection
   const processFiles = (fileList) => {
@@ -86,7 +97,7 @@ export default function JpgToPdfTool() {
         );
       };
       img.onerror = () => {
-        setErrorMessage(`Could not read image data for: ${item.name}`);
+        setErrorMessage(`Could not load ${item.name}. Please make sure it is a valid JPG/JPEG image.`);
         removeImage(item.id);
       };
       img.src = item.previewUrl;
@@ -176,6 +187,28 @@ export default function JpgToPdfTool() {
     setStatusMessage('');
   };
 
+  // Load an image file into an Image element and base64 Data URL
+  const loadImageFromFile = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        const img = new Image();
+        img.onload = () => resolve({ img, dataUrl });
+        img.onerror = () =>
+          reject(
+            new Error(`Could not load ${file.name}. Please make sure it is a valid JPG/JPEG image.`)
+          );
+        img.src = dataUrl;
+      };
+      reader.onerror = () =>
+        reject(
+          new Error(`Could not load ${file.name}. Please make sure it is a valid JPG/JPEG image.`)
+        );
+      reader.readAsDataURL(file);
+    });
+  };
+
   // Convert to PDF
   const convertToPdf = async () => {
     if (images.length === 0) {
@@ -197,16 +230,11 @@ export default function JpgToPdfTool() {
         setStatusMessage(`Processing page ${i + 1} of ${images.length}...`);
         setConversionProgress(Math.round(((i + 1) / images.length) * 90));
 
-        // Load image bitmap into memory for dimension & aspect calculation
-        const imgElement = await new Promise((resolve, reject) => {
-          const img = new Image();
-          img.onload = () => resolve(img);
-          img.onerror = () => reject(new Error(`Failed to load ${item.name}`));
-          img.src = item.previewUrl;
-        });
+        // Load image bitmap into memory directly from original File object
+        const { img: imgElement, dataUrl } = await loadImageFromFile(item.file);
 
-        const imgWidth = imgElement.naturalWidth || 100;
-        const imgHeight = imgElement.naturalHeight || 100;
+        const imgWidth = imgElement.naturalWidth || item.width || 100;
+        const imgHeight = imgElement.naturalHeight || item.height || 100;
         const isLandscape = imgWidth > imgHeight;
         const orientation = isLandscape ? 'landscape' : 'portrait';
 
@@ -229,7 +257,7 @@ export default function JpgToPdfTool() {
 
         // Compress large images onto an in-memory canvas to avoid huge PDF bloat
         const maxCanvasDim = 2400;
-        let finalDataUrl = item.previewUrl;
+        let finalDataUrl = dataUrl;
 
         if (imgWidth > maxCanvasDim || imgHeight > maxCanvasDim) {
           const canvas = document.createElement('canvas');
@@ -258,6 +286,9 @@ export default function JpgToPdfTool() {
       setStatusMessage('Finalizing PDF document...');
       setConversionProgress(100);
 
+      if (convertedPdfUrl) {
+        URL.revokeObjectURL(convertedPdfUrl);
+      }
       const pdfBlob = doc.output('blob');
       const pdfUrl = URL.createObjectURL(pdfBlob);
 

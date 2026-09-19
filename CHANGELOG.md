@@ -4,6 +4,17 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-19] — Phase 1: JPG to PDF Converter Image Loading Bug Fix
+
+### Fixed
+- Fixed critical image-loading failure bug during JPG to PDF conversion (`Conversion error: Failed to load ...`):
+  - **Premature Object URL Revocation:** Corrected React `useEffect` cleanup hook in `src/tools/jpg-to-pdf/index.jsx` where `[images, convertedPdfUrl]` dependencies caused preview object URLs to be revoked on every state re-render (such as initial dimension loading or reordering) while images were still active in the DOM. Synchronized cleanup to execute strictly on component unmount via `useRef`.
+  - **Robust Image Decoding Pipeline:** Updated conversion image loading to read directly from the underlying `File` object via `FileReader` (`readAsDataURL`) into memory, ensuring independent, self-contained base64 JPEG encoding that is immune to object URL lifecycle issues.
+  - **Improved User Guidance:** Enhanced image load failure error messaging from generic technical rejection to actionable guidance: `Could not load [filename]. Please make sure it is a valid JPG/JPEG image.`
+- Created automated regression test suite `test_jpg_to_pdf.mjs` verifying single portrait, single landscape, single square, 3-image multi-page creation, and reordering.
+
+---
+
 ## [2026-09-19] — Phase 1: PDF to Word Converter V2 Quality Upgrade
 
 ### Improved
