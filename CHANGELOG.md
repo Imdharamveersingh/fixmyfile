@@ -4,6 +4,20 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-19] — Phase 1: Word to PDF Pagination Fidelity Fix
+
+### Fixed
+- Fixed critical pagination fidelity bug in Word to PDF converter at `/word-to-pdf` where continuous multi-page content was globally squeezed into fewer pages:
+  - **Eliminated Global Scale-to-Fit Downscaling:** Replaced previous whole-section vertical scaling (`renderWidth = pageHeight * imgRatio`) with natural 1:1 scale canvas pagination. Tall sections overflowing a single page are now dynamically paginated into sequential A4 pages without shrinking typography or squashing layout.
+  - **Document-Native Page Aspect Ratio Detection:** Calculated single-page canvas height based on the Word document's natural aspect ratio (`styleMinHeight / styleWidth` e.g. Letter 11in/8.5in or A4 297mm/210mm) rather than hardcoded A4 assumption, properly reflecting Word's page boundary thresholds.
+  - **Line-Gap Whitespace Snapping:** Implemented intelligent pixel boundary detection (`findBestCutY`) scanning vertical rows near page boundaries to cut cleanly across empty line gaps, preventing text glyphs from being sliced horizontally across pages.
+  - **Margin-Aware Continuation Slicing:** Preserved top and bottom page margins across overflowing multi-page sections, ensuring continuation text begins neatly below the top margin rather than colliding with the page edge.
+  - **Benchmark Validation:** Verified `fixmyfile-difficult-word-test.docx` converts into exactly 3 pages matching iLovePDF benchmark behavior (Page 1: Heading + formatting + table + special chars + start of long content; Page 2: Continuation of long content; Page 3: Second Page and page-break content).
+  - **Offscreen Staging CSS Adjustment:** Updated `.docx-offscreen-stage` in `src/App.css` from fixed `width: 820px` to `width: max-content; min-width: 1200px;`, allowing landscape and wide Word documents to layout naturally without artificial width clamping.
+- Created automated regression test suite `test_word_to_pdf.mjs` verifying single-page documents produce exactly 1 PDF page and multi-page difficult documents produce 3 pages with proper dimensions.
+
+---
+
 ## [2026-09-19] — Phase 1: JPG to PDF Converter Image Loading Bug Fix
 
 ### Fixed

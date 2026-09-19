@@ -153,6 +153,7 @@ export default function WordToPdfTool() {
         breakPages: true,
         ignoreWidth: false,
         ignoreHeight: false,
+        ignoreLastRenderedPageBreak: false,
         renderHeaders: true,
         renderFooters: true,
         renderFootnotes: true,
@@ -171,14 +172,76 @@ export default function WordToPdfTool() {
         pageElements = [container];
       }
 
-      const totalPages = pageElements.length;
+      const totalSections = pageElements.length;
       let pdfDoc = null;
+      let totalRenderedPages = 0;
 
-      for (let i = 0; i < totalPages; i++) {
-        setStatusMessage(`Rendering page ${i + 1} of ${totalPages}...`);
-        setConversionProgress(25 + Math.round(((i + 1) / totalPages) * 65));
+      // Helper to scan for clean blank row between lines/paragraphs to avoid cutting text glyphs
+      const findBestCutY = (fullCanvas, startY, targetY, pageH) => {
+        if (targetY >= fullCanvas.height) {
+          return fullCanvas.height;
+        }
 
-        const pageEl = pageElements[i];
+        // Search upward within a window above targetY (up to 12% of page height, max 200px)
+        const maxSearch = Math.min(Math.round(pageH * 0.12), targetY - startY - 80);
+        if (maxSearch <= 0) {
+          return targetY;
+        }
+
+        const ctx = fullCanvas.getContext('2d', { willReadFrequently: true });
+        const scanY = targetY - maxSearch;
+        const imgData = ctx.getImageData(0, scanY, fullCanvas.width, maxSearch);
+        const data = imgData.data;
+
+        // Ignore margins where background is always white
+        const startX = Math.round(fullCanvas.width * 0.08);
+        const endX = Math.round(fullCanvas.width * 0.92);
+        const stepX = 4; // Sample every 4th pixel for high speed
+
+        let bestY = targetY;
+        let minDarkPixels = Infinity;
+
+        // Scan from targetY upwards looking for a whitespace row
+        for (let row = maxSearch - 1; row >= 0; row--) {
+          let darkPixels = 0;
+          const rowOffset = row * fullCanvas.width * 4;
+
+          for (let x = startX; x < endX; x += stepX) {
+            const idx = rowOffset + x * 4;
+            // Check if pixel is darker than off-white
+            if (data[idx] < 235 || data[idx + 1] < 235 || data[idx + 2] < 235) {
+              darkPixels++;
+            }
+          }
+
+          // Found clean blank line between paragraphs or text lines
+          if (darkPixels === 0) {
+            return scanY + row;
+          }
+
+          if (darkPixels < minDarkPixels) {
+            minDarkPixels = darkPixels;
+            bestY = scanY + row;
+          }
+        }
+
+        // If a very low-density row was found (e.g. table border or spacing)
+        if (minDarkPixels <= 3) {
+          return bestY;
+        }
+
+        return targetY;
+      };
+
+      for (let sIdx = 0; sIdx < totalSections; sIdx++) {
+        setStatusMessage(`Rendering document section ${sIdx + 1} of ${totalSections}...`);
+        setConversionProgress(25 + Math.round(((sIdx + 1) / totalSections) * 65));
+
+        const pageEl = pageElements[sIdx];
+
+        // Clean any shadow or outer margin from docx-preview wrapper
+        pageEl.style.boxShadow = 'none';
+        pageEl.style.margin = '0 auto';
 
         // Capture page DOM element with html2canvas
         const canvas = await html2canvas(pageEl, {
@@ -188,46 +251,135 @@ export default function WordToPdfTool() {
           logging: false
         });
 
-        const imgWidth = canvas.width;
-        const imgHeight = canvas.height;
-        const isLandscape = imgWidth > imgHeight;
-        const orientation = isLandscape ? 'landscape' : 'portrait';
+        // Parse document's natural page dimensions from docx-preview styling
+        let naturalRatio = 297 / 210; // Default A4 portrait
+        const styleW = parseFloat(pageEl.style.width) || 0;
+        const styleH = parseFloat(pageEl.style.minHeight) || parseFloat(pageEl.style.height) || 0;
 
-        // A4 dimensions in mm
+        if (styleW > 0 && styleH > 0) {
+          naturalRatio = styleH / styleW;
+        }
+
+        const isLandscape = naturalRatio < 1.0;
+        const orientation = isLandscape ? 'landscape' : 'portrait';
         const pageWidth = isLandscape ? 297 : 210;
         const pageHeight = isLandscape ? 210 : 297;
 
-        // Scale preserving exact aspect ratio without distortion
-        const imgRatio = imgWidth / imgHeight;
-        const pageRatio = pageWidth / pageHeight;
+        // Calculate single-page height on the canvas matching the document's natural page boundary
+        const canvasPageHeight = Math.round(canvas.width * naturalRatio);
+
+        // Calculate render dimensions on standardized A4 page
         let renderWidth = pageWidth;
-        let renderHeight = pageHeight;
-
-        if (imgRatio > pageRatio) {
-          renderHeight = pageWidth / imgRatio;
-        } else {
-          renderWidth = pageHeight * imgRatio;
+        let renderHeight = Math.min(pageHeight, pageWidth * naturalRatio);
+        if (renderHeight > pageHeight) {
+          renderHeight = pageHeight;
+          renderWidth = pageHeight / naturalRatio;
         }
-
         const posX = (pageWidth - renderWidth) / 2;
         const posY = (pageHeight - renderHeight) / 2;
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.90);
+        // Parse margins from docx-preview styling (scale 1.5 to match html2canvas scale)
+        const compStyle = window.getComputedStyle(pageEl);
+        const topMarginPx = Math.round((parseFloat(compStyle.paddingTop) || 0) * 1.5);
+        const effectiveTopMargin = topMarginPx > 0 ? topMarginPx : Math.round(canvasPageHeight * 0.08);
 
-        if (i === 0) {
-          pdfDoc = new jsPDF({
-            orientation,
-            unit: 'mm',
-            format: 'a4',
-            compress: true
-          });
+        if (canvas.height <= canvasPageHeight * 1.05) {
+          // Section fits cleanly on a single page
+          const sliceCanvas = document.createElement('canvas');
+          sliceCanvas.width = canvas.width;
+          sliceCanvas.height = canvasPageHeight;
+          const sliceCtx = sliceCanvas.getContext('2d');
+          sliceCtx.fillStyle = '#ffffff';
+          sliceCtx.fillRect(0, 0, sliceCanvas.width, sliceCanvas.height);
+          sliceCtx.drawImage(
+            canvas,
+            0, 0, canvas.width, canvas.height,
+            0, 0, canvas.width, canvas.height
+          );
+
+          const imgData = sliceCanvas.toDataURL('image/jpeg', 0.92);
+
+          if (!pdfDoc) {
+            pdfDoc = new jsPDF({
+              orientation,
+              unit: 'mm',
+              format: 'a4',
+              compress: true
+            });
+          } else {
+            pdfDoc.addPage('a4', orientation);
+          }
+
+          pdfDoc.addImage(imgData, 'JPEG', posX, posY, renderWidth, renderHeight, undefined, 'FAST');
+          totalRenderedPages++;
+
+          sliceCanvas.width = 0;
+          sliceCanvas.height = 0;
         } else {
-          pdfDoc.addPage('a4', orientation);
+          // Section spans multiple pages: slice vertically at natural page height
+          let currentY = 0;
+          let sliceIdx = 0;
+
+          while (currentY < canvas.height - 20) {
+            const remainingHeight = canvas.height - currentY;
+            const isFirstSlice = sliceIdx === 0;
+            const destY = isFirstSlice ? 0 : effectiveTopMargin;
+            const targetPageCapacity = isFirstSlice
+              ? canvasPageHeight
+              : (canvasPageHeight - effectiveTopMargin);
+
+            let sliceH;
+            let nextY;
+
+            if (remainingHeight <= targetPageCapacity * 1.05) {
+              sliceH = remainingHeight;
+              nextY = canvas.height;
+            } else {
+              const nominalCutY = currentY + targetPageCapacity;
+              const cutY = findBestCutY(canvas, currentY, nominalCutY, canvasPageHeight);
+              sliceH = cutY - currentY;
+              nextY = cutY;
+            }
+
+            const sliceCanvas = document.createElement('canvas');
+            sliceCanvas.width = canvas.width;
+            sliceCanvas.height = canvasPageHeight;
+            const sliceCtx = sliceCanvas.getContext('2d');
+            sliceCtx.fillStyle = '#ffffff';
+            sliceCtx.fillRect(0, 0, sliceCanvas.width, sliceCanvas.height);
+
+            // Draw content slice with top margin preserved for continuation pages
+            sliceCtx.drawImage(
+              canvas,
+              0, currentY, canvas.width, sliceH,
+              0, destY, canvas.width, sliceH
+            );
+
+            const imgData = sliceCanvas.toDataURL('image/jpeg', 0.92);
+
+            if (!pdfDoc) {
+              pdfDoc = new jsPDF({
+                orientation,
+                unit: 'mm',
+                format: 'a4',
+                compress: true
+              });
+            } else {
+              pdfDoc.addPage('a4', orientation);
+            }
+
+            pdfDoc.addImage(imgData, 'JPEG', posX, posY, renderWidth, renderHeight, undefined, 'FAST');
+            totalRenderedPages++;
+            sliceIdx++;
+
+            sliceCanvas.width = 0;
+            sliceCanvas.height = 0;
+
+            currentY = nextY;
+          }
         }
 
-        pdfDoc.addImage(imgData, 'JPEG', posX, posY, renderWidth, renderHeight, undefined, 'FAST');
-
-        // Free canvas memory
+        // Free full section canvas
         canvas.width = 0;
         canvas.height = 0;
       }
@@ -243,7 +395,7 @@ export default function WordToPdfTool() {
 
       setConvertedPdfUrl(pdfUrl);
       setConvertedPdfSize(pdfBlob.size);
-      setConvertedPageCount(totalPages);
+      setConvertedPageCount(totalRenderedPages);
       setConversionProgress(100);
       setStatusMessage('Conversion complete!');
     } catch (err) {
