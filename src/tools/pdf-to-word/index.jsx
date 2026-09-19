@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { convertPdfToDocx } from './converterEngine';
 import { formatBytes } from '../../utils/helpers';
 
 // Configure PDF.js worker URL for Vite
@@ -16,6 +16,7 @@ export default function PdfToWordTool() {
   const [statusMessage, setStatusMessage] = useState('');
   const [convertedDocxUrl, setConvertedDocxUrl] = useState(null);
   const [convertedDocxSize, setConvertedDocxSize] = useState(null);
+  const [detectedTablesCount, setDetectedTablesCount] = useState(0);
   const [docxFilename, setDocxFilename] = useState('pdf-to-word.docx');
   const [errorMessage, setErrorMessage] = useState(null);
   const [warningMessage, setWarningMessage] = useState(null);
@@ -124,6 +125,7 @@ export default function PdfToWordTool() {
     setPdfMeta(null);
     setConvertedDocxUrl(null);
     setConvertedDocxSize(null);
+    setDetectedTablesCount(0);
     setErrorMessage(null);
     setWarningMessage(null);
     setIsConverting(false);
@@ -142,109 +144,21 @@ export default function PdfToWordTool() {
     setConversionProgress(0);
     setErrorMessage(null);
     setWarningMessage(null);
+    setDetectedTablesCount(0);
     setStatusMessage('Loading PDF document...');
 
     try {
       const arrayBuffer = await selectedFile.arrayBuffer();
       const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
       const pdfDoc = await loadingTask.promise;
-      const numPages = pdfDoc.numPages;
 
-      let totalExtractedChars = 0;
-      const docxParagraphs = [];
-
-      for (let pageNum = 1; pageNum <= numPages; pageNum++) {
-        setStatusMessage(`Extracting text from page ${pageNum} of ${numPages}...`);
-        setConversionProgress(Math.round(((pageNum - 0.3) / numPages) * 80));
-
-        const page = await pdfDoc.getPage(pageNum);
-        const textContent = await page.getTextContent();
-        const items = textContent.items || [];
-
-        // Add page break before page 2+
-        if (pageNum > 1) {
-          docxParagraphs.push(
-            new Paragraph({
-              children: [new TextRun({ text: '', break: 1 })],
-              pageBreakBefore: true
-            })
-          );
+      const { docxBlob, totalExtractedChars, detectedTables } = await convertPdfToDocx(pdfDoc, {
+        title: selectedFile.name,
+        onProgress: (pct, msg) => {
+          setConversionProgress(pct);
+          setStatusMessage(msg);
         }
-
-        // Group text items into lines
-        const lines = [];
-        let currentY = null;
-        let currentLineParts = [];
-
-        // Sort items from top of page to bottom (descending Y in PDF coordinates), then left to right (ascending X)
-        const sortedItems = [...items].filter((it) => it.str !== undefined);
-        sortedItems.sort((a, b) => {
-          const yA = a.transform ? a.transform[5] : 0;
-          const yB = b.transform ? b.transform[5] : 0;
-          if (Math.abs(yA - yB) > 3) {
-            return yB - yA; // top to bottom
-          }
-          const xA = a.transform ? a.transform[4] : 0;
-          const xB = b.transform ? b.transform[4] : 0;
-          return xA - xB; // left to right
-        });
-
-        for (const item of sortedItems) {
-          const textStr = item.str;
-          if (!textStr) continue;
-
-          totalExtractedChars += textStr.trim().length;
-          const y = item.transform ? Math.round(item.transform[5]) : 0;
-
-          if (currentY === null || Math.abs(y - currentY) > 4 || item.hasEOL) {
-            if (currentLineParts.length > 0) {
-              lines.push(currentLineParts.join(' ').replace(/\s+/g, ' ').trim());
-            }
-            currentY = y;
-            currentLineParts = [textStr];
-          } else {
-            currentLineParts.push(textStr);
-          }
-        }
-
-        if (currentLineParts.length > 0) {
-          lines.push(currentLineParts.join(' ').replace(/\s+/g, ' ').trim());
-        }
-
-        // Add lines to document as readable paragraphs
-        if (lines.length === 0) {
-          docxParagraphs.push(
-            new Paragraph({
-              children: [
-                new TextRun({
-                  text: `[Page ${pageNum}: No selectable text detected]`,
-                  italics: true,
-                  color: '888888',
-                  size: 22
-                })
-              ],
-              spacing: { after: 200 }
-            })
-          );
-        } else {
-          lines.forEach((line) => {
-            if (line.trim().length > 0) {
-              docxParagraphs.push(
-                new Paragraph({
-                  children: [
-                    new TextRun({
-                      text: line,
-                      size: 24, // 12pt
-                      font: 'Calibri'
-                    })
-                  ],
-                  spacing: { after: 140, line: 276 } // 1.15 line spacing
-                })
-              );
-            }
-          });
-        }
-      }
+      });
 
       // Check for scanned / image-only PDFs with no extractable text
       if (totalExtractedChars < 15) {
@@ -253,28 +167,13 @@ export default function PdfToWordTool() {
         );
       }
 
-      setStatusMessage('Compiling Word (.docx) document...');
-      setConversionProgress(90);
-
-      const doc = new Document({
-        title: selectedFile.name,
-        creator: 'FixMyFile PDF to Word Converter',
-        description: 'Converted from PDF by FixMyFile',
-        sections: [
-          {
-            properties: {},
-            children: docxParagraphs
-          }
-        ]
-      });
-
-      const docxBlob = await Packer.toBlob(doc);
       const docxUrl = URL.createObjectURL(docxBlob);
 
       setConversionProgress(100);
       setStatusMessage('Conversion complete!');
       setConvertedDocxUrl(docxUrl);
       setConvertedDocxSize(docxBlob.size);
+      setDetectedTablesCount(detectedTables.length);
     } catch (err) {
       console.error('PDF to Word conversion error:', err);
       if (err.name === 'PasswordException') {
@@ -478,7 +377,8 @@ export default function PdfToWordTool() {
                   <div className="success-text-box">
                     <h3 className="success-title">Your Word Document is Ready!</h3>
                     <p className="success-subtext">
-                      Successfully generated <strong>{docxFilename}</strong> ({formatBytes(convertedDocxSize)}).
+                      Successfully generated <strong>{docxFilename}</strong> ({formatBytes(convertedDocxSize)})
+                      {detectedTablesCount > 0 ? ` with ${detectedTablesCount} ${detectedTablesCount === 1 ? 'table' : 'tables'} preserved` : ''}.
                     </p>
                   </div>
                   <div className="success-actions">

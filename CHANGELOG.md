@@ -4,6 +4,22 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-19] — Phase 1: PDF to Word Converter V2 Quality Upgrade
+
+### Improved
+- Upgraded client-side PDF to Word converter at `/pdf-to-word` to V2 quality:
+  - **Conservative Native Table Detection:** Implemented multi-column spatial alignment and row grouping algorithm converting structured PDF data into native editable Microsoft Word (`<w:tbl>`) tables with preserved rows, columns, headers, and cell text without false positives on narrative text.
+  - **Natural Paragraph Grouping:** Combined visual line fragments into continuous paragraphs based on vertical line gaps, line heights, and margin alignment, eliminating fragmented 1-line paragraphs in DOCX output.
+  - **Heading & Hierarchy Recognition:** Extracted standalone heading lines with larger font size and bold weights into Word heading styles.
+  - **Clean Page-Boundary Handling:** Applied `pageBreakBefore` directly to the first paragraph of subsequent source pages (or prepending page breaks before leading tables), preventing content from merging across pages while avoiding extraneous empty spacer paragraphs and trailing blank pages.
+  - **Inline Formatting Preservation:** Preserved font weight (bold), style (italics), and size across text runs.
+  - **Unicode & Special Character Handling:** Verified and preserved Unicode currency symbols, mathematical operators, and legal indicators without lossy regex character stripping.
+  - **Table Metrics Display:** Added user-facing count of preserved tables in conversion success feedback.
+- Created dedicated converter engine module `src/tools/pdf-to-word/converterEngine.js`.
+- Created comprehensive regression pipeline test suite `test_pdf_to_word_pipeline.mjs` with deterministic difficult 5-page benchmark fixture verifying package validity, page counts, 4 detected tables (6x5, 5x6, 8x2, 10x3), identifiers, paragraphs, and special characters.
+
+---
+
 ## [2026-09-19] — Phase 1: Compress PDF Tool Implementation (Phase 1 Complete)
 
 ### Added

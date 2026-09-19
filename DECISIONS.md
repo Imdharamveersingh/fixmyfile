@@ -144,3 +144,20 @@ This document records the official technical and strategic decisions made for **
 - **Decision:** Implement a lossless structural optimization pipeline utilizing `pdf-lib` reachable page copying (`copyPages`) paired with binary object stream compression (`useObjectStreams: true`). The system extracts reachable page object trees into a clean document (stripping orphaned revisions, deleted page remnants, and unreferenced metadata) and packages indirect objects and cross-reference tables into compressed Flate streams.
 - **Reason:** Reusing `pdf-lib` requires zero new dependencies, preserves 100% vector sharpness, font integrity, and image fidelity, and honestly achieves substantial size reduction on unoptimized documents (typically 20%–50%+) while transparently protecting already-optimized files from size inflation.
 - **Impact:** Delivers real, safe, and private PDF compression without backend costs, lossy artifacts, or fake metrics.
+
+---
+
+## Decision: Client-Side Spatial Table Reconstruction & Paragraph Continuity Strategy (PDF to Word V2)
+
+- **Date:** 2026-09-19
+- **Status:** Accepted
+- **Context:** FixMyFile PDF to Word V1 extracted text purely as individual 1-line paragraphs and was unable to convert tabular data into editable Word tables, resulting in unstructured lines in Word. Upgrading the tool required an algorithm that reliably converts multi-column tabular data into native Office OpenXML (`<w:tbl>`) tables and groups wrapping lines into continuous paragraphs without incurring false-positive table detections on multi-line text or lists.
+- **Decision:** Implement a deterministic spatial clustering and alignment pipeline directly on PDF.js text coordinates:
+  1. Extract items with coordinates `(x, y, width, height, fontSize, fontName)`.
+  2. Group items into visual lines within `|y1 - y2| <= 3.5pt`.
+  3. Merge contiguous words separated by typical word spacing into discrete horizontal segments.
+  4. Detect table blocks by analyzing contiguous runs of multi-segment lines, clustering X coordinates across candidate lines to establish column bands. Enforce strict conservative criteria ($C \ge 2$, $R \ge 3$ or $R \ge 2$ for $C \ge 3$, row spacing consistency, and rejection of bullet lists) before emitting native `docx` `Table` elements.
+  5. For non-table lines, join consecutive lines with tight vertical spacing ($\le 1.6 \times \text{fontSize}$) into continuous paragraphs with preserved inline formatting (bold, italic, size), separating headings and paragraph breaks cleanly.
+  6. Apply `pageBreakBefore` directly on the first element of subsequent source pages to avoid spacer paragraph artifacts.
+- **Reason:** Operates 100% client-side without external dependencies, preserves user privacy, eliminates fragmented lines in Word documents, and faithfully converts tabular regions into editable Word tables while avoiding false positives.
+- **Impact:** Vastly improves DOCX document editability, pagination, and fidelity for structured enterprise PDFs.

@@ -17,13 +17,13 @@ This document provides a comprehensive inventory and status tracker for all tool
 | # | Tool | Category | Demand | Phase | Path | Status |
 |---|---|---|---|---|---|---|
 | 1 | **JPG to PDF** | PDF Conversion | Very High | Phase 1 | `/jpg-to-pdf` | `COMPLETE` |
-| 2 | **PDF to Word** | PDF Conversion | Very High | Phase 1 | `/pdf-to-word` | `COMPLETE` |
+| 2 | **PDF to Word** | PDF Conversion | Very High | Phase 1 | `/pdf-to-word` | `COMPLETE` (V2 Improved) |
 | 3 | **PDF to JPG** | PDF Conversion | Very High | Phase 1 | `/pdf-to-jpg` | `COMPLETE` |
 | 4 | **Word to PDF** | PDF Conversion | Very High | Phase 1 | `/word-to-pdf` | `COMPLETE` |
 | 5 | **Merge PDF** | PDF Organization | Very High | Phase 1 | `/merge-pdf` | `COMPLETE` |
 | 6 | **Compress PDF** | PDF Optimization | Very High | Phase 1 | `/compress-pdf` | `COMPLETE` |
 
-*Note: All 6 Phase 1 routes (`/jpg-to-pdf`, `/pdf-to-word`, `/pdf-to-jpg`, `/word-to-pdf`, `/merge-pdf`, and `/compress-pdf`) are fully functional with client-side processing, conversion, optimization, and download. Phase 1 is 6 of 6 tools complete.*
+*Note: All 6 Phase 1 routes (`/jpg-to-pdf`, `/pdf-to-word`, `/pdf-to-jpg`, `/word-to-pdf`, `/merge-pdf`, and `/compress-pdf`) are fully functional with client-side processing, conversion, optimization, and download. PDF to Word upgraded to V2 with conservative native table detection, paragraph grouping, and formatting preservation. Phase 1 remains 6 of 6 tools complete.*
 
 ---
 
