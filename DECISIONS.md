@@ -123,3 +123,15 @@ This document records the official technical and strategic decisions made for **
 - **Reason:** `docx-preview` runs completely in-browser without server dependencies, faithfully interpreting Word XML into standard HTML/CSS. `html2canvas` and `jsPDF` work in tandem to capture exact visual pagination and assemble downloadable standard PDF files locally.
 - **Impact:** Word documents convert directly on user devices with 100% privacy, zero server cost, and preserved multi-page formatting.
 
+---
+
+## Decision: Client-Side Lossless PDF Merging Engine (pdf-lib)
+
+- **Date:** 2026-09-19
+- **Status:** Accepted
+- **Context:** Implementing the Merge PDF tool required combining pages from multiple distinct PDF documents entirely within the user's browser without backend servers. The merger had to preserve vector paths, fonts, text searchability, images, page dimensions, and orientations (portrait, landscape, custom sizes) without destructive rasterization into intermediate images.
+- **Decision:** Adopt `pdf-lib` as the dedicated client-side PDF document manipulation engine for FixMyFile.
+- **Reason:** Unlike `pdfjs-dist` (which focuses on rendering and text extraction) or `jspdf` (which focuses on document creation), `pdf-lib` allows native low-level parsing, manipulation, page copying (`copyPages`), and binary serialization of existing PDF documents in browser memory. It performs lossless page merges directly on PDF object trees with zero quality loss and negligible memory overhead.
+- **Impact:** Multi-document PDF merging operates entirely in client memory with 100% privacy, preserving full fidelity and selectable text.
+
+

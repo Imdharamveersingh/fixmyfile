@@ -45,7 +45,7 @@ export const PHASE_1_TOOLS = [
     path: '/merge-pdf',
     category: 'PDF Organization',
     description: 'Combine multiple PDF documents into a single organized file in your desired order.',
-    status: 'Implementation Coming Next',
+    status: 'Ready',
     phase: 'Phase 1'
   },
   {

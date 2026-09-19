@@ -4,6 +4,29 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-19] — Phase 1: Merge PDF Tool Implementation
+
+### Added
+- Implemented functional client-side Merge PDF tool at `/merge-pdf`:
+  - Multi-file PDF picker and drag-and-drop upload zone supporting `.pdf` and `application/pdf`.
+  - Non-PDF validation rejecting unsupported file formats with clear user feedback.
+  - In-browser document inspection and page count detection using `pdf-lib`.
+  - Detection and graceful rejection of corrupted or password-protected/encrypted PDFs with specific guidance.
+  - Interactive ordered workbench with index badges, PDF icons, filename, file size, and page counts.
+  - Intuitive reordering controls (`▲ Up`, `▼ Down`, `Remove`) with accessible ARIA labels.
+  - Ability to add additional PDF documents without clearing previously selected files.
+  - Lossless client-side PDF merging using `pdf-lib` (`copyPages` and `addPage`), preserving vector graphics, fonts, text searchability, images, and individual page orientations (portrait, landscape, custom sizes) without rasterization.
+  - Real-time merge progress indicator with step-by-step status messages and percentage progress bar.
+  - Output download card displaying sanitized output filename (`<first-document>-merged.pdf`), total combined files, page count, and file size.
+  - Direct browser download of generated PDF with proper `application/pdf` MIME type.
+  - Full reset and clear lifecycle with object URL cleanup (`URL.revokeObjectURL`).
+  - Educational and SEO content (step-by-step merge guide, key features, FAQ, and related tools).
+- Added `pdf-lib` dependency for browser-native lossless PDF document manipulation.
+- Updated `toolsRegistry.js` marking `merge-pdf` as `Ready`.
+- Created comprehensive regression test suite `test_merge_pdf.mjs` verifying multi-file merge, reordering, page dimension preservation, binary header validation, and corrupted PDF handling.
+
+---
+
 ## [2026-09-18] — Phase 1: Word to PDF Converter Implementation
 
 ### Added
