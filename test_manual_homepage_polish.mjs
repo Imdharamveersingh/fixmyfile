@@ -114,10 +114,10 @@ async function runBrowserValidation() {
     console.log('   Stats:', stats);
     assert.strictEqual(stats[0].num, '19');
     assert.strictEqual(stats[0].label, 'Active Tools');
-    assert.strictEqual(stats[1].num, '36');
+    assert.strictEqual(stats[1].num, '55');
     assert.strictEqual(stats[1].label, 'Total Strategy Tools');
     assert.strictEqual(stats[2].num, '100%');
-    console.log('   ✓ Stats confirmed 19 / 36 / 100%.');
+    console.log('   ✓ Stats confirmed 19 / 55 / 100%.');
 
     // 3. Verify vertical gap between stats-row and Phase 3 section
     console.log('3. Verifying hero → Phase 3 vertical gap...');

@@ -1,6 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -21,7 +21,7 @@ export default function HomePage() {
             <span className="stat-label">Active Tools</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">36</span>
+            <span className="stat-number">{TOTAL_STRATEGY_TOOLS}</span>
             <span className="stat-label">Total Strategy Tools</span>
           </div>
           <div className="stat-card">

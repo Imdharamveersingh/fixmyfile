@@ -184,6 +184,12 @@ export const PHASE_3_TOOLS = [
 
 export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS, ...PHASE_3_TOOLS];
 
+/**
+ * Total planned strategy tools across Phase 1 through Phase 7 as defined in tool-build-strategy.md.
+ * 19 currently implemented + 36 planned future tools = 55 total planned tools.
+ */
+export const TOTAL_STRATEGY_TOOLS = 55;
+
 export function getToolByPath(path) {
   return ALL_TOOLS.find((tool) => tool.path === path);
 }

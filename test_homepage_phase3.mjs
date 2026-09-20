@@ -8,6 +8,7 @@ import {
   PHASE_1_TOOLS,
   PHASE_2_TOOLS,
   PHASE_3_TOOLS,
+  TOTAL_STRATEGY_TOOLS,
   getToolById
 } from './src/tools/toolsRegistry.js';
 
@@ -15,11 +16,12 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
   const homePagePath = path.resolve('src/pages/HomePage.jsx');
   const homePageContent = fs.readFileSync(homePagePath, 'utf8');
 
-  await t.test('1. Registry tool counts and phases (Phase 3 Complete: 7 tools, 19 total)', () => {
+  await t.test('1. Registry tool counts and phases (Phase 3 Complete: 7 tools, 19 active, 55 planned strategy)', () => {
     assert.strictEqual(PHASE_1_TOOLS.length, 6, 'Phase 1 should have exactly 6 tools');
     assert.strictEqual(PHASE_2_TOOLS.length, 6, 'Phase 2 should have exactly 6 tools');
     assert.strictEqual(PHASE_3_TOOLS.length, 7, 'Phase 3 should have all 7 tools completed');
     assert.strictEqual(ALL_TOOLS.length, 19, 'Total active tools in registry must equal 19');
+    assert.strictEqual(TOTAL_STRATEGY_TOOLS, 55, 'Total planned strategy tools must equal 55');
   });
 
   await t.test('2. All 7 Phase 3 tools registry metadata', () => {
@@ -69,13 +71,17 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
     );
   });
 
-  await t.test('7. HomePage Stats row derives active tool count from ALL_TOOLS.length', () => {
+  await t.test('7. HomePage Stats row derives active tool count from ALL_TOOLS.length and strategy count from TOTAL_STRATEGY_TOOLS', () => {
     assert.match(
       homePageContent,
       /<span className="stat-number">\s*\{\s*ALL_TOOLS\.length\s*\}\s*<\/span>\s*<span className="stat-label">Active Tools<\/span>/,
       'Active Tools count must be dynamic via ALL_TOOLS.length'
     );
-    assert.match(homePageContent, />36<\/span>\s*<span className="stat-label">Total Strategy Tools<\/span>/);
+    assert.match(
+      homePageContent,
+      /<span className="stat-number">\s*\{\s*TOTAL_STRATEGY_TOOLS\s*\}\s*<\/span>\s*<span className="stat-label">Total Strategy Tools<\/span>/,
+      'Total Strategy Tools count must be dynamic via TOTAL_STRATEGY_TOOLS'
+    );
     assert.match(homePageContent, />100%<\/span>\s*<span className="stat-label">Client-First Design<\/span>/);
   });
 
