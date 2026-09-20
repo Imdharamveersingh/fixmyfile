@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.7: PDF to Text Implementation (Phase 4: 7/10 Complete)
+
+### Added
+- **PDF to Text Tool (`/pdf-to-text`):** In-browser selectable text extraction engine powered by `pdfjs-dist` converting PDF documents into clean, structured, UTF-8 plain text (`.txt`) files.
+  - **Page-by-Page Extraction with Delimiters:** Extracts text page-by-page and separates pages clearly with `--- Page N ---` section headers, preventing unreadable concatenated blocks.
+  - **Spatial Coordinate Line & Paragraph Grouping:** Groups visual text fragments into lines using vertical tolerance thresholds and formats paragraph breaks when vertical gaps exceed natural line height.
+  - **Scanned PDF / OCR Detection:** Gracefully detects scanned or image-only documents containing zero selectable text and displays an informative user banner stating OCR is not supported, preventing empty file downloads.
+  - **Interactive Preview & One-Click Copy:** Displays extracted text in a read-only monospace preview with real-time word and character counts, plus a one-click clipboard copy action with transient visual confirmation.
+  - **Automated, Chrome & Difficult Tests:** 12/12 automated unit tests (`test_pdf_to_text.mjs`), difficult edge case test with 6-page varied layout document (`test_difficult_pdf_to_text.mjs`), and real Chrome CDP browser test (`test_manual_pdf_to_text.mjs`) passing on Desktop (1440x900) and Mobile (375x667) with 0 console errors.
+  - **Active Tool Count:** Platform updated to **26 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.6: Unlock PDF Implementation (Phase 4: 6/10 Complete)
 
 ### Added

@@ -8,10 +8,10 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 
 ## Current Status
 
-- **Project Stage:** Phase 4 In Progress · 25 Active Tools
-- **Active Tools:** **25** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 6)
+- **Project Stage:** Phase 4 In Progress · 26 Active Tools
+- **Active Tools:** **26** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 7)
 - **Total Master Planned Tools:** **55**
-- **Remaining Planned Tools:** **30** (Phases 4 through 7)
+- **Remaining Planned Tools:** **29** (Phases 4 through 7)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -19,7 +19,7 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 - **Phase 1 — PDF Foundation:** `COMPLETE (6/6)`
 - **Phase 2 — Image Foundation:** `COMPLETE (6/6)`
 - **Phase 3 — Calculators & Generators:** `COMPLETE (7/7)`
-- **Phase 4 — PDF Expansion:** `IN PROGRESS (6/10)`
+- **Phase 4 — PDF Expansion:** `IN PROGRESS (7/10)`
 - **Phase 5 — Image Expansion:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 6 — Media Tools:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 7 — OCR / Text / Advanced File Tools:** `PLANNED / NOT STARTED (0/6)`
@@ -74,7 +74,7 @@ npm run preview
 
 ---
 
-## Active Route Structure (19 Implemented Tools)
+## Active Route Structure (26 Implemented Tools)
 
 FixMyFile employs clean, canonical path-based URLs for every tool to optimize usability, direct bookmarking, and SEO:
 
@@ -100,6 +100,13 @@ FixMyFile employs clean, canonical path-based URLs for every tool to optimize us
 | `/password-generator` | Password Generator | Generators | Phase 3 | Complete · Web Crypto API |
 | `/word-counter` | Word Counter | Text Utilities | Phase 3 | Complete · Unicode Engine |
 | `/emi-calculator` | EMI Calculator | Calculators | Phase 3 | Complete · Financial Math |
+| `/split-pdf` | Split PDF | PDF Organization | Phase 4 | Complete · In-Browser |
+| `/pdf-to-excel` | PDF to Excel | PDF Conversion | Phase 4 | Complete · In-Browser |
+| `/pdf-to-powerpoint` | PDF to PowerPoint | PDF Conversion | Phase 4 | Complete · In-Browser |
+| `/rotate-pdf` | Rotate PDF | PDF Organization | Phase 4 | Complete · In-Browser |
+| `/protect-pdf` | Protect PDF | PDF Security | Phase 4 | Complete · AES-256 |
+| `/unlock-pdf` | Unlock PDF | PDF Security | Phase 4 | Complete · In-Browser |
+| `/pdf-to-text` | PDF to Text | PDF Conversion | Phase 4 | Complete · In-Browser |
 
 ---
 

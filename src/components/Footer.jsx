@@ -42,6 +42,7 @@ export default function Footer() {
             <li><Link to="/rotate-pdf">Rotate PDF</Link></li>
             <li><Link to="/protect-pdf">Protect PDF</Link></li>
             <li><Link to="/unlock-pdf">Unlock PDF</Link></li>
+            <li><Link to="/pdf-to-text">PDF to Text</Link></li>
           </ul>
         </div>
 

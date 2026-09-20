@@ -51,6 +51,7 @@ export default function Header() {
               <Link to="/rotate-pdf">Rotate PDF</Link>
               <Link to="/protect-pdf">Protect PDF</Link>
               <Link to="/unlock-pdf">Unlock PDF</Link>
+              <Link to="/pdf-to-text">PDF to Text</Link>
             </div>
           </div>
 

@@ -236,6 +236,15 @@ export const PHASE_4_TOOLS = [
     description: 'Remove password protection and permissions security from PDF documents client-side.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'pdf-to-text',
+    name: 'PDF to Text',
+    path: '/pdf-to-text',
+    category: 'PDF Conversion',
+    description: 'Extract selectable text from PDF documents into clean, formatted .txt files client-side.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 
