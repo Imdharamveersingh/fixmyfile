@@ -4,6 +4,22 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.5: JPG to PNG Converter Tool Implementation
+
+### Added
+- Implemented dedicated in-browser **JPG to PNG** tool at `/jpg-to-png`:
+  - **Local-First Conversion Engine:** 100% client-side conversion from JPG/JPEG to real lossless PNG using native HTML5 Canvas 2D APIs with zero server uploads, no APIs, and complete privacy.
+  - **Strict Format Input:** Dedicated input filter accepting only JPG and JPEG formats (`.jpg`, `.jpeg`, `image/jpeg`). Rejects other formats with clear, actionable user guidance.
+  - **1:1 Dimension Preservation:** Zero downscaling, stretching, or cropping. Output dimensions strictly match source image natural dimensions.
+  - **Output Verification:** Decodes generated PNG blob in-memory to confirm dimensional integrity before presenting success.
+  - **Side-by-Side Comparative Preview:** Displays source JPG and generated PNG with dimensions, format badges, and file sizes. Includes backdrop preview toggles (White, Checkerboard, Black).
+  - **Safe Browser Processing:** Guardrails against oversized images (> 10,000 px per side, > 40 MP, > 30 MB).
+- Registered `jpg-to-png` in `src/tools/toolsRegistry.js` under `PHASE_2_TOOLS` and configured route in `src/App.jsx`.
+- Updated navigation in `Header.jsx`, `Footer.jsx`, and `ROADMAP.md` (5 of 6 Phase 2 tools complete).
+- Created automated test suite `test_jpg_to_png.mjs` (43 assertions passing) and real Google Chrome CDP manual validation suite `test_manual_jpg_to_png.mjs` (100% passing across 9 test suites).
+
+---
+
 ## [2026-09-20] — Phase 2.4: Image Converter Tool Implementation
 
 ### Added

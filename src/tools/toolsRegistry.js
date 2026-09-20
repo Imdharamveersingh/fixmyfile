@@ -95,6 +95,15 @@ export const PHASE_2_TOOLS = [
     description: 'Convert images between JPG, PNG, and WEBP formats client-side with dimension preservation and transparency controls.',
     status: 'Ready',
     phase: 'Phase 2'
+  },
+  {
+    id: 'jpg-to-png',
+    name: 'JPG to PNG',
+    path: '/jpg-to-png',
+    category: 'Image Conversion',
+    description: 'Convert JPG and JPEG images to PNG format online for free with 1:1 dimension preservation.',
+    status: 'Ready',
+    phase: 'Phase 2'
   }
 ];
 

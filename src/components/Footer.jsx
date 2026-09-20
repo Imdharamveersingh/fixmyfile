@@ -42,6 +42,7 @@ export default function Footer() {
             <li><Link to="/image-compressor">Image Compressor</Link></li>
             <li><Link to="/image-resizer">Image Resizer</Link></li>
             <li><Link to="/image-converter">Image Converter</Link></li>
+            <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
           </ul>
           <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 2 Active</span>
         </div>

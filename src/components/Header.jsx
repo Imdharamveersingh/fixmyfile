@@ -38,6 +38,7 @@ export default function Header() {
               <Link to="/image-compressor">Image Compressor</Link>
               <Link to="/image-resizer">Image Resizer</Link>
               <Link to="/image-converter">Image Converter</Link>
+              <Link to="/jpg-to-png">JPG to PNG</Link>
             </div>
           </div>
         </nav>

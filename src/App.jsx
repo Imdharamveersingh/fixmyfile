@@ -12,6 +12,7 @@ import BackgroundRemoverTool from './tools/background-remover';
 import ImageCompressorTool from './tools/image-compressor';
 import ImageResizerTool from './tools/image-resizer';
 import ImageConverterTool from './tools/image-converter';
+import JpgToPngTool from './tools/jpg-to-png';
 import './App.css';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="image-compressor" element={<ImageCompressorTool />} />
           <Route path="image-resizer" element={<ImageResizerTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
+          <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
