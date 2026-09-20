@@ -302,6 +302,15 @@ export const PHASE_5_TOOLS = [
     description: 'Convert Google WebP images to universal JPEG format client-side with background fill and quality control.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'jpg-to-webp',
+    name: 'JPG to WebP',
+    path: '/jpg-to-webp',
+    category: 'Image Conversion',
+    description: 'Convert JPEG images to modern WebP format for up to 35% smaller file sizes with lossy or lossless modes.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

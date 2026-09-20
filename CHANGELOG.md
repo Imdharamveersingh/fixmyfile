@@ -4,6 +4,20 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 5.4: JPG to WebP Implementation (Phase 5: 4/10 In Progress)
+
+### Added
+- **JPG to WebP Tool (`/jpg-to-webp`):** Native client-side JPEG to WebP conversion engine using the HTML5 Canvas 2D API — zero new dependencies, instant in-browser conversion.
+  - **Lossy/Lossless Modes:** Toggle between lossy WebP (quality 10%–100%, default 85%) for minimal file sizes and lossless WebP for perfect quality preservation.
+  - **Robust Validation:** Validates JPEG by MIME type (`image/jpeg`) and extensions (`.jpg`, `.jpeg`), rejects 0-byte files and files >50MB.
+  - **Output Integrity Verification:** Every output Blob validated against the 8-byte RIFF/WEBP signature before presenting download.
+  - **Object URL Safety:** All object URLs tracked and revoked on component unmount and reset to prevent memory leaks.
+  - **Side-by-Side Preview & Metadata:** Before/after comparison panels with file sizes, dimensions, reduction percentage, conversion time.
+  - **Automated, Chrome & Difficult Tests:** 27/27 automated tests, 14/14 Chrome CDP checks (Desktop+Mobile), 19/19 difficult tests. 0 errors.
+  - **Active Tool Count:** Platform updated to **33 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 5.3: WebP to JPG Implementation (Phase 5: 3/10 In Progress)
 
 ### Added

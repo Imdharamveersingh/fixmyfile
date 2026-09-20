@@ -35,6 +35,7 @@ import ReorderPdfPagesTool from './tools/reorder-pdf-pages';
 import ImageCropperTool from './tools/image-cropper';
 import HeicToJpgTool from './tools/heic-to-jpg';
 import WebpToJpgTool from './tools/webp-to-jpg';
+import JpgToWebpTool from './tools/jpg-to-webp';
 import './App.css';
 
 export default function App() {
@@ -66,6 +67,7 @@ export default function App() {
           <Route path="image-cropper" element={<ImageCropperTool />} />
           <Route path="heic-to-jpg" element={<HeicToJpgTool />} />
           <Route path="webp-to-jpg" element={<WebpToJpgTool />} />
+          <Route path="jpg-to-webp" element={<JpgToWebpTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />
