@@ -46,6 +46,7 @@ export default function Header() {
             <span className="nav-dropdown-label">Generators ▾</span>
             <div className="nav-dropdown-menu">
               <Link to="/qr-code-generator">QR Code Generator</Link>
+              <Link to="/barcode-generator">Barcode Generator</Link>
             </div>
           </div>
         </nav>

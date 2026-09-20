@@ -125,6 +125,15 @@ export const PHASE_3_TOOLS = [
     description: 'Create customizable, high-resolution QR codes for text, URLs, email, phone, and Wi-Fi networks with vector SVG and PNG downloads.',
     status: 'Ready',
     phase: 'Phase 3'
+  },
+  {
+    id: 'barcode-generator',
+    name: 'Barcode Generator',
+    path: '/barcode-generator',
+    category: 'Generators',
+    description: 'Create real, machine-readable 1D barcodes with CODE 128, CODE 39, EAN-13, EAN-8, UPC-A, ITF-14, ITF, and Codabar. Download as PNG or SVG.',
+    status: 'Ready',
+    phase: 'Phase 3'
   }
 ];
 

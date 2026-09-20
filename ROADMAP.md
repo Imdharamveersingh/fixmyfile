@@ -62,13 +62,17 @@ This document outlines the multi-phase roadmap for **FixMyFile**, tracking compl
 
 ## Phase 3: Generators & Optimization Utilities
 
-**Phase Status:** `IN PROGRESS` (1 of 8 tools complete: QR Code Generator COMPLETE / PASS)
+**Phase Status:** `IN PROGRESS` (2 of 7 tools complete: QR Code Generator and Barcode Generator COMPLETE / PASS)
 
 | # | Tool | Category | Path | Status | Target |
 |---|---|---|---|---|---|
 | 1 | **QR Code Generator** | Calculators & Generators | `/qr-code-generator` | `COMPLETE (PASS)` | Generate customizable, scannable QR codes (Text, URL, Email, Phone, Wi-Fi) with PNG/SVG vector downloads. |
-| 2 | **Barcode Generator** | Calculators & Generators | `/barcode-generator` | `NOT STARTED` | Generate 1D and 2D industrial barcodes client-side. |
-| 3-8 | **Phase 3 Remaining Tools** | Optimization Utilities | TBD | `NOT STARTED` | Remaining scheduled utilities. |
+| 2 | **Barcode Generator** | Calculators & Generators | `/barcode-generator` | `COMPLETE (PASS)` | Generate 1D machine-readable barcodes (CODE 128, CODE 39, EAN-13, EAN-8, UPC-A, ITF-14, ITF, Codabar) client-side with vector SVG and PNG downloads. |
+| 3 | **Currency Converter** | Calculators & Utilities | `/currency-converter` | `NOT STARTED` | Real-time currency conversions with cached rates. |
+| 4 | **Percentage Calculator** | Calculators & Utilities | `/percentage-calculator` | `NOT STARTED` | Multi-scenario percentage calculations. |
+| 5 | **Password Generator** | Security & Generators | `/password-generator` | `NOT STARTED` | Cryptographically secure customizable password generation. |
+| 6 | **Word Counter** | Text Utilities | `/word-counter` | `NOT STARTED` | Word, character, sentence, paragraph, and reading time counter. |
+| 7 | **EMI Calculator** | Financial Calculators | `/emi-calculator` | `NOT STARTED` | Loan and EMI repayment calculation with amortization schedules. |
 
 ---
 
@@ -78,7 +82,7 @@ The remaining strategic tools span media, developer, and data utilities categori
 
 | Phase | Category Focus | Tool Count | Demand Tier | Status |
 |---|---|---|---|---|
-| **Phase 3** | Generators & Utilities | 8 Tools | Medium-High Demand | `IN PROGRESS` (Tool 1/8 complete) |
+| **Phase 3** | Generators & Utilities | 7 Tools | Medium-High Demand | `IN PROGRESS` (Tools 2/7 complete) |
 | **Phase 4** | Text & Developer Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
 | **Phase 5** | Data & Calculator Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
 

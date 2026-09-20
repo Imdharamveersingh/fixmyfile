@@ -15,6 +15,7 @@ import ImageConverterTool from './tools/image-converter';
 import JpgToPngTool from './tools/jpg-to-png';
 import PngToJpgTool from './tools/png-to-jpg';
 import QrCodeGeneratorTool from './tools/qr-code-generator';
+import BarcodeGeneratorTool from './tools/barcode-generator';
 import './App.css';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />
           <Route path="qr-code-generator" element={<QrCodeGeneratorTool />} />
+          <Route path="barcode-generator" element={<BarcodeGeneratorTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -4,6 +4,52 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 3.2: Barcode Generator Tool Implementation
+
+### Added
+- Implemented dedicated in-browser **Barcode Generator** tool at `/barcode-generator`:
+  - **Local-First & Client-Side Engine:** 100% in-browser 1D barcode generation powered by `JsBarcode` with zero external network requests and strict privacy.
+  - **8 Industry-Standard 1D Formats:**
+    - **CODE 128:** General-purpose alphanumeric barcode supporting full ASCII.
+    - **CODE 39:** Logistics and defense alphanumeric barcode with strict character set validation (A–Z, 0–9, `-`, `.`, `$`, `/`, `+`, `%`, space).
+    - **EAN-13:** Retail product barcode supporting 12 digits (with auto checksum calculation) or 13 digits with GS1 Mod 10 checksum validation.
+    - **EAN-8:** Compact package barcode supporting 7 digits (with auto checksum calculation) or 8 digits with GS1 Mod 10 checksum validation.
+    - **UPC-A:** North American retail barcode supporting 11 digits (with auto checksum calculation) or 12 digits with GS1 Mod 10 checksum validation.
+    - **ITF-14:** Packaging barcode supporting 13 digits (with auto checksum calculation) or 14 digits with GS1 Mod 10 checksum validation.
+    - **ITF (Interleaved 2 of 5):** Distribution and shipping barcode requiring even-count numeric sequences.
+    - **Codabar:** Blood bank and library barcode supporting digits and special characters enclosed by A–D start/stop delimiters.
+  - **GS1 Mod 10 Checksum Verification:** Universal standard check digit engine correctly weighting digits right-to-left (alternating 3 and 1 starting with 3 on the immediately preceding digit).
+  - **Empty-State Guide & Placeholder:** Initial and cleared states display a clean, non-fake barcode placeholder with descriptive helper guidance, disabling export and copy actions until valid data is entered.
+  - **Live Reactive Generation:** Debounced reactive preview (120ms) with immediate clearing when input is emptied.
+  - **Comprehensive Appearance Controls:**
+    - Foreground and background color pickers with hex inputs and curated color presets.
+    - Bar width slider (1px to 4px).
+    - Bar height slider (40px to 200px).
+    - Quiet zone margin slider (0px to 30px).
+    - Human-readable text toggle (Visible / Hidden).
+    - Font size slider (10px to 36px).
+    - Text positioning toggle (Top / Bottom).
+  - **Scannability Safety & Contrast Warnings:**
+    - Real-time WCAG color contrast ratio calculation with safety alerts when contrast falls below 3:1.
+    - Inverted color orientation detection alerts.
+  - **Scanner Animation Overlay:**
+    - Red laser scanning line animation (`@keyframes barcodeScan`) implemented exclusively as a CSS pseudo-element overlay (`::after` with `pointer-events: none`).
+    - The underlying barcode SVG and its bars remain completely static and stable.
+    - The scanner animation is strictly isolated from PNG and SVG downloads.
+  - **Vector & Raster Downloads:**
+    - **PNG Download:** High-resolution raster file rendered through offscreen Canvas with 2x device scale factor.
+    - **SVG Download:** Genuine vector SVG (`<svg>` with `<rect>` and `<text>` elements, zero raster `<image>` tags, zero SVG animation tags).
+    - Sanitized download filenames (`<sanitized-value>-barcode.png`, `<sanitized-value>-barcode.svg`).
+  - **Convenience Actions:** One-click copy for encoded value and raw vector SVG source code.
+  - **Responsive Layout:** Adaptive desktop side-by-side and mobile stacked layouts with zero horizontal scrolling.
+- Registered `barcode-generator` in `src/tools/toolsRegistry.js` under `PHASE_3_TOOLS` and `ALL_TOOLS`.
+- Registered route `/barcode-generator` in `src/App.jsx`.
+- Added navigation links to `Header.jsx` and `Footer.jsx`.
+- Added automated test suite `test_barcode_generator.mjs` (114/114 assertions passing).
+- Added real Google Chrome CDP manual validation suite `test_manual_barcode_generator.mjs` (15/15 test groups passing across requirements A through O).
+
+---
+
 ## [2026-09-20] — Phase 3.1: QR Code Generator Tool Implementation
 
 ### Added
