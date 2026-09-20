@@ -97,7 +97,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
 | 30 | **HEIC to JPG** | Image Conversion | Phase 5 | `/heic-to-jpg` | `COMPLETE / PASS` |
-| 31 | **WebP to JPG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 31 | **WebP to JPG** | Image Conversion | Phase 5 | `/webp-to-jpg` | `COMPLETE / PASS` |
 | 32 | **JPG to WebP** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 33 | **WebP to PNG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 34 | **Image Cropper** | Image Editing | Phase 5 | `/image-cropper` | `COMPLETE / PASS` |

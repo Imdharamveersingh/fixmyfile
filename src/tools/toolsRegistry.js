@@ -293,6 +293,15 @@ export const PHASE_5_TOOLS = [
     description: 'Convert Apple iPhone HEIC and HEIF photos to standard JPG format client-side with zero cloud uploads.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'webp-to-jpg',
+    name: 'WebP to JPG',
+    path: '/webp-to-jpg',
+    category: 'Image Conversion',
+    description: 'Convert Google WebP images to universal JPEG format client-side with background fill and quality control.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

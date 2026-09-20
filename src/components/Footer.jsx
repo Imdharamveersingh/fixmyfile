@@ -58,6 +58,7 @@ export default function Footer() {
             <li><Link to="/image-converter">Image Converter</Link></li>
             <li><Link to="/image-cropper">Image Cropper</Link></li>
             <li><Link to="/heic-to-jpg">HEIC to JPG</Link></li>
+            <li><Link to="/webp-to-jpg">WebP to JPG</Link></li>
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>

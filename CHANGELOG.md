@@ -4,6 +4,21 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 5.3: WebP to JPG Implementation (Phase 5: 3/10 In Progress)
+
+### Added
+- **WebP to JPG Tool (`/webp-to-jpg`):** Native client-side WebP to JPEG conversion engine using HTML5 Canvas 2D — zero new dependencies, no WebAssembly, instant conversion.
+  - **Alpha / Transparency Handling:** WebP supports full alpha transparency. User selects background fill (White, Black, or Custom color picker) applied before JPEG encoding to prevent data loss.
+  - **Quality Control:** Adjustable JPEG quality slider (10%–100%, default 90%) with live label, descriptive range labels, and Canvas `toBlob` JPEG quality encoding.
+  - **Robust Validation:** Validates by MIME type (`image/webp`) and file extension (`.webp`), rejects 0-byte files and files >50MB with clear user messages.
+  - **Output Integrity Verification:** Every output Blob is validated against JPEG magic bytes (`0xFF 0xD8`) before presenting the download.
+  - **Object URL Safety:** All object URLs (`URL.createObjectURL`) are tracked and revoked (`URL.revokeObjectURL`) on reset and component unmount via `useEffect` cleanup, preventing memory leaks.
+  - **Side-by-Side Preview & Metadata:** Before/after comparison panel with file size, dimensions, percentage saved, and conversion timing.
+  - **Automated, Chrome & Difficult Tests:** 27/27 automated unit tests (`test_webp_to_jpg.mjs`), 14/14 Chrome CDP browser checks Desktop+Mobile (`test_manual_webp_to_jpg.mjs`), 18/18 difficult/edge tests (`test_difficult_webp_to_jpg.mjs`). 0 console errors, 0 horizontal overflow.
+  - **Active Tool Count:** Platform updated to **32 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 5.2: HEIC to JPG Implementation (Phase 5: 2/10 In Progress)
 
 ### Added

@@ -69,6 +69,7 @@ export default function Header() {
               <Link to="/image-resizer">Image Resizer</Link>
               <Link to="/image-cropper">Image Cropper</Link>
               <Link to="/heic-to-jpg">HEIC to JPG</Link>
+              <Link to="/webp-to-jpg">WebP to JPG</Link>
               <Link to="/image-converter">Image Converter</Link>
               <Link to="/jpg-to-png">JPG to PNG</Link>
               <Link to="/png-to-jpg">PNG to JPG</Link>
