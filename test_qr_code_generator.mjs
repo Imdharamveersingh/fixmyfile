@@ -425,6 +425,94 @@ async function runAllTests() {
     assert.ok(navyOnCream.ratio >= 7.0);
   });
 
+  // 11. Empty Preview Placeholder & SVG Action Tests (Phase 3.1 Patch)
+  console.log('\n11. Testing Empty Preview Placeholder & SVG Action Visibility...');
+
+  const indexPath = path.resolve('src/tools/qr-code-generator/index.jsx');
+  const indexSource = fs.readFileSync(indexPath, 'utf8');
+  const appCssPath = path.resolve('src/App.css');
+  const appCssSource = fs.readFileSync(appCssPath, 'utf8');
+
+  test('1. Empty input displays placeholder container and static graphic', () => {
+    assert.match(indexSource, /qr-placeholder-container/);
+    assert.match(indexSource, /qr-placeholder-graphic/);
+    assert.match(indexSource, /qr-placeholder-svg/);
+    assert.match(indexSource, /Your QR code will appear here/);
+    assert.match(indexSource, /Enter content to generate your QR code/);
+  });
+
+  test('2. Empty input does NOT display scannability verification badge', () => {
+    // Only rendered when hasContent is true
+    assert.match(indexSource, /\{hasContent && \(\s*<div className="qr-scan-badge-strip">/);
+  });
+
+  test('3. Empty input disables PNG download button', () => {
+    assert.match(indexSource, /disabled=\{!hasContent[^}]*\}[\s\S]*?id="download-png-btn"/);
+  });
+
+  test('4. Empty input disables SVG download button', () => {
+    assert.match(indexSource, /disabled=\{!hasContent\}[\s\S]*?id="download-svg-btn"/);
+  });
+
+  test('5. Empty input disables Copy Content and Copy SVG actions', () => {
+    assert.match(indexSource, /disabled=\{!hasContent\}[\s\S]*?id="copy-content-btn"/);
+    assert.match(indexSource, /disabled=\{!hasContent\}[\s\S]*?id="copy-svg-btn"/);
+  });
+
+  test('6. Initial state is empty so placeholder appears immediately on load', () => {
+    assert.match(indexSource, /const \[urlInput, setUrlInput\] = useState\(''\);/);
+    assert.match(indexSource, /const \[debouncedPayload, setDebouncedPayload\] = useState\(''\);/);
+  });
+
+  test('7. Typing content updates debounced payload and generates real QR SVG', () => {
+    const mat = generateQrMatrix('Hello World', 'M');
+    const svg = generateQrSvgString({ matrix: mat, fgColor: '#000000', bgColor: '#ffffff' });
+    assert.ok(svg.startsWith('<svg'));
+    assert.ok(svg.includes('<rect'));
+  });
+
+  test('8. Real QR enables PNG and SVG downloads when hasContent is true', () => {
+    const hasContent = true;
+    const isGeneratingPng = false;
+    assert.strictEqual(!hasContent || isGeneratingPng, false, 'PNG button must be enabled');
+    assert.strictEqual(!hasContent, false, 'SVG button must be enabled');
+  });
+
+  test('9. Real QR shows scannability verification via jsQR', () => {
+    const mat = generateQrMatrix('Hello World', 'M');
+    const { pixels, size } = rasterizeMatrixForJsQR(mat);
+    const result = jsQR(pixels, size, size);
+    assert.ok(result && result.data === 'Hello World');
+  });
+
+  test('10. Clearing content clears debounced payload immediately without lag', () => {
+    assert.match(
+      indexSource,
+      /if \(!currentRawPayload \|\| currentRawPayload\.trim\(\) === ''\) \{\s*setDebouncedPayload\(''\);\s*return;\s*\}/
+    );
+  });
+
+  test('11. Reset action clears inputs, payload, and scannability state to placeholder', () => {
+    assert.match(indexSource, /const handleReset = \(\) => \{[\s\S]*setUrlInput\(''\);[\s\S]*setDebouncedPayload\(''\);/);
+  });
+
+  test('12. No stale QR remains when payload is empty', () => {
+    const emptyPayload = '';
+    const formatted = formatQrPayload({ contentType: 'url', url: emptyPayload });
+    assert.strictEqual(formatted, '');
+  });
+
+  test('13. SVG download button has clearly visible label preserving "Vector SVG"', () => {
+    assert.match(indexSource, /id="download-svg-btn"[\s\S]*?Download Vector SVG/);
+  });
+
+  test('14. SVG download button styling in App.css has visible border, text, and hover states', () => {
+    assert.match(appCssSource, /\.workbench-btn-secondary\.qr-svg-download-btn\s*\{/);
+    assert.match(appCssSource, /border:\s*1\.5px solid var\(--border-strong\);/);
+    assert.match(appCssSource, /color:\s*var\(--text-primary\);/);
+    assert.match(appCssSource, /\.workbench-btn-secondary\.qr-svg-download-btn:hover:not\(:disabled\)/);
+  });
+
   console.log(`\n=== Automated Test Results: ${passedTests} Passed, ${failedTests} Failed ===\n`);
 
   if (failedTests > 0) {

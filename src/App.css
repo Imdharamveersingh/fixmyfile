@@ -3579,39 +3579,45 @@
   }
 }
 
-/* Empty State */
-.qr-empty-state {
+/* QR Code Placeholder Graphic */
+.qr-placeholder-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
   max-width: 260px;
-  gap: 12px;
+  animation: qrPop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.qr-empty-icon-box {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: rgba(37, 99, 235, 0.08);
+.qr-placeholder-graphic {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
 }
 
-.qr-empty-title {
-  margin: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.qr-placeholder-svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.qr-empty-desc {
-  margin: 0;
+.qr-placeholder-hint {
+  text-align: center;
+}
+
+.placeholder-hint-text {
   font-size: 0.82rem;
-  line-height: 1.4;
+  font-weight: 600;
   color: var(--text-muted);
+  letter-spacing: 0.01em;
 }
 
 /* Scannability verification strip */
@@ -3668,8 +3674,91 @@
   gap: 8px;
 }
 
-.qr-svg-download-btn {
+.workbench-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 11px 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: inherit;
+  border: 1px solid transparent;
+}
+
+.workbench-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.workbench-btn:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary PNG Download Button */
+.workbench-btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.25);
+}
+
+.workbench-btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Secondary SVG Download Button - High Contrast & Clearly Visible */
+.workbench-btn-secondary.qr-svg-download-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.workbench-btn-secondary.qr-svg-download-btn:hover:not(:disabled) {
   background-color: var(--bg-surface-subtle);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.12);
+}
+
+.workbench-btn-secondary.qr-svg-download-btn:disabled {
+  background-color: var(--bg-surface-subtle);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+  box-shadow: none;
+}
+
+/* Outline Copy Buttons */
+.workbench-btn-outline {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  font-size: 0.85rem;
+  padding: 8px 14px;
+}
+
+.workbench-btn-outline:hover:not(:disabled) {
+  background-color: var(--bg-surface-subtle);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.workbench-btn-outline:disabled {
+  background-color: var(--bg-surface-subtle);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
 }
 
 .qr-copy-btn-group {

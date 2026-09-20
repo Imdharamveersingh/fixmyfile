@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
-  QrCode,
   Link as LinkIcon,
   FileText,
   Mail,
@@ -64,7 +63,7 @@ export default function QrCodeGeneratorTool() {
   const [contentType, setContentType] = useState('url'); // 'url' | 'text' | 'email' | 'phone' | 'wifi'
 
   // Input fields state
-  const [urlInput, setUrlInput] = useState('https://fixmyfile.com');
+  const [urlInput, setUrlInput] = useState('');
   const [textInput, setTextInput] = useState('');
   const [emailTo, setEmailTo] = useState('');
   const [emailSubject, setEmailSubject] = useState('');
@@ -93,7 +92,7 @@ export default function QrCodeGeneratorTool() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   // Debounced input value for smooth, stutter-free typing
-  const [debouncedPayload, setDebouncedPayload] = useState('https://fixmyfile.com');
+  const [debouncedPayload, setDebouncedPayload] = useState('');
 
   // Raw payload computed from current inputs
   const currentRawPayload = useMemo(() => {
@@ -124,8 +123,12 @@ export default function QrCodeGeneratorTool() {
     wifiHidden
   ]);
 
-  // Debounce input updates by 120ms
+  // Debounce input updates by 120ms (immediate when empty)
   useEffect(() => {
+    if (!currentRawPayload || currentRawPayload.trim() === '') {
+      setDebouncedPayload('');
+      return;
+    }
     const timer = setTimeout(() => {
       setDebouncedPayload(currentRawPayload);
     }, 120);
@@ -325,6 +328,8 @@ export default function QrCodeGeneratorTool() {
     setMargin(4);
     setResolution(512);
     setErrorMessage(null);
+    setDebouncedPayload('');
+    setScannableStatus({ tested: false, isScannable: false });
   };
 
   return (
@@ -934,15 +939,99 @@ export default function QrCodeGeneratorTool() {
                   aria-label="Generated QR Code preview"
                 />
               ) : (
-                <div className="qr-empty-state">
-                  <div className="qr-empty-icon-box">
-                    <QrCode size={48} className="qr-empty-icon" />
+                <div className="qr-placeholder-container" aria-label="QR code preview placeholder">
+                  <div className="qr-placeholder-graphic">
+                    <svg
+                      viewBox="0 0 240 240"
+                      width="240"
+                      height="240"
+                      className="qr-placeholder-svg"
+                      aria-hidden="true"
+                    >
+                      {/* Background */}
+                      <rect width="240" height="240" rx="12" fill="var(--bg-surface)" />
+
+                      {/* Top-Left Finder Pattern (Muted) */}
+                      <rect x="20" y="20" width="56" height="56" rx="8" fill="none" stroke="var(--border-strong)" strokeWidth="8" />
+                      <rect x="36" y="36" width="24" height="24" rx="4" fill="var(--text-muted)" fillOpacity="0.45" />
+
+                      {/* Top-Right Finder Pattern (Muted) */}
+                      <rect x="164" y="20" width="56" height="56" rx="8" fill="none" stroke="var(--border-strong)" strokeWidth="8" />
+                      <rect x="180" y="36" width="24" height="24" rx="4" fill="var(--text-muted)" fillOpacity="0.45" />
+
+                      {/* Bottom-Left Finder Pattern (Muted) */}
+                      <rect x="20" y="164" width="56" height="56" rx="8" fill="none" stroke="var(--border-strong)" strokeWidth="8" />
+                      <rect x="36" y="180" width="24" height="24" rx="4" fill="var(--text-muted)" fillOpacity="0.45" />
+
+                      {/* Decorative timing tracks & placeholder modules */}
+                      <g fill="var(--text-muted)" fillOpacity="0.25">
+                        {/* Horizontal timing pattern dots */}
+                        <circle cx="90" cy="48" r="4" />
+                        <circle cx="106" cy="48" r="4" />
+                        <circle cx="122" cy="48" r="4" />
+                        <circle cx="138" cy="48" r="4" />
+                        <circle cx="154" cy="48" r="4" />
+
+                        {/* Vertical timing pattern dots */}
+                        <circle cx="48" cy="90" r="4" />
+                        <circle cx="48" cy="106" r="4" />
+                        <circle cx="48" cy="122" r="4" />
+                        <circle cx="48" cy="138" r="4" />
+                        <circle cx="48" cy="154" r="4" />
+
+                        {/* Grid placeholder module dots */}
+                        <rect x="92" y="92" width="12" height="12" rx="3" />
+                        <rect x="116" y="92" width="12" height="12" rx="3" />
+                        <rect x="140" y="92" width="12" height="12" rx="3" />
+
+                        <rect x="92" y="116" width="12" height="12" rx="3" />
+                        <rect x="140" y="116" width="12" height="12" rx="3" />
+
+                        <rect x="92" y="140" width="12" height="12" rx="3" />
+                        <rect x="116" y="140" width="12" height="12" rx="3" />
+                        <rect x="140" y="140" width="12" height="12" rx="3" />
+
+                        <rect x="170" y="100" width="10" height="10" rx="2" />
+                        <rect x="190" y="120" width="10" height="10" rx="2" />
+                        <rect x="175" y="145" width="10" height="10" rx="2" />
+                        <rect x="200" y="165" width="10" height="10" rx="2" />
+                        <rect x="100" y="175" width="10" height="10" rx="2" />
+                        <rect x="125" y="195" width="10" height="10" rx="2" />
+                        <rect x="150" y="175" width="10" height="10" rx="2" />
+                      </g>
+
+                      {/* Center Callout Overlay */}
+                      <rect x="28" y="86" width="184" height="68" rx="8" fill="var(--bg-surface)" stroke="var(--border-strong)" strokeWidth="1.5" />
+                      <text
+                        x="120"
+                        y="114"
+                        textAnchor="middle"
+                        fill="var(--text-primary)"
+                        fontSize="12"
+                        fontWeight="700"
+                        fontFamily="inherit"
+                      >
+                        Your QR code will appear here
+                      </text>
+                      <text
+                        x="120"
+                        y="134"
+                        textAnchor="middle"
+                        fill="var(--text-muted)"
+                        fontSize="10"
+                        fontWeight="500"
+                        fontFamily="inherit"
+                      >
+                        Preview Placeholder
+                      </text>
+                    </svg>
                   </div>
-                  <h3 className="qr-empty-title">Enter Content to Generate QR</h3>
-                  <p className="qr-empty-desc">
-                    Type text, paste a website link, or enter Wi-Fi details on the left.
-                    Your QR code will generate and adapt live as you type.
-                  </p>
+
+                  <div className="qr-placeholder-hint">
+                    <span className="placeholder-hint-text">
+                      Enter content to generate your QR code
+                    </span>
+                  </div>
                 </div>
               )}
             </div>
