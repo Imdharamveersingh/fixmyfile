@@ -127,10 +127,29 @@ To add a new tool cleanly without disrupting existing code:
 
 ---
 
-## 6. Future Architecture (Planned & Postponed)
+## 6. Planned Tool Categories & Expansion Roadmap
+
+The architecture accommodates **55 total planned tools** organized across 5 core categories and 7 phases as established in `tool-build-strategy.md`:
+
+1. **PDF Tools:**
+   - *Phase 1 (Complete — 6 tools):* Core PDF document conversion, merging, and compression.
+   - *Phase 4 (Planned — 10 tools):* Advanced PDF page manipulation (splitting, rotation, protection, unlocking, reordering) and presentation/spreadsheet conversions.
+2. **Image Tools:**
+   - *Phase 2 (Complete — 6 tools):* Essential image optimization, background removal, resizing, and format transcoding.
+   - *Phase 5 (Planned — 10 tools):* Extended image manipulation (HEIC/WebP transcoding, cropping, rotating, watermarking, upscaling, Base64 conversion).
+3. **Calculators & Generators:**
+   - *Phase 3 (Complete — 7 tools):* High-utility interactive calculators and code generators (QR, Barcode, Currency, Percentage, Password, Word Counter, EMI).
+4. **Media Tools:**
+   - *Phase 6 (Planned — 10 tools):* Audio/video conversion, extraction, GIF generation, and trimming utilities.
+5. **OCR / Text / Advanced File Tools:**
+   - *Phase 7 (Planned — 6 tools):* Optical character recognition, text extraction from scanned documents and images.
+
+---
+
+## 7. Future Architecture (Planned & Postponed)
 
 > **Current State:** There is **NO** backend server, database, API service, or authentication layer. Everything is purely client-side static rendering.
 
-- **Client-Side Processing Engines:** Future phases will introduce specialized, lightweight WebAssembly or Canvas-based processing libraries encapsulated strictly within the relevant tool directory.
-- **Web Workers:** CPU-intensive file processing (e.g., PDF compression or image rasterization) will be delegated to background Web Workers to maintain 60 FPS UI responsiveness.
-- **Backend / Cloud Services:** Currently out of scope. If heavy operations require server-assisted processing in future phases, they will be introduced behind modular adapter interfaces.
+- **Client-Side Processing Engines:** Future phases will continue to prioritize specialized, lightweight WebAssembly or browser-native processing libraries encapsulated strictly within each relevant tool directory.
+- **Web Workers:** CPU-intensive file processing (e.g., video transcoding or deep neural network OCR) will be delegated to background Web Workers to maintain UI responsiveness.
+- **Backend / Cloud Services:** Currently out of scope. If heavy operations in future phases genuinely require server-assisted processing, they will be introduced behind modular adapter interfaces rather than direct hard dependencies.

@@ -173,3 +173,21 @@ This document records the official technical and strategic decisions made for **
 - **Reason:** `@imgly/background-removal` runs 100% locally via WebAssembly and WebGPU (using quantized ISNet ONNX neural network models), requires zero API keys or backend servers, caches weights in the browser after initial download, and handles full-resolution mask extraction and alpha channel compositing into transparent PNGs. Lazy loading ensures zero impact on Phase 1 tools or initial page loads.
 - **Impact:** Delivers instant, private, free, and genuine foreground segmentation entirely on the user's device.
 
+---
+
+## Decision: Official 55-Tool Master Roadmap through Phase 7
+
+- **Date:** 2026-09-20
+- **Status:** Accepted
+- **Context:** FixMyFile successfully completed Phase 1 (6 PDF tools), Phase 2 (6 Image tools), and Phase 3 (7 Calculators & Generators), bringing the total active tools to 19. A definitive long-term roadmap was needed to establish the full platform lifecycle and tool inventory through Phase 7 without introducing premature implementation or route placeholders.
+- **Decision:** Officially establish the **55-Tool Master Roadmap** spanning Phase 1 through Phase 7:
+  1. FixMyFile roadmap is officially planned through Phase 7 with a master target of **55 tools**.
+  2. Phases 1–3 remain completed historical milestones (19 active tools).
+  3. Phases 4–7 represent 36 future planned tools and are strictly marked **PLANNED / NOT STARTED**.
+  4. `tool-build-strategy.md` remains the authoritative source of truth for implementation order and sequencing across all 55 tools.
+  5. New tools must be implemented strictly phase-by-phase and tool-by-tool rather than randomly.
+  6. Existing client-first, local-in-browser processing philosophy remains preferred wherever technically practical.
+  7. Future server-side processing should only be introduced when a tool genuinely requires capabilities beyond the browser sandbox.
+- **Reason:** Provides transparent architectural clarity, aligns documentation across the entire project, prevents scope creep or unapproved tools, and guarantees rigorous verification standards as the platform expands.
+- **Impact:** All documentation (`tool-build-strategy.md`, `ROADMAP.md`, `TOOL_STATUS.md`, `README.md`, `PRD.md`, `BRAIN.md`, `ARCHITECTURE.md`, `CHANGELOG.md`) is synchronized to the 55-tool master roadmap. No placeholder routes or mock components are created for future phases.
+

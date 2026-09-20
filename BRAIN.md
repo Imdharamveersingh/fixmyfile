@@ -9,7 +9,7 @@ This document defines the permanent rules, engineering constraints, and operatio
 1. **Project Identity:** The project name is **FixMyFile**.
 2. **Phase-by-Phase Development:** Tools are implemented sequentially, phase by phase. Never attempt multi-phase bulk development simultaneously.
 3. **Authoritative Scope:** `tool-build-strategy.md` is the single source of truth for tool scope, demand levels, and build priority.
-4. **Scope Boundary:** Only the 36 tools selected across the four established demand tiers (Very High, High, Medium-High, Medium) are in scope.
+4. **Scope Boundary:** Only the 55 tools defined across Phases 1 through 7 in `tool-build-strategy.md` are in scope.
 5. **No Invented Tools:** Never invent, propose, or add unapproved tools outside `tool-build-strategy.md`.
 6. **One Tool at a Time:** Build, verify, and complete one tool entirely before moving to the next tool.
 7. **Preserve Path-Based Architecture:** Every tool must retain its own clean, canonical route (e.g., `/jpg-to-pdf`). Never collapse tools into a single modal, multi-tab single page, or URL-less interface.

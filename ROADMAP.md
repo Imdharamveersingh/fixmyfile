@@ -1,16 +1,39 @@
 # FixMyFile — Development Roadmap
 
-This document outlines the multi-phase roadmap for **FixMyFile**, tracking completed platform milestones, active development phases, and upcoming planned releases.
+This document outlines the multi-phase master roadmap for **FixMyFile**, tracking completed platform milestones, current active releases, and planned future expansions through Phase 7.
 
 ---
 
-## Roadmap Overview & Status Legend
+## Roadmap Overview & Master Counts
 
-- `COMPLETE`: Fully developed, tested, and active.
-- `TESTING`: Implementation finished; undergoing validation and quality assurance.
-- `IN PROGRESS`: Currently being actively developed.
-- `NOT STARTED`: Planned and scheduled; implementation has not begun.
+| Metric | Count | Status |
+|---|---|---|
+| **Total Master Planned Tools** | **55** | Across Phases 1 through 7 |
+| **Current Implemented / Active Tools** | **19** | 100% Production-Ready & Verified |
+| **Remaining Future Planned Tools** | **36** | Formally Scheduled in Master Strategy |
+
+### Status Legend
+- `COMPLETE`: Fully developed, tested, verified, and active on site.
+- `TESTING`: Implementation finished; undergoing regression and validation testing.
+- `IN PROGRESS`: Actively under development in the current sprint.
+- `NOT STARTED`: Formally planned in master roadmap; implementation has not begun.
 - `BLOCKED`: Development halted due to unresolved technical or scope dependencies.
+
+---
+
+## Phase Summary & Progress Tracker
+
+| Phase | Category Focus | Planned | Completed | Status |
+|---|---|---|---|---|
+| **Phase 0** | Platform Foundation | Core Arch | Complete | `COMPLETE` |
+| **Phase 1** | PDF Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
+| **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
+| **Phase 3** | Calculators & Generators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
+| **Phase 4** | PDF Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **19 Tools** | **19 Active / 36 Planned** |
 
 ---
 
@@ -19,72 +42,141 @@ This document outlines the multi-phase roadmap for **FixMyFile**, tracking compl
 | Milestone | Status | Description |
 |---|---|---|
 | **Vite + React Setup** | `COMPLETE` | Established modern React 19 + Vite 8 build setup with Oxlint. |
-| **Path-Based Routing** | `COMPLETE` | Configured React Router v7 with 7 initial routes (`/`, 6 Phase 1 tools, and 404). |
-| **Modular Architecture** | `COMPLETE` | Created scalable `src/components/`, `src/pages/`, `src/tools/`, and `src/utils/` structure. |
-| **Design System & Layout** | `COMPLETE` | Implemented responsive Vanilla CSS design tokens with sticky Header, Layout, and Footer. |
+| **Path-Based Routing** | `COMPLETE` | Configured React Router v7 with canonical path-based routing. |
+| **Modular Architecture** | `COMPLETE` | Scalable `src/components/`, `src/pages/`, `src/tools/`, and `src/utils/` structure. |
+| **Design System & Layout** | `COMPLETE` | Responsive Vanilla CSS design tokens with sticky Header, Layout, and Footer. |
 | **FixMyFile Branding** | `COMPLETE` | Applied unified brand identity to Header, Footer, document title, and components. |
-| **Git & GitHub Checkpoint** | `COMPLETE` | Initialized Git repository, created initial foundation commit, and linked/pushed to `imdharamveersingh/fixmyfile`. |
-| **Project Documentation** | `COMPLETE` | Created PRD, BRAIN, ARCHITECTURE, ROADMAP, TOOL_STATUS, CHANGELOG, and DECISIONS. |
+| **Git & GitHub Checkpoint** | `COMPLETE` | Repository linked and pushed to `imdharamveersingh/fixmyfile` on `master`. |
+| **Project Documentation** | `COMPLETE` | PRD, BRAIN, ARCHITECTURE, ROADMAP, TOOL_STATUS, CHANGELOG, DECISIONS, and strategy. |
 
 ---
 
-## Phase 1: Core PDF Utilities
+## Phase 1: Core PDF Utilities (PDF Foundation)
 
-**Phase Status:** `COMPLETE` (All 6 tools complete: JPG to PDF, PDF to Word, PDF to JPG, Word to PDF, Merge PDF, and Compress PDF passed final testing and validation)
+**Phase Status:** `COMPLETE (6/6)` — All 6 tools complete and verified.
 
-| # | Tool | Category | Path | Status | Target |
+| # | Tool | Category | Path | Status | Scope |
 |---|---|---|---|---|---|
-| 1 | **JPG to PDF** | PDF Conversion | `/jpg-to-pdf` | `COMPLETE (PASS)` | Convert JPG/JPEG images to PDF in-browser. |
-| 2 | **PDF to Word** | PDF Conversion | `/pdf-to-word` | `/pdf-to-word` | `COMPLETE (PASS)` | Extract PDF text/layout into editable DOCX. |
-| 3 | **PDF to JPG** | PDF Conversion | `/pdf-to-jpg` | `/pdf-to-jpg` | `COMPLETE (PASS)` | Render and extract PDF pages to JPG images. |
-| 4 | **Word to PDF** | PDF Conversion | `/word-to-pdf` | `/word-to-pdf` | `COMPLETE (PASS)` | Convert DOC/DOCX documents to PDF format. |
-| 5 | **Merge PDF** | PDF Organization | `/merge-pdf` | `/merge-pdf` | `COMPLETE (PASS)` | Combine multiple PDF files into one. |
-| 6 | **Compress PDF** | PDF Optimization | `/compress-pdf` | `/compress-pdf` | `COMPLETE (PASS)` | Optimize PDF size while maintaining quality. |
+| 1 | **JPG to PDF** | PDF Conversion | `/jpg-to-pdf` | `COMPLETE (PASS)` | In-browser image to PDF conversion with orientation preservation. |
+| 2 | **PDF to Word** | PDF Conversion | `/pdf-to-word` | `COMPLETE (PASS)` | PDF text, heading, and table extraction to editable DOCX (V2). |
+| 3 | **PDF to JPG** | PDF Conversion | `/pdf-to-jpg` | `COMPLETE (PASS)` | Multi-page PDF rendering and high-res JPEG image extraction. |
+| 4 | **Word to PDF** | PDF Conversion | `/word-to-pdf` | `COMPLETE (PASS)` | DOCX to PDF conversion with exact pagination parity. |
+| 5 | **Merge PDF** | PDF Organization | `/merge-pdf` | `COMPLETE (PASS)` | Client-side multi-document concatenation and page reordering. |
+| 6 | **Compress PDF** | PDF Optimization | `/compress-pdf` | `COMPLETE (PASS)` | Structural stream optimization and lossless PDF compression. |
 
-*Validation Note: All six Phase 1 tools passed final testing, including automated regression tests where applicable, manual edge-case testing, difficult benchmark files, Word to PDF pagination fix (compared against iLovePDF), and Compress PDF size reduction on multi-page documents. No blocking issues remain.*
+*Validation Note: All six Phase 1 tools passed automated regression testing, difficult real-world benchmarks, and manual Chrome verification.*
 
 ---
 
-## Phase 2: Image Drivers
+## Phase 2: Image Drivers (Image Foundation)
 
-**Phase Status:** `COMPLETE` (6 of 6 tools complete: Background Remover, Image Compressor, Image Resizer, Image Converter, JPG to PNG, and PNG to JPG verified with automated and manual Chrome test suites)
+**Phase Status:** `COMPLETE (6/6)` — All 6 tools complete and verified.
 
-| # | Tool | Category | Path | Status | Target |
+| # | Tool | Category | Path | Status | Scope |
 |---|---|---|---|---|---|
-| 1 | **Background Remover** | Image Editing | `/background-remover` | `COMPLETE (PASS)` | Remove image backgrounds client-side. |
-| 2 | **Image Compressor** | Image Optimization | `/image-compressor` | `COMPLETE (PASS)` | Compress images while preserving visual fidelity and dimensions. |
-| 3 | **Image Resizer** | Image Editing | `/image-resizer` | `COMPLETE (PASS)` | Resize images to custom dimensions, presets, and aspect ratios. |
-| 4 | **Image Converter** | Image Conversion | `/image-converter` | `COMPLETE (PASS)` | Convert between JPG, PNG, and WEBP formats client-side. |
-| 5 | **JPG to PNG** | Image Conversion | `/jpg-to-png` | `COMPLETE (PASS)` | Convert JPG/JPEG images to PNG format. |
-| 6 | **PNG to JPG** | Image Conversion | `/png-to-jpg` | `COMPLETE (PASS)` | Convert PNG images to optimized JPG with transparency background handling. |
+| 7 | **Background Remover** | Image Editing | `/background-remover` | `COMPLETE (PASS)` | Local WebAssembly AI background cutout via `@imgly/background-removal`. |
+| 8 | **Image Compressor** | Image Optimization | `/image-compressor` | `COMPLETE (PASS)` | In-browser binary search compression with dimension fidelity. |
+| 9 | **Image Resizer** | Image Editing | `/image-resizer` | `COMPLETE (PASS)` | Dimension scaling, presets, and aspect ratio controls. |
+| 10 | **Image Converter** | Image Conversion | `/image-converter` | `COMPLETE (PASS)` | Multi-format conversions between JPG, PNG, and WebP. |
+| 11 | **JPG to PNG** | Image Conversion | `/jpg-to-png` | `COMPLETE (PASS)` | Dedicated JPG to PNG conversion with lossless `upng-js` encoding. |
+| 12 | **PNG to JPG** | Image Conversion | `/png-to-jpg` | `COMPLETE (PASS)` | Dedicated PNG to JPG conversion with alpha background blending. |
+
+*Validation Note: All six Phase 2 tools verified via automated suites and real Chrome CDP sessions with zero external API dependencies.*
 
 ---
 
-## Phase 3: Generators & Optimization Utilities
+## Phase 3: Generators & Calculators
 
-**Phase Status:** `COMPLETE` (All 7 tools complete: QR Code Generator, Barcode Generator, Currency Converter, Percentage Calculator, Password Generator, Word Counter, and EMI Calculator COMPLETE / PASS)
+**Phase Status:** `COMPLETE (7/7)` — All 7 tools complete and verified.
 
-| # | Tool | Category | Path | Status | Target |
+| # | Tool | Category | Path | Status | Scope |
 |---|---|---|---|---|---|
-| 1 | **QR Code Generator** | Calculators & Generators | `/qr-code-generator` | `COMPLETE (PASS)` | Generate customizable, scannable QR codes (Text, URL, Email, Phone, Wi-Fi) with PNG/SVG vector downloads. |
-| 2 | **Barcode Generator** | Calculators & Generators | `/barcode-generator` | `COMPLETE (PASS)` | Generate 1D machine-readable barcodes (CODE 128, CODE 39, EAN-13, EAN-8, UPC-A, ITF-14, ITF, Codabar) client-side with vector SVG and PNG downloads. |
-| 3 | **Currency Converter** | Calculators & Utilities | `/currency-converter` | `COMPLETE (PASS)` | Real-time and reference exchange rates with offline fallback and instant swap. |
-| 4 | **Percentage Calculator** | Calculators & Utilities | `/percentage-calculator` | `COMPLETE (PASS)` | 5 multi-scenario percentage calculation modes with formula breakdowns. |
-| 5 | **Password Generator** | Security & Generators | `/password-generator` | `COMPLETE (PASS)` | Cryptographically secure random password generator using Web Crypto API. |
-| 6 | **Word Counter** | Text Utilities | `/word-counter` | `COMPLETE (PASS)` | Live Unicode-aware text analysis for words, characters, sentences, paragraphs, and reading time. |
-| 7 | **EMI Calculator** | Financial Calculators | `/emi-calculator` | `COMPLETE (PASS)` | Loan EMI, interest, total payment, and visual principal-vs-interest breakdown. |
+| 13 | **QR Code Generator** | Generators | `/qr-code-generator` | `COMPLETE (PASS)` | Scannable QR codes (Text, URL, Email, Phone, Wi-Fi) with SVG/PNG exports. |
+| 14 | **Barcode Generator** | Generators | `/barcode-generator` | `COMPLETE (PASS)` | 8 1D barcode formats (CODE 128, CODE 39, EAN, UPC, ITF, Codabar) + SVG/PNG. |
+| 15 | **Currency Converter** | Calculators | `/currency-converter` | `COMPLETE (PASS)` | 18-currency conversion with live public rates and offline fallback. |
+| 16 | **Percentage Calculator** | Calculators | `/percentage-calculator` | `COMPLETE (PASS)` | 5 calculation modes with mathematical breakdown formulas. |
+| 17 | **Password Generator** | Generators | `/password-generator` | `COMPLETE (PASS)` | Cryptographically secure passwords via `crypto.getRandomValues()`. |
+| 18 | **Word Counter** | Text Utilities | `/word-counter` | `COMPLETE (PASS)` | Unicode-aware text analytics for words, characters, sentences, and time. |
+| 19 | **EMI Calculator** | Calculators | `/emi-calculator` | `COMPLETE (PASS)` | Financial loan EMI calculator with visual principal-vs-interest breakdown. |
+
+*Validation Note: All seven Phase 3 tools verified with dedicated unit tests and real Chrome CDP browser automation.*
 
 ---
 
-## Subsequent Phases
+## Phase 4: PDF Expansion
 
-The remaining strategic tools span media, developer, and data utilities categorized by demand level:
+**Phase Status:** `NOT STARTED (0/10)` — Scheduled for next milestone.
 
-| Phase | Category Focus | Tool Count | Demand Tier | Status |
+| # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
-| **Phase 3** | Generators & Utilities | 7 Tools | Medium-High Demand | `COMPLETE` (7/7 complete) |
-| **Phase 4** | Text & Developer Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
-| **Phase 5** | Data & Calculator Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
+| 20 | **Split PDF** | PDF Organization | `NOT STARTED` | Extract custom page ranges or burst multi-page documents. |
+| 21 | **PDF to Excel** | PDF Conversion | `NOT STARTED` | Extract and structure tabular PDF data into editable XLSX. |
+| 22 | **PDF to PowerPoint** | PDF Conversion | `NOT STARTED` | Convert PDF slides into editable presentation slides (PPTX). |
+| 23 | **Rotate PDF** | PDF Organization | `NOT STARTED` | Permanently rotate pages (90°, 180°, 270°) and save new PDF. |
+| 24 | **Protect PDF** | PDF Security | `NOT STARTED` | Encrypt PDF files with standard passwords and permissions. |
+| 25 | **Unlock PDF** | PDF Security | `NOT STARTED` | Decrypt and remove known passwords from secured PDFs client-side. |
+| 26 | **PDF to Text** | PDF Conversion | `NOT STARTED` | Fast extraction of pure unformatted text (.txt) from PDF streams. |
+| 27 | **Extract PDF Pages** | PDF Organization | `NOT STARTED` | Select and isolate specific pages into a standalone PDF. |
+| 28 | **Delete PDF Pages** | PDF Organization | `NOT STARTED` | Remove selected pages from a PDF and recompile document. |
+| 29 | **Reorder PDF Pages** | PDF Organization | `NOT STARTED` | Interactive visual drag-and-drop page sequence rearrangement. |
 
-> **Authoritative Sequence:** Individual tool assignments, paths, and build priorities are strictly governed by project strategy. Phase 4 will commence in the next sprint.
+---
 
+## Phase 5: Image Expansion
+
+**Phase Status:** `NOT STARTED (0/10)` — Scheduled following Phase 4.
+
+| # | Tool | Category | Status | Target Scope |
+|---|---|---|---|---|
+| 30 | **HEIC to JPG** | Image Conversion | `NOT STARTED` | Decode Apple iPhone HEIC/HEIF images to standard JPG format. |
+| 31 | **WebP to JPG** | Image Conversion | `NOT STARTED` | Convert Google WebP graphics to universal JPG format. |
+| 32 | **JPG to WebP** | Image Conversion | `NOT STARTED` | Encode JPG images to optimized, lightweight WebP format. |
+| 33 | **WebP to PNG** | Image Conversion | `NOT STARTED` | Convert WebP graphics to lossless PNG with alpha preservation. |
+| 34 | **Image Cropper** | Image Editing | `NOT STARTED` | Interactive canvas cropping with custom aspect ratios. |
+| 35 | **Image Rotate / Flip** | Image Editing | `NOT STARTED` | Image rotation (90° steps / arbitrary) and flip transforms. |
+| 36 | **Image Watermark** | Image Editing | `NOT STARTED` | Apply text and image watermarks with opacity and positioning. |
+| 37 | **Image to PDF** | Image Conversion | `NOT STARTED` | Multi-image batch ingestion (PNG, WebP, GIF) to PDF. |
+| 38 | **Image Upscaler** | Image Editing | `NOT STARTED` | Client-side resolution enlargement and bicubic enhancement. |
+| 39 | **Image to Base64** | Image Utilities | `NOT STARTED` | Convert image binaries into Base64 / Data URI strings. |
+
+---
+
+## Phase 6: Media Tools
+
+**Phase Status:** `NOT STARTED (0/10)` — Scheduled following Phase 5.
+
+| # | Tool | Category | Status | Target Scope |
+|---|---|---|---|---|
+| 40 | **MP4 to MP3** | Audio Extraction | `NOT STARTED` | Extract audio streams from MP4 video containers to MP3 format. |
+| 41 | **Video Compressor** | Video Optimization | `NOT STARTED` | Compress video bitrate and dimensions for web/chat sharing. |
+| 42 | **Video to GIF** | Video Conversion | `NOT STARTED` | Convert short video clips into animated GIF loops. |
+| 43 | **GIF Maker** | Media Generation | `NOT STARTED` | Assemble animated GIFs from sequences of uploaded images. |
+| 44 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
+| 45 | **M4A to MP3** | Audio Conversion | `NOT STARTED` | Convert voice memos and Apple M4A audio to MP3. |
+| 46 | **WAV to MP3** | Audio Conversion | `NOT STARTED` | Compress large uncompressed WAV recordings into MP3. |
+| 47 | **MP3 Cutter** | Audio Editing | `NOT STARTED` | Visual audio trimmer and waveform audio slicer for clips. |
+| 48 | **Video Trimmer** | Video Editing | `NOT STARTED` | Trim start and end timestamps from video files without re-encoding. |
+| 49 | **Video to MP4** | Video Conversion | `NOT STARTED` | Transcode legacy or non-standard video formats (MKV, MOV) to MP4. |
+
+---
+
+## Phase 7: OCR / Text / Advanced File Tools
+
+**Phase Status:** `NOT STARTED (0/6)` — Scheduled following Phase 6.
+
+| # | Tool | Category | Status | Target Scope |
+|---|---|---|---|---|
+| 50 | **Image to Text** | OCR & Text | `NOT STARTED` | In-browser OCR extraction from photographs, signs, and documents. |
+| 51 | **PDF OCR** | OCR & Text | `NOT STARTED` | Scan image-only/scanned PDF files and generate searchable text. |
+| 52 | **JPG to Text** | OCR & Text | `NOT STARTED` | Specialized OCR for receipts, invoices, and paper photos. |
+| 53 | **PNG to Text** | OCR & Text | `NOT STARTED` | High-accuracy text recognition for screenshots and UI captures. |
+| 54 | **Screenshot to Text** | OCR & Text | `NOT STARTED` | Clipboard-paste OCR tool for instant screen text extraction. |
+| 55 | **Extract Text from PDF** | Text Extraction | `NOT STARTED` | Structural text and metadata harvesting from complex PDFs. |
+
+---
+
+## Governance & Execution Rules
+
+1. **Sequential Phasing:** Phase 4 must reach 100% completion before Phase 5 commences. No out-of-order phase development is permitted.
+2. **Authoritative Alignment:** All tools and priorities derive strictly from `tool-build-strategy.md`.
+3. **Honest Readiness:** Only the 19 completed Phase 1–3 tools are active. Future tools will have routes and UI registered only when their respective development phase officially starts.

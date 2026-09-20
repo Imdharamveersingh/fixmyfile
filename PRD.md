@@ -17,45 +17,61 @@
 
 ## 3. Tool Demand Strategy & Scope
 
-The platform's scope is defined by a curated tool build strategy containing **36 tools** filtered strictly across four verified demand tiers:
-1. **Very High demand**
-2. **High demand**
-3. **Medium-High demand**
-4. **Medium demand**
+The platform's scope is defined by the authoritative **55-Tool Master Roadmap** documented in `tool-build-strategy.md`. The project spans 7 distinct phases covering high-demand digital file utilities:
+1. **Phase 1 — PDF Foundation:** 6 tools (Complete)
+2. **Phase 2 — Image Foundation:** 6 tools (Complete)
+3. **Phase 3 — Calculators & Generators:** 7 tools (Complete)
+4. **Phase 4 — PDF Expansion:** 10 tools (Planned / Not Started)
+5. **Phase 5 — Image Expansion:** 10 tools (Planned / Not Started)
+6. **Phase 6 — Media Tools:** 10 tools (Planned / Not Started)
+7. **Phase 7 — OCR / Text / Advanced File Tools:** 6 tools (Planned / Not Started)
 
-> **Authoritative Scope Reference:** `tool-build-strategy.md` serves as the authoritative source of truth for the complete tool list, demand assignments, and build sequence. No tools outside this strategy may be invented or added.
+**Master Counts:**
+- **Currently Implemented & Active:** 19 tools (Phases 1–3)
+- **Future Planned:** 36 tools (Phases 4–7)
+- **Total Planned Roadmap:** 55 tools
+
+> **Authoritative Scope Reference:** `tool-build-strategy.md` serves as the authoritative source of truth for the complete 55-tool list, phase assignments, and sequential build order. No tools outside this strategy may be invented or added.
 
 ---
 
 ## 4. Current vs. Planned vs. Future Scope
 
-### Current Scope (Implemented & Active)
-- **Application Foundation:** Vite + React + React Router v7 application shell.
-- **Design System:** Responsive Vanilla CSS design tokens with support for dark/light modes.
+### Current Scope (19 Implemented & Active Tools)
+- **Application Foundation:** Vite 8 + React 19 + React Router v7 application shell.
+- **Design System:** Responsive Vanilla CSS design tokens with dark/light themes and fluid typography.
 - **Platform Shell:** Persistent `Header`, `Footer`, and container `Layout`.
-- **Home Directory:** Landing view (`/`) displaying platform status and the Phase 1 tool directory.
-- **Phase 1 Active Routes:** Six dedicated paths configured with transparent "Tool implementation coming next" placeholder states:
-  - `/jpg-to-pdf`
-  - `/pdf-to-word`
-  - `/pdf-to-jpg`
-  - `/word-to-pdf`
-  - `/merge-pdf`
-  - `/compress-pdf`
-- **Quality Gates:** 0 lint errors (`oxlint`), production build passing (`vite build`).
+- **Home Directory:** Landing view (`/`) displaying active tools and phase directory with responsive grids.
+- **Phase 1 (PDF Foundation — 6/6 Complete):**
+  - `/jpg-to-pdf`: JPG to PDF Converter
+  - `/pdf-to-word`: PDF to Word Converter
+  - `/pdf-to-jpg`: PDF to JPG Converter
+  - `/word-to-pdf`: Word to PDF Converter
+  - `/merge-pdf`: Lossless PDF Merger
+  - `/compress-pdf`: Lossless PDF Compressor
+- **Phase 2 (Image Foundation — 6/6 Complete):**
+  - `/remove-background`: AI Background Remover
+  - `/compress-image`: Client-Side Image Compressor
+  - `/resize-image`: Image Resizer
+  - `/convert-image`: Multi-Format Image Converter
+  - `/jpg-to-png`: Instant JPG to PNG Converter
+  - `/png-to-jpg`: Instant PNG to JPG Converter
+- **Phase 3 (Calculators & Generators — 7/7 Complete):**
+  - `/qr-code-generator`: Interactive QR Code Generator
+  - `/barcode-generator`: 1D Barcode Generator (8 GS1/industrial formats)
+  - `/currency-converter`: Live & Offline Currency Converter (18 currencies)
+  - `/percentage-calculator`: Multi-Mode Percentage Calculator
+  - `/password-generator`: Cryptographically Secure Password Generator
+  - `/word-counter`: Real-Time Multilingual Text & Word Counter
+  - `/emi-calculator`: Comprehensive Loan EMI Calculator
+- **Quality Gates:** 0 lint errors (`oxlint`), clean production build (`npm run build`).
 
-### Planned Scope (Phase 1 Tool Implementations)
-Functional, in-browser processing engines for the 6 core PDF tools:
-1. **JPG to PDF:** Client-side conversion of image files into standard PDF documents.
-2. **PDF to Word:** Extraction and formatting of PDF contents into editable Word documents.
-3. **PDF to JPG:** Rendering and exporting PDF pages into high-resolution image formats.
-4. **Word to PDF:** Conversion of Word documents into PDF format.
-5. **Merge PDF:** Client-side concatenation of multiple PDF files in user-specified order.
-6. **Compress PDF:** PDF file size optimization while maintaining text/graphic fidelity.
-
-### Future Scope (Phases 2 through N)
-- Incremental rollout of the remaining 30 utility tools specified in `tool-build-strategy.md`.
-- Tool category filtering and search within the home directory.
-- Advanced batch processing and performance optimizations.
+### Future Planned Scope (36 Tools Across Phases 4–7)
+All future tools are documented in `tool-build-strategy.md` and are **PLANNED / NOT STARTED**. No routes or placeholder pages are prematurely invented:
+- **Phase 4 — PDF Expansion (10 tools):** Split PDF, PDF to Excel, PDF to PowerPoint, Rotate PDF, Protect PDF, Unlock PDF, PDF to Text, Extract PDF Pages, Delete PDF Pages, Reorder PDF Pages.
+- **Phase 5 — Image Expansion (10 tools):** HEIC to JPG, WebP to JPG, JPG to WebP, WebP to PNG, Image Cropper, Image Rotate / Flip, Image Watermark, Image to PDF, Image Upscaler, Image to Base64.
+- **Phase 6 — Media Tools (10 tools):** MP4 to MP3, Video Compressor, Video to GIF, GIF Maker, Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4.
+- **Phase 7 — OCR / Text / Advanced File Tools (6 tools):** Image to Text, PDF OCR, JPG to Text, PNG to Text, Screenshot to Text, Extract Text from PDF.
 
 ---
 
