@@ -9,12 +9,22 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-col brand-col">
           <div className="footer-brand">
-            <span className="brand-icon">⚡</span>
+            <img
+              src="/logo.png"
+              alt="FixMyFile Logo"
+              className="footer-logo-img"
+              width="32"
+              height="32"
+            />
             <span className="brand-title">FixMyFile</span>
           </div>
           <p className="footer-desc">
             Fast, client-focused online utility tools. Built for simplicity, speed, and privacy.
           </p>
+          <div className="footer-trust-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>100% Private & Browser-Based</span>
+          </div>
         </div>
 
         <div className="footer-col">

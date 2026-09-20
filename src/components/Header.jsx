@@ -5,12 +5,19 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-container">
-        <Link to="/" className="brand-logo">
-          <span className="brand-icon">⚡</span>
+        <Link to="/" className="brand-logo" aria-label="FixMyFile Home">
+          <img
+            src="/logo.png"
+            alt="FixMyFile Logo"
+            className="brand-logo-img"
+            width="32"
+            height="32"
+          />
           <span className="brand-name">FixMyFile</span>
           <span className="brand-badge">Phase 3</span>
         </Link>
-        <nav className="site-nav">
+
+        <nav className="site-nav" aria-label="Main Navigation">
           <NavLink
             to="/"
             end
@@ -20,8 +27,12 @@ export default function Header() {
           >
             All Tools
           </NavLink>
+
           <div className="nav-dropdown">
-            <span className="nav-dropdown-label">PDF Tools ▾</span>
+            <span className="nav-dropdown-label">
+              PDF Tools
+              <svg className="dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
             <div className="nav-dropdown-menu">
               <Link to="/jpg-to-pdf">JPG to PDF</Link>
               <Link to="/pdf-to-word">PDF to Word</Link>
@@ -31,8 +42,12 @@ export default function Header() {
               <Link to="/compress-pdf">Compress PDF</Link>
             </div>
           </div>
+
           <div className="nav-dropdown">
-            <span className="nav-dropdown-label">Image Tools ▾</span>
+            <span className="nav-dropdown-label">
+              Image Tools
+              <svg className="dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
             <div className="nav-dropdown-menu">
               <Link to="/background-remover">Background Remover</Link>
               <Link to="/image-compressor">Image Compressor</Link>
@@ -42,8 +57,12 @@ export default function Header() {
               <Link to="/png-to-jpg">PNG to JPG</Link>
             </div>
           </div>
+
           <div className="nav-dropdown">
-            <span className="nav-dropdown-label">Generators ▾</span>
+            <span className="nav-dropdown-label">
+              Generators
+              <svg className="dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
             <div className="nav-dropdown-menu">
               <Link to="/qr-code-generator">QR Code Generator</Link>
               <Link to="/barcode-generator">Barcode Generator</Link>
@@ -55,6 +74,12 @@ export default function Header() {
             </div>
           </div>
         </nav>
+
+        <div className="header-actions">
+          <Link to="/#tools-phase3" className="header-cta-btn">
+            Explore Tools
+          </Link>
+        </div>
       </div>
     </header>
   );

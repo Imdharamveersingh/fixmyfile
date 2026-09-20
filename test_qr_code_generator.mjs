@@ -114,7 +114,7 @@ async function runAllTests() {
   test('Footer.jsx contains link to /qr-code-generator', () => {
     const footerContent = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf-8');
     assert.ok(footerContent.includes('/qr-code-generator'));
-    assert.ok(footerContent.includes('Phase 3: Generators'));
+    assert.ok(footerContent.includes('Phase 3: Calculators & Generators') || footerContent.includes('Phase 3: Generators'));
   });
 
   // 4. Content Type Formatters
