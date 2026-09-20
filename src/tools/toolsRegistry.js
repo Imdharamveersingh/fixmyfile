@@ -245,6 +245,15 @@ export const PHASE_4_TOOLS = [
     description: 'Extract selectable text from PDF documents into clean, formatted .txt files client-side.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'extract-pdf-pages',
+    name: 'Extract PDF Pages',
+    path: '/extract-pdf-pages',
+    category: 'PDF Organization',
+    description: 'Select and extract specific pages or custom ranges from PDF documents into a new lightweight PDF.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

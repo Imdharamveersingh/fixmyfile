@@ -29,6 +29,7 @@ import RotatePdfTool from './tools/rotate-pdf';
 import ProtectPdfTool from './tools/protect-pdf';
 import UnlockPdfTool from './tools/unlock-pdf';
 import PdfToTextTool from './tools/pdf-to-text';
+import ExtractPdfPagesTool from './tools/extract-pdf-pages';
 import './App.css';
 
 export default function App() {
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="protect-pdf" element={<ProtectPdfTool />} />
           <Route path="unlock-pdf" element={<UnlockPdfTool />} />
           <Route path="pdf-to-text" element={<PdfToTextTool />} />
+          <Route path="extract-pdf-pages" element={<ExtractPdfPagesTool />} />
           <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="image-compressor" element={<ImageCompressorTool />} />
           <Route path="image-resizer" element={<ImageResizerTool />} />

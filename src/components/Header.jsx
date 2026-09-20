@@ -52,6 +52,7 @@ export default function Header() {
               <Link to="/protect-pdf">Protect PDF</Link>
               <Link to="/unlock-pdf">Unlock PDF</Link>
               <Link to="/pdf-to-text">PDF to Text</Link>
+              <Link to="/extract-pdf-pages">Extract PDF Pages</Link>
             </div>
           </div>
 

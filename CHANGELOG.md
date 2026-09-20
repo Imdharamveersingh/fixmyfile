@@ -4,6 +4,18 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.8: Extract PDF Pages Implementation (Phase 4: 8/10 Complete)
+
+### Added
+- **Extract PDF Pages Tool (`/extract-pdf-pages`):** Client-side PDF page isolation and extraction engine powered by `pdf-lib`.
+  - **Flexible Page & Range Parsing:** Supports individual pages (`1`), multiple pages (`1, 3, 5`), continuous ranges (`1-3`), and combined syntax (`1-3, 5, 8-10`) with automatic deduplication.
+  - **Interactive Visual Selection:** Interactive thumbnail grid enabling click-to-select page cards synchronized two-way with the range input, alongside quick action presets (Select All, Odd, Even, Invert, Clear).
+  - **Lossless Layout & Vector Preservation:** Generates pristine, lightweight PDFs retaining original page dimensions, orientations, vector graphics, fonts, and annotations without server round-trips.
+  - **Automated, Chrome & Difficult Edge Tests:** 12/12 automated unit tests (`test_extract_pdf_pages.mjs`), difficult edge test preserving complex sequence `[5, 2, 4, 1]` on mixed page geometries (`test_difficult_extract_pdf_pages.mjs`), and real Chrome CDP browser test (`test_manual_extract_pdf_pages.mjs`) passing on Desktop (1440x900) and Mobile (375x667) with 0 console errors.
+  - **Active Tool Count:** Platform updated to **27 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.7: PDF to Text Implementation (Phase 4: 7/10 Complete)
 
 ### Added
