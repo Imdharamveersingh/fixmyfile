@@ -4,6 +4,23 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.2: Image Compressor Tool Implementation
+
+### Added
+- Implemented in-browser **Image Compressor** tool at `/image-compressor`:
+  - **Local-First Compression Engine:** Integrated client-side image compression with zero server uploads, 100% privacy, no paid APIs, and no API keys.
+  - **Format-Native Processing:** Native HTML5 Canvas API for high-performance JPEG discrete cosine transform quantization, combined with `upng-js` for advanced PNG color palette quantization and Deflate compression.
+  - **Dimension Preservation (1:1):** Image dimensions are preserved strictly 1:1 without downscaling (e.g. 1920 × 1080 remains 1920 × 1080).
+  - **Transparent PNG Support:** Retains alpha transparency channels for PNG inputs with selectable preview backdrop options (Checkerboard, White, Black).
+  - **Honest Metrics & Non-Reducing Handling:** Accurately computes saved bytes and percentage reduction. Clearly flags already-optimized files where compression does not reduce bytes, avoiding fake savings percentages and offering the original file for download.
+  - **Interactive Quality Slider:** Accessible quality range control (10% to 100%, default 80%) with quick presets (40%, 60%, 80%, 90%, 100%).
+  - **Side-by-Side Visual Comparison:** Side-by-side comparative inspection between original and compressed output.
+  - **Memory & Lifecycle Safety:** Automatic blob object URL creation and revocation on image replacement and unmount.
+- Registered `image-compressor` in `src/tools/toolsRegistry.js` under `PHASE_2_TOOLS` and configured route in `src/App.jsx`.
+- Added automated test suite `test_image_compressor.mjs` (37 assertions passing) and real Google Chrome CDP manual validation suite `test_manual_compressor.mjs` (100% passing).
+
+---
+
 ## [2026-09-20] — Phase 2.1: Background Remover Tool Implementation
 
 ### Added

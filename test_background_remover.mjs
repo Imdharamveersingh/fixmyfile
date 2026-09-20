@@ -20,8 +20,8 @@ async function runBackgroundRemoverTests() {
 
   // 1. Tool Registry Tests
   console.log('1. Checking Tool Registry & Route Definitions...');
-  assert(PHASE_2_TOOLS.length === 1, 'Phase 2 has exactly 1 tool registered so far');
-  assert(ALL_TOOLS.length === 7, 'ALL_TOOLS contains 7 tools in total (6 Phase 1 + 1 Phase 2)');
+  assert(PHASE_2_TOOLS.some((t) => t.id === 'background-remover'), 'Phase 2 contains background remover tool');
+  assert(ALL_TOOLS.length >= 7, 'ALL_TOOLS contains Phase 1 and Phase 2 tools');
   const bgTool = getToolById('background-remover');
   assert(bgTool !== undefined, 'getToolById("background-remover") found');
   assert(bgTool?.path === '/background-remover', 'Background remover path is /background-remover');

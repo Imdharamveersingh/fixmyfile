@@ -15,11 +15,13 @@
     "docx-preview": "^0.4.0",
     "jspdf": "^4.2.1",
     "onnxruntime-web": "^1.21.0",
+    "pako": "^3.0.2",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.3.289",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.4"
+    "react-router-dom": "^7.18.4",
+    "upng-js": "^2.1.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",

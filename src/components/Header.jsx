@@ -35,6 +35,7 @@ export default function Header() {
             <span className="nav-dropdown-label">Image Tools ▾</span>
             <div className="nav-dropdown-menu">
               <Link to="/background-remover">Background Remover</Link>
+              <Link to="/image-compressor">Image Compressor</Link>
             </div>
           </div>
         </nav>

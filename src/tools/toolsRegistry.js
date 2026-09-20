@@ -68,6 +68,15 @@ export const PHASE_2_TOOLS = [
     description: 'Remove image backgrounds automatically with client-side AI and transparent PNG export.',
     status: 'Ready',
     phase: 'Phase 2'
+  },
+  {
+    id: 'image-compressor',
+    name: 'Image Compressor',
+    path: '/image-compressor',
+    category: 'Image Optimization',
+    description: 'Compress JPG and PNG images online with fine-tuned quality controls while preserving dimensions and transparency.',
+    status: 'Ready',
+    phase: 'Phase 2'
   }
 ];
 

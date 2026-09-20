@@ -39,6 +39,7 @@ export default function Footer() {
           <h4 className="footer-heading">Phase 2: Image Tools</h4>
           <ul className="footer-links">
             <li><Link to="/background-remover">Background Remover</Link></li>
+            <li><Link to="/image-compressor">Image Compressor</Link></li>
           </ul>
           <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 2 Active</span>
         </div>

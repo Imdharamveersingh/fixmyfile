@@ -1,6 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { PHASE_1_TOOLS, PHASE_2_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default function HomePage() {
 
         <div className="stats-row">
           <div className="stat-card">
-            <span className="stat-number">7</span>
+            <span className="stat-number">{ALL_TOOLS.length}</span>
             <span className="stat-label">Active Tools</span>
           </div>
           <div className="stat-card">
