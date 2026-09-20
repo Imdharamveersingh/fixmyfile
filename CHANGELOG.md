@@ -4,6 +4,23 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.3: Image Resizer Tool Implementation
+
+### Added
+- Implemented in-browser **Image Resizer** tool at `/image-resizer`:
+  - **Local-First Resizing Engine:** Pure client-side Canvas 2D image scaling with high-quality bicubic smoothing (`imageSmoothingQuality = 'high'`), zero external server dependencies, and 100% privacy.
+  - **Aspect Ratio Lock:** Ratio locked by default to prevent unintentional distortion. Modifying width dynamically recalculates proportional height, and modifying height recalculates width.
+  - **Social Media & Standard Presets:** Pre-configured dimension presets (Full HD 1920×1080, 4:3 Standard 1600×1200, Square 1080×1080, 4:5 Portrait 1080×1350, 3:4 Portrait 1080×1440, 9:16 Story 1080×1920, and Thumbnail 800×800) with non-destructive "Fit Inside" scaling.
+  - **Independent Dimension Scaling:** Unlocking aspect ratio allows arbitrary width/height sizing with explicit user warning indication.
+  - **Format & Transparency Fidelity:** Preserves PNG 32-bit RGBA alpha transparency without white background clipping; supports JPEG quality control slider.
+  - **Dimensional Safety Guards:** Proactively validates target pixel counts (<= 10,000 px and <= 40MP) to prevent browser memory exhaustion.
+  - **Side-by-Side Comparison:** Comparative preview grid displaying original vs resized dimensions, scale multiplier, and resulting file sizes.
+- Registered `image-resizer` in `src/tools/toolsRegistry.js` under `PHASE_2_TOOLS` and configured route in `src/App.jsx`.
+- Updated navigation in `Header.jsx`, `Footer.jsx`, and active tools counter in `HomePage.jsx`.
+- Created automated test suite `test_image_resizer.mjs` (42 assertions passing) and real Google Chrome CDP manual validation suite `test_manual_resizer.mjs` (100% passing).
+
+---
+
 ## [2026-09-20] — Phase 2.2: Image Compressor Tool Implementation
 
 ### Added

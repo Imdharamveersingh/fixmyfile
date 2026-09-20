@@ -77,6 +77,15 @@ export const PHASE_2_TOOLS = [
     description: 'Compress JPG and PNG images online with fine-tuned quality controls while preserving dimensions and transparency.',
     status: 'Ready',
     phase: 'Phase 2'
+  },
+  {
+    id: 'image-resizer',
+    name: 'Image Resizer',
+    path: '/image-resizer',
+    category: 'Image Editing',
+    description: 'Resize JPG and PNG images online with aspect ratio lock, custom dimensions, and popular social presets.',
+    status: 'Ready',
+    phase: 'Phase 2'
   }
 ];
 

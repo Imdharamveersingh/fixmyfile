@@ -36,6 +36,7 @@ export default function Header() {
             <div className="nav-dropdown-menu">
               <Link to="/background-remover">Background Remover</Link>
               <Link to="/image-compressor">Image Compressor</Link>
+              <Link to="/image-resizer">Image Resizer</Link>
             </div>
           </div>
         </nav>

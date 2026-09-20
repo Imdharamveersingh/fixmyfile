@@ -47,13 +47,13 @@ This document outlines the multi-phase roadmap for **FixMyFile**, tracking compl
 
 ## Phase 2: Image Drivers
 
-**Phase Status:** `IN PROGRESS` (2 of 6 tools complete: Background Remover and Image Compressor verified with automated and manual Chrome test suites)
+**Phase Status:** `IN PROGRESS` (3 of 6 tools complete: Background Remover, Image Compressor, and Image Resizer verified with automated and manual Chrome test suites)
 
 | # | Tool | Category | Path | Status | Target |
 |---|---|---|---|---|---|
 | 1 | **Background Remover** | Image Editing | `/background-remover` | `COMPLETE (PASS)` | Remove image backgrounds client-side. |
 | 2 | **Image Compressor** | Image Optimization | `/image-compressor` | `COMPLETE (PASS)` | Compress images while preserving visual fidelity and dimensions. |
-| 3 | **Image Resizer** | Image Editing | TBD | `NOT STARTED` | Resize images to custom dimensions and aspect ratios. |
+| 3 | **Image Resizer** | Image Editing | `/image-resizer` | `COMPLETE (PASS)` | Resize images to custom dimensions, presets, and aspect ratios. |
 | 4 | **Image Converter** | Image Conversion | TBD | `NOT STARTED` | Convert between major image formats. |
 | 5 | **JPG to PNG** | Image Conversion | TBD | `NOT STARTED` | Convert JPG/JPEG images to PNG format. |
 | 6 | **PNG to JPG** | Image Conversion | TBD | `NOT STARTED` | Convert PNG images to optimized JPG format. |

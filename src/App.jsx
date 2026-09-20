@@ -10,6 +10,7 @@ import MergePdfTool from './tools/merge-pdf';
 import CompressPdfTool from './tools/compress-pdf';
 import BackgroundRemoverTool from './tools/background-remover';
 import ImageCompressorTool from './tools/image-compressor';
+import ImageResizerTool from './tools/image-resizer';
 import './App.css';
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="compress-pdf" element={<CompressPdfTool />} />
           <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="image-compressor" element={<ImageCompressorTool />} />
+          <Route path="image-resizer" element={<ImageResizerTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

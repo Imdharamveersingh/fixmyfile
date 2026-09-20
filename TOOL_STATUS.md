@@ -33,12 +33,12 @@ This document provides a comprehensive inventory and status tracker for all tool
 |---|---|---|---|---|---|---|
 | 7 | **Background Remover** | Image Editing | High | Phase 2 | `/background-remover` | `COMPLETE / PASS` |
 | 8 | **Image Compressor** | Image Optimization | High | Phase 2 | `/image-compressor` | `COMPLETE / PASS` |
-| 9 | **Image Resizer** | Image Editing | High | Phase 2 | TBD | `NOT STARTED` |
+| 9 | **Image Resizer** | Image Editing | High | Phase 2 | `/image-resizer` | `COMPLETE / PASS` |
 | 10 | **Image Converter** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 | 11 | **JPG to PNG** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 | 12 | **PNG to JPG** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 
-*Note: Phase 2.1 (Background Remover) and Phase 2.2 (Image Compressor) are complete with automated tests and manual Chrome browser validation passing 100%. Image Compressor preserves original dimensions (1:1), optimizes JPG and PNG files client-side, maintains PNG alpha transparency, and reports honest compression savings. Remaining Phase 2 tools (9–12) have not been started.*
+*Note: Phase 2.1 (Background Remover), Phase 2.2 (Image Compressor), and Phase 2.3 (Image Resizer) are complete with automated tests and real Chrome browser manual validation passing 100%. Image Resizer features aspect ratio locking, social presets with fit-inside scaling, custom pixel dimensions, pixel safety checks, and PNG transparency preservation. Remaining Phase 2 tools (10–12) have not been started.*
 
 ---
 

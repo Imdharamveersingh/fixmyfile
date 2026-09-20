@@ -40,6 +40,7 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link to="/background-remover">Background Remover</Link></li>
             <li><Link to="/image-compressor">Image Compressor</Link></li>
+            <li><Link to="/image-resizer">Image Resizer</Link></li>
           </ul>
           <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 2 Active</span>
         </div>
