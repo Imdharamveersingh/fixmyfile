@@ -47,6 +47,11 @@ export default function Header() {
             <div className="nav-dropdown-menu">
               <Link to="/qr-code-generator">QR Code Generator</Link>
               <Link to="/barcode-generator">Barcode Generator</Link>
+              <Link to="/currency-converter">Currency Converter</Link>
+              <Link to="/percentage-calculator">Percentage Calculator</Link>
+              <Link to="/password-generator">Password Generator</Link>
+              <Link to="/word-counter">Word Counter</Link>
+              <Link to="/emi-calculator">EMI Calculator</Link>
             </div>
           </div>
         </nav>

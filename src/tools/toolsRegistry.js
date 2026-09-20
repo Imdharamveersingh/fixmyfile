@@ -134,6 +134,51 @@ export const PHASE_3_TOOLS = [
     description: 'Create real, machine-readable 1D barcodes with CODE 128, CODE 39, EAN-13, EAN-8, UPC-A, ITF-14, ITF, and Codabar. Download as PNG or SVG.',
     status: 'Ready',
     phase: 'Phase 3'
+  },
+  {
+    id: 'currency-converter',
+    name: 'Currency Converter',
+    path: '/currency-converter',
+    category: 'Calculators',
+    description: 'Real-time and reference currency conversion across major world currencies with smart offline fallback.',
+    status: 'Ready',
+    phase: 'Phase 3'
+  },
+  {
+    id: 'percentage-calculator',
+    name: 'Percentage Calculator',
+    path: '/percentage-calculator',
+    category: 'Calculators',
+    description: 'Calculate percentages, increases, decreases, additions, and subtractions instantly with full formulas.',
+    status: 'Ready',
+    phase: 'Phase 3'
+  },
+  {
+    id: 'password-generator',
+    name: 'Password Generator',
+    path: '/password-generator',
+    category: 'Generators',
+    description: 'Generate cryptographically strong, customizable random passwords locally with instant entropy strength checking.',
+    status: 'Ready',
+    phase: 'Phase 3'
+  },
+  {
+    id: 'word-counter',
+    name: 'Word Counter',
+    path: '/word-counter',
+    category: 'Text Utilities',
+    description: 'Count words, characters, sentences, paragraphs, reading time, and speaking time with full Unicode support.',
+    status: 'Ready',
+    phase: 'Phase 3'
+  },
+  {
+    id: 'emi-calculator',
+    name: 'EMI Calculator',
+    path: '/emi-calculator',
+    category: 'Calculators',
+    description: 'Calculate monthly EMI, total interest, and loan repayment breakdown instantly with yearly and monthly tenure support.',
+    status: 'Ready',
+    phase: 'Phase 3'
   }
 ];
 

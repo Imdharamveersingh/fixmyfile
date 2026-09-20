@@ -125,13 +125,10 @@ export default function QrCodeGeneratorTool() {
 
   // Debounce input updates by 120ms (immediate when empty)
   useEffect(() => {
-    if (!currentRawPayload || currentRawPayload.trim() === '') {
-      setDebouncedPayload('');
-      return;
-    }
+    const delay = (!currentRawPayload || currentRawPayload.trim() === '') ? 0 : 120;
     const timer = setTimeout(() => {
-      setDebouncedPayload(currentRawPayload);
-    }, 120);
+      setDebouncedPayload(currentRawPayload && currentRawPayload.trim() !== '' ? currentRawPayload : '');
+    }, delay);
     return () => clearTimeout(timer);
   }, [currentRawPayload]);
 

@@ -37,10 +37,10 @@ export default function HomePage() {
           <div>
             <h2 className="section-title">Phase 3: Calculators & Generators</h2>
             <p className="section-subtitle">
-              High-demand utility generators and calculators, currently rolling out with our browser-first QR code generator.
+              High-demand utility generators and calculators, built for instant client-side computation and privacy.
             </p>
           </div>
-          <span className="phase-indicator">Phase 3 Active</span>
+          <span className="phase-indicator">7 tools complete</span>
         </div>
 
         <div className="tools-grid">

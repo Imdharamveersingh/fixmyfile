@@ -52,6 +52,11 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link to="/qr-code-generator">QR Code Generator</Link></li>
             <li><Link to="/barcode-generator">Barcode Generator</Link></li>
+            <li><Link to="/currency-converter">Currency Converter</Link></li>
+            <li><Link to="/percentage-calculator">Percentage Calculator</Link></li>
+            <li><Link to="/password-generator">Password Generator</Link></li>
+            <li><Link to="/word-counter">Word Counter</Link></li>
+            <li><Link to="/emi-calculator">EMI Calculator</Link></li>
           </ul>
           <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 3 Active</span>
         </div>

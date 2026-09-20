@@ -16,6 +16,11 @@ import JpgToPngTool from './tools/jpg-to-png';
 import PngToJpgTool from './tools/png-to-jpg';
 import QrCodeGeneratorTool from './tools/qr-code-generator';
 import BarcodeGeneratorTool from './tools/barcode-generator';
+import CurrencyConverterTool from './tools/currency-converter';
+import PercentageCalculatorTool from './tools/percentage-calculator';
+import PasswordGeneratorTool from './tools/password-generator';
+import WordCounterTool from './tools/word-counter';
+import EmiCalculatorTool from './tools/emi-calculator';
 import './App.css';
 
 export default function App() {
@@ -38,6 +43,11 @@ export default function App() {
           <Route path="png-to-jpg" element={<PngToJpgTool />} />
           <Route path="qr-code-generator" element={<QrCodeGeneratorTool />} />
           <Route path="barcode-generator" element={<BarcodeGeneratorTool />} />
+          <Route path="currency-converter" element={<CurrencyConverterTool />} />
+          <Route path="percentage-calculator" element={<PercentageCalculatorTool />} />
+          <Route path="password-generator" element={<PasswordGeneratorTool />} />
+          <Route path="word-counter" element={<WordCounterTool />} />
+          <Route path="emi-calculator" element={<EmiCalculatorTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

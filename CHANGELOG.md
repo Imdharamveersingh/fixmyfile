@@ -4,6 +4,45 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 3.3–3.7: Completion of Phase 3 Utility Tools (Phase 3 Complete: 7/7 Tools)
+
+### Added
+- **Phase 3.3: Currency Converter (`/currency-converter`)**:
+  - Useful client-side exchange rate conversion across 18 major world currencies (USD, EUR, GBP, INR, JPY, AUD, CAD, CHF, CNY, SGD, AED, SAR, etc.).
+  - Hybrid rate engine: fetches live free public rates via frankfurter.app / open.er-api.com with zero API keys required, backed by verified static reference rates for offline resilience.
+  - Rate source disclaimer, last updated timestamp indicator, instant currency swap, amount auto-recalculation, precision formatting, and copy result button.
+  - Automated test suite `test_currency_converter.mjs` (29/29 PASS) and CDP manual test `test_manual_currency_converter.mjs` (11/11 PASS).
+- **Phase 3.4: Percentage Calculator (`/percentage-calculator`)**:
+  - 5 essential calculation modes: "What is X% of Y?", "X is what % of Y?", "Percentage Change (Increase/Decrease)", "Add X% to Y", and "Subtract X% from Y".
+  - Mathematical formulas and calculation breakdowns displayed for every mode.
+  - Division-by-zero protection, negative percentage support, decimal precision, copy result, and reset button.
+  - Automated test suite `test_percentage_calculator.mjs` (26/26 PASS) and CDP manual test `test_manual_percentage_calculator.mjs` (11/11 PASS).
+- **Phase 3.5: Password Generator (`/password-generator`)**:
+  - Cryptographically secure password generation using the browser native Web Crypto API (`crypto.getRandomValues()`), strictly prohibiting `Math.random()`.
+  - Configurable length (8 to 128 characters), character set toggles (uppercase, lowercase, numbers, symbols), quick presets (Simple, Strong, Very Strong), and exclusions for ambiguous characters (`O`, `0`, `I`, `1`, `l`) and delimiter symbols.
+  - Entropy strength rating indicator (Very Weak, Weak, Moderate, Strong, Very Strong).
+  - 100% client-side privacy: zero server transmission, zero password logging, zero URL leakage.
+  - Automated test suite `test_password_generator.mjs` (23/23 PASS) and CDP manual test `test_manual_password_generator.mjs` (9/9 PASS).
+- **Phase 3.6: Word Counter (`/word-counter`)**:
+  - Real-time text analyzer with live statistics: words, characters, characters excluding spaces, sentences, paragraphs, lines, estimated reading time, speaking time, and average word/sentence lengths.
+  - Unicode-aware word segmentation supporting English, Hindi (Devanagari script), mixed-language text, numbers, contractions, and hyphenated terms.
+  - One-click text sample insertion, copy text, and clear/reset actions. 100% private in-browser text processing.
+  - Automated test suite `test_word_counter.mjs` (21/21 PASS) and CDP manual test `test_manual_word_counter.mjs` (10/10 PASS).
+- **Phase 3.7: EMI Calculator (`/emi-calculator`)**:
+  - Comprehensive loan EMI calculator based on standard financial formula `EMI = P * r * (1+r)^n / ((1+r)^n - 1)`.
+  - Zero-interest protection (`EMI = P / n`), decimal interest support, tenure toggle (Years vs Months).
+  - Quick loan presets (Home Loan, Car Loan, Personal Loan).
+  - Visual principal-vs-interest proportion bar, loan breakdown summary, copy breakdown, and currency selector (₹, $, €, £).
+  - Automated test suite `test_emi_calculator.mjs` (22/22 PASS) and CDP manual test `test_manual_emi_calculator.mjs` (10/10 PASS).
+- **Platform & Registry Integration**:
+  - Registered all 5 tools in `src/tools/toolsRegistry.js`, `src/App.jsx`, `src/components/Header.jsx`, and `src/components/Footer.jsx`.
+  - Dynamic tool registry now contains 19 active tools across Phase 1 (6), Phase 2 (6), and Phase 3 (7).
+  - Updated `HomePage.jsx` Phase 3 section to display all 7 tools dynamically via `PHASE_3_TOOLS`.
+  - 0 lint errors, 0 warnings with `oxlint`.
+  - Production build successful via `vite build`.
+
+---
+
 ## [2026-09-20] — Phase 3.2: Barcode Generator Tool Implementation
 
 ### Added

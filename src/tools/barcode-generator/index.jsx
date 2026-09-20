@@ -65,13 +65,10 @@ export default function BarcodeGeneratorTool() {
 
   // Debounce (immediate when empty)
   useEffect(() => {
-    if (!inputValue || inputValue.trim() === '') {
-      setDebouncedValue('');
-      return;
-    }
+    const delay = (!inputValue || inputValue.trim() === '') ? 0 : 120;
     const timer = setTimeout(() => {
-      setDebouncedValue(inputValue);
-    }, 120);
+      setDebouncedValue(inputValue && inputValue.trim() !== '' ? inputValue : '');
+    }, delay);
     return () => clearTimeout(timer);
   }, [inputValue]);
 

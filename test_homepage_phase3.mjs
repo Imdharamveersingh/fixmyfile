@@ -16,31 +16,34 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
   const homePagePath = path.resolve('src/pages/HomePage.jsx');
   const homePageContent = fs.readFileSync(homePagePath, 'utf8');
 
-  await t.test('1. Registry tool counts and phases', () => {
+  await t.test('1. Registry tool counts and phases (Phase 3 Complete: 7 tools, 19 total)', () => {
     assert.strictEqual(PHASE_1_TOOLS.length, 6, 'Phase 1 should have exactly 6 tools');
     assert.strictEqual(PHASE_2_TOOLS.length, 6, 'Phase 2 should have exactly 6 tools');
-    assert.strictEqual(PHASE_3_TOOLS.length, 1, 'Phase 3 should currently have 1 tool (QR Code Generator)');
-    assert.strictEqual(ALL_TOOLS.length, 13, 'Total active tools in registry must equal 13');
+    assert.strictEqual(PHASE_3_TOOLS.length, 7, 'Phase 3 should have all 7 tools completed');
+    assert.strictEqual(ALL_TOOLS.length, 19, 'Total active tools in registry must equal 19');
   });
 
-  await t.test('2. QR Code Generator registry metadata', () => {
-    const qrTool = getToolByPath('/qr-code-generator');
-    assert.ok(qrTool, 'QR Code Generator tool must be retrievable by path /qr-code-generator');
-    assert.strictEqual(qrTool.id, 'qr-code-generator');
-    assert.strictEqual(qrTool.name, 'QR Code Generator');
-    assert.strictEqual(qrTool.category, 'Generators');
-    assert.strictEqual(qrTool.phase, 'Phase 3');
-    assert.strictEqual(qrTool.status, 'Ready');
-
-    const byId = getToolById('qr-code-generator');
-    assert.deepStrictEqual(byId, qrTool, 'getToolById must match getToolByPath');
+  await t.test('2. All 7 Phase 3 tools registry metadata', () => {
+    const expectedP3 = [
+      'qr-code-generator',
+      'barcode-generator',
+      'currency-converter',
+      'percentage-calculator',
+      'password-generator',
+      'word-counter',
+      'emi-calculator'
+    ];
+    for (const toolId of expectedP3) {
+      const tool = getToolById(toolId);
+      assert.ok(tool, `Tool ${toolId} must exist in registry`);
+      assert.strictEqual(tool.phase, 'Phase 3');
+      assert.strictEqual(tool.status, 'Ready');
+    }
   });
 
-  await t.test('3. Future tools guard: Barcode Generator is NOT in registry', () => {
-    const barcodeTool = getToolByPath('/barcode-generator');
-    assert.strictEqual(barcodeTool, undefined, 'Barcode Generator should not be in toolsRegistry yet');
-    const barcodeById = getToolById('barcode-generator');
-    assert.strictEqual(barcodeById, undefined, 'Barcode Generator should not be retrievable by ID');
+  await t.test('3. Future tools guard: No Phase 4 tools in registry', () => {
+    const futureTools = ALL_TOOLS.filter((tool) => tool.phase && tool.phase.includes('4'));
+    assert.strictEqual(futureTools.length, 0, 'No Phase 4 tools should be in registry');
   });
 
   await t.test('4. HomePage imports PHASE_3_TOOLS', () => {
@@ -85,11 +88,6 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
     );
     assert.match(
       homePageContent,
-      /<span className="phase-indicator">\s*Phase 3 Active\s*<\/span>/,
-      'Phase 3 indicator badge must state "Phase 3 Active"'
-    );
-    assert.match(
-      homePageContent,
       /PHASE_3_TOOLS\.map\(/,
       'HomePage must map over PHASE_3_TOOLS'
     );
@@ -123,20 +121,24 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
     const headerContent = fs.readFileSync(headerPath, 'utf8');
     assert.match(headerContent, /<span className="brand-badge">\s*Phase 3\s*<\/span>/);
     assert.match(headerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
-    assert.doesNotMatch(headerContent, /barcode-generator/i, 'Header must not show barcode generator');
+    assert.match(headerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
 
     const footerPath = path.resolve('src/components/Footer.jsx');
     const footerContent = fs.readFileSync(footerPath, 'utf8');
     assert.match(footerContent, /Phase 3: Generators/);
     assert.match(footerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
+    assert.match(footerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
     assert.match(footerContent, /Phase 3 Active/);
-    assert.doesNotMatch(footerContent, /barcode-generator/i, 'Footer must not show barcode generator');
   });
 
-  await t.test('11. No duplicate QR code tool or broken routes in App.jsx', () => {
+  await t.test('11. All 19 routes registered uniquely in App.jsx', () => {
     const appPath = path.resolve('src/App.jsx');
     const appContent = fs.readFileSync(appPath, 'utf8');
-    const qrRouteMatches = appContent.match(/path="qr-code-generator"/g) || [];
-    assert.strictEqual(qrRouteMatches.length, 1, 'There must be exactly one /qr-code-generator route in App.jsx');
+    for (const tool of ALL_TOOLS) {
+      const cleanPath = tool.path.replace(/^\//, '');
+      const pattern = new RegExp(`path="${cleanPath}"`, 'g');
+      const matches = appContent.match(pattern) || [];
+      assert.strictEqual(matches.length, 1, `Route ${cleanPath} must be registered exactly once in App.jsx`);
+    }
   });
 });
