@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.1: Split PDF Implementation (Phase 4: 1/10 Complete)
+
+### Added
+- **Split PDF Tool (`/split-pdf`):** In-browser client-side PDF document splitting and extraction powered by `pdf-lib`.
+  - **Split by Ranges:** Comma-separated range support (e.g. `1-3, 5, 8-10`), producing clean, individual downloadable PDFs for each specified range.
+  - **Extract into Single PDF:** Consolidates selected pages into a single reordered document.
+  - **Burst Mode:** Automatically explodes any multi-page PDF into standalone single-page documents.
+  - **UI & Accessibility:** Drag-and-drop file ingestion, page count / size metadata, range validation with human-readable error banners, and full keyboard navigation.
+  - **Automated & Chrome Tests:** 11/11 automated unit/integration tests (`test_split_pdf.mjs`) and real Chrome CDP testing (`test_manual_split_pdf.mjs`) passing on Desktop and Mobile viewports with zero console errors.
+  - **Active Tool Count:** Platform updated to **20 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Documentation: Official 55-Tool Master Roadmap Synchronization (Phases 1–7)
 
 ### Milestone

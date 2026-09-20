@@ -29,11 +29,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 1** | PDF Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Calculators & Generators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
-| **Phase 4** | PDF Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 4** | PDF Expansion | 10 Tools | 1 Tool | `IN PROGRESS (1/10)` |
 | **Phase 5** | Image Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **19 Tools** | **19 Active / 36 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **20 Tools** | **20 Active / 35 Planned** |
 
 ---
 
@@ -105,12 +105,12 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 4: PDF Expansion
 
-**Phase Status:** `NOT STARTED (0/10)` — Scheduled for next milestone.
+**Phase Status:** `IN PROGRESS (1/10)` — Active development underway.
 
-| # | Tool | Category | Status | Target Scope |
-|---|---|---|---|---|
-| 20 | **Split PDF** | PDF Organization | `NOT STARTED` | Extract custom page ranges or burst multi-page documents. |
-| 21 | **PDF to Excel** | PDF Conversion | `NOT STARTED` | Extract and structure tabular PDF data into editable XLSX. |
+| # | Tool | Category | Path | Status | Target Scope |
+|---|---|---|---|---|---|
+| 20 | **Split PDF** | PDF Organization | `/split-pdf` | `COMPLETE (PASS)` | Extract custom page ranges or burst multi-page documents client-side. |
+| 21 | **PDF to Excel** | PDF Conversion | `/pdf-to-excel` | `NOT STARTED` | Extract and structure tabular PDF data into editable XLSX. |
 | 22 | **PDF to PowerPoint** | PDF Conversion | `NOT STARTED` | Convert PDF slides into editable presentation slides (PPTX). |
 | 23 | **Rotate PDF** | PDF Organization | `NOT STARTED` | Permanently rotate pages (90°, 180°, 270°) and save new PDF. |
 | 24 | **Protect PDF** | PDF Security | `NOT STARTED` | Encrypt PDF files with standard passwords and permissions. |

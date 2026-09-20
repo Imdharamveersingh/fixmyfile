@@ -22,6 +22,7 @@ import PercentageCalculatorTool from './tools/percentage-calculator';
 import PasswordGeneratorTool from './tools/password-generator';
 import WordCounterTool from './tools/word-counter';
 import EmiCalculatorTool from './tools/emi-calculator';
+import SplitPdfTool from './tools/split-pdf';
 import './App.css';
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="word-to-pdf" element={<WordToPdfTool />} />
           <Route path="merge-pdf" element={<MergePdfTool />} />
           <Route path="compress-pdf" element={<CompressPdfTool />} />
+          <Route path="split-pdf" element={<SplitPdfTool />} />
           <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="image-compressor" element={<ImageCompressorTool />} />
           <Route path="image-resizer" element={<ImageResizerTool />} />

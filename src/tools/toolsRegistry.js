@@ -182,7 +182,19 @@ export const PHASE_3_TOOLS = [
   }
 ];
 
-export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS, ...PHASE_3_TOOLS];
+export const PHASE_4_TOOLS = [
+  {
+    id: 'split-pdf',
+    name: 'Split PDF',
+    path: '/split-pdf',
+    category: 'PDF Organization',
+    description: 'Extract pages, split by custom ranges, or burst PDF documents into separate files client-side.',
+    status: 'Ready',
+    phase: 'Phase 4'
+  }
+];
+
+export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS, ...PHASE_3_TOOLS, ...PHASE_4_TOOLS];
 
 /**
  * Total planned strategy tools across Phase 1 through Phase 7 as defined in tool-build-strategy.md.
