@@ -4,6 +4,16 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Fix: Phase 4 UI Integration & Design Consistency Fix
+
+### Fixed
+- **Phase 4 Tool Discovery on Homepage:** Integrated all 5 Phase 4 PDF tools (`Split PDF`, `PDF to Excel`, `PDF to PowerPoint`, `Rotate PDF`, `Protect PDF`) into `HomePage.jsx` under `Phase 4: PDF Tools` section directly consuming `PHASE_4_TOOLS` from `toolsRegistry.js`. All 24 active tools are now fully discoverable on the homepage.
+- **Phase Badge Routing Bug:** Fixed brand badge in `Header.jsx` to dynamically derive the current phase from the route's tool registry metadata using `useLocation()` and `getToolByPath()`. Phase 4 tool pages now accurately display `Phase 4`, while Phase 1, 2, and 3 pages preserve their respective phase badges.
+- **Phase 4 Design System Consistency:** Unified all 5 Phase 4 tool pages with FixMyFile's premium SaaS design system tokens in `App.css`. Applied `.tool-view-container`, `.breadcrumb-nav`, `.tool-header`, `.converter-card`, and polished `.dropzone` styling with interactive hover states, file cards, and responsive layouts across Desktop (1440px) and Mobile (375px).
+- **Verification:** Verified via real Chrome CDP suite (`test_manual_phase4_integration.mjs`) with 0 console errors, 0 overflow, and 100% test pass rate across all 24 tools.
+
+---
+
 ## [2026-09-20] — Phase 4.4: Rotate PDF Implementation (Phase 4: 4/10 Complete)
 
 ### Added

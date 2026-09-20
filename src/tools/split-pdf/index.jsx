@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
 import { Link } from 'react-router-dom';
+import { getToolByPath } from '../toolsRegistry';
 import {
   parsePageRanges,
   getPdfMetadata,
@@ -10,6 +11,7 @@ import {
 import { formatBytes } from '../../utils/helpers';
 
 export default function SplitPdfTool() {
+  const toolMeta = getToolByPath('/split-pdf');
   const [file, setFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -211,29 +213,35 @@ export default function SplitPdfTool() {
   };
 
   return (
-    <div className="tool-page-container">
+    <div className="tool-view-container tool-page-container">
       {/* Breadcrumb / Top Bar */}
-      <div className="tool-header-area">
-        <div className="tool-breadcrumbs">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-separator">/</span>
-          <Link to="/#tools-phase1">PDF Tools</Link>
-          <span className="breadcrumb-separator">/</span>
-          <span>Split PDF</span>
+      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
+        <Link to="/" className="breadcrumb-link">Home</Link>
+        <span className="breadcrumb-separator">/</span>
+        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
+        <span className="breadcrumb-separator">/</span>
+        <span className="breadcrumb-current">Split PDF</span>
+      </nav>
+
+      {/* Tool Header */}
+      <header className="tool-header tool-header-area">
+        <div className="tool-title-row">
+          <h1 className="tool-h1 tool-main-title">Split PDF</h1>
+          <span className="tool-badge-primary">Free · In-Browser</span>
+          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
-        <h1 className="tool-main-title">Split PDF</h1>
-        <p className="tool-main-desc">
+        <p className="tool-intro tool-main-desc">
           Extract specific pages or split your PDF into multiple separate documents in seconds.
           100% private, processed entirely in your browser.
         </p>
-      </div>
+      </header>
 
       {/* Main Workbench Card */}
-      <div className="workbench-card">
+      <div className="converter-card workbench-card">
         {/* Upload / Dropzone */}
         {!file ? (
           <div
-            className={`dropzone-container ${isDragOver ? 'drag-over' : ''}`}
+            className={`dropzone dropzone-container ${isDragOver ? 'drag-over' : ''}`}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
@@ -269,10 +277,10 @@ export default function SplitPdfTool() {
               </svg>
             </div>
             <h3 className="dropzone-title">Upload your PDF file</h3>
-            <p className="dropzone-subtitle">Drag & drop your document here, or click to browse</p>
+            <p className="dropzone-subtext dropzone-subtitle">Drag & drop your document here, or click to browse</p>
             <button
               type="button"
-              className="workbench-btn-primary dropzone-cta"
+              className="btn btn-primary dropzone-cta workbench-btn-primary"
               onClick={(e) => {
                 e.stopPropagation();
                 openFilePicker();
@@ -280,9 +288,10 @@ export default function SplitPdfTool() {
             >
               Choose PDF File
             </button>
-            <div className="dropzone-badge-row">
+            <div className="dropzone-badge-list dropzone-badge-row">
+              <span className="dropzone-badge">.PDF</span>
               <span className="dropzone-badge">Fast</span>
-              <span className="dropzone-badge">Private</span>
+              <span className="dropzone-badge">100% Private</span>
               <span className="dropzone-badge">Browser-based</span>
             </div>
           </div>

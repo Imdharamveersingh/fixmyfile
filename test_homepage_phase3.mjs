@@ -124,7 +124,7 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
   await t.test('10. Header and Footer navigation verification', () => {
     const headerPath = path.resolve('src/components/Header.jsx');
     const headerContent = fs.readFileSync(headerPath, 'utf8');
-    assert.match(headerContent, /<span className="brand-badge">\s*Phase 3\s*<\/span>/);
+    assert.match(headerContent, /<span className="brand-badge">\s*(\{|Phase)/);
     assert.match(headerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
     assert.match(headerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -98,6 +98,25 @@ export default function HomePage() {
 
         <div className="tools-grid">
           {PHASE_1_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 4: PDF Tools */}
+      <section id="tools-phase4" className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 4: PDF Tools</h2>
+            <p className="section-subtitle">
+              Advanced in-browser PDF manipulation: split, convert to Excel and PowerPoint, rotate, and AES-256 protect.
+            </p>
+          </div>
+          <span className="phase-indicator">5 tools complete</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_4_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>

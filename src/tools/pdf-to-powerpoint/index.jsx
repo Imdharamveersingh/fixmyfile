@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
+import { getToolByPath } from '../toolsRegistry';
 import { convertPdfToPowerpoint } from './powerpointEngine';
 import { formatBytes } from '../../utils/helpers';
 
@@ -9,6 +10,7 @@ import { formatBytes } from '../../utils/helpers';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function PdfToPowerPointTool() {
+  const toolMeta = getToolByPath('/pdf-to-powerpoint');
   const [selectedFile, setSelectedFile] = useState(null);
   const [pdfMeta, setPdfMeta] = useState(null);
   const [isConverting, setIsConverting] = useState(false);
@@ -170,28 +172,34 @@ export default function PdfToPowerPointTool() {
   };
 
   return (
-    <div className="tool-page-container">
+    <div className="tool-view-container tool-page-container">
       {/* Breadcrumb / Top Bar */}
-      <div className="tool-header-area">
-        <div className="tool-breadcrumbs">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-separator">/</span>
-          <Link to="/#tools-phase1">PDF Tools</Link>
-          <span className="breadcrumb-separator">/</span>
-          <span>PDF to PowerPoint</span>
+      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
+        <Link to="/" className="breadcrumb-link">Home</Link>
+        <span className="breadcrumb-separator">/</span>
+        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
+        <span className="breadcrumb-separator">/</span>
+        <span className="breadcrumb-current">PDF to PowerPoint</span>
+      </nav>
+
+      {/* Tool Header */}
+      <header className="tool-header tool-header-area">
+        <div className="tool-title-row">
+          <h1 className="tool-h1 tool-main-title">PDF to PowerPoint Converter</h1>
+          <span className="tool-badge-primary">Free · In-Browser</span>
+          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
-        <h1 className="tool-main-title">PDF to PowerPoint Converter</h1>
-        <p className="tool-main-desc">
+        <p className="tool-intro tool-main-desc">
           Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentations directly in your browser.
           High-definition slide rendering with page notes preserved. 100% private.
         </p>
-      </div>
+      </header>
 
       {/* Main Workbench Card */}
-      <div className="workbench-card">
+      <div className="converter-card workbench-card">
         {!selectedFile ? (
           <div
-            className={`dropzone-container ${isDragOver ? 'drag-over' : ''}`}
+            className={`dropzone dropzone-container ${isDragOver ? 'drag-over' : ''}`}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
@@ -226,11 +234,11 @@ export default function PdfToPowerPointTool() {
               </svg>
             </div>
             <h3 className="dropzone-title">Upload your PDF document</h3>
-            <p className="dropzone-subtitle">Drag & drop your PDF here, or click to browse</p>
+            <p className="dropzone-subtext dropzone-subtitle">Drag & drop your PDF here, or click to browse</p>
             <button
               id="choose-pptx-file-btn"
               type="button"
-              className="workbench-btn-primary dropzone-cta"
+              className="btn btn-primary dropzone-cta workbench-btn-primary"
               onClick={(e) => {
                 e.stopPropagation();
                 openFilePicker();
@@ -238,7 +246,8 @@ export default function PdfToPowerPointTool() {
             >
               Choose PDF File
             </button>
-            <div className="dropzone-badge-row">
+            <div className="dropzone-badge-list dropzone-badge-row">
+              <span className="dropzone-badge">.PDF</span>
               <span className="dropzone-badge">Genuine .PPTX</span>
               <span className="dropzone-badge">100% Private</span>
               <span className="dropzone-badge">Browser-based</span>

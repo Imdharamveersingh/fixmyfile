@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { getToolByPath } from '../tools/toolsRegistry';
 
 export default function Header() {
+  const location = useLocation();
+  const currentTool = getToolByPath(location.pathname);
+  const brandBadgeText = currentTool?.phase || 'Phase 4';
+
   return (
     <header className="site-header">
       <div className="header-container">
@@ -14,7 +19,7 @@ export default function Header() {
             height="32"
           />
           <span className="brand-name">FixMyFile</span>
-          <span className="brand-badge">Phase 3</span>
+          <span className="brand-badge">{brandBadgeText}</span>
         </Link>
 
         <nav className="site-nav" aria-label="Main Navigation">
