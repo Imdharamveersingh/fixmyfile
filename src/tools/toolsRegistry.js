@@ -218,6 +218,15 @@ export const PHASE_4_TOOLS = [
     description: 'Rotate individual or all PDF pages clockwise and counter-clockwise with lossless output.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'protect-pdf',
+    name: 'Protect PDF',
+    path: '/protect-pdf',
+    category: 'PDF Security',
+    description: 'Protect PDF documents with password encryption using genuine AES-256 standard encryption client-side.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

@@ -44,6 +44,7 @@ export default function Header() {
               <Link to="/pdf-to-excel">PDF to Excel</Link>
               <Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link>
               <Link to="/rotate-pdf">Rotate PDF</Link>
+              <Link to="/protect-pdf">Protect PDF</Link>
             </div>
           </div>
 
