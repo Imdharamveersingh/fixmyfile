@@ -9,8 +9,9 @@ export default function BackgroundRemoverTool() {
   const [qualityMode, setQualityMode] = useState('isnet_fp16'); // 'isnet_fp16' (High) or 'isnet_quint8' (Fast)
   const [previewBackdrop, setPreviewBackdrop] = useState('checkerboard'); // 'checkerboard', 'white', 'black'
 
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [progressPercent, setProgressPercent] = useState(0);
+  // Processing States: 'IDLE' | 'LOADING_MODEL' | 'MODEL_READY' | 'ANALYZING' | 'REMOVING_BACKGROUND' | 'GENERATING_OUTPUT' | 'SUCCESS' | 'ERROR'
+  const [processingState, setProcessingState] = useState('IDLE');
+  const [modelDownloadPercent, setModelDownloadPercent] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
 
   const [processedUrl, setProcessedUrl] = useState(null);
@@ -24,6 +25,29 @@ export default function BackgroundRemoverTool() {
   const fileInputRef = useRef(null);
   const activeOriginalUrlRef = useRef(null);
   const activeProcessedUrlRef = useRef(null);
+  const processingPhaseRef = useRef('IDLE');
+
+  const isProcessing =
+    processingState === 'LOADING_MODEL' ||
+    processingState === 'MODEL_READY' ||
+    processingState === 'ANALYZING' ||
+    processingState === 'REMOVING_BACKGROUND' ||
+    processingState === 'GENERATING_OUTPUT';
+
+  const getButtonText = () => {
+    switch (processingState) {
+      case 'LOADING_MODEL':
+      case 'MODEL_READY':
+        return 'Preparing AI Model...';
+      case 'ANALYZING':
+      case 'REMOVING_BACKGROUND':
+        return 'Removing Background...';
+      case 'GENERATING_OUTPUT':
+        return 'Generating Transparent PNG...';
+      default:
+        return '🪄 Remove Background';
+    }
+  };
 
   // SEO Page Title & Meta Description
   useEffect(() => {
@@ -145,6 +169,11 @@ export default function BackgroundRemoverTool() {
       setProcessedDimensions(null);
     }
 
+    setProcessingState('IDLE');
+    processingPhaseRef.current = 'IDLE';
+    setModelDownloadPercent(null);
+    setStatusMessage('');
+
     const url = URL.createObjectURL(file);
     setOriginalPreviewUrl(url);
     setSelectedFile(file);
@@ -170,28 +199,46 @@ export default function BackgroundRemoverTool() {
     if (!selectedFile || isProcessing) return;
 
     setErrorMessage(null);
-    setIsProcessing(true);
-    setProgressPercent(5);
-    setStatusMessage('Initializing AI background removal engine...');
+    setProcessingState('LOADING_MODEL');
+    processingPhaseRef.current = 'LOADING_MODEL';
+    setModelDownloadPercent(null);
+    setStatusMessage('Preparing AI model...');
 
     try {
       // Lazy load @imgly/background-removal so it never blocks unrelated routes
       const { removeBackground } = await import('@imgly/background-removal');
 
-      setStatusMessage('Loading neural segmentation model...');
-      setProgressPercent(15);
-
       const config = {
         model: qualityMode,
         progress: (key, current, total) => {
-          if (total > 0) {
-            const pct = Math.min(95, Math.max(15, Math.round((current / total) * 100)));
-            setProgressPercent(pct);
-            if (typeof key === 'string' && key.toLowerCase().includes('fetch')) {
-              setStatusMessage(`Downloading AI model weights (${pct}%)...`);
+          if (typeof key === 'string' && key.startsWith('fetch:')) {
+            processingPhaseRef.current = 'LOADING_MODEL';
+            setProcessingState('LOADING_MODEL');
+            if (total > 0) {
+              const pct = Math.min(100, Math.round((current / total) * 100));
+              setModelDownloadPercent(pct);
+              if (pct < 100) {
+                setStatusMessage(`Downloading AI model... ${pct}%`);
+              } else {
+                processingPhaseRef.current = 'MODEL_READY';
+                setProcessingState('MODEL_READY');
+                setStatusMessage('AI model ready ✓');
+              }
             } else {
-              setStatusMessage(`Segmenting image foreground (${pct}%)...`);
+              setStatusMessage('Preparing AI model...');
             }
+          } else if (key === 'compute:decode') {
+            processingPhaseRef.current = 'ANALYZING';
+            setProcessingState('ANALYZING');
+            setStatusMessage('Analyzing image...');
+          } else if (key === 'compute:inference' || key === 'compute:mask') {
+            processingPhaseRef.current = 'REMOVING_BACKGROUND';
+            setProcessingState('REMOVING_BACKGROUND');
+            setStatusMessage('Removing background...');
+          } else if (key === 'compute:encode') {
+            processingPhaseRef.current = 'GENERATING_OUTPUT';
+            setProcessingState('GENERATING_OUTPUT');
+            setStatusMessage('Generating transparent PNG...');
           }
         },
         output: {
@@ -224,15 +271,20 @@ export default function BackgroundRemoverTool() {
       };
       resImg.src = transparentUrl;
 
-      setProgressPercent(100);
-      setStatusMessage('Background successfully removed! Transparent PNG is ready.');
+      processingPhaseRef.current = 'SUCCESS';
+      setProcessingState('SUCCESS');
+      setStatusMessage('Background removed successfully!');
     } catch (err) {
       console.error('Background removal error:', err);
-      setErrorMessage(
-        `Failed to remove background: ${err.message || 'An error occurred while running in-browser segmentation.'}`
-      );
-    } finally {
-      setIsProcessing(false);
+      setProcessingState('ERROR');
+      if (
+        processingPhaseRef.current === 'LOADING_MODEL' ||
+        processingPhaseRef.current === 'MODEL_READY'
+      ) {
+        setErrorMessage('Could not load AI model. Please check your connection and try again.');
+      } else {
+        setErrorMessage('Background removal failed. Please try another image.');
+      }
     }
   };
 
@@ -265,8 +317,9 @@ export default function BackgroundRemoverTool() {
     setProcessedSize(null);
     setProcessedDimensions(null);
     setErrorMessage(null);
-    setIsProcessing(false);
-    setProgressPercent(0);
+    setProcessingState('IDLE');
+    processingPhaseRef.current = 'IDLE';
+    setModelDownloadPercent(null);
     setStatusMessage('');
 
     if (fileInputRef.current) {
@@ -316,6 +369,15 @@ export default function BackgroundRemoverTool() {
 
       {/* Main Interactive Tool Area */}
       <section className="converter-card" aria-label="Background Remover tool interface">
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileInputChange}
+          accept="image/jpeg,image/png,image/jpg,.jpg,.jpeg,.png"
+          className="hidden-file-input"
+          aria-hidden="true"
+        />
+
         {!selectedFile ? (
           /* Upload Drop Zone */
           <div
@@ -334,14 +396,6 @@ export default function BackgroundRemoverTool() {
             }}
             aria-label="Upload an image by clicking or dragging and dropping"
           >
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileInputChange}
-              accept="image/jpeg,image/png,image/jpg,.jpg,.jpeg,.png"
-              className="hidden-file-input"
-              aria-hidden="true"
-            />
             <div className="dropzone-icon">🪄</div>
             <h2 className="dropzone-title">Drop your image here</h2>
             <p className="dropzone-subtext">or click to browse your computer or mobile device</p>
@@ -518,28 +572,55 @@ export default function BackgroundRemoverTool() {
 
             {/* Processing State Indicator */}
             {isProcessing && (
-              <div className="compress-progress-box" aria-live="polite">
-                <div className="compress-progress-header">
-                  <span className="compress-status-text">
-                    <span className="compress-spinner" aria-hidden="true"></span>
-                    {statusMessage || 'Processing in-browser background removal...'}
-                  </span>
-                  <span className="compress-pct">{progressPercent}%</span>
-                </div>
+              <div className="convert-action-box" aria-live="polite">
                 <div
-                  className="compress-bar-track"
+                  className="conversion-progress-box"
                   role="progressbar"
-                  aria-valuenow={progressPercent}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
+                  aria-valuenow={
+                    processingState === 'LOADING_MODEL' && modelDownloadPercent !== null
+                      ? modelDownloadPercent
+                      : undefined
+                  }
+                  aria-valuemin={processingState === 'LOADING_MODEL' ? 0 : undefined}
+                  aria-valuemax={processingState === 'LOADING_MODEL' ? 100 : undefined}
+                  aria-label="Background removal progress"
                 >
-                  <div
-                    className="compress-bar-fill"
-                    style={{ width: `${progressPercent}%` }}
-                  ></div>
+                  <div className="progress-info-row">
+                    <span className="progress-status-label">
+                      {processingState === 'MODEL_READY' ? (
+                        <span className="progress-ready-badge" aria-hidden="true">
+                          ✓
+                        </span>
+                      ) : (
+                        <span className="progress-spinner" aria-hidden="true"></span>
+                      )}
+                      {statusMessage || 'Processing in-browser background removal...'}
+                    </span>
+                    {processingState === 'LOADING_MODEL' && modelDownloadPercent !== null && (
+                      <span className="progress-pct-label">{modelDownloadPercent}%</span>
+                    )}
+                  </div>
+
+                  {processingState === 'LOADING_MODEL' && modelDownloadPercent !== null ? (
+                    /* Determinate Model Download Bar */
+                    <div className="progress-bar-track">
+                      <div
+                        className="progress-bar-fill"
+                        style={{ width: `${modelDownloadPercent}%` }}
+                      />
+                    </div>
+                  ) : (
+                    /* Indeterminate Active AI Processing Bar */
+                    <div className="indeterminate-progress-bar">
+                      <div className="indeterminate-progress-fill"></div>
+                    </div>
+                  )}
                 </div>
+
                 <p className="compress-subhint">
-                  First run downloads and caches AI segmentation weights (~40-80MB) locally. Subsequent runs are near-instant!
+                  {processingState === 'LOADING_MODEL'
+                    ? 'First run downloads and caches AI segmentation weights (~40-80MB) locally. Subsequent runs are near-instant!'
+                    : 'In-browser neural segmentation in progress. Image data never leaves your device.'}
                 </p>
               </div>
             )}
@@ -567,7 +648,7 @@ export default function BackgroundRemoverTool() {
                   onClick={handleRemoveBackground}
                   disabled={isProcessing}
                 >
-                  {isProcessing ? 'Removing Background...' : '🪄 Remove Background'}
+                  {getButtonText()}
                 </button>
               ) : (
                 <div className="bg-action-group">
