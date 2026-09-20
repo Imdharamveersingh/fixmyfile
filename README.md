@@ -8,10 +8,10 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 
 ## Current Status
 
-- **Project Stage:** Phase 4 Complete · 29 Active Tools
-- **Active Tools:** **29** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10)
+- **Project Stage:** Phase 5 In Progress · 30 Active Tools
+- **Active Tools:** **30** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10, Phase 5 Expansion: 1)
 - **Total Master Planned Tools:** **55**
-- **Remaining Planned Tools:** **26** (Phases 5 through 7)
+- **Remaining Planned Tools:** **25** (Phases 5 through 7)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -20,7 +20,7 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 - **Phase 2 — Image Foundation:** `COMPLETE (6/6)`
 - **Phase 3 — Calculators & Generators:** `COMPLETE (7/7)`
 - **Phase 4 — PDF Expansion:** `COMPLETE (10/10)`
-- **Phase 5 — Image Expansion:** `PLANNED / NOT STARTED (0/10)`
+- **Phase 5 — Image Expansion:** `IN PROGRESS (1/10)`
 - **Phase 6 — Media Tools:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 7 — OCR / Text / Advanced File Tools:** `PLANNED / NOT STARTED (0/6)`
 
@@ -110,6 +110,7 @@ FixMyFile employs clean, canonical path-based URLs for every tool to optimize us
 | `/extract-pdf-pages` | Extract PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
 | `/delete-pdf-pages` | Delete PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
 | `/reorder-pdf-pages` | Reorder PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
+| `/image-cropper` | Image Cropper | Image Editing | Phase 5 | Complete · In-Browser |
 
 ---
 

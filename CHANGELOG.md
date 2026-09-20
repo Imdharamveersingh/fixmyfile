@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 5.1: Image Cropper Implementation (Phase 5: 1/10 In Progress)
+
+### Added
+- **Image Cropper Tool (`/image-cropper`):** High-precision client-side image cropping engine built natively using HTML5 Canvas, SVG overlay masking, and Touch/Pointer event handlers with zero external dependencies.
+  - **Interactive Crop Box with 8 Resize Handles:** Smooth drag and resize capabilities with rule-of-thirds composition guides, boundary constraints, and live dimension scaling to original pixel resolutions.
+  - **Common Aspect Ratio Presets:** Fast one-click aspect ratio locking for Freeform, 1:1 (Square), 4:3 (Standard), 3:4 (Portrait), 16:9 (Widescreen), and 9:16 (Story/Reel).
+  - **Rotation & Flip Transforms:** 90° clockwise/counter-clockwise rotation steps and horizontal/vertical flips with accurate mathematical coordinate alignment.
+  - **Multi-Format Export & Quality Controls:** Supports JPG, PNG, and WebP exports; strictly preserves PNG alpha transparency and prevents lossy background flattening.
+  - **Automated, Chrome & Difficult Tests:** 15/15 automated unit tests (`test_image_cropper.mjs`), difficult edge test handling 2400×1600 high-res transparent PNGs and extreme aspect ratios (`test_difficult_image_cropper.mjs`), and real Chrome CDP browser test (`test_manual_image_cropper.mjs`) passing on Desktop (1440x900) and Mobile (375x667) with 0 console errors and 0 horizontal overflow.
+  - **Active Tool Count:** Platform updated to **30 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.10: Reorder PDF Pages Implementation (Phase 4: 10/10 COMPLETE)
 
 ### Added

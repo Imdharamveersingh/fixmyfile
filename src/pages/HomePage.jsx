@@ -1,6 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, PHASE_5_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -8,18 +8,18 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="hero-badge-wrap">
           <span className="hero-eyebrow">FAST • FREE • PRIVATE</span>
-          <div className="hero-badge">Phase 3 Active</div>
+          <div className="hero-badge">Phase 5 Active</div>
         </div>
         <h1 className="hero-title">
           Simple tools for <span className="text-gradient">everyday files</span>.
         </h1>
         <p className="hero-description">
           A clean, focused collection of high-demand digital utility tools.
-          Phase 1 PDF tools and Phase 2 image tools are complete, with Phase 3 generators now rolling out.
+          Phase 1–4 PDF, image, and generator tools are complete, with Phase 5 image expansion now underway.
         </p>
 
         <div className="hero-actions">
-          <a href="#tools-phase3" className="btn-hero-primary">
+          <a href="#tools-phase5" className="btn-hero-primary">
             Explore All Tools
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
@@ -117,6 +117,25 @@ export default function HomePage() {
 
         <div className="tools-grid">
           {PHASE_4_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 5: Image Expansion */}
+      <section id="tools-phase5" className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 5: Image Tools (Expansion)</h2>
+            <p className="section-subtitle">
+              Advanced in-browser image editing and format transformation suite with instant client-side privacy.
+            </p>
+          </div>
+          <span className="phase-indicator">{PHASE_5_TOOLS.length} tool active</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_5_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>

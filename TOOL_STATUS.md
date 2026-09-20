@@ -20,10 +20,10 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **Image Foundation** | Phase 2 | 6 | 6 | `COMPLETE (6/6)` |
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
 | **PDF Expansion** | Phase 4 | 10 | 10 | `COMPLETE (10/10)` |
-| **Image Expansion** | Phase 5 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
+| **Image Expansion** | Phase 5 | 10 | 1 | `IN PROGRESS (1/10)` |
 | **Media Tools** | Phase 6 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 6 | 0 | `PLANNED / NOT STARTED (0/6)` |
-| **TOTAL** | **Phases 1–7** | **55** | **29** | **29 Active / 26 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **30** | **30 Active / 25 Planned** |
 
 ---
 
@@ -92,7 +92,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 
 ---
 
-## Phase 5 Tools: Image Expansion (Planned)
+## Phase 5 Tools: Image Expansion (In Progress)
 
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
@@ -100,7 +100,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 31 | **WebP to JPG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 32 | **JPG to WebP** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 33 | **WebP to PNG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 34 | **Image Cropper** | Image Editing | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 34 | **Image Cropper** | Image Editing | Phase 5 | `/image-cropper` | `COMPLETE / PASS` |
 | 35 | **Image Rotate / Flip** | Image Editing | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 36 | **Image Watermark** | Image Editing | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 37 | **Image to PDF** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |

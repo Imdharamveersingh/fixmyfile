@@ -67,6 +67,7 @@ export default function Header() {
               <Link to="/background-remover">Background Remover</Link>
               <Link to="/image-compressor">Image Compressor</Link>
               <Link to="/image-resizer">Image Resizer</Link>
+              <Link to="/image-cropper">Image Cropper</Link>
               <Link to="/image-converter">Image Converter</Link>
               <Link to="/jpg-to-png">JPG to PNG</Link>
               <Link to="/png-to-jpg">PNG to JPG</Link>

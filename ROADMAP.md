@@ -9,8 +9,8 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | Metric | Count | Status |
 |---|---|---|
 | **Total Master Planned Tools** | **55** | Across Phases 1 through 7 |
-| **Current Implemented / Active Tools** | **29** | 100% Production-Ready & Verified |
-| **Remaining Future Planned Tools** | **26** | Formally Scheduled in Master Strategy |
+| **Current Implemented / Active Tools** | **30** | 100% Production-Ready & Verified |
+| **Remaining Future Planned Tools** | **25** | Formally Scheduled in Master Strategy |
 
 ### Status Legend
 - `COMPLETE`: Fully developed, tested, verified, and active on site.
@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 1 Tool | `IN PROGRESS (1/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **29 Tools** | **29 Active / 26 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **30 Tools** | **30 Active / 25 Planned** |
 
 ---
 
@@ -122,15 +122,15 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 5: Image Expansion
 
-**Phase Status:** `NOT STARTED (0/10)` — Scheduled following Phase 4.
+**Phase Status:** `IN PROGRESS (1/10)` — Active development underway.
 
-| # | Tool | Category | Status | Target Scope |
-|---|---|---|---|---|
-| 30 | **HEIC to JPG** | Image Conversion | `NOT STARTED` | Decode Apple iPhone HEIC/HEIF images to standard JPG format. |
+| # | Tool | Category | Path | Status | Target Scope |
+|---|---|---|---|---|---|
+| 30 | **HEIC to JPG** | Image Conversion | `/heic-to-jpg` | `NOT STARTED` | Decode Apple iPhone HEIC/HEIF images to standard JPG format. |
 | 31 | **WebP to JPG** | Image Conversion | `NOT STARTED` | Convert Google WebP graphics to universal JPG format. |
 | 32 | **JPG to WebP** | Image Conversion | `NOT STARTED` | Encode JPG images to optimized, lightweight WebP format. |
 | 33 | **WebP to PNG** | Image Conversion | `NOT STARTED` | Convert WebP graphics to lossless PNG with alpha preservation. |
-| 34 | **Image Cropper** | Image Editing | `NOT STARTED` | Interactive canvas cropping with custom aspect ratios. |
+| 34 | **Image Cropper** | Image Editing | `/image-cropper` | `COMPLETE (PASS)` | Interactive canvas cropping with custom aspect ratios, rotation, and high-res export. |
 | 35 | **Image Rotate / Flip** | Image Editing | `NOT STARTED` | Image rotation (90° steps / arbitrary) and flip transforms. |
 | 36 | **Image Watermark** | Image Editing | `NOT STARTED` | Apply text and image watermarks with opacity and positioning. |
 | 37 | **Image to PDF** | Image Conversion | `NOT STARTED` | Multi-image batch ingestion (PNG, WebP, GIF) to PDF. |

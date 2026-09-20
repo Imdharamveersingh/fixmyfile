@@ -275,11 +275,29 @@ export const PHASE_4_TOOLS = [
   }
 ];
 
-export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS, ...PHASE_3_TOOLS, ...PHASE_4_TOOLS];
+export const PHASE_5_TOOLS = [
+  {
+    id: 'image-cropper',
+    name: 'Image Cropper',
+    path: '/image-cropper',
+    category: 'Image Editing',
+    description: 'Crop JPG, PNG, WebP, and common images client-side with custom aspect ratios, rotation, and high-precision export.',
+    status: 'Ready',
+    phase: 'Phase 5'
+  }
+];
+
+export const ALL_TOOLS = [
+  ...PHASE_1_TOOLS,
+  ...PHASE_2_TOOLS,
+  ...PHASE_3_TOOLS,
+  ...PHASE_4_TOOLS,
+  ...PHASE_5_TOOLS
+];
 
 /**
  * Total planned strategy tools across Phase 1 through Phase 7 as defined in tool-build-strategy.md.
- * 19 currently implemented + 36 planned future tools = 55 total planned tools.
+ * 55 total planned tools.
  */
 export const TOTAL_STRATEGY_TOOLS = 55;
 
