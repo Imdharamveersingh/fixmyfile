@@ -209,6 +209,15 @@ export const PHASE_4_TOOLS = [
     description: 'Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentation slides client-side.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'rotate-pdf',
+    name: 'Rotate PDF',
+    path: '/rotate-pdf',
+    category: 'PDF Organization',
+    description: 'Rotate individual or all PDF pages clockwise and counter-clockwise with lossless output.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

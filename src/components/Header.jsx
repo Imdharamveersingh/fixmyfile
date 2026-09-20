@@ -43,6 +43,7 @@ export default function Header() {
               <Link to="/split-pdf">Split PDF</Link>
               <Link to="/pdf-to-excel">PDF to Excel</Link>
               <Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link>
+              <Link to="/rotate-pdf">Rotate PDF</Link>
             </div>
           </div>
 

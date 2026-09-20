@@ -39,6 +39,7 @@ export default function Footer() {
             <li><Link to="/split-pdf">Split PDF</Link></li>
             <li><Link to="/pdf-to-excel">PDF to Excel</Link></li>
             <li><Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link></li>
+            <li><Link to="/rotate-pdf">Rotate PDF</Link></li>
           </ul>
         </div>
 

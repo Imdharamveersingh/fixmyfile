@@ -4,6 +4,18 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.4: Rotate PDF Implementation (Phase 4: 4/10 Complete)
+
+### Added
+- **Rotate PDF Tool (`/rotate-pdf`):** In-browser, client-side PDF page rotation powered by `pdf-lib` with zero degradation or re-compression.
+  - **Per-Page & Bulk Rotation:** Rotate individual pages (e.g. Page 1 at 90°, Page 3 at 270°) or execute bulk document rotations (+90°, -90°, reset to 0°) with instant visual feedback.
+  - **Canonical Angle Normalization:** Enforces discrete canonical orientations (0°, 90°, 180°, 270°) eliminating cumulative transform or floating-point drift errors.
+  - **Lossless Structural Orientation:** Updates PDF page matrix dictionary rotations natively, preserving vector fonts, embedded images, form elements, and metadata.
+  - **Automated & Chrome Tests:** 8/8 automated test suites (`test_rotate_pdf.mjs`) and real Chrome CDP testing (`test_manual_rotate_pdf.mjs`) passing with zero runtime console errors.
+  - **Active Tool Count:** Platform updated to **23 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.3: PDF to PowerPoint Implementation (Phase 4: 3/10 Complete)
 
 ### Added

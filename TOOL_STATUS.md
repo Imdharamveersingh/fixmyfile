@@ -19,11 +19,11 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **PDF Foundation** | Phase 1 | 6 | 6 | `COMPLETE (6/6)` |
 | **Image Foundation** | Phase 2 | 6 | 6 | `COMPLETE (6/6)` |
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
-| **PDF Expansion** | Phase 4 | 10 | 3 | `IN PROGRESS (3/10)` |
+| **PDF Expansion** | Phase 4 | 10 | 4 | `IN PROGRESS (4/10)` |
 | **Image Expansion** | Phase 5 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
 | **Media Tools** | Phase 6 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 6 | 0 | `PLANNED / NOT STARTED (0/6)` |
-| **TOTAL** | **Phases 1–7** | **55** | **22** | **22 Active / 33 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **23** | **23 Active / 32 Planned** |
 
 ---
 
@@ -80,7 +80,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 20 | **Split PDF** | PDF Organization | Phase 4 | `/split-pdf` | `COMPLETE / PASS` |
 | 21 | **PDF to Excel** | PDF Conversion | Phase 4 | `/pdf-to-excel` | `COMPLETE / PASS` |
 | 22 | **PDF to PowerPoint** | PDF Conversion | Phase 4 | `/pdf-to-powerpoint` | `COMPLETE / PASS` |
-| 23 | **Rotate PDF** | PDF Organization | Phase 4 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 23 | **Rotate PDF** | PDF Organization | Phase 4 | `/rotate-pdf` | `COMPLETE / PASS` |
 | 24 | **Protect PDF** | PDF Security | Phase 4 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 25 | **Unlock PDF** | PDF Security | Phase 4 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 26 | **PDF to Text** | PDF Conversion | Phase 4 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
