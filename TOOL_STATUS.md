@@ -20,10 +20,10 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **Image Foundation** | Phase 2 | 6 | 6 | `COMPLETE (6/6)` |
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
 | **PDF Expansion** | Phase 4 | 10 | 10 | `COMPLETE (10/10)` |
-| **Image Expansion** | Phase 5 | 10 | 1 | `IN PROGRESS (1/10)` |
+| **Image Expansion** | Phase 5 | 10 | 2 | `IN PROGRESS (2/10)` |
 | **Media Tools** | Phase 6 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 6 | 0 | `PLANNED / NOT STARTED (0/6)` |
-| **TOTAL** | **Phases 1–7** | **55** | **30** | **30 Active / 25 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **31** | **31 Active / 24 Planned** |
 
 ---
 
@@ -38,7 +38,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 5 | **Merge PDF** | PDF Organization | Phase 1 | `/merge-pdf` | `COMPLETE / PASS` |
 | 6 | **Compress PDF** | PDF Optimization | Phase 1 | `/compress-pdf` | `COMPLETE / PASS` |
 
-*Validation Summary: All 6 Phase 1 tools completed automated regression testing and manual validation. Key verifications include edge-case benchmark fidelity, pagination accuracy (Word to PDF verified against iLovePDF), multi-image reordering (JPG to PDF), spatial table extraction (PDF to Word V2), and lossless document size reduction (Compress PDF).*
+*Validation Note: All six Phase 1 tools verified via automated regression testing, difficult real-world benchmarks, and manual Chrome verification.*
 
 ---
 
@@ -53,7 +53,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 11 | **JPG to PNG** | Image Conversion | Phase 2 | `/jpg-to-png` | `COMPLETE / PASS` |
 | 12 | **PNG to JPG** | Image Conversion | Phase 2 | `/png-to-jpg` | `COMPLETE / PASS` |
 
-*Validation Summary: All 6 Phase 2 tools verified via automated suites and real Google Chrome (CDP) manual testing. All operate 100% client-side with full privacy, preservation of dimensions, transparent region blending, and zero external API dependencies.*
+*Validation Note: All six Phase 2 tools verified via automated suites and real Chrome CDP sessions with zero external API dependencies.*
 
 ---
 
@@ -69,7 +69,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 18 | **Word Counter** | Text Utilities | Phase 3 | `/word-counter` | `COMPLETE / PASS` |
 | 19 | **EMI Calculator** | Calculators | Phase 3 | `/emi-calculator` | `COMPLETE / PASS` |
 
-*Validation Summary: Phase 3 is 100% COMPLETE (7 of 7 tools complete). Verified through automated test suites and real Google Chrome CDP manual sessions with zero console errors. Features include offline fallback resilience, cryptographic security (`crypto.getRandomValues()`), and Unicode-aware text segmentation.*
+*Validation Note: All seven Phase 3 tools verified with dedicated unit tests and real Chrome CDP browser automation.*
 
 ---
 
@@ -96,7 +96,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
-| 30 | **HEIC to JPG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 30 | **HEIC to JPG** | Image Conversion | Phase 5 | `/heic-to-jpg` | `COMPLETE / PASS` |
 | 31 | **WebP to JPG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 32 | **JPG to WebP** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 33 | **WebP to PNG** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |

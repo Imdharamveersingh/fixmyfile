@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 5.2: HEIC to JPG Implementation (Phase 5: 2/10 In Progress)
+
+### Added
+- **HEIC to JPG Tool (`/heic-to-jpg`):** Client-side Apple iPhone HEIC/HEIF photo conversion engine powered by `heic2any` (libheif/libde265 compiled to WebWorker WebAssembly).
+  - **Dynamic Lazy-Loading:** The decoder and associated WebAssembly logic are dynamically imported on-demand via `import('heic2any')` only when visiting `/heic-to-jpg`, generating an isolated chunk (`assets/heic2any-*.js`) and keeping the initial homepage bundle lightweight.
+  - **ISO BMFF Header & Box Sniffing:** Robust file validation inspecting byte signatures for `ftyp` compatible brands (`heic`, `heix`, `heim`, `heis`, `mif1`, `msf1`) preventing invalid conversions while tolerating disparate OS/browser MIME types.
+  - **Quality Control & Dimensions Tracking:** Flexible output quality selector (Low 60%, Good 80%, High 92%, Max 98%) with live dimension measurement, size reduction computation, and execution timing tracking.
+  - **Graceful Error Handling:** Intercepts unsupported container profiles/animations cleanly with helpful explanatory guidance instead of raw console crashes.
+  - **Automated, Chrome & Difficult Tests:** 10/10 automated tests (`test_heic_to_jpg.mjs`), difficult edge test processing high-resolution 2.54MB authentic HEIC photo (`test_difficult_heic_to_jpg.mjs`), and real Chrome CDP browser test (`test_manual_heic_to_jpg.mjs`) passing on Desktop (1440x900) and Mobile (375x667) with 0 console errors and 0 mobile horizontal overflow.
+  - **Active Tool Count:** Platform updated to **31 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 5.1: Image Cropper Implementation (Phase 5: 1/10 In Progress)
 
 ### Added

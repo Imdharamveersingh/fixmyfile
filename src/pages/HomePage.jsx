@@ -131,7 +131,7 @@ export default function HomePage() {
               Advanced in-browser image editing and format transformation suite with instant client-side privacy.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_5_TOOLS.length} tool active</span>
+          <span className="phase-indicator">{PHASE_5_TOOLS.length} {PHASE_5_TOOLS.length === 1 ? 'tool' : 'tools'} active</span>
         </div>
 
         <div className="tools-grid">

@@ -284,6 +284,15 @@ export const PHASE_5_TOOLS = [
     description: 'Crop JPG, PNG, WebP, and common images client-side with custom aspect ratios, rotation, and high-precision export.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'heic-to-jpg',
+    name: 'HEIC to JPG',
+    path: '/heic-to-jpg',
+    category: 'Image Conversion',
+    description: 'Convert Apple iPhone HEIC and HEIF photos to standard JPG format client-side with zero cloud uploads.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

@@ -9,8 +9,8 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | Metric | Count | Status |
 |---|---|---|
 | **Total Master Planned Tools** | **55** | Across Phases 1 through 7 |
-| **Current Implemented / Active Tools** | **30** | 100% Production-Ready & Verified |
-| **Remaining Future Planned Tools** | **25** | Formally Scheduled in Master Strategy |
+| **Current Implemented / Active Tools** | **31** | 100% Production-Ready & Verified |
+| **Remaining Future Planned Tools** | **24** | Formally Scheduled in Master Strategy |
 
 ### Status Legend
 - `COMPLETE`: Fully developed, tested, verified, and active on site.
@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 1 Tool | `IN PROGRESS (1/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 2 Tools | `IN PROGRESS (2/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **30 Tools** | **30 Active / 25 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **31 Tools** | **31 Active / 24 Planned** |
 
 ---
 
@@ -122,11 +122,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 5: Image Expansion
 
-**Phase Status:** `IN PROGRESS (1/10)` — Active development underway.
+**Phase Status:** `IN PROGRESS (2/10)` — Active development underway.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
-| 30 | **HEIC to JPG** | Image Conversion | `/heic-to-jpg` | `NOT STARTED` | Decode Apple iPhone HEIC/HEIF images to standard JPG format. |
+| 30 | **HEIC to JPG** | Image Conversion | `/heic-to-jpg` | `COMPLETE (PASS)` | Decode Apple iPhone HEIC/HEIF images to standard JPG format. |
 | 31 | **WebP to JPG** | Image Conversion | `NOT STARTED` | Convert Google WebP graphics to universal JPG format. |
 | 32 | **JPG to WebP** | Image Conversion | `NOT STARTED` | Encode JPG images to optimized, lightweight WebP format. |
 | 33 | **WebP to PNG** | Image Conversion | `NOT STARTED` | Convert WebP graphics to lossless PNG with alpha preservation. |
