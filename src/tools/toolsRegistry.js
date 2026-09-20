@@ -263,6 +263,15 @@ export const PHASE_4_TOOLS = [
     description: 'Remove unwanted pages or page ranges from PDF documents while preserving remaining page integrity.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'reorder-pdf-pages',
+    name: 'Reorder PDF Pages',
+    path: '/reorder-pdf-pages',
+    category: 'PDF Organization',
+    description: 'Rearrange and resequence PDF page order interactively with 100% layout and quality preservation.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

@@ -54,6 +54,7 @@ export default function Header() {
               <Link to="/pdf-to-text">PDF to Text</Link>
               <Link to="/extract-pdf-pages">Extract PDF Pages</Link>
               <Link to="/delete-pdf-pages">Delete PDF Pages</Link>
+              <Link to="/reorder-pdf-pages">Reorder PDF Pages</Link>
             </div>
           </div>
 

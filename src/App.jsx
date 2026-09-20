@@ -31,6 +31,7 @@ import UnlockPdfTool from './tools/unlock-pdf';
 import PdfToTextTool from './tools/pdf-to-text';
 import ExtractPdfPagesTool from './tools/extract-pdf-pages';
 import DeletePdfPagesTool from './tools/delete-pdf-pages';
+import ReorderPdfPagesTool from './tools/reorder-pdf-pages';
 import './App.css';
 
 export default function App() {
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="pdf-to-text" element={<PdfToTextTool />} />
           <Route path="extract-pdf-pages" element={<ExtractPdfPagesTool />} />
           <Route path="delete-pdf-pages" element={<DeletePdfPagesTool />} />
+          <Route path="reorder-pdf-pages" element={<ReorderPdfPagesTool />} />
           <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="image-compressor" element={<ImageCompressorTool />} />
           <Route path="image-resizer" element={<ImageResizerTool />} />
