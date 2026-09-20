@@ -8,7 +8,6 @@ import {
   PHASE_1_TOOLS,
   PHASE_2_TOOLS,
   PHASE_3_TOOLS,
-  getToolByPath,
   getToolById
 } from './src/tools/toolsRegistry.js';
 
@@ -125,7 +124,7 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
 
     const footerPath = path.resolve('src/components/Footer.jsx');
     const footerContent = fs.readFileSync(footerPath, 'utf8');
-    assert.match(footerContent, /Phase 3: Generators/);
+    assert.match(footerContent, /Phase 3: Calculators & Generators/);
     assert.match(footerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
     assert.match(footerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
     assert.match(footerContent, /Phase 3 Active/);

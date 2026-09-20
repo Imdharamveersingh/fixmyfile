@@ -23,12 +23,6 @@ export default function Footer() {
             <li><Link to="/jpg-to-pdf">JPG to PDF</Link></li>
             <li><Link to="/pdf-to-word">PDF to Word</Link></li>
             <li><Link to="/pdf-to-jpg">PDF to JPG</Link></li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4 className="footer-heading">PDF Utilities</h4>
-          <ul className="footer-links">
             <li><Link to="/word-to-pdf">Word to PDF</Link></li>
             <li><Link to="/merge-pdf">Merge PDF</Link></li>
             <li><Link to="/compress-pdf">Compress PDF</Link></li>
@@ -48,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phase 3: Generators</h4>
+          <h4 className="footer-heading">Phase 3: Calculators & Generators</h4>
           <ul className="footer-links">
             <li><Link to="/qr-code-generator">QR Code Generator</Link></li>
             <li><Link to="/barcode-generator">Barcode Generator</Link></li>

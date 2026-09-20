@@ -164,7 +164,7 @@
 /* Home Page */
 .hero-section {
   text-align: center;
-  padding: 40px 0 48px;
+  padding: 32px 0 16px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -238,7 +238,7 @@
 
 /* Tools Section */
 .tools-section {
-  margin-top: 40px;
+  margin-top: 28px;
 }
 
 .section-header {
@@ -277,6 +277,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 20px;
+}
+
+/* Phase 3 Centered Final Card on Desktop */
+@media (min-width: 1040px) {
+  .phase3-grid > :nth-child(7):last-child {
+    grid-column: 2;
+  }
 }
 
 /* ToolCard */

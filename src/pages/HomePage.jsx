@@ -43,7 +43,7 @@ export default function HomePage() {
           <span className="phase-indicator">7 tools complete</span>
         </div>
 
-        <div className="tools-grid">
+        <div className="tools-grid phase3-grid">
           {PHASE_3_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
