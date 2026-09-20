@@ -227,6 +227,15 @@ export const PHASE_4_TOOLS = [
     description: 'Protect PDF documents with password encryption using genuine AES-256 standard encryption client-side.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'unlock-pdf',
+    name: 'Unlock PDF',
+    path: '/unlock-pdf',
+    category: 'PDF Security',
+    description: 'Remove password protection and permissions security from PDF documents client-side.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

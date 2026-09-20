@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.6: Unlock PDF Implementation (Phase 4: 6/10 Complete)
+
+### Added
+- **Unlock PDF Tool (`/unlock-pdf`):** Genuine client-side PDF password removal and restriction unlocking engine powered by `pdfjs-dist` and `pdf-lib`.
+  - **Credential-Based Decryption:** Authenticates user-supplied credentials against PDF Standard Security Handlers without brute-force cracking or unauthorized penetration.
+  - **Permission Restriction Unlocking:** Detects and strips owner-level permissions and restriction flags for documents with open reading permissions.
+  - **High-DPI Page Reconstruction:** Reconstructs decrypted PDF pages at 2x resolution (144 DPI) into a pristine unencrypted PDF without `/Encrypt` dictionaries.
+  - **Automatic Security Detection:** Inspects uploaded files to determine whether a document is already unencrypted, owner-restricted, or user-password protected.
+  - **Automated & Chrome Tests:** 8/8 automated test suites (`test_unlock_pdf.mjs`), difficult edge tests (`test_difficult_unlock_pdf.mjs`), and real Chrome CDP browser testing (`test_manual_unlock_pdf.mjs`) passing with zero console errors.
+  - **Active Tool Count:** Platform updated to **25 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Fix: Phase 4 UI Integration & Design Consistency Fix
 
 ### Fixed

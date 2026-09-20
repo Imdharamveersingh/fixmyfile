@@ -109,10 +109,10 @@ export default function HomePage() {
           <div>
             <h2 className="section-title">Phase 4: PDF Tools</h2>
             <p className="section-subtitle">
-              Advanced in-browser PDF manipulation: split, convert to Excel and PowerPoint, rotate, and AES-256 protect.
+              Advanced in-browser PDF manipulation: split, convert to Excel and PowerPoint, rotate, AES-256 protect, and unlock.
             </p>
           </div>
-          <span className="phase-indicator">5 tools complete</span>
+          <span className="phase-indicator">{PHASE_4_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">

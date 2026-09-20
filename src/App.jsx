@@ -27,6 +27,7 @@ import PdfToExcelTool from './tools/pdf-to-excel';
 import PdfToPowerPointTool from './tools/pdf-to-powerpoint';
 import RotatePdfTool from './tools/rotate-pdf';
 import ProtectPdfTool from './tools/protect-pdf';
+import UnlockPdfTool from './tools/unlock-pdf';
 import './App.css';
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="split-pdf" element={<SplitPdfTool />} />
           <Route path="rotate-pdf" element={<RotatePdfTool />} />
           <Route path="protect-pdf" element={<ProtectPdfTool />} />
+          <Route path="unlock-pdf" element={<UnlockPdfTool />} />
           <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="image-compressor" element={<ImageCompressorTool />} />
           <Route path="image-resizer" element={<ImageResizerTool />} />
