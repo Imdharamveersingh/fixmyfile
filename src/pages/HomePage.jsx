@@ -1,18 +1,18 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        <div className="hero-badge">Phase 2 Active</div>
+        <div className="hero-badge">Phase 3 Active</div>
         <h1 className="hero-title">
           Fast, Reliable Online <span className="text-gradient">Utility Tools</span>
         </h1>
         <p className="hero-description">
           A clean, focused collection of high-demand digital utility tools.
-          Currently rolling out Phase 2 featuring our image processing tools alongside our complete Phase 1 PDF suite.
+          Phase 1 PDF tools and Phase 2 image tools are complete, with Phase 3 generators now rolling out.
         </p>
 
         <div className="stats-row">
@@ -31,7 +31,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 2: Image Drivers */}
+      {/* Phase 3: Calculators & Generators */}
+      <section className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 3: Calculators & Generators</h2>
+            <p className="section-subtitle">
+              High-demand utility generators and calculators, currently rolling out with our browser-first QR code generator.
+            </p>
+          </div>
+          <span className="phase-indicator">Phase 3 Active</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_3_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 2: Image Tools */}
       <section className="tools-section">
         <div className="section-header">
           <div>
@@ -40,7 +59,7 @@ export default function HomePage() {
               High-demand image editing and conversion utilities with in-browser AI processing.
             </p>
           </div>
-          <span className="phase-indicator">Phase 2 Active</span>
+          <span className="phase-indicator">6 tools complete</span>
         </div>
 
         <div className="tools-grid">
