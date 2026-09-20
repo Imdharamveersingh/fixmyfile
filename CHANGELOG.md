@@ -4,6 +4,24 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.1: Background Remover Tool Implementation
+
+### Added
+- Implemented in-browser **Background Remover** tool at `/background-remover`:
+  - **Local-First AI Segmentation:** Integrated client-side background removal engine via `@imgly/background-removal` using in-browser WebAssembly and WebGPU neural network execution (ISNet). 100% private, zero server uploads, no paid APIs, and no API keys required.
+  - **Dynamic Lazy Loading:** Library and model weights are dynamically imported on-demand, ensuring main application and Phase 1 routes load instantly without overhead.
+  - **Drag & Drop & Validation:** File picker and dropzone accepting JPG, JPEG, and PNG images up to 25MB with client-side format and size checks.
+  - **Dual Precision Options:** Provided High Precision (ISNet FP16) and Fast Mode (ISNet Quint8) for balance between fine edge detail and rapid inference.
+  - **Interactive Transparent Preview:** Real-time visual comparison with original image and transparent output rendered against selectable checkerboard, solid white, or solid black backdrops.
+  - **Full Alpha PNG Export:** Generates genuine transparent PNGs (`<filename>-no-bg.png`) with preserved source dimensions.
+  - **Memory & Resource Safety:** Automated object URL lifecycle management revoking blob URLs on reset and unmount.
+- Updated `src/tools/toolsRegistry.js` registering `background-remover` under `PHASE_2_TOOLS` and updating global lookups.
+- Configured dedicated route `/background-remover` in `src/App.jsx`.
+- Updated `Header.jsx`, `Footer.jsx`, and `HomePage.jsx` with Phase 2 Image Tools navigation.
+- Created automated test suite `test_background_remover.mjs` verifying routing, validation, filename generation, and engine availability (37 assertions passing).
+
+---
+
 ## [2026-09-20] — Phase 1 Completion & Phase 2 Kickoff Preparation
 
 ### Completed

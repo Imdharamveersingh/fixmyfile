@@ -36,11 +36,11 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Architecture</h4>
-          <p className="footer-subtext">
-            Modular client-first utility suite. 36 tools planned across targeted demand tiers.
-          </p>
-          <span className="footer-pill">Phase 1 in progress</span>
+          <h4 className="footer-heading">Phase 2: Image Tools</h4>
+          <ul className="footer-links">
+            <li><Link to="/background-remover">Background Remover</Link></li>
+          </ul>
+          <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 2 Active</span>
         </div>
       </div>
 

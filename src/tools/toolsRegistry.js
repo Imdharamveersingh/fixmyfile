@@ -59,10 +59,24 @@ export const PHASE_1_TOOLS = [
   }
 ];
 
+export const PHASE_2_TOOLS = [
+  {
+    id: 'background-remover',
+    name: 'Background Remover',
+    path: '/background-remover',
+    category: 'Image Editing',
+    description: 'Remove image backgrounds automatically with client-side AI and transparent PNG export.',
+    status: 'Ready',
+    phase: 'Phase 2'
+  }
+];
+
+export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS];
+
 export function getToolByPath(path) {
-  return PHASE_1_TOOLS.find((tool) => tool.path === path);
+  return ALL_TOOLS.find((tool) => tool.path === path);
 }
 
 export function getToolById(id) {
-  return PHASE_1_TOOLS.find((tool) => tool.id === id);
+  return ALL_TOOLS.find((tool) => tool.id === id);
 }

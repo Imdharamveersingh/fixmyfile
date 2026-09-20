@@ -8,6 +8,7 @@ import PdfToJpgTool from './tools/pdf-to-jpg';
 import WordToPdfTool from './tools/word-to-pdf';
 import MergePdfTool from './tools/merge-pdf';
 import CompressPdfTool from './tools/compress-pdf';
+import BackgroundRemoverTool from './tools/background-remover';
 import './App.css';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="word-to-pdf" element={<WordToPdfTool />} />
           <Route path="merge-pdf" element={<MergePdfTool />} />
           <Route path="compress-pdf" element={<CompressPdfTool />} />
+          <Route path="background-remover" element={<BackgroundRemoverTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

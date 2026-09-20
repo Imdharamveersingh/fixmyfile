@@ -27,18 +27,18 @@ This document provides a comprehensive inventory and status tracker for all tool
 
 ---
 
-## Phase 2 Tools (Image Drivers — Next Planned Phase)
+## Phase 2 Tools (Image Drivers — Active Phase)
 
 | # | Tool | Category | Demand | Phase | Path | Status |
 |---|---|---|---|---|---|---|
-| 7 | **Background Remover** | Image Editing | High | Phase 2 | TBD | `NOT STARTED` |
+| 7 | **Background Remover** | Image Editing | High | Phase 2 | `/background-remover` | `COMPLETE` (Automated PASS · Manual Verification Pending) |
 | 8 | **Image Compressor** | Image Optimization | High | Phase 2 | TBD | `NOT STARTED` |
 | 9 | **Image Resizer** | Image Editing | High | Phase 2 | TBD | `NOT STARTED` |
 | 10 | **Image Converter** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 | 11 | **JPG to PNG** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 | 12 | **PNG to JPG** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
 
-*Note: Phase 2 tools are confirmed as the next incoming phase. No implementation or test execution has started for Phase 2.*
+*Note: Phase 2.1 Background Remover implementation is complete with automated tests passing (37 test assertions verified). Manual in-browser verification checklist is defined. Remaining Phase 2 tools (8–12) have not been started.*
 
 ---
 
@@ -46,7 +46,7 @@ This document provides a comprehensive inventory and status tracker for all tool
 
 As established in the project strategy, the platform footprint encompasses **36 tools** filtered to:
 - **Very High demand** (Phase 1: 6 tools — `COMPLETE / PASS`)
-- **High demand** (Phase 2: 6 tools — `NOT STARTED / NEXT`)
+- **High demand** (Phase 2: 1 of 6 tools complete — `IN PROGRESS`)
 - **Medium-High demand** (Phase 3: 8 tools)
 - **Medium demand** (Phases 4 & 5: 16 tools)
 

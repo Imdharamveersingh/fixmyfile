@@ -161,3 +161,15 @@ This document records the official technical and strategic decisions made for **
   6. Apply `pageBreakBefore` directly on the first element of subsequent source pages to avoid spacer paragraph artifacts.
 - **Reason:** Operates 100% client-side without external dependencies, preserves user privacy, eliminates fragmented lines in Word documents, and faithfully converts tabular regions into editable Word tables while avoiding false positives.
 - **Impact:** Vastly improves DOCX document editability, pagination, and fidelity for structured enterprise PDFs.
+
+---
+
+## Decision: Client-Side Background Removal Engine Selection (@imgly/background-removal)
+
+- **Date:** 2026-09-20
+- **Status:** Accepted
+- **Context:** Implementing the Background Remover tool in Phase 2 required genuine foreground/background segmentation without paid cloud APIs, API keys, or uploading user images to remote servers. The engine needed to support people, pets, products, and everyday objects, run locally in standard modern browsers, produce genuine transparent PNGs with preserved original resolution, and avoid bloating initial page load times.
+- **Decision:** Adopt `@imgly/background-removal` paired with `onnxruntime-web` for in-browser client-side image segmentation, loaded dynamically via code-splitting (`import()`) on demand.
+- **Reason:** `@imgly/background-removal` runs 100% locally via WebAssembly and WebGPU (using quantized ISNet ONNX neural network models), requires zero API keys or backend servers, caches weights in the browser after initial download, and handles full-resolution mask extraction and alpha channel compositing into transparent PNGs. Lazy loading ensures zero impact on Phase 1 tools or initial page loads.
+- **Impact:** Delivers instant, private, free, and genuine foreground segmentation entirely on the user's device.
+

@@ -8,7 +8,7 @@ export default function Header() {
         <Link to="/" className="brand-logo">
           <span className="brand-icon">⚡</span>
           <span className="brand-name">FixMyFile</span>
-          <span className="brand-badge">Phase 1</span>
+          <span className="brand-badge">Phase 2</span>
         </Link>
         <nav className="site-nav">
           <NavLink
@@ -29,6 +29,12 @@ export default function Header() {
               <Link to="/word-to-pdf">Word to PDF</Link>
               <Link to="/merge-pdf">Merge PDF</Link>
               <Link to="/compress-pdf">Compress PDF</Link>
+            </div>
+          </div>
+          <div className="nav-dropdown">
+            <span className="nav-dropdown-label">Image Tools ▾</span>
+            <div className="nav-dropdown-menu">
+              <Link to="/background-remover">Background Remover</Link>
             </div>
           </div>
         </nav>

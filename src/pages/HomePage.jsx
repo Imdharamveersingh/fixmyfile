@@ -1,24 +1,24 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { PHASE_1_TOOLS } from '../tools/toolsRegistry';
+import { PHASE_1_TOOLS, PHASE_2_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        <div className="hero-badge">Phase 1 Rollout</div>
+        <div className="hero-badge">Phase 2 Active</div>
         <h1 className="hero-title">
           Fast, Reliable Online <span className="text-gradient">Utility Tools</span>
         </h1>
         <p className="hero-description">
           A clean, focused collection of high-demand digital utility tools.
-          Currently rolling out Phase 1 featuring our core PDF processing suite.
+          Currently rolling out Phase 2 featuring our image processing tools alongside our complete Phase 1 PDF suite.
         </p>
 
         <div className="stats-row">
           <div className="stat-card">
-            <span className="stat-number">6</span>
-            <span className="stat-label">Phase 1 Tools</span>
+            <span className="stat-number">7</span>
+            <span className="stat-label">Active Tools</span>
           </div>
           <div className="stat-card">
             <span className="stat-number">36</span>
@@ -31,15 +31,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Phase 2: Image Drivers */}
+      <section className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 2: Image Tools</h2>
+            <p className="section-subtitle">
+              High-demand image editing and conversion utilities with in-browser AI processing.
+            </p>
+          </div>
+          <span className="phase-indicator">Phase 2 Active</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_2_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 1: PDF Tools */}
       <section className="tools-section">
         <div className="section-header">
           <div>
             <h2 className="section-title">Phase 1: PDF Tools</h2>
             <p className="section-subtitle">
-              High-demand document utilities prepared for implementation.
+              Fully verified in-browser PDF conversion, merging, and compression suite.
             </p>
           </div>
-          <span className="phase-indicator">6 routes active</span>
+          <span className="phase-indicator">6 tools complete</span>
         </div>
 
         <div className="tools-grid">

@@ -8,9 +8,9 @@ The platform is developed following a strict phase-by-phase approach, prioritizi
 
 ## Current Status
 
-- **Project Stage:** Phase 1 Complete · Transitioning to Phase 2
-- **Current Phase:** Phase 2 — Image Drivers (Kickoff Preparation)
-- **Tool Implementation Status:** Phase 1 Complete (All 6 core PDF tools PASS final validation).
+- **Project Stage:** Phase 1 Complete · Phase 2 Active
+- **Current Phase:** Phase 2 — Image Drivers
+- **Tool Implementation Status:** 7 Tools Complete (6 Phase 1 PDF tools + Background Remover active).
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -77,8 +77,9 @@ FixMyFile strictly employs clean, canonical path-based URLs for every tool to op
 | `/word-to-pdf` | Word to PDF | Complete · Functional In-Browser Converter |
 | `/merge-pdf` | Merge PDF | Complete · Functional In-Browser Merger |
 | `/compress-pdf` | Compress PDF | Complete · Functional In-Browser Optimizer |
+| `/background-remover` | Background Remover | Complete · In-Browser AI Segmentation |
 
-> **Note:** All 6 Phase 1 tools (`/jpg-to-pdf`, `/pdf-to-word`, `/pdf-to-jpg`, `/word-to-pdf`, `/merge-pdf`, and `/compress-pdf`) are complete and fully functional with client-side processing.
+> **Note:** All 6 Phase 1 tools and Phase 2.1 Background Remover are complete and fully functional with client-side processing.
 
 ---
 
