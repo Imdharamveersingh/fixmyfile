@@ -14,6 +14,7 @@ import ImageResizerTool from './tools/image-resizer';
 import ImageConverterTool from './tools/image-converter';
 import JpgToPngTool from './tools/jpg-to-png';
 import PngToJpgTool from './tools/png-to-jpg';
+import QrCodeGeneratorTool from './tools/qr-code-generator';
 import './App.css';
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />
+          <Route path="qr-code-generator" element={<QrCodeGeneratorTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -4,6 +4,43 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 3.1: QR Code Generator Tool Implementation
+
+### Added
+- Implemented dedicated in-browser **QR Code Generator** tool at `/qr-code-generator`:
+  - **Local-First & Client-Side Engine:** 100% in-browser QR code generation using `qrcode-generator` with zero server requests, no external APIs, and strict privacy.
+  - **Live Reactive Generation:** Debounced reactive preview (160ms) smoothly updates as the user types without requiring a manual "Generate" button, paired with an empty-state preview guide when input is cleared.
+  - **Structured Content Type Helpers:**
+    - **URL:** Auto-prepends `https://` if protocol is omitted, validating clean URLs.
+    - **Text:** Freeform arbitrary text or notes.
+    - **Email:** Encodes RFC-compliant `mailto:` with target address, subject line, and body.
+    - **Phone:** Encodes standardized `tel:` dialing scheme.
+    - **Wi-Fi:** Encodes standard `WIFI:T:<auth>;S:<ssid>;P:<password>;H:<hidden>;;` syntax supporting WPA/WPA2, WEP, unencrypted networks, and hidden SSID broadcasting.
+  - **Deep Appearance Customization:**
+    - **Module Styles:** Square, Rounded, Dots, and Classy.
+    - **Eye / Finder Pattern Styles:** Square, Rounded, and Circular corner patterns.
+    - **Color Customization:** Foreground and background color pickers with hex inputs and quick color presets.
+    - **Quiet Zone Margin:** Adjustable safe quiet-zone border (1 to 8 modules, default 4).
+    - **Error Correction Levels:** Low (7%), Medium (15%), Quartile (25%), and High (30%) error tolerance with automated version selection (1 to 40).
+    - **Size / Resolution Controls:** Configurable raster export resolutions (256px, 512px, 1024px, 2048px).
+  - **Scannability Safety & Guardrails:**
+    - Real-time WCAG color contrast ratio calculation with safety warning when contrast is below 3:1.
+    - Light-on-dark inverted QR detection alert recommending standard dark-on-light color schemes for reliable optical scanner binarization.
+    - Automated scannability validation via client-side `jsQR` decoder engine.
+  - **Vector and Raster Downloads:**
+    - **PNG Download:** High-resolution raster file rendered accurately on offscreen canvas.
+    - **SVG Download:** Genuine vector SVG (`<svg>` containing vector `<rect>` and `<circle>` geometry without embedded raster screenshots or foreign objects).
+    - Download filename sanitization formatting files as `<sanitized-name>-qr.png` and `<sanitized-name>-qr.svg`.
+  - **Convenience Actions:** One-click copy for raw encoded payload string and full raw vector SVG markup.
+  - **Responsive Layout:** Side-by-side layout on desktop and stacked layout on tablet/mobile with zero horizontal scrolling.
+- Registered `qr-code-generator` in `src/tools/toolsRegistry.js` under `PHASE_3_TOOLS` and `ALL_TOOLS`.
+- Registered route `/qr-code-generator` in `src/App.jsx`.
+- Added "Generators" dropdown navigation to `Header.jsx` and "Generators" column to `Footer.jsx`.
+- Created comprehensive automated test suite `test_qr_code_generator.mjs` (52 assertions, 100% passing).
+- Created real Google Chrome CDP manual validation suite `test_manual_qr_code_generator.mjs` (10 test suites, 100% passing).
+
+---
+
 ## [2026-09-20] — Phase 2.6: PNG to JPG Converter Tool Implementation & Phase 2 Completion
 
 ### Added

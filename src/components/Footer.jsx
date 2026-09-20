@@ -45,7 +45,14 @@ export default function Footer() {
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>
-          <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 2 Active</span>
+        </div>
+
+        <div className="footer-col">
+          <h4 className="footer-heading">Phase 3: Generators</h4>
+          <ul className="footer-links">
+            <li><Link to="/qr-code-generator">QR Code Generator</Link></li>
+          </ul>
+          <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 3 Active</span>
         </div>
       </div>
 

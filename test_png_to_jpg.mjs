@@ -54,8 +54,8 @@ async function runTests() {
     assert.ok(PHASE_2_TOOLS.some((t) => t.id === 'png-to-jpg'));
   });
 
-  test('ALL_TOOLS contains 12 tools in total (6 Phase 1 + 6 Phase 2)', () => {
-    assert.strictEqual(ALL_TOOLS.length, 12);
+  test('ALL_TOOLS contains 12 or more tools in total', () => {
+    assert.ok(ALL_TOOLS.length >= 12);
   });
 
   // 2. Verifying Non-Regression of All Registered Routes

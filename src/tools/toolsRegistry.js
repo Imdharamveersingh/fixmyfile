@@ -116,7 +116,19 @@ export const PHASE_2_TOOLS = [
   }
 ];
 
-export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS];
+export const PHASE_3_TOOLS = [
+  {
+    id: 'qr-code-generator',
+    name: 'QR Code Generator',
+    path: '/qr-code-generator',
+    category: 'Generators',
+    description: 'Create customizable, high-resolution QR codes for text, URLs, email, phone, and Wi-Fi networks with vector SVG and PNG downloads.',
+    status: 'Ready',
+    phase: 'Phase 3'
+  }
+];
+
+export const ALL_TOOLS = [...PHASE_1_TOOLS, ...PHASE_2_TOOLS, ...PHASE_3_TOOLS];
 
 export function getToolByPath(path) {
   return ALL_TOOLS.find((tool) => tool.path === path);

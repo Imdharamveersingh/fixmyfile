@@ -42,17 +42,27 @@ This document provides a comprehensive inventory and status tracker for all tool
 
 ---
 
+## Phase 3 Tools (Generators & Media — Active Phase)
+
+| # | Tool | Category | Demand | Phase | Path | Status |
+|---|---|---|---|---|---|---|
+| 13 | **QR Code Generator** | Generators | High | Phase 3 | `/qr-code-generator` | `COMPLETE / PASS` |
+
+*Validation Status: Phase 3.1 QR Code Generator is 100% complete and validated. Features client-side live generation, text/URL/email/phone/Wi-Fi formats, custom module styles, custom eye styles, color palettes with WCAG contrast safety checking, and genuine vector SVG and high-resolution PNG downloads. Automated testing (52 assertions) and real Google Chrome manual validation passing 100%.*
+
+---
+
 ## Subsequent Strategic Tools (Phases 3 through 5)
 
 As established in the project strategy, the platform footprint encompasses **36 tools** filtered to:
 - **Very High demand** (Phase 1: 6 tools — `COMPLETE / PASS`)
-- **High demand** (Phase 2: 1 of 6 tools complete — `IN PROGRESS`)
-- **Medium-High demand** (Phase 3: 8 tools)
+- **High demand** (Phase 2: 6 tools — `COMPLETE / PASS`)
+- **Medium-High demand** (Phase 3: QR Code Generator complete — `IN PROGRESS`)
 - **Medium demand** (Phases 4 & 5: 16 tools)
 
 | # | Tool Tier / Focus | Category | Demand | Phase | Path | Status |
 |---|---|---|---|---|---|---|
-| 13–20 | Media & Image Suite | Images / Media | Medium-High | Phase 3 | Governed by project strategy | `NOT STARTED` |
+| 14–20 | Media & Image Suite | Images / Media | Medium-High | Phase 3 | Governed by project strategy | `NOT STARTED` |
 | 21–28 | Text & Code Suite | Text / Dev | Medium | Phase 4 | Governed by project strategy | `NOT STARTED` |
 | 29–36 | Data & Everyday Suite | Calculations / Data | Medium | Phase 5 | Governed by project strategy | `NOT STARTED` |
 

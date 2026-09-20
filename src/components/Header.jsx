@@ -8,7 +8,7 @@ export default function Header() {
         <Link to="/" className="brand-logo">
           <span className="brand-icon">⚡</span>
           <span className="brand-name">FixMyFile</span>
-          <span className="brand-badge">Phase 2</span>
+          <span className="brand-badge">Phase 3</span>
         </Link>
         <nav className="site-nav">
           <NavLink
@@ -40,6 +40,12 @@ export default function Header() {
               <Link to="/image-converter">Image Converter</Link>
               <Link to="/jpg-to-png">JPG to PNG</Link>
               <Link to="/png-to-jpg">PNG to JPG</Link>
+            </div>
+          </div>
+          <div className="nav-dropdown">
+            <span className="nav-dropdown-label">Generators ▾</span>
+            <div className="nav-dropdown-menu">
+              <Link to="/qr-code-generator">QR Code Generator</Link>
             </div>
           </div>
         </nav>

@@ -60,15 +60,27 @@ This document outlines the multi-phase roadmap for **FixMyFile**, tracking compl
 
 ---
 
+## Phase 3: Generators & Optimization Utilities
+
+**Phase Status:** `IN PROGRESS` (1 of 8 tools complete: QR Code Generator COMPLETE / PASS)
+
+| # | Tool | Category | Path | Status | Target |
+|---|---|---|---|---|---|
+| 1 | **QR Code Generator** | Calculators & Generators | `/qr-code-generator` | `COMPLETE (PASS)` | Generate customizable, scannable QR codes (Text, URL, Email, Phone, Wi-Fi) with PNG/SVG vector downloads. |
+| 2 | **Barcode Generator** | Calculators & Generators | `/barcode-generator` | `NOT STARTED` | Generate 1D and 2D industrial barcodes client-side. |
+| 3-8 | **Phase 3 Remaining Tools** | Optimization Utilities | TBD | `NOT STARTED` | Remaining scheduled utilities. |
+
+---
+
 ## Subsequent Phases
 
 The remaining strategic tools span media, developer, and data utilities categorized by demand level:
 
 | Phase | Category Focus | Tool Count | Demand Tier | Status |
 |---|---|---|---|---|
-| **Phase 2** | Image Drivers | 6 Tools | High Demand | `NOT STARTED` (Next) |
-| **Phase 3** | Image & Media Optimization Utilities | 8 Tools | Medium-High Demand | `NOT STARTED` |
+| **Phase 3** | Generators & Utilities | 8 Tools | Medium-High Demand | `IN PROGRESS` (Tool 1/8 complete) |
 | **Phase 4** | Text & Developer Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
 | **Phase 5** | Data & Calculator Utilities | 8 Tools | Medium Demand | `NOT STARTED` |
 
 > **Authoritative Sequence:** Individual tool assignments, paths, and build priorities are strictly governed by project strategy. Each phase will commence only after the preceding phase achieves `COMPLETE` status.
+
