@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.3: PDF to PowerPoint Implementation (Phase 4: 3/10 Complete)
+
+### Added
+- **PDF to PowerPoint Tool (`/pdf-to-powerpoint`):** Client-side conversion of PDF documents into genuine Microsoft PowerPoint OpenXML (`.pptx`) presentations powered by `pdfjs-dist` and `pptxgenjs`.
+  - **High-DPI Slide Rendering:** Renders PDF pages to 2x canvas resolution, packaging each page as a full-bleed slide preserving layout, charts, graphics, and visual fidelity.
+  - **Dynamic Aspect Ratio Matching:** Automatically calculates PDF page aspect ratio (16:9 widescreen, 4:3, or custom dimensions) and applies matched presentation slide layouts.
+  - **Slide Notes Extraction:** Extracts textual content from each PDF page and stores it in PowerPoint speaker notes for full searchability and reference.
+  - **Genuine PPTX Packages:** Creates authentic OpenXML ZIP structures containing standard `ppt/presentation.xml`, `ppt/slides/`, and media components without server uploads.
+  - **Automated & Chrome Tests:** 7/7 automated test suites (`test_pdf_to_powerpoint.mjs`) and real Chrome CDP testing (`test_manual_pdf_to_powerpoint.mjs`) passing with zero runtime console errors.
+  - **Active Tool Count:** Platform updated to **22 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.2: PDF to Excel Implementation (Phase 4: 2/10 Complete)
 
 ### Added

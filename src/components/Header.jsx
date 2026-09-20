@@ -42,6 +42,7 @@ export default function Header() {
               <Link to="/compress-pdf">Compress PDF</Link>
               <Link to="/split-pdf">Split PDF</Link>
               <Link to="/pdf-to-excel">PDF to Excel</Link>
+              <Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link>
             </div>
           </div>
 

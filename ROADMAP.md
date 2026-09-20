@@ -9,8 +9,8 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | Metric | Count | Status |
 |---|---|---|
 | **Total Master Planned Tools** | **55** | Across Phases 1 through 7 |
-| **Current Implemented / Active Tools** | **19** | 100% Production-Ready & Verified |
-| **Remaining Future Planned Tools** | **36** | Formally Scheduled in Master Strategy |
+| **Current Implemented / Active Tools** | **22** | 100% Production-Ready & Verified |
+| **Remaining Future Planned Tools** | **33** | Formally Scheduled in Master Strategy |
 
 ### Status Legend
 - `COMPLETE`: Fully developed, tested, verified, and active on site.
@@ -29,11 +29,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 1** | PDF Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Calculators & Generators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
-| **Phase 4** | PDF Expansion | 10 Tools | 2 Tools | `IN PROGRESS (2/10)` |
+| **Phase 4** | PDF Expansion | 10 Tools | 3 Tools | `IN PROGRESS (3/10)` |
 | **Phase 5** | Image Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **21 Tools** | **21 Active / 34 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **22 Tools** | **22 Active / 33 Planned** |
 
 ---
 
@@ -105,13 +105,13 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 4: PDF Expansion
 
-**Phase Status:** `IN PROGRESS (1/10)` — Active development underway.
+**Phase Status:** `IN PROGRESS (3/10)` — Active development underway.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
 | 20 | **Split PDF** | PDF Organization | `/split-pdf` | `COMPLETE (PASS)` | Extract custom page ranges or burst multi-page documents client-side. |
 | 21 | **PDF to Excel** | PDF Conversion | `/pdf-to-excel` | `COMPLETE (PASS)` | Extract and structure tabular PDF data into editable XLSX spreadsheets. |
-| 22 | **PDF to PowerPoint** | PDF Conversion | `NOT STARTED` | Convert PDF slides into editable presentation slides (PPTX). |
+| 22 | **PDF to PowerPoint** | PDF Conversion | `/pdf-to-powerpoint` | `COMPLETE (PASS)` | Convert PDF pages into genuine presentation slides (.pptx) client-side. |
 | 23 | **Rotate PDF** | PDF Organization | `NOT STARTED` | Permanently rotate pages (90°, 180°, 270°) and save new PDF. |
 | 24 | **Protect PDF** | PDF Security | `NOT STARTED` | Encrypt PDF files with standard passwords and permissions. |
 | 25 | **Unlock PDF** | PDF Security | `NOT STARTED` | Decrypt and remove known passwords from secured PDFs client-side. |

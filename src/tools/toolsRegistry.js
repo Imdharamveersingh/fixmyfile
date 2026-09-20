@@ -200,6 +200,15 @@ export const PHASE_4_TOOLS = [
     description: 'Extract tables and structured data from PDF documents into editable Microsoft Excel (.xlsx) spreadsheets.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'pdf-to-powerpoint',
+    name: 'PDF to PowerPoint',
+    path: '/pdf-to-powerpoint',
+    category: 'PDF Conversion',
+    description: 'Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentation slides client-side.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 
