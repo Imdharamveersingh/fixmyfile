@@ -41,6 +41,7 @@ export default function Header() {
               <Link to="/merge-pdf">Merge PDF</Link>
               <Link to="/compress-pdf">Compress PDF</Link>
               <Link to="/split-pdf">Split PDF</Link>
+              <Link to="/pdf-to-excel">PDF to Excel</Link>
             </div>
           </div>
 

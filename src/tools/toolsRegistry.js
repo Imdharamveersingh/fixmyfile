@@ -191,6 +191,15 @@ export const PHASE_4_TOOLS = [
     description: 'Extract pages, split by custom ranges, or burst PDF documents into separate files client-side.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'pdf-to-excel',
+    name: 'PDF to Excel',
+    path: '/pdf-to-excel',
+    category: 'PDF Conversion',
+    description: 'Extract tables and structured data from PDF documents into editable Microsoft Excel (.xlsx) spreadsheets.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

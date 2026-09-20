@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.2: PDF to Excel Implementation (Phase 4: 2/10 Complete)
+
+### Added
+- **PDF to Excel Tool (`/pdf-to-excel`):** Client-side conversion of tabular PDF documents into genuine Microsoft Excel OpenXML (`.xlsx`) workbooks powered by `pdfjs-dist` and `exceljs`.
+  - **Spatial Coordinate Extraction:** Reconstructs table rows and columns by analyzing text item coordinates and natural spacing gaps.
+  - **Numeric & Type Parsing:** Automatically detects and parses integers, decimal numbers, percentages, and currencies into native spreadsheet data types.
+  - **Multi-Sheet Support:** Generates individual worksheets per page plus a consolidated "All Data" sheet for multi-page documents.
+  - **Scanned PDF Guard:** Transparently detects image-only/scanned documents lacking selectable text and alerts users that OCR is required rather than emitting empty spreadsheets.
+  - **Automated & Chrome Tests:** 8/8 automated test suites (`test_pdf_to_excel.mjs`) and real Chrome CDP testing (`test_manual_pdf_to_excel.mjs`) passing with zero runtime console errors.
+  - **Active Tool Count:** Platform updated to **21 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.1: Split PDF Implementation (Phase 4: 1/10 Complete)
 
 ### Added

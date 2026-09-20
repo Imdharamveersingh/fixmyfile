@@ -37,6 +37,7 @@ export default function Footer() {
             <li><Link to="/merge-pdf">Merge PDF</Link></li>
             <li><Link to="/compress-pdf">Compress PDF</Link></li>
             <li><Link to="/split-pdf">Split PDF</Link></li>
+            <li><Link to="/pdf-to-excel">PDF to Excel</Link></li>
           </ul>
         </div>
 

@@ -23,6 +23,7 @@ import PasswordGeneratorTool from './tools/password-generator';
 import WordCounterTool from './tools/word-counter';
 import EmiCalculatorTool from './tools/emi-calculator';
 import SplitPdfTool from './tools/split-pdf';
+import PdfToExcelTool from './tools/pdf-to-excel';
 import './App.css';
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="jpg-to-pdf" element={<JpgToPdfTool />} />
           <Route path="pdf-to-word" element={<PdfToWordTool />} />
+          <Route path="pdf-to-excel" element={<PdfToExcelTool />} />
           <Route path="pdf-to-jpg" element={<PdfToJpgTool />} />
           <Route path="word-to-pdf" element={<WordToPdfTool />} />
           <Route path="merge-pdf" element={<MergePdfTool />} />
