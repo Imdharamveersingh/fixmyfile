@@ -29,11 +29,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 1** | PDF Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
-| **Phase 4** | PDF Expansion | 10 Tools | 8 Tools | `IN PROGRESS (8/10)` |
+| **Phase 4** | PDF Expansion | 10 Tools | 9 Tools | `IN PROGRESS (9/10)` |
 | **Phase 5** | Image Expansion | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **27 Tools** | **27 Active / 28 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **28 Tools** | **28 Active / 27 Planned** |
 
 ---
 
@@ -105,7 +105,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 4: PDF Expansion
 
-**Phase Status:** `IN PROGRESS (8/10)` — Active development underway.
+**Phase Status:** `IN PROGRESS (9/10)` — Active development underway.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
@@ -117,7 +117,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 25 | **Unlock PDF** | PDF Security | `/unlock-pdf` | `COMPLETE (PASS)` | Decrypt and remove passwords/restrictions from secured PDFs client-side. |
 | 26 | **PDF to Text** | PDF Conversion | `/pdf-to-text` | `COMPLETE (PASS)` | Extract selectable text page-by-page into clean, formatted .txt files client-side. |
 | 27 | **Extract PDF Pages** | PDF Organization | `/extract-pdf-pages` | `COMPLETE (PASS)` | Select and isolate specific pages or custom ranges into a standalone PDF. |
-| 28 | **Delete PDF Pages** | PDF Organization | `NOT STARTED` | Remove selected pages from a PDF and recompile document. |
+| 28 | **Delete PDF Pages** | PDF Organization | `/delete-pdf-pages` | `COMPLETE (PASS)` | Remove unwanted pages or page ranges from PDF documents while preserving integrity. |
 | 29 | **Reorder PDF Pages** | PDF Organization | `NOT STARTED` | Interactive visual drag-and-drop page sequence rearrangement. |
 
 ---

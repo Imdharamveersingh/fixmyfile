@@ -53,6 +53,7 @@ export default function Header() {
               <Link to="/unlock-pdf">Unlock PDF</Link>
               <Link to="/pdf-to-text">PDF to Text</Link>
               <Link to="/extract-pdf-pages">Extract PDF Pages</Link>
+              <Link to="/delete-pdf-pages">Delete PDF Pages</Link>
             </div>
           </div>
 

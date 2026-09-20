@@ -44,6 +44,7 @@ export default function Footer() {
             <li><Link to="/unlock-pdf">Unlock PDF</Link></li>
             <li><Link to="/pdf-to-text">PDF to Text</Link></li>
             <li><Link to="/extract-pdf-pages">Extract PDF Pages</Link></li>
+            <li><Link to="/delete-pdf-pages">Delete PDF Pages</Link></li>
           </ul>
         </div>
 

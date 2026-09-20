@@ -254,6 +254,15 @@ export const PHASE_4_TOOLS = [
     description: 'Select and extract specific pages or custom ranges from PDF documents into a new lightweight PDF.',
     status: 'Ready',
     phase: 'Phase 4'
+  },
+  {
+    id: 'delete-pdf-pages',
+    name: 'Delete PDF Pages',
+    path: '/delete-pdf-pages',
+    category: 'PDF Organization',
+    description: 'Remove unwanted pages or page ranges from PDF documents while preserving remaining page integrity.',
+    status: 'Ready',
+    phase: 'Phase 4'
   }
 ];
 

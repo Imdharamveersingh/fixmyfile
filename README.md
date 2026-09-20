@@ -8,10 +8,10 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 
 ## Current Status
 
-- **Project Stage:** Phase 4 In Progress · 27 Active Tools
-- **Active Tools:** **27** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 8)
+- **Project Stage:** Phase 4 In Progress · 28 Active Tools
+- **Active Tools:** **28** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 9)
 - **Total Master Planned Tools:** **55**
-- **Remaining Planned Tools:** **28** (Phases 4 through 7)
+- **Remaining Planned Tools:** **27** (Phases 4 through 7)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -19,7 +19,7 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 - **Phase 1 — PDF Foundation:** `COMPLETE (6/6)`
 - **Phase 2 — Image Foundation:** `COMPLETE (6/6)`
 - **Phase 3 — Calculators & Generators:** `COMPLETE (7/7)`
-- **Phase 4 — PDF Expansion:** `IN PROGRESS (8/10)`
+- **Phase 4 — PDF Expansion:** `IN PROGRESS (9/10)`
 - **Phase 5 — Image Expansion:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 6 — Media Tools:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 7 — OCR / Text / Advanced File Tools:** `PLANNED / NOT STARTED (0/6)`
@@ -74,7 +74,7 @@ npm run preview
 
 ---
 
-## Active Route Structure (27 Implemented Tools)
+## Active Route Structure (28 Implemented Tools)
 
 FixMyFile employs clean, canonical path-based URLs for every tool to optimize usability, direct bookmarking, and SEO:
 
@@ -108,6 +108,7 @@ FixMyFile employs clean, canonical path-based URLs for every tool to optimize us
 | `/unlock-pdf` | Unlock PDF | PDF Security | Phase 4 | Complete · In-Browser |
 | `/pdf-to-text` | PDF to Text | PDF Conversion | Phase 4 | Complete · In-Browser |
 | `/extract-pdf-pages` | Extract PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
+| `/delete-pdf-pages` | Delete PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
 
 ---
 

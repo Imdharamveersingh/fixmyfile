@@ -4,6 +4,18 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 4.9: Delete PDF Pages Implementation (Phase 4: 9/10 Complete)
+
+### Added
+- **Delete PDF Pages Tool (`/delete-pdf-pages`):** In-browser PDF trimming and unwanted page removal engine powered by `pdf-lib`.
+  - **Flexible Page Deletion Syntax:** Allows users to mark pages to delete via individual numbers (`1`), lists (`2, 4`), or ranges (`1-3, 5`), with immediate duplicate normalization.
+  - **Zero-Page Safety Guard:** Strictly prevents and blocks the deletion of all document pages, guaranteeing that valid PDFs with at least one remaining page are generated.
+  - **Interactive Page Trashing Cards:** Interactive thumbnail cards showing deletion status with strike-through styling, trash badges, and live counts of pages to remove versus pages remaining.
+  - **Automated, Chrome & Difficult Edge Tests:** 13/13 automated unit tests (`test_delete_pdf_pages.mjs`), difficult edge test removing multi-dimensional pages (`test_difficult_delete_pdf_pages.mjs`), and real Chrome CDP browser testing (`test_manual_delete_pdf_pages.mjs`) passing on Desktop (1440x900) and Mobile (375x667) with 0 console errors.
+  - **Active Tool Count:** Platform updated to **28 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 4.8: Extract PDF Pages Implementation (Phase 4: 8/10 Complete)
 
 ### Added
