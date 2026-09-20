@@ -36,9 +36,9 @@ This document provides a comprehensive inventory and status tracker for all tool
 | 9 | **Image Resizer** | Image Editing | High | Phase 2 | `/image-resizer` | `COMPLETE / PASS` |
 | 10 | **Image Converter** | Image Conversion | High | Phase 2 | `/image-converter` | `COMPLETE / PASS` |
 | 11 | **JPG to PNG** | Image Conversion | High | Phase 2 | `/jpg-to-png` | `COMPLETE / PASS` |
-| 12 | **PNG to JPG** | Image Conversion | High | Phase 2 | TBD | `NOT STARTED` |
+| 12 | **PNG to JPG** | Image Conversion | High | Phase 2 | `/png-to-jpg` | `COMPLETE / PASS` |
 
-*Note: Phase 2.1 (Background Remover), Phase 2.2 (Image Compressor), Phase 2.3 (Image Resizer), Phase 2.4 (Image Converter), and Phase 2.5 (JPG to PNG) are complete with automated tests and real Chrome browser manual validation passing 100%. JPG to PNG features strict input validation, lossless PNG encoding, exact 1:1 dimension preservation, and safe browser canvas processing. Phase 2.6 (PNG to JPG) has not been started.*
+*Validation Status: All 6 Phase 2 tools (Background Remover, Image Compressor, Image Resizer, Image Converter, JPG to PNG, and PNG to JPG) have completed both automated regression testing and manual validation in real Google Chrome via CDP. All tools operate 100% client-side with full privacy, preservation of dimensions, transparent region handling, and zero external API dependencies. Phase 2 is 100% COMPLETE.*
 
 ---
 

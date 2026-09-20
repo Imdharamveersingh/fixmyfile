@@ -4,6 +4,27 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.6: PNG to JPG Converter Tool Implementation & Phase 2 Completion
+
+### Added
+- Implemented dedicated in-browser **PNG to JPG** tool at `/png-to-jpg`:
+  - **Local-First Conversion Engine:** 100% client-side conversion from PNG to real JPEG using native HTML5 Canvas 2D APIs with zero server uploads, no APIs, and complete privacy.
+  - **Strict Format Input:** Dedicated input filter accepting only PNG format (`.png`, `image/png`). Rejects JPG, JPEG, WEBP, GIF, SVG, and PDF with clear, actionable user guidance (`"Please upload a PNG image."`).
+  - **Transparency Handling & Background Colors:** Clear notification to the user that JPG does not support alpha transparency (`"JPG does not support transparency. Choose a background color for transparent areas."`). Provides White (default `#ffffff`), Black (`#000000`), or Custom hex background color selector with preview to ensure transparent areas are flattened gracefully onto the selected background without silent clipping.
+  - **JPEG Quality Slider:** Configurable JPEG encoding quality from 10% to 100% (default 80%) with size/fidelity guidance.
+  - **1:1 Dimension Preservation:** Output dimensions strictly match source image natural dimensions without downscaling, stretching, or cropping.
+  - **Output Verification:** Decodes generated JPEG blob in-memory, verifies `image/jpeg` MIME type, magic bytes (`0xFF 0xD8`), and confirms natural dimensions before displaying success.
+  - **Side-by-Side Comparative Preview:** Displays source PNG and generated JPG with dimensions, format badges, and file sizes. Includes backdrop preview toggles (White, Checkerboard, Black).
+  - **Safe Browser Processing:** Guardrails against oversized images (> 10,000 px per side, > 40 MP, > 30 MB).
+- Registered `png-to-jpg` in `src/tools/toolsRegistry.js` under `PHASE_2_TOOLS` and configured route in `src/App.jsx`.
+- Updated navigation in `Header.jsx`, `Footer.jsx`, `TOOL_STATUS.md`, and `ROADMAP.md`.
+- Created automated test suite `test_png_to_jpg.mjs` (49 assertions passing) and real Google Chrome CDP manual validation suite `test_manual_png_to_jpg.mjs` (100% passing across 10 test suites).
+
+### Milestone Achieved
+- **Phase 2 (Image Drivers) 100% COMPLETE:** All 6 Phase 2 tools (Background Remover, Image Compressor, Image Resizer, Image Converter, JPG to PNG, and PNG to JPG) have been fully developed, automated-tested, and manually validated in real Google Chrome.
+
+---
+
 ## [2026-09-20] — Phase 2.5: JPG to PNG Converter Tool Implementation
 
 ### Added

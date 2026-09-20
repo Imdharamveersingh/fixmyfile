@@ -104,6 +104,15 @@ export const PHASE_2_TOOLS = [
     description: 'Convert JPG and JPEG images to PNG format online for free with 1:1 dimension preservation.',
     status: 'Ready',
     phase: 'Phase 2'
+  },
+  {
+    id: 'png-to-jpg',
+    name: 'PNG to JPG',
+    path: '/png-to-jpg',
+    category: 'Image Conversion',
+    description: 'Convert PNG images to JPG format online with customizable background colors for transparent areas and adjustable quality.',
+    status: 'Ready',
+    phase: 'Phase 2'
   }
 ];
 

@@ -13,6 +13,7 @@ import ImageCompressorTool from './tools/image-compressor';
 import ImageResizerTool from './tools/image-resizer';
 import ImageConverterTool from './tools/image-converter';
 import JpgToPngTool from './tools/jpg-to-png';
+import PngToJpgTool from './tools/png-to-jpg';
 import './App.css';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="image-resizer" element={<ImageResizerTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
+          <Route path="png-to-jpg" element={<PngToJpgTool />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
