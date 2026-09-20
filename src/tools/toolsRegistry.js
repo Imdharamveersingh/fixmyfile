@@ -86,6 +86,15 @@ export const PHASE_2_TOOLS = [
     description: 'Resize JPG and PNG images online with aspect ratio lock, custom dimensions, and popular social presets.',
     status: 'Ready',
     phase: 'Phase 2'
+  },
+  {
+    id: 'image-converter',
+    name: 'Image Converter',
+    path: '/image-converter',
+    category: 'Image Conversion',
+    description: 'Convert images between JPG, PNG, and WEBP formats client-side with dimension preservation and transparency controls.',
+    status: 'Ready',
+    phase: 'Phase 2'
   }
 ];
 

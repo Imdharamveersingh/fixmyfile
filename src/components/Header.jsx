@@ -37,6 +37,7 @@ export default function Header() {
               <Link to="/background-remover">Background Remover</Link>
               <Link to="/image-compressor">Image Compressor</Link>
               <Link to="/image-resizer">Image Resizer</Link>
+              <Link to="/image-converter">Image Converter</Link>
             </div>
           </div>
         </nav>

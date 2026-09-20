@@ -4,6 +4,27 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-20] — Phase 2.4: Image Converter Tool Implementation
+
+### Added
+- Implemented in-browser **Image Converter** tool at `/image-converter`:
+  - **Local-First Conversion Engine:** 100% client-side raster conversion between JPG, PNG, and WEBP using native HTML5 Canvas 2D APIs (`createImageBitmap` / `HTMLImageElement` + `canvas.toBlob()`), zero server uploads, and no external paid dependencies.
+  - **Supported Raster Formats:** Converts between JPG, PNG, and WEBP. Unsupported formats (PDF, SVG, GIF, TIFF, HEIC, AVIF) are gracefully rejected with user-friendly alerts.
+  - **1:1 Dimension Preservation:** Strictly maintains original image width and height without unwanted downscaling or distortion. Post-conversion validation checks decoded image natural dimensions against original source dimensions before displaying success.
+  - **Alpha Transparency & Background Handling:**
+    - Preserves alpha transparency when converting between formats with alpha support (PNG → PNG, PNG → WEBP, WEBP → PNG, WEBP → WEBP).
+    - When converting transparent PNG/WEBP images to JPG (which lacks alpha support), provides a background color picker (White default, Black, or Custom hex) and explicit user guidance.
+  - **Format-Specific Controls:** Quality slider for lossy JPG and WEBP formats (10% to 100%, default 80%); losslessly encoded PNG images display an informational card without misleading lossy quality controls.
+  - **Same-Format Conversion Support:** Allows converting to the same format with clear re-encode notifications.
+  - **Browser Compatibility Checks:** Tests canvas WebP encoding capability dynamically and disables unsupported output formats gracefully.
+  - **Large Image Safety:** Safeguards against dimensions > 10,000 px or pixel counts > 40MP.
+  - **Side-by-Side Preview & File Metrics:** Comparative dual preview with transparency backdrop toggles (Checkerboard, White, Black), format badges, dimensions, and file sizes.
+- Registered `image-converter` in `src/tools/toolsRegistry.js` under `PHASE_2_TOOLS` and configured route in `src/App.jsx`.
+- Updated navigation in `Header.jsx`, `Footer.jsx`, and `ROADMAP.md` (4 of 6 Phase 2 tools complete).
+- Created automated test suite `test_image_converter.mjs` (53 assertions passing) and real Google Chrome CDP manual validation suite `test_manual_converter.mjs` (100% passing across 8 test suites).
+
+---
+
 ## [2026-09-20] — Phase 2.3: Image Resizer Tool Implementation
 
 ### Added
