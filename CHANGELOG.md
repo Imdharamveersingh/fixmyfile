@@ -4,6 +4,20 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-22] — Phase 7.6: Extract Text from PDF Implementation (Phase 7: 6/6 Complete)
+
+### Added
+- **Extract Text from PDF Tool (`/extract-text-from-pdf`):** Fast, browser-first structural text extraction engine for multi-page PDF documents powered by PDF.js.
+  - **Spatial Text & Paragraph Reconstruction:** Evaluates text item coordinates to group words into natural reading lines and detects paragraph boundaries with spatial vertical tolerance.
+  - **Multi-Page Support & Tabbed Review:** Displays extracted content with page delimiters and interactive page-by-page tabs ("All Pages" vs individual pages) alongside character, word, and page counts.
+  - **Graceful Scanned Document Detection:** Automatically detects flat/image-only PDFs lacking selectable text streams and guides users to the complementary `/pdf-ocr` tool.
+  - **100% Client-Side Execution:** Direct PDF stream parsing in browser memory with zero network uploads.
+  - **Export & Feedback:** Instant clipboard copying with visual confirmation and direct `.txt` download.
+  - **Quality Assurance:** 44/44 automated unit, integration, and real Chrome CDP tests, plus 8/8 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **49 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 6/6 complete).
+
+---
+
 ## [2026-09-22] — Phase 7.5: Screenshot to Text Implementation (Phase 7: 5/6 In Progress)
 
 ### Added

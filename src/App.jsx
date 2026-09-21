@@ -51,6 +51,7 @@ import PdfOcrTool from './tools/pdf-ocr';
 import JpgToTextTool from './tools/jpg-to-text';
 import PngToTextTool from './tools/png-to-text';
 import ScreenshotToTextTool from './tools/screenshot-to-text';
+import ExtractTextFromPdfTool from './tools/extract-text-from-pdf';
 import './App.css';
 
 export default function App() {
@@ -98,6 +99,7 @@ export default function App() {
           <Route path="jpg-to-text" element={<JpgToTextTool />} />
           <Route path="png-to-text" element={<PngToTextTool />} />
           <Route path="screenshot-to-text" element={<ScreenshotToTextTool />} />
+          <Route path="extract-text-from-pdf" element={<ExtractTextFromPdfTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

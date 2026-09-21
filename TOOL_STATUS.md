@@ -135,7 +135,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 52 | **JPG to Text** | OCR & Text | Phase 7 | `/jpg-to-text` | `COMPLETE / PASS` |
 | 53 | **PNG to Text** | OCR & Text | Phase 7 | `/png-to-text` | `COMPLETE / PASS` |
 | 54 | **Screenshot to Text** | OCR & Text | Phase 7 | `/screenshot-to-text` | `COMPLETE / PASS` |
-| 55 | **Extract Text from PDF** | Text Extraction | Phase 7 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 55 | **Extract Text from PDF** | Text Extraction | Phase 7 | `/extract-text-from-pdf` | `COMPLETE / PASS` |
 
 ---
 

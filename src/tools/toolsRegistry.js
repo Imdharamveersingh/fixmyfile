@@ -452,6 +452,15 @@ export const PHASE_7_TOOLS = [
     description: 'Instant OCR extraction for desktop and mobile screenshots with clipboard paste and drop support.',
     status: 'Ready',
     phase: 'Phase 7'
+  },
+  {
+    id: 'extract-text-from-pdf',
+    name: 'Extract Text from PDF',
+    path: '/extract-text-from-pdf',
+    category: 'Text Extraction',
+    description: 'Extract readable textual content from multi-page PDF documents page-by-page directly in your browser.',
+    status: 'Ready',
+    phase: 'Phase 7'
   }
 ];
 
