@@ -41,6 +41,7 @@ import ImageRotateFlipTool from './tools/image-rotate-flip';
 import ImageWatermarkTool from './tools/image-watermark';
 import ImageToPdfTool from './tools/image-to-pdf';
 import ImageUpscalerTool from './tools/image-upscaler';
+import ImageToBase64Tool from './tools/image-to-base64';
 import './App.css';
 
 export default function App() {
@@ -78,6 +79,7 @@ export default function App() {
           <Route path="image-watermark" element={<ImageWatermarkTool />} />
           <Route path="image-to-pdf" element={<ImageToPdfTool />} />
           <Route path="image-upscaler" element={<ImageUpscalerTool />} />
+          <Route path="image-to-base64" element={<ImageToBase64Tool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

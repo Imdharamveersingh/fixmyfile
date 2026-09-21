@@ -356,6 +356,15 @@ export const PHASE_5_TOOLS = [
     description: 'Enlarge images 2x and 4x with progressive bicubic resampling and optional edge acuity enhancement in your browser.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'image-to-base64',
+    name: 'Image to Base64',
+    path: '/image-to-base64',
+    category: 'Image Utilities',
+    description: 'Encode image binaries directly into standard Base64 Data URIs, HTML image tags, and CSS background snippets.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

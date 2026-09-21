@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 9 Tools | `IN PROGRESS (9/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **38 Tools** | **38 Active / 17 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **39 Tools** | **39 Active / 16 Planned** |
 
 ---
 
@@ -122,7 +122,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 5: Image Expansion
 
-**Phase Status:** `IN PROGRESS (9/10)` — Active development underway.
+**Phase Status:** `COMPLETE (10/10)` — All 10 tools implemented and verified.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
@@ -135,7 +135,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 36 | **Image Watermark** | Image Editing | `/image-watermark` | `COMPLETE (PASS)` | Apply text and image watermarks with opacity and positioning. |
 | 37 | **Image to PDF** | Image Conversion | `/image-to-pdf` | `COMPLETE (PASS)` | Multi-image batch ingestion (JPG, PNG, WebP, GIF, SVG) to formatted PDF. |
 | 38 | **Image Upscaler** | Image Editing | `/image-upscaler` | `COMPLETE (PASS)` | Client-side resolution enlargement and bicubic enhancement. |
-| 39 | **Image to Base64** | Image Utilities | `NOT STARTED` | Convert image binaries into Base64 / Data URI strings. |
+| 39 | **Image to Base64** | Image Utilities | `/image-to-base64` | `COMPLETE (PASS)` | Convert image binaries into Base64 / Data URI strings. |
 
 ---
 

@@ -65,6 +65,7 @@ export default function Footer() {
             <li><Link to="/image-watermark">Image Watermark</Link></li>
             <li><Link to="/image-to-pdf">Image to PDF</Link></li>
             <li><Link to="/image-upscaler">Image Upscaler</Link></li>
+            <li><Link to="/image-to-base64">Image to Base64</Link></li>
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>
