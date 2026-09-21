@@ -368,12 +368,25 @@ export const PHASE_5_TOOLS = [
   }
 ];
 
+export const PHASE_6_TOOLS = [
+  {
+    id: 'mp4-to-mp3',
+    name: 'MP4 to MP3',
+    path: '/mp4-to-mp3',
+    category: 'Audio Extraction',
+    description: 'Extract audio track from MP4 video containers into MP3 audio streams.',
+    status: 'Ready',
+    phase: 'Phase 6'
+  }
+];
+
 export const ALL_TOOLS = [
   ...PHASE_1_TOOLS,
   ...PHASE_2_TOOLS,
   ...PHASE_3_TOOLS,
   ...PHASE_4_TOOLS,
-  ...PHASE_5_TOOLS
+  ...PHASE_5_TOOLS,
+  ...PHASE_6_TOOLS
 ];
 
 /**

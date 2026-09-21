@@ -4,6 +4,20 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 6.1: MP4 to MP3 Implementation (Phase 6: 1/10 In Progress)
+
+### Added
+- **MP4 to MP3 Tool (`/mp4-to-mp3`):** High-performance client-side audio extraction and MPEG Layer-3 encoding utility powered by WebAssembly FFmpeg (`@ffmpeg/ffmpeg` 0.12.x), executing 100% locally in the browser with zero cloud transmissions.
+  - **Genuine WebAssembly Transcoding:** Transcodes audio tracks from ISO-BMFF MP4 containers directly into authentic `.mp3` files utilizing the industry-standard `libmp3lame` audio encoder.
+  - **No Video Re-Encoding Overheads:** Employs `-vn` stream mapping to completely bypass video rendering, minimizing memory usage and accelerating conversion speeds.
+  - **Configurable Audio Quality:** Selectable bitrate presets ranging from 128 kbps (compact voice/podcast), 192 kbps (standard music fidelity), 256 kbps, to 320 kbps (studio maximum quality).
+  - **Container Signature & Stream Validation:** Rigorous ISO-BMFF `ftyp` box verification and empty/silent video detection; gracefully alerts users if an uploaded MP4 has no audio track.
+  - **Local Static Vendor Assets:** Bundles WebAssembly core and worker assets locally in `public/vendor/ffmpeg/` to eliminate third-party CDN reliance and ensure fast, deterministic offline execution.
+  - **Full Quality Assurance:** 32/32 automated unit and browser tests, 24/24 real Chrome CDP checks (Desktop 1440x900 + Mobile 375x667), and 11/11 difficult edge tests verifying genuine MP3 frame headers, Web Audio decodability, silent-video handling, and zero memory leaks.
+  - **Platform Milestone:** Phase 6 launched with **40 Active Tools** deployed out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-21] — Phase 5.10: Image to Base64 Implementation (Phase 5: 10/10 COMPLETE)
 
 ### Added

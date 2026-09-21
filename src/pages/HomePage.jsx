@@ -1,6 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, PHASE_5_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
+import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, PHASE_5_TOOLS, PHASE_6_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -8,7 +8,7 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="hero-badge-wrap">
           <span className="hero-eyebrow">FAST • FREE • PRIVATE</span>
-          <div className="hero-badge">Phase 5 Active</div>
+          <div className="hero-badge">Phase 6 Active</div>
         </div>
         <h1 className="hero-title">
           Simple tools for <span className="text-gradient">everyday files</span>.
@@ -136,6 +136,25 @@ export default function HomePage() {
 
         <div className="tools-grid">
           {PHASE_5_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 6: Media Tools */}
+      <section id="tools-phase6" className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 6: Media Tools</h2>
+            <p className="section-subtitle">
+              High-performance client-side audio and video processing suite powered by WebAssembly.
+            </p>
+          </div>
+          <span className="phase-indicator">{PHASE_6_TOOLS.length} {PHASE_6_TOOLS.length === 1 ? 'tool' : 'tools'} active</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_6_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>

@@ -31,9 +31,9 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
 | **Phase 5** | Image Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
+| **Phase 6** | Media Tools | 10 Tools | 1 Tool | `IN PROGRESS (1/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **39 Tools** | **39 Active / 16 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **40 Tools** | **40 Active / 15 Planned** |
 
 ---
 
@@ -141,11 +141,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 6: Media Tools
 
-**Phase Status:** `NOT STARTED (0/10)` — Scheduled following Phase 5.
+**Phase Status:** `IN PROGRESS (1/10)` — Tool 40 complete; 9 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
-| 40 | **MP4 to MP3** | Audio Extraction | `NOT STARTED` | Extract audio streams from MP4 video containers to MP3 format. |
+| 40 | **MP4 to MP3** | Audio Extraction | `COMPLETE (PASS)` | Extract audio streams from MP4 video containers to MP3 format client-side via FFmpeg WASM. |
 | 41 | **Video Compressor** | Video Optimization | `NOT STARTED` | Compress video bitrate and dimensions for web/chat sharing. |
 | 42 | **Video to GIF** | Video Conversion | `NOT STARTED` | Convert short video clips into animated GIF loops. |
 | 43 | **GIF Maker** | Media Generation | `NOT STARTED` | Assemble animated GIFs from sequences of uploaded images. |
