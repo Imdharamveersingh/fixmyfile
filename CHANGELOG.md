@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-22] — Phase 7.5: Screenshot to Text Implementation (Phase 7: 5/6 In Progress)
+
+### Added
+- **Screenshot to Text Tool (`/screenshot-to-text`):** Dedicated client-side OCR extraction tool specifically designed for desktop and mobile screen captures with direct clipboard pasting.
+  - **Seamless Clipboard Integration:** Supports instant pasting via global `Ctrl+V` (or `Cmd+V` on macOS), along with an explicit "Paste from Clipboard" button that gracefully falls back to keyboard guidance or local file selection if browser permissions are restricted.
+  - **Multi-Format Screen Capture Ingestion:** Ingests PNG, JPG, and WebP captures up to 50 MB with strict binary header validation.
+  - **Shared Local OCR Core:** Consumes canonical `runOcr` WebAssembly engine running locally in a Web Worker with local language assets (`public/vendor/tesseract/`). Zero external server transmissions.
+  - **Export & Feedback:** In-browser copy with instant feedback, direct `.txt` download, and real-time character/word/line calculation.
+  - **Quality Assurance:** 42/42 automated unit, integration, and real Chrome CDP tests, plus 7/7 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **48 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 5/6 complete).
+
+---
+
 ## [2026-09-22] — Phase 7.4: PNG to Text Implementation (Phase 7: 4/6 In Progress)
 
 ### Added

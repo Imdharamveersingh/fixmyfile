@@ -443,6 +443,15 @@ export const PHASE_7_TOOLS = [
     description: 'OCR extraction optimized for screenshots, code snippets, tables, and high-contrast PNG images.',
     status: 'Ready',
     phase: 'Phase 7'
+  },
+  {
+    id: 'screenshot-to-text',
+    name: 'Screenshot to Text',
+    path: '/screenshot-to-text',
+    category: 'OCR & Text',
+    description: 'Instant OCR extraction for desktop and mobile screenshots with clipboard paste and drop support.',
+    status: 'Ready',
+    phase: 'Phase 7'
   }
 ];
 

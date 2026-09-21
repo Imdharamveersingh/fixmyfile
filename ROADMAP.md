@@ -160,7 +160,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 7: OCR / Text / Advanced File Tools
 
-**Phase Status:** `IN PROGRESS (4/6)` — Tools 50, 51, 52 & 53 complete; 2 planned.
+**Phase Status:** `IN PROGRESS (5/6)` — Tools 50, 51, 52, 53 & 54 complete; 1 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
@@ -168,7 +168,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 51 | **PDF OCR** | OCR & Text | `COMPLETE (PASS)` | Scan image-only/scanned PDF files and generate searchable text. |
 | 52 | **JPG to Text** | OCR & Text | `COMPLETE (PASS)` | Specialized OCR for receipts, invoices, and paper photos. |
 | 53 | **PNG to Text** | OCR & Text | `COMPLETE (PASS)` | High-accuracy text recognition for screenshots and UI captures. |
-| 54 | **Screenshot to Text** | OCR & Text | `NOT STARTED` | Clipboard-paste OCR tool for instant screen text extraction. |
+| 54 | **Screenshot to Text** | OCR & Text | `COMPLETE (PASS)` | Clipboard-paste OCR tool for instant screen text extraction. |
 | 55 | **Extract Text from PDF** | Text Extraction | `NOT STARTED` | Structural text and metadata harvesting from complex PDFs. |
 
 ---
