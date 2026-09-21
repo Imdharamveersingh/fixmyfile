@@ -40,6 +40,7 @@ import WebpToPngTool from './tools/webp-to-png';
 import ImageRotateFlipTool from './tools/image-rotate-flip';
 import ImageWatermarkTool from './tools/image-watermark';
 import ImageToPdfTool from './tools/image-to-pdf';
+import ImageUpscalerTool from './tools/image-upscaler';
 import './App.css';
 
 export default function App() {
@@ -76,6 +77,7 @@ export default function App() {
           <Route path="image-rotate-flip" element={<ImageRotateFlipTool />} />
           <Route path="image-watermark" element={<ImageWatermarkTool />} />
           <Route path="image-to-pdf" element={<ImageToPdfTool />} />
+          <Route path="image-upscaler" element={<ImageUpscalerTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

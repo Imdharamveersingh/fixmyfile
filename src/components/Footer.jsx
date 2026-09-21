@@ -64,6 +64,7 @@ export default function Footer() {
             <li><Link to="/image-rotate-flip">Image Rotate / Flip</Link></li>
             <li><Link to="/image-watermark">Image Watermark</Link></li>
             <li><Link to="/image-to-pdf">Image to PDF</Link></li>
+            <li><Link to="/image-upscaler">Image Upscaler</Link></li>
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>

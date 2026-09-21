@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 5.9: Image Upscaler Implementation (Phase 5: 9/10 In Progress)
+
+### Added
+- **Image Upscaler Tool (`/image-upscaler`):** Progressive bicubic image resampling and resolution enlargement engine with spatial edge acuity filtering, running 100% locally in the browser with zero server uploads.
+  - **Progressive Bicubic Scaling:** High-fidelity multi-pass cubic interpolation supporting 2x and 4x scale presets with exact aspect-ratio preservation.
+  - **Edge Acuity Filter:** Optional spatial Laplacian unsharp enhancement pass restores edge crispness and eliminates muddy gradients post-resampling.
+  - **Memory & Safety Limits:** Enforces a 40 megapixel / 16,384px canvas ceiling to protect browser memory from freezing on oversized inputs.
+  - **Format Flexibility:** Export directly to lossless PNG (retaining full alpha channel), JPG (with white background fill), or WebP.
+  - **Comprehensive Verification:** 36/36 automated unit tests, 20/20 Chrome CDP checks across Desktop (1440x900) and Mobile (375x667), and 11/11 difficult tests on asymmetric 200x100 multi-colored transparent graphics scaled to 800x400.
+  - **Active Tool Count:** Platform updated to **38 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-21] — Phase 5.8: Image to PDF Implementation (Phase 5: 8/10 In Progress)
 
 ### Added

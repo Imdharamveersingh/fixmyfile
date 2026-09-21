@@ -347,6 +347,15 @@ export const PHASE_5_TOOLS = [
     description: 'Convert JPG, PNG, WebP, GIF, and SVG images into a combined formatted PDF document with custom margins and page sizes.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'image-upscaler',
+    name: 'Image Upscaler',
+    path: '/image-upscaler',
+    category: 'Image Editing',
+    description: 'Enlarge images 2x and 4x with progressive bicubic resampling and optional edge acuity enhancement in your browser.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 
