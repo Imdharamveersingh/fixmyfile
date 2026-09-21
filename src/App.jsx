@@ -45,6 +45,7 @@ import ImageToBase64Tool from './tools/image-to-base64';
 import Mp4ToMp3Tool from './tools/mp4-to-mp3';
 import VideoCompressorTool from './tools/video-compressor';
 import VideoToGifTool from './tools/video-to-gif';
+import GifMakerTool from './tools/gif-maker';
 import './App.css';
 
 export default function App() {
@@ -86,6 +87,7 @@ export default function App() {
           <Route path="mp4-to-mp3" element={<Mp4ToMp3Tool />} />
           <Route path="video-compressor" element={<VideoCompressorTool />} />
           <Route path="video-to-gif" element={<VideoToGifTool />} />
+          <Route path="gif-maker" element={<GifMakerTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

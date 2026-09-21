@@ -395,6 +395,15 @@ export const PHASE_6_TOOLS = [
     description: 'Render animated GIF loops from short video clips with framerate controls.',
     status: 'Ready',
     phase: 'Phase 6'
+  },
+  {
+    id: 'gif-maker',
+    name: 'GIF Maker',
+    path: '/gif-maker',
+    category: 'Video Conversion',
+    description: 'Assemble multiple JPG, PNG, or WebP images into a genuine animated GIF with custom framerate and resolution controls.',
+    status: 'Ready',
+    phase: 'Phase 6'
   }
 ];
 

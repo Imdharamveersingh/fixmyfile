@@ -4,7 +4,26 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 6.4: GIF Maker Implementation (Phase 6: 4/10 In Progress)
+
+### Added
+- **GIF Maker Tool (`/gif-maker`):** Genuine client-side animated GIF assembler powered by WebAssembly FFmpeg, executing 100% locally in the browser with zero cloud transmissions.
+  - **Multi-Frame Image Input:** Accepts JPG, PNG, and WebP frames (up to 60 frames, 50 MB per image, 200 MB combined). Validates actual binary file signatures — not just extensions or MIME types.
+  - **Frame Management UI:** Drag-and-drop or file picker with thumbnail grid. Move-left / move-right / remove controls for each frame, accessible on both desktop and mobile. Clear frame order guaranteed via FFmpeg concat demuxer.
+  - **Adaptive Palette GIF Rendering (`palettegen` + `paletteuse`):** Two-pass palette optimization (256-color, `stats_mode=diff`) and Bayer dithering for high-fidelity animated GIF output.
+  - **Unified Canvas / Letterboxing:** Mixed-dimension frames are scaled with `force_original_aspect_ratio=decrease` and padded onto a shared canvas to avoid distortion.
+  - **No Upscaling:** Source images smaller than the selected resolution cap are never enlarged.
+  - **FPS Controls:** Selectable framerates (5, 10, 12, 15, 20, 24 FPS) with accurate GIF frame delay calculation (centiseconds = 100 / fps).
+  - **Resolution Controls:** Auto / 480p / 360p / 240p height cap options.
+  - **Live GIF Preview:** In-browser animation preview, frame count, output dimensions, and file size shown immediately after generation.
+  - **Memory Management:** All temporary object URLs and FFmpeg virtual filesystem files cleaned after each cycle, including after failures and resets.
+  - **Quality Assurance:** 99/99 automated tests (unit + real Chrome CDP), Desktop 1440px + Mobile 390px viewport checks, 0 lint errors, production build passing.
+  - **Platform Milestone:** FixMyFile now features **43 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 6: 4/10 complete).
+
+---
+
 ## [2026-09-21] — Phase 6.3: Video to GIF Implementation (Phase 6: 3/10 In Progress)
+
 
 ### Added
 - **Video to GIF Tool (`/video-to-gif`):** High-performance client-side animated GIF generator powered by WebAssembly FFmpeg (`@ffmpeg/ffmpeg` 0.12.x), executing 100% locally in the browser with zero cloud transmissions.
