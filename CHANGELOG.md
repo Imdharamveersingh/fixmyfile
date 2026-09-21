@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-22] — Phase 7.4: PNG to Text Implementation (Phase 7: 4/6 In Progress)
+
+### Added
+- **PNG to Text Tool (`/png-to-text`):** Dedicated client-side OCR extraction tool specifically optimized for PNG screenshots, UI mockups, code snippets, and high-contrast tables.
+  - **Strict Format Validation:** Validates exact PNG binary header signatures (`89 50 4E 47 0D 0A 1A 0A`), rejecting non-PNG formats (JPEG, WebP, binary, 0-byte) with user-friendly error alerts.
+  - **Screenshot & Code Optimization:** Provides binarization thresholding, contrast amplification, and grayscale filters specifically tuned for sharp font rendering in developer IDE captures, terminal screenshots, and web UI grabs.
+  - **Shared Local OCR Core:** Consumes canonical `runOcr` WebAssembly engine running locally in a Web Worker with local language assets (`public/vendor/tesseract/`). Zero external server transmissions.
+  - **Export & Feedback:** In-browser copy with instant feedback, direct `.txt` download, and real-time character/word/line calculation.
+  - **Quality Assurance:** 49/49 automated unit, integration, and real Chrome CDP tests, plus 6/6 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **47 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 4/6 complete).
+
+---
+
 ## [2026-09-22] — Phase 7.3: JPG to Text Implementation (Phase 7: 3/6 In Progress)
 
 ### Added

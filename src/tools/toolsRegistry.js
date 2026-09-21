@@ -434,6 +434,15 @@ export const PHASE_7_TOOLS = [
     description: 'OCR recognition specifically optimized for JPEG receipts, scanned documents, and photographed papers.',
     status: 'Ready',
     phase: 'Phase 7'
+  },
+  {
+    id: 'png-to-text',
+    name: 'PNG to Text',
+    path: '/png-to-text',
+    category: 'OCR & Text',
+    description: 'OCR extraction optimized for screenshots, code snippets, tables, and high-contrast PNG images.',
+    status: 'Ready',
+    phase: 'Phase 7'
   }
 ];
 
