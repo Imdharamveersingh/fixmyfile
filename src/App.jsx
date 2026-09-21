@@ -38,6 +38,7 @@ import WebpToJpgTool from './tools/webp-to-jpg';
 import JpgToWebpTool from './tools/jpg-to-webp';
 import WebpToPngTool from './tools/webp-to-png';
 import ImageRotateFlipTool from './tools/image-rotate-flip';
+import ImageWatermarkTool from './tools/image-watermark';
 import './App.css';
 
 export default function App() {
@@ -72,6 +73,7 @@ export default function App() {
           <Route path="jpg-to-webp" element={<JpgToWebpTool />} />
           <Route path="webp-to-png" element={<WebpToPngTool />} />
           <Route path="image-rotate-flip" element={<ImageRotateFlipTool />} />
+          <Route path="image-watermark" element={<ImageWatermarkTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

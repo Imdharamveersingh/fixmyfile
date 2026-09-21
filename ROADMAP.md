@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 6 Tools | `IN PROGRESS (6/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 7 Tools | `IN PROGRESS (7/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **35 Tools** | **35 Active / 20 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **36 Tools** | **36 Active / 19 Planned** |
 
 ---
 

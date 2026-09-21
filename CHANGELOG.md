@@ -4,6 +4,21 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 5.7: Image Watermark Implementation (Phase 5: 7/10 In Progress)
+
+### Added
+- **Image Watermark Tool (`/image-watermark`):** In-browser image watermarking engine supporting dual watermark modalities: customized text watermarks and transparent logo/graphic overlays with zero server uploads.
+  - **Text Watermark Engine:** Dynamic typography rendering with customizable text, font family (Inter, Arial, Impact, Courier New, Times New Roman, Georgia), font size scaling (12px to 144px), custom color picker, and fine opacity control (5% to 100%).
+  - **Logo Overlay Watermark:** Separate image file uploader for brand marks / logos with proportional dimension scaling (5% to 80% of canvas) and independent alpha opacity blending.
+  - **Flexible Positioning & Presets:** 7 rapid anchor position presets (Top-Left, Top-Center, Top-Right, Center, Bottom-Left, Bottom-Center, Bottom-Right), custom pixel-based margin offsets, free rotation angle (-180° to 180°), and full diagonal repeating tile mode.
+  - **Non-Destructive Live Preview:** Immediate real-time canvas preview responding to all control adjustments, with side-by-side original vs watermarked metadata comparison.
+  - **Export Flexibility:** Export directly to lossless PNG (preserving original alpha channel) or standard JPG (with configurable quality).
+  - **Deterministic Naming:** Generates structured filenames (e.g. `<filename>_watermarked.png`).
+  - **Thorough Validation:** 26/26 automated unit tests, 28/28 Chrome CDP checks (Desktop 1440x900 + Mobile 375x667), and 8/8 difficult tests verifying baked pixel modification on 1200x800 transparent asymmetric images with low opacity.
+  - **Active Tool Count:** Platform updated to **36 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-21] — Phase 5.6: Image Rotate / Flip Implementation (Phase 5: 6/10 In Progress)
 
 ### Added

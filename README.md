@@ -8,10 +8,10 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 
 ## Current Status
 
-- **Project Stage:** Phase 5 In Progress · 35 Active Tools
-- **Active Tools:** **35** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10, Phase 5 Expansion: 6)
+- **Project Stage:** Phase 5 In Progress · 36 Active Tools
+- **Active Tools:** **36** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10, Phase 5 Expansion: 7)
 - **Total Master Planned Tools:** **55**
-- **Remaining Planned Tools:** **20** (Phases 5 through 7)
+- **Remaining Planned Tools:** **19** (Phases 5 through 7)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -20,7 +20,7 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 - **Phase 2 — Image Foundation:** `COMPLETE (6/6)`
 - **Phase 3 — Calculators & Generators:** `COMPLETE (7/7)`
 - **Phase 4 — PDF Expansion:** `COMPLETE (10/10)`
-- **Phase 5 — Image Expansion:** `IN PROGRESS (6/10)`
+- **Phase 5 — Image Expansion:** `IN PROGRESS (7/10)`
 - **Phase 6 — Media Tools:** `PLANNED / NOT STARTED (0/10)`
 - **Phase 7 — OCR / Text / Advanced File Tools:** `PLANNED / NOT STARTED (0/6)`
 
@@ -74,7 +74,7 @@ npm run preview
 
 ---
 
-## Active Route Structure (33 Implemented Tools)
+## Active Route Structure (36 Implemented Tools)
 
 FixMyFile employs clean, canonical path-based URLs for every tool to optimize usability, direct bookmarking, and SEO:
 
@@ -116,6 +116,7 @@ FixMyFile employs clean, canonical path-based URLs for every tool to optimize us
 | `/jpg-to-webp` | JPG to WebP | Image Conversion | Phase 5 | Complete · In-Browser |
 | `/webp-to-png` | WebP to PNG | Image Conversion | Phase 5 | Complete · In-Browser |
 | `/image-rotate-flip` | Image Rotate & Flip | Image Editing | Phase 5 | Complete · In-Browser |
+| `/image-watermark` | Image Watermark | Image Editing | Phase 5 | Complete · In-Browser |
 
 ---
 

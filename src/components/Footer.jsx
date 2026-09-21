@@ -62,6 +62,7 @@ export default function Footer() {
             <li><Link to="/jpg-to-webp">JPG to WebP</Link></li>
             <li><Link to="/webp-to-png">WebP to PNG</Link></li>
             <li><Link to="/image-rotate-flip">Image Rotate / Flip</Link></li>
+            <li><Link to="/image-watermark">Image Watermark</Link></li>
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>

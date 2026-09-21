@@ -329,6 +329,15 @@ export const PHASE_5_TOOLS = [
     description: 'Rotate images 90°, 180°, 270° and mirror horizontally or vertically with instant live canvas preview.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'image-watermark',
+    name: 'Image Watermark',
+    path: '/image-watermark',
+    category: 'Image Editing',
+    description: 'Apply customizable text and image watermarks with opacity, positioning presets, and diagonal tiling.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 
