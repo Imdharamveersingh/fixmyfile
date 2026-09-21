@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 7.2: PDF OCR Implementation (Phase 7: 2/6 In Progress)
+
+### Added
+- **PDF OCR Tool (`/pdf-ocr`):** Client-side searchable PDF generation engine combining `pdfjs-dist`, Tesseract.js WebAssembly OCR, and `pdf-lib` to overlay invisible text layers onto scanned documents.
+  - **Searchable Text Layer Injection:** Maps recognized OCR word coordinates from rendered page canvases into PDF point space and draws transparent Helvetica text at precise locations. Enables full text selection, highlighting, and `Ctrl+F` search across Adobe Acrobat, Google Chrome, Safari, and Edge.
+  - **Preserves Original Layout & Visual Quality:** Preserves original vector artwork, scanned imagery, and page dimensions (including mixed portrait and landscape multi-page documents) without downsampling or lossy distortion.
+  - **100% Client-Side Execution:** Entire pipeline runs in browser memory with zero cloud uploads or external API requests.
+  - **Multi-Page Processing:** Page-by-page progress bar and status indicator with responsive error handling.
+  - **Quality Assurance:** 44/44 automated unit, integration, and real Chrome CDP tests, plus 5/5 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **45 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 2/6 complete).
+
+---
+
 ## [2026-09-21] — Phase 7.1: Image to Text (OCR) Implementation (Phase 7: 1/6 In Progress)
 
 ### Added

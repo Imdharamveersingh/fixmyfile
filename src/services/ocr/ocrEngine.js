@@ -10,7 +10,7 @@
  */
 
 import { createWorker } from 'tesseract.js';
-import { preprocessImageForOcr } from './ocrPreprocess';
+import { preprocessImageForOcr } from './ocrPreprocess.js';
 
 let workerInstance = null;
 let currentLogger = null;

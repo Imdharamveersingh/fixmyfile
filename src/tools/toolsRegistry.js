@@ -416,6 +416,15 @@ export const PHASE_7_TOOLS = [
     description: 'Extract text from photos, scans, and signage directly in your browser with high-accuracy client-side OCR.',
     status: 'Ready',
     phase: 'Phase 7'
+  },
+  {
+    id: 'pdf-ocr',
+    name: 'PDF OCR',
+    path: '/pdf-ocr',
+    category: 'OCR & Text',
+    description: 'Process image-only or flat PDF documents and generate searchable, selectable text layers client-side.',
+    status: 'Ready',
+    phase: 'Phase 7'
   }
 ];
 
