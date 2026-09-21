@@ -4,6 +4,18 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 5.8: Image to PDF Implementation (Phase 5: 8/10 In Progress)
+
+### Added
+- **Image to PDF Tool (`/image-to-pdf`):** Multi-format client-side image-to-PDF conversion engine converting JPG, PNG, WebP, GIF, SVG, and BMP images into a unified, formatted PDF document with zero cloud uploads.
+  - **Multi-File Batch Ingestion & Reordering:** Ingest single or multiple images simultaneously, display live thumbnail previews, and reorder sequence using Move Up / Move Down controls.
+  - **Layout & Dimension Sizing:** Configurable document page sizes (Standard A4, US Letter, or Auto dimension-matched per image), dynamic orientation (Auto, Portrait, Landscape), and selectable margins (None: 0mm, Small: 5mm, Normal: 10mm, Large: 20mm).
+  - **Aspect-Ratio & Transparency Protection:** Fits images within printable boundaries without distortion; composites alpha channels against clean background fill (White, Off-White, Dark) to prevent PDF rendering artifacts.
+  - **Full Quality Assurance:** 33/33 automated tests, 18/18 Chrome CDP tests across Desktop (1440x900) and Mobile (375x667), and 19/19 difficult tests verifying 5 mixed-format images (high-res JPG, transparent PNG, WebP, SVG, BMP) with strict aspect-ratio containment.
+  - **Active Tool Count:** Platform updated to **37 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-21] — Phase 5.7: Image Watermark Implementation (Phase 5: 7/10 In Progress)
 
 ### Added

@@ -338,6 +338,15 @@ export const PHASE_5_TOOLS = [
     description: 'Apply customizable text and image watermarks with opacity, positioning presets, and diagonal tiling.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'image-to-pdf',
+    name: 'Image to PDF',
+    path: '/image-to-pdf',
+    category: 'Image Conversion',
+    description: 'Convert JPG, PNG, WebP, GIF, and SVG images into a combined formatted PDF document with custom margins and page sizes.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

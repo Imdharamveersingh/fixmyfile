@@ -74,6 +74,7 @@ export default function Header() {
               <Link to="/webp-to-png">WebP to PNG</Link>
               <Link to="/image-rotate-flip">Image Rotate / Flip</Link>
               <Link to="/image-watermark">Image Watermark</Link>
+              <Link to="/image-to-pdf">Image to PDF</Link>
               <Link to="/image-converter">Image Converter</Link>
               <Link to="/jpg-to-png">JPG to PNG</Link>
               <Link to="/png-to-jpg">PNG to JPG</Link>

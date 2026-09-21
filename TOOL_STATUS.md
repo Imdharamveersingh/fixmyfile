@@ -20,10 +20,10 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **Image Foundation** | Phase 2 | 6 | 6 | `COMPLETE (6/6)` |
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
 | **PDF Expansion** | Phase 4 | 10 | 10 | `COMPLETE (10/10)` |
-| **Image Expansion** | Phase 5 | 10 | 7 | `IN PROGRESS (7/10)` |
+| **Image Expansion** | Phase 5 | 10 | 8 | `IN PROGRESS (8/10)` |
 | **Media Tools** | Phase 6 | 10 | 0 | `PLANNED / NOT STARTED (0/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 6 | 0 | `PLANNED / NOT STARTED (0/6)` |
-| **TOTAL** | **Phases 1–7** | **55** | **36** | **36 Active / 19 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **37** | **37 Active / 18 Planned** |
 
 ---
 
@@ -103,7 +103,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 34 | **Image Cropper** | Image Editing | Phase 5 | `/image-cropper` | `COMPLETE / PASS` |
 | 35 | **Image Rotate / Flip** | Image Editing | Phase 5 | `/image-rotate-flip` | `COMPLETE / PASS` |
 | 36 | **Image Watermark** | Image Editing | Phase 5 | `/image-watermark` | `COMPLETE / PASS` |
-| 37 | **Image to PDF** | Image Conversion | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 37 | **Image to PDF** | Image Conversion | Phase 5 | `/image-to-pdf` | `COMPLETE / PASS` |
 | 38 | **Image Upscaler** | Image Editing | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 39 | **Image to Base64** | Image Utilities | Phase 5 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 
