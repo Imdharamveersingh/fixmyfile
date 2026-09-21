@@ -141,14 +141,14 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 6: Media Tools
 
-**Phase Status:** `IN PROGRESS (3/10)` — Tools 40, 41 & 42 complete; 7 planned.
+**Phase Status:** `IN PROGRESS (4/10)` — Tools 40, 41, 42 & 43 complete; 6 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
 | 40 | **MP4 to MP3** | Audio Extraction | `COMPLETE (PASS)` | Extract audio streams from MP4 video containers to MP3 format client-side via FFmpeg WASM. |
 | 41 | **Video Compressor** | Video Optimization | `COMPLETE (PASS)` | Compress video bitrate and dimensions for web/chat sharing client-side via FFmpeg WASM. |
 | 42 | **Video to GIF** | Video Conversion | `COMPLETE (PASS)` | Convert short video clips into animated GIF loops with palettegen/paletteuse and FPS controls. |
-| 43 | **GIF Maker** | Media Generation | `NOT STARTED` | Assemble animated GIFs from sequences of uploaded images. |
+| 43 | **GIF Maker** | Media Generation | `COMPLETE (PASS)` | Assemble animated GIFs from sequences of uploaded images. |
 | 44 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
 | 45 | **M4A to MP3** | Audio Conversion | `NOT STARTED` | Convert voice memos and Apple M4A audio to MP3. |
 | 46 | **WAV to MP3** | Audio Conversion | `NOT STARTED` | Compress large uncompressed WAV recordings into MP3. |
@@ -160,11 +160,11 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 7: OCR / Text / Advanced File Tools
 
-**Phase Status:** `NOT STARTED (0/6)` — Scheduled following Phase 6.
+**Phase Status:** `IN PROGRESS (1/6)` — Tool 50 complete; 5 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
-| 50 | **Image to Text** | OCR & Text | `NOT STARTED` | In-browser OCR extraction from photographs, signs, and documents. |
+| 50 | **Image to Text** | OCR & Text | `COMPLETE (PASS)` | In-browser OCR extraction from photographs, signs, and documents. |
 | 51 | **PDF OCR** | OCR & Text | `NOT STARTED` | Scan image-only/scanned PDF files and generate searchable text. |
 | 52 | **JPG to Text** | OCR & Text | `NOT STARTED` | Specialized OCR for receipts, invoices, and paper photos. |
 | 53 | **PNG to Text** | OCR & Text | `NOT STARTED` | High-accuracy text recognition for screenshots and UI captures. |

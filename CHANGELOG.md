@@ -4,6 +4,20 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 7.1: Image to Text (OCR) Implementation (Phase 7: 1/6 In Progress)
+
+### Added
+- **Image to Text Tool (`/image-to-text`):** High-precision client-side OCR extraction tool powered by Tesseract.js with 100% locally bundled WebAssembly and language models.
+  - **100% Offline & Private:** Tesseract worker, core WASM, and English language models (`eng.traineddata.gz`) are bundled locally in `public/vendor/tesseract/` — ensuring zero remote network requests, zero CDN dependencies, and absolute privacy.
+  - **Multi-Format Ingestion:** Accepts JPG, JPEG, PNG, and WebP images up to 50 MB with strict binary magic number signature detection.
+  - **Image Preprocessing:** Optional automatic contrast normalization and grayscale transformation via Canvas pipeline to significantly elevate recognition accuracy on receipts, low-contrast photos, and scans.
+  - **Rich Output Controls:** Editable recognized text area with instant copy to clipboard (visual feedback) and direct `.txt` download.
+  - **Live Text Metrics:** Real-time character, word, and line count calculation alongside neural OCR confidence scoring.
+  - **Quality Assurance:** 57/57 automated unit, layout, and real Chrome CDP tests, plus 6/6 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **44 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 1/6 complete).
+
+---
+
 ## [2026-09-21] — Phase 6.4: GIF Maker Implementation (Phase 6: 4/10 In Progress)
 
 ### Added

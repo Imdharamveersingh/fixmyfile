@@ -407,13 +407,26 @@ export const PHASE_6_TOOLS = [
   }
 ];
 
+export const PHASE_7_TOOLS = [
+  {
+    id: 'image-to-text',
+    name: 'Image to Text',
+    path: '/image-to-text',
+    category: 'OCR & Text',
+    description: 'Extract text from photos, scans, and signage directly in your browser with high-accuracy client-side OCR.',
+    status: 'Ready',
+    phase: 'Phase 7'
+  }
+];
+
 export const ALL_TOOLS = [
   ...PHASE_1_TOOLS,
   ...PHASE_2_TOOLS,
   ...PHASE_3_TOOLS,
   ...PHASE_4_TOOLS,
   ...PHASE_5_TOOLS,
-  ...PHASE_6_TOOLS
+  ...PHASE_6_TOOLS,
+  ...PHASE_7_TOOLS
 ];
 
 /**
