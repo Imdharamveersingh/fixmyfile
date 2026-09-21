@@ -21,9 +21,9 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
 | **PDF Expansion** | Phase 4 | 10 | 10 | `COMPLETE (10/10)` |
 | **Image Expansion** | Phase 5 | 10 | 10 | `COMPLETE (10/10)` |
-| **Media Tools** | Phase 6 | 10 | 2 | `IN PROGRESS (2/10)` |
+| **Media Tools** | Phase 6 | 10 | 3 | `IN PROGRESS (3/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 6 | 0 | `PLANNED / NOT STARTED (0/6)` |
-| **TOTAL** | **Phases 1–7** | **55** | **41** | **41 Active / 14 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **42** | **42 Active / 13 Planned** |
 
 ---
 
@@ -115,7 +115,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 |---|---|---|---|---|---|
 | 40 | **MP4 to MP3** | Audio Extraction | Phase 6 | `/mp4-to-mp3` | `COMPLETE / PASS` |
 | 41 | **Video Compressor** | Video Optimization | Phase 6 | `/video-compressor` | `COMPLETE / PASS` |
-| 42 | **Video to GIF** | Video Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 42 | **Video to GIF** | Video Conversion | Phase 6 | `/video-to-gif` | `COMPLETE / PASS` |
 | 43 | **GIF Maker** | Media Generation | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 44 | **Audio Converter** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 | 45 | **M4A to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |

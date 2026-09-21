@@ -386,6 +386,15 @@ export const PHASE_6_TOOLS = [
     description: 'Reduce video bitrate and/or dimensions for messaging and email sharing.',
     status: 'Ready',
     phase: 'Phase 6'
+  },
+  {
+    id: 'video-to-gif',
+    name: 'Video to GIF',
+    path: '/video-to-gif',
+    category: 'Video Conversion',
+    description: 'Render animated GIF loops from short video clips with framerate controls.',
+    status: 'Ready',
+    phase: 'Phase 6'
   }
 ];
 

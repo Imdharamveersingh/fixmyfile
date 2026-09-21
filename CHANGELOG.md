@@ -4,6 +4,21 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 6.3: Video to GIF Implementation (Phase 6: 3/10 In Progress)
+
+### Added
+- **Video to GIF Tool (`/video-to-gif`):** High-performance client-side animated GIF generator powered by WebAssembly FFmpeg (`@ffmpeg/ffmpeg` 0.12.x), executing 100% locally in the browser with zero cloud transmissions.
+  - **Adaptive Palette Optimization (`palettegen` & `paletteuse`):** Employs two-pass palette extraction with differential color stats (`palettegen=stats_mode=diff`) and Bayer dithering (`paletteuse=dither=bayer`) to render crisp 256-color animated GIFs without banding.
+  - **Granular Framerate Controls:** Selectable animation framerates (5 FPS for lightweight compact clips, 10 FPS standard loop, 15 FPS smooth motion, 20 FPS ultra-smooth, 24 FPS cinematic).
+  - **Aspect-Ratio & Resolution Constraints:** Selectable resolution limits (Auto, 480p, 360p, 240p, Original) with guaranteed aspect-ratio preservation and no-upscale protection.
+  - **Memory & Duration Safeguards:** Enforces an explicit 30-second duration clamp with user-configurable clip limits (5s, 10s, 15s, 30s) to prevent browser memory exhaustion on long videos.
+  - **Live GIF Preview & Stats:** Instant in-browser animation preview player, total rendered frame count, and original vs GIF byte size comparison.
+  - **Infinite Looping Standard:** Generates standard GIF89a binaries configured with `-loop 0` for universal loop playback across Discord, Slack, Reddit, Twitter/X, and messaging apps.
+  - **Quality Assurance:** 50/50 automated unit and browser tests, 32/32 real Chrome CDP checks (Desktop 1440x900 + Mobile 375x667), and 9/9 difficult edge tests verifying genuine multi-frame GIF rendering, frame-rate scaling parity, and zero memory leaks across consecutive conversions.
+  - **Platform Milestone:** FixMyFile now features **42 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 6: 3/10 complete).
+
+---
+
 ## [2026-09-21] — Phase 6.2: Video Compressor Implementation (Phase 6: 2/10 In Progress)
 
 ### Added
