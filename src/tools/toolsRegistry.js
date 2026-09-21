@@ -425,6 +425,15 @@ export const PHASE_7_TOOLS = [
     description: 'Process image-only or flat PDF documents and generate searchable, selectable text layers client-side.',
     status: 'Ready',
     phase: 'Phase 7'
+  },
+  {
+    id: 'jpg-to-text',
+    name: 'JPG to Text',
+    path: '/jpg-to-text',
+    category: 'OCR & Text',
+    description: 'OCR recognition specifically optimized for JPEG receipts, scanned documents, and photographed papers.',
+    status: 'Ready',
+    phase: 'Phase 7'
   }
 ];
 

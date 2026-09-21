@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-22] — Phase 7.3: JPG to Text Implementation (Phase 7: 3/6 In Progress)
+
+### Added
+- **JPG to Text Tool (`/jpg-to-text`):** Dedicated client-side OCR extraction tool specifically tailored for JPEG receipts, invoices, bills, and photographed documents.
+  - **Strict Format Validation:** Enforces genuine JPEG binary signatures (`FF D8 FF`), strictly rejecting non-JPEG formats (PNG, WebP, binary, 0-byte) with user-friendly error alerts.
+  - **Document Preprocessing:** Built-in contrast enhancement and grayscale normalization via 2D Canvas pipeline to optimize character recognition on noisy receipts and papers.
+  - **Shared Local OCR Core:** Consumes canonical `runOcr` WebAssembly engine running locally in a Web Worker with local language assets (`public/vendor/tesseract/`). Zero external server transmissions.
+  - **Export & Feedback:** In-browser copy with instant feedback, direct `.txt` download, and real-time character/word/line calculation.
+  - **Quality Assurance:** 50/50 automated unit, integration, and real Chrome CDP tests, plus 6/6 difficult edge-case tests.
+  - **Platform Milestone:** FixMyFile now features **46 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 7: 3/6 complete).
+
+---
+
 ## [2026-09-21] — Phase 7.2: PDF OCR Implementation (Phase 7: 2/6 In Progress)
 
 ### Added

@@ -48,6 +48,7 @@ import VideoToGifTool from './tools/video-to-gif';
 import GifMakerTool from './tools/gif-maker';
 import ImageToTextTool from './tools/image-to-text';
 import PdfOcrTool from './tools/pdf-ocr';
+import JpgToTextTool from './tools/jpg-to-text';
 import './App.css';
 
 export default function App() {
@@ -92,6 +93,7 @@ export default function App() {
           <Route path="gif-maker" element={<GifMakerTool />} />
           <Route path="image-to-text" element={<ImageToTextTool />} />
           <Route path="pdf-ocr" element={<PdfOcrTool />} />
+          <Route path="jpg-to-text" element={<JpgToTextTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />
