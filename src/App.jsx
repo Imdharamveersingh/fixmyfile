@@ -43,6 +43,7 @@ import ImageToPdfTool from './tools/image-to-pdf';
 import ImageUpscalerTool from './tools/image-upscaler';
 import ImageToBase64Tool from './tools/image-to-base64';
 import Mp4ToMp3Tool from './tools/mp4-to-mp3';
+import VideoCompressorTool from './tools/video-compressor';
 import './App.css';
 
 export default function App() {
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="image-upscaler" element={<ImageUpscalerTool />} />
           <Route path="image-to-base64" element={<ImageToBase64Tool />} />
           <Route path="mp4-to-mp3" element={<Mp4ToMp3Tool />} />
+          <Route path="video-compressor" element={<VideoCompressorTool />} />
           <Route path="image-converter" element={<ImageConverterTool />} />
           <Route path="jpg-to-png" element={<JpgToPngTool />} />
           <Route path="png-to-jpg" element={<PngToJpgTool />} />

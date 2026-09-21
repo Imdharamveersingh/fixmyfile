@@ -377,6 +377,15 @@ export const PHASE_6_TOOLS = [
     description: 'Extract audio track from MP4 video containers into MP3 audio streams.',
     status: 'Ready',
     phase: 'Phase 6'
+  },
+  {
+    id: 'video-compressor',
+    name: 'Video Compressor',
+    path: '/video-compressor',
+    category: 'Video Optimization',
+    description: 'Reduce video bitrate and/or dimensions for messaging and email sharing.',
+    status: 'Ready',
+    phase: 'Phase 6'
   }
 ];
 

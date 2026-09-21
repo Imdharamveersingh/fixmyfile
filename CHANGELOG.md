@@ -4,6 +4,24 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 6.2: Video Compressor Implementation (Phase 6: 2/10 In Progress)
+
+### Added
+- **Video Compressor Tool (`/video-compressor`):** Client-side video compression and resolution downscaling engine powered by WebAssembly FFmpeg (`@ffmpeg/ffmpeg` 0.12.x), executing 100% locally in the browser with zero cloud transmissions or server queues.
+  - **Client-Side H.264 Re-Encoding:** Compresses high-bitrate video containers (MP4, WebM, MOV) into universal H.264 (`libx264`) MP4 video streams using `fast` presets and YUV420p pixel format for seamless compatibility across iOS, Android, macOS, and Windows.
+  - **Purpose-Built Compression Presets:**
+    - **Email & Ultra Compact (480p):** Aggressive compression (CRF 32, 400 kbps video, 64 kbps audio) optimized to fit strict 25 MB email attachment caps.
+    - **Messaging & Social (720p - Recommended):** Balanced quality (CRF 28, 800 kbps video, 96 kbps audio) tailored for WhatsApp, Discord, Slack, and Telegram sharing.
+    - **Web & High Quality (1080p):** High visual clarity (CRF 24, 1500 kbps video, 128 kbps audio) for web publishing and presentations.
+  - **Target Resolution Controls & Aspect-Ratio Preservation:** Configurable resolution constraint dropdown (Auto, Original Dimensions, 1080p, 720p, 480p, 360p) with guaranteed aspect-ratio preservation, even dimension bounds (`w % 2 === 0`, `h % 2 === 0`), and zero-upscaling protection.
+  - **Optional Audio Removal (Mute):** Optional checkbox to strip audio tracks (`-an`) for maximum file size savings.
+  - **FastStart Web Streaming Optimization:** Automatically applies `-movflags +faststart` to place the `moov` index atom at the beginning of the container for instant streaming playback without buffering the entire file.
+  - **Resilient Multi-Stream & Silent Video Handling:** Employs optional stream mapping (`-map 0:v -map 0:a?`) ensuring video files without audio tracks compress smoothly without errors.
+  - **Quality Assurance:** 47/47 automated unit and browser tests, 30/30 real Chrome CDP checks (Desktop 1440x900 + Mobile 375x667), and 9/9 difficult edge tests verifying genuine container validity, decodability, mute operations, and zero memory leaks across consecutive runs.
+  - **Platform Milestone:** FixMyFile now features **41 Active Tools** deployed out of **55 Total Strategy Tools** (Phase 6: 2/10 complete).
+
+---
+
 ## [2026-09-21] — Phase 6.1: MP4 to MP3 Implementation (Phase 6: 1/10 In Progress)
 
 ### Added

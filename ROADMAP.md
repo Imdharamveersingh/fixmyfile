@@ -9,8 +9,8 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | Metric | Count | Status |
 |---|---|---|
 | **Total Master Planned Tools** | **55** | Across Phases 1 through 7 |
-| **Current Implemented / Active Tools** | **33** | 100% Production-Ready & Verified |
-| **Remaining Future Planned Tools** | **22** | Formally Scheduled in Master Strategy |
+| **Current Implemented / Active Tools** | **41** | 100% Production-Ready & Verified |
+| **Remaining Future Planned Tools** | **14** | Formally Scheduled in Master Strategy |
 
 ### Status Legend
 - `COMPLETE`: Fully developed, tested, verified, and active on site.
@@ -31,9 +31,9 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
 | **Phase 5** | Image Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 6** | Media Tools | 10 Tools | 1 Tool | `IN PROGRESS (1/10)` |
+| **Phase 6** | Media Tools | 10 Tools | 2 Tools | `IN PROGRESS (2/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **40 Tools** | **40 Active / 15 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **41 Tools** | **41 Active / 14 Planned** |
 
 ---
 
@@ -141,12 +141,12 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 6: Media Tools
 
-**Phase Status:** `IN PROGRESS (1/10)` — Tool 40 complete; 9 planned.
+**Phase Status:** `IN PROGRESS (2/10)` — Tools 40 & 41 complete; 8 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
 | 40 | **MP4 to MP3** | Audio Extraction | `COMPLETE (PASS)` | Extract audio streams from MP4 video containers to MP3 format client-side via FFmpeg WASM. |
-| 41 | **Video Compressor** | Video Optimization | `NOT STARTED` | Compress video bitrate and dimensions for web/chat sharing. |
+| 41 | **Video Compressor** | Video Optimization | `COMPLETE (PASS)` | Compress video bitrate and dimensions for web/chat sharing client-side via FFmpeg WASM. |
 | 42 | **Video to GIF** | Video Conversion | `NOT STARTED` | Convert short video clips into animated GIF loops. |
 | 43 | **GIF Maker** | Media Generation | `NOT STARTED` | Assemble animated GIFs from sequences of uploaded images. |
 | 44 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |

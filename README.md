@@ -8,10 +8,10 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 
 ## Current Status
 
-- **Project Stage:** Phase 6 Underway · 40 Active Tools
-- **Active Tools:** **40** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10, Phase 5 Expansion: 10, Phase 6 Media: 1)
+- **Project Stage:** Phase 6 Underway · 41 Active Tools
+- **Active Tools:** **41** (Phase 1 PDF: 6, Phase 2 Image: 6, Phase 3 Generators: 7, Phase 4 Expansion: 10, Phase 5 Expansion: 10, Phase 6 Media: 2)
 - **Total Master Planned Tools:** **55**
-- **Remaining Planned Tools:** **15** (Phases 6 and 7)
+- **Remaining Planned Tools:** **14** (Phases 6 and 7)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
 
@@ -21,7 +21,7 @@ The platform is developed following a rigorous phase-by-phase engineering approa
 - **Phase 3 — Calculators & Generators:** `COMPLETE (7/7)`
 - **Phase 4 — PDF Expansion:** `COMPLETE (10/10)`
 - **Phase 5 — Image Expansion:** `COMPLETE (10/10)`
-- **Phase 6 — Media Tools:** `IN PROGRESS (1/10)`
+- **Phase 6 — Media Tools:** `IN PROGRESS (2/10)`
 - **Phase 7 — OCR / Text / Advanced File Tools:** `PLANNED / NOT STARTED (0/6)`
 
 ---
