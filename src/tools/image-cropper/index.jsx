@@ -575,6 +575,11 @@ export default function ImageCropperTool() {
                 src={imageSrc}
                 alt="Crop preview"
                 onLoad={handleImageLoaded}
+                onError={() => {
+                  setErrorMessage('Failed to decode image data. The file may be corrupt or not a supported image format.');
+                  setProcessingState('ERROR');
+                  setImageSrc(null);
+                }}
                 style={{
                   display: 'block',
                   maxWidth: '100%',
@@ -1095,13 +1100,14 @@ export default function ImageCropperTool() {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
+              <div style={{ display: 'flex', gap: '10px', marginTop: '8px', flexWrap: 'wrap' }}>
                 <button
                   type="button"
                   className="btn-primary"
                   onClick={handleDownload}
                   style={{
                     flex: 1,
+                    minWidth: '200px',
                     padding: '12px 18px',
                     fontSize: '1rem',
                     fontWeight: '700',
@@ -1114,6 +1120,42 @@ export default function ImageCropperTool() {
                 >
                   <span className="material-symbols-outlined">download</span>
                   Download Cropped Image
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => setProcessingState('IDLE')}
+                  style={{
+                    padding: '12px 18px',
+                    fontSize: '0.95rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                  id="image-cropper-edit-btn"
+                >
+                  <span className="material-symbols-outlined">edit</span>
+                  Crop Again
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={handleResetAll}
+                  style={{
+                    padding: '12px 18px',
+                    fontSize: '0.95rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                  id="image-cropper-new-image-btn"
+                >
+                  <span className="material-symbols-outlined">restart_alt</span>
+                  New Image
                 </button>
               </div>
             </div>

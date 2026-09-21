@@ -152,18 +152,29 @@ FixMyFile is designed as a browser-first, privacy-focused, path-based utility to
 ---
 
 ### Phase 7 — OCR / Text / Advanced File Tools
-- **Status:** `NOT STARTED`
-- **Count:** 6 Tools (0 implemented / 6 planned)
-- **Domain:** Optical character recognition, document text extraction, and advanced raster parsing.
+- **Status:** `COMPLETE`
+- **Count:** 7 Tools (7 implemented / 7 approved)
+- **Domain:** Optical character recognition, document text extraction, advanced raster parsing, and image editing.
+- **Phase 7 Status Breakdown:**
+  - 7.1 Image to Text — `COMPLETE`
+  - 7.2 PDF OCR — `COMPLETE`
+  - 7.3 JPG to Text — `COMPLETE`
+  - 7.4 PNG to Text — `COMPLETE`
+  - 7.5 Screenshot to Text — `COMPLETE`
+  - 7.6 Extract Text from PDF — `COMPLETE`
+  - 7.7 Image Cropper — `COMPLETE`
+- **Remaining Phase 7 Tools:** None (All 7 Phase 7 tools complete).
 
 | # | Tool Name | Target Scope & Capabilities | Status |
 |---|---|---|---|
-| 50 | **Image to Text** | In-browser OCR extraction of text from photos, scans, and signage. | `PLANNED / NOT STARTED` |
-| 51 | **PDF OCR** | Scan image-only or flat PDF documents and generate searchable text layers. | `PLANNED / NOT STARTED` |
-| 52 | **JPG to Text** | OCR text recognition specifically tailored for JPEG receipts and scanned papers. | `PLANNED / NOT STARTED` |
-| 53 | **PNG to Text** | Extract code, tabular data, and UI text from high-contrast PNG screenshots. | `PLANNED / NOT STARTED` |
-| 54 | **Screenshot to Text** | Instant clipboard-paste OCR utility for capturing text from screen grabs. | `PLANNED / NOT STARTED` |
-| 55 | **Extract Text from PDF** | Deep structural text harvesting from complex multi-page PDF documents. | `PLANNED / NOT STARTED` |
+| 50 | **Image to Text** | In-browser OCR extraction of text from photos, scans, and signage (`/image-to-text`). | `COMPLETE` |
+| 51 | **PDF OCR** | Scan image-only or flat PDF documents and generate searchable text layers (`/pdf-ocr`). | `COMPLETE` |
+| 52 | **JPG to Text** | OCR text recognition specifically tailored for JPEG receipts and scanned papers (`/jpg-to-text`). | `COMPLETE` |
+| 53 | **PNG to Text** | Extract code, tabular data, and UI text from high-contrast PNG screenshots (`/png-to-text`). | `COMPLETE` |
+| 54 | **Screenshot to Text** | Instant clipboard-paste OCR utility for capturing text from screen grabs (`/screenshot-to-text`). | `COMPLETE` |
+| 55 | **Extract Text from PDF** | Deep structural text harvesting from complex multi-page PDF documents (`/extract-text-from-pdf`). | `COMPLETE` |
+| 56 | **Image Cropper** | Newly approved Phase 7.7 tool (`/image-cropper`). Interactive canvas cropping with custom aspect ratios, rotation, and high-resolution export. | `COMPLETE` |
+
 
 ---
 

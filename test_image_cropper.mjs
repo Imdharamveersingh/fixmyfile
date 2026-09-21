@@ -274,4 +274,55 @@ let testsPassed = 0;
   console.log('  PASS');
 }
 
+// Test 16: 4:5 Social aspect ratio crop calculation
+{
+  console.log('Test 16: 4:5 Social aspect ratio crop calculation...');
+  const crop45 = calculateInitialCrop(1000, 1000, '4:5');
+  const ratio = crop45.width / crop45.height;
+  assert(Math.abs(ratio - 4 / 5) < 0.05, `Ratio should be 0.8, got ${ratio}`);
+  testsPassed++;
+  console.log('  PASS');
+}
+
+// Test 17: 3:2 Classic landscape aspect ratio crop calculation
+{
+  console.log('Test 17: 3:2 Classic landscape aspect ratio crop calculation...');
+  const crop32 = calculateInitialCrop(1200, 1200, '3:2');
+  const ratio = crop32.width / crop32.height;
+  assert(Math.abs(ratio - 3 / 2) < 0.05, `Ratio should be 1.5, got ${ratio}`);
+  testsPassed++;
+  console.log('  PASS');
+}
+
+// Test 18: 2:3 Portrait aspect ratio crop calculation
+{
+  console.log('Test 18: 2:3 Portrait aspect ratio crop calculation...');
+  const crop23 = calculateInitialCrop(1200, 1200, '2:3');
+  const ratio = crop23.width / crop23.height;
+  assert(Math.abs(ratio - 2 / 3) < 0.05, `Ratio should be 0.667, got ${ratio}`);
+  testsPassed++;
+  console.log('  PASS');
+}
+
+// Test 19: Freeform aspect ratio crop calculation
+{
+  console.log('Test 19: Freeform aspect ratio crop calculation...');
+  const cropFree = calculateInitialCrop(800, 600, 'free');
+  assert.equal(cropFree.width, 720); // 90% of 800
+  assert.equal(cropFree.height, 540); // 90% of 600
+  testsPassed++;
+  console.log('  PASS');
+}
+
+// Test 20: Edge-boundary clamping (coordinates exceeding natural bounds)
+{
+  console.log('Test 20: Edge-boundary clamping (coordinates exceeding natural bounds)...');
+  const outOfBoundsCrop = { x: 950, y: 750, width: 200, height: 200 };
+  const clamped = clampCropCoordinates(outOfBoundsCrop, 1000, 800);
+  assert(clamped.x + clamped.width <= 1000, 'Crop box must not exceed natural width');
+  assert(clamped.y + clamped.height <= 800, 'Crop box must not exceed natural height');
+  testsPassed++;
+  console.log('  PASS');
+}
+
 console.log(`\n🎉 ALL ${testsPassed} IMAGE CROPPER AUTOMATED TESTS PASSED!`);

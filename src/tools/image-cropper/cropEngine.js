@@ -6,10 +6,13 @@
 export const ASPECT_RATIOS = [
   { id: 'free', label: 'Freeform', ratio: null, icon: 'crop_free' },
   { id: '1:1', label: '1:1 Square', ratio: 1 / 1, icon: 'crop_square' },
-  { id: '4:3', label: '4:3 Standard', ratio: 4 / 3, icon: 'crop_landscape' },
-  { id: '3:4', label: '3:4 Portrait', ratio: 3 / 4, icon: 'crop_portrait' },
+  { id: '4:5', label: '4:5 Social', ratio: 4 / 5, icon: 'crop_portrait' },
   { id: '16:9', label: '16:9 Widescreen', ratio: 16 / 9, icon: 'crop_16_9' },
-  { id: '9:16', label: '9:16 Story', ratio: 9 / 16, icon: 'crop_portrait' }
+  { id: '9:16', label: '9:16 Story', ratio: 9 / 16, icon: 'crop_portrait' },
+  { id: '3:2', label: '3:2 Classic', ratio: 3 / 2, icon: 'crop_landscape' },
+  { id: '2:3', label: '2:3 Portrait', ratio: 2 / 3, icon: 'crop_portrait' },
+  { id: '4:3', label: '4:3 Standard', ratio: 4 / 3, icon: 'crop_landscape' },
+  { id: '3:4', label: '3:4 Portrait', ratio: 3 / 4, icon: 'crop_portrait' }
 ];
 
 export const SUPPORTED_OUTPUT_FORMATS = [

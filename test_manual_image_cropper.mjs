@@ -237,7 +237,7 @@ async function runImageCropperChromeTest() {
     });
     await new Promise((r) => setTimeout(r, 600));
 
-    const mobileCheck = await send('Runtime.evaluate', {
+    const mobile375Check = await send('Runtime.evaluate', {
       expression: `(() => {
         const docW = document.documentElement.scrollWidth;
         const clientW = document.documentElement.clientWidth;
@@ -248,12 +248,109 @@ async function runImageCropperChromeTest() {
       returnByValue: true
     });
 
-    const mRes = mobileCheck.result.value;
-    console.log('   Mobile Check (375x667):', mRes);
-    assert.equal(mRes.overflow, false, 'Mobile viewport must have 0 horizontal overflow');
-    assert(mRes.hasSuccessCard, 'Success card must remain visible and responsive on mobile');
+    const m375Res = mobile375Check.result.value;
+    console.log('   Mobile Check (375x667):', m375Res);
+    assert.equal(m375Res.overflow, false, '375px viewport must have 0 horizontal overflow');
+    assert(m375Res.hasSuccessCard, 'Success card must remain visible on 375px');
 
-    console.log('8. Checking console errors...');
+    console.log('8. Testing Mobile Viewport 390x844...');
+    await send('Emulation.setDeviceMetricsOverride', {
+      width: 390,
+      height: 844,
+      deviceScaleFactor: 3,
+      mobile: true
+    });
+    await new Promise((r) => setTimeout(r, 400));
+
+    const mobile390Check = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const docW = document.documentElement.scrollWidth;
+        const clientW = document.documentElement.clientWidth;
+        return { docW, clientW, overflow: docW > clientW };
+      })()`,
+      returnByValue: true
+    });
+    assert.equal(mobile390Check.result.value.overflow, false, '390px viewport must have 0 horizontal overflow');
+    console.log('   390px viewport: 0 horizontal overflow confirmed');
+
+    console.log('9. Testing Tablet Viewport 768x1024...');
+    await send('Emulation.setDeviceMetricsOverride', {
+      width: 768,
+      height: 1024,
+      deviceScaleFactor: 2,
+      mobile: true
+    });
+    await new Promise((r) => setTimeout(r, 400));
+
+    const tablet768Check = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const docW = document.documentElement.scrollWidth;
+        const clientW = document.documentElement.clientWidth;
+        return { docW, clientW, overflow: docW > clientW };
+      })()`,
+      returnByValue: true
+    });
+    assert.equal(tablet768Check.result.value.overflow, false, '768px viewport must have 0 horizontal overflow');
+    console.log('   768px viewport: 0 horizontal overflow confirmed');
+
+    console.log('10. Testing Download action and output validity...');
+    const downloadCheck = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const btn = document.querySelector('#image-cropper-download-btn');
+        const img = document.querySelector('#image-cropper-result-img');
+        const imgSrc = img?.getAttribute('src') || '';
+        
+        let downloadTriggered = false;
+        const origAppendChild = document.body.appendChild;
+        document.body.appendChild = function(el) {
+          if (el.tagName === 'A' && el.download && el.href) {
+            downloadTriggered = { download: el.download, href: el.href };
+          }
+          return origAppendChild.apply(this, arguments);
+        };
+
+        if (btn) btn.click();
+        document.body.appendChild = origAppendChild;
+
+        return {
+          hasBtn: !!btn,
+          imgSrcValid: imgSrc.startsWith('blob:'),
+          naturalWidth: img?.naturalWidth || 0,
+          naturalHeight: img?.naturalHeight || 0,
+          downloadTriggered
+        };
+      })()`,
+      returnByValue: true
+    });
+    const dlRes = downloadCheck.result.value;
+    console.log('   Download Check:', dlRes);
+    assert(dlRes.hasBtn, 'Download button must exist');
+    assert(dlRes.imgSrcValid, 'Result image must have valid blob URL');
+    assert(dlRes.naturalWidth > 0 && dlRes.naturalHeight > 0, 'Cropped output image must have valid dimensions');
+    assert(dlRes.downloadTriggered, 'Download must be triggered upon clicking download button');
+    assert(dlRes.downloadTriggered.download.includes('cropped'), 'Download attribute must include "cropped"');
+
+    console.log('11. Testing Reset/Crop Again workflow...');
+    await send('Runtime.evaluate', {
+      expression: `(() => {
+        const editBtn = document.querySelector('#image-cropper-edit-btn');
+        if (editBtn) editBtn.click();
+      })()`
+    });
+    await new Promise((r) => setTimeout(r, 500));
+
+    const resetCheck = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const box = document.querySelector('#image-cropper-active-box');
+        const submitBtn = document.querySelector('#image-cropper-submit-btn');
+        return { hasBox: !!box, hasSubmitBtn: !!submitBtn };
+      })()`,
+      returnByValue: true
+    });
+    assert(resetCheck.result.value.hasBox, 'Crop editor must restore upon Edit/Crop Again');
+    console.log('   Crop editor restored successfully upon Edit/Crop Again!');
+
+    console.log('12. Checking console errors...');
     const criticalErrors = pageErrors.filter((e) => !e.includes('favicon') && !e.includes('manifest'));
     assert.equal(criticalErrors.length, 0, `Expected 0 console errors, got: ${criticalErrors.join('; ')}`);
     console.log('   0 console errors confirmed!');
