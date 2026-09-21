@@ -320,6 +320,15 @@ export const PHASE_5_TOOLS = [
     description: 'Convert WebP images to lossless PNG format client-side with full transparency and dimension preservation.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'image-rotate-flip',
+    name: 'Image Rotate & Flip',
+    path: '/image-rotate-flip',
+    category: 'Image Editing',
+    description: 'Rotate images 90°, 180°, 270° and mirror horizontally or vertically with instant live canvas preview.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 

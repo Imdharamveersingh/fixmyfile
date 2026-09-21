@@ -4,6 +4,19 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 5.6: Image Rotate / Flip Implementation (Phase 5: 6/10 In Progress)
+
+### Added
+- **Image Rotate & Flip Tool (`/image-rotate-flip`):** Client-side interactive image rotation and mirroring utility powered by a 2D affine transformation matrix.
+  - **Comprehensive Rotations:** Real-time 90° clockwise, 180°, and 270° counter-clockwise rotations with automatic canvas aspect ratio dimension swapping.
+  - **Independent Axis Mirroring:** Viewport-oriented horizontal mirror and vertical flip controls that preserve aspect ratio and image clarity.
+  - **Sequential / Chained Operations:** Matrix-backed transformation pipeline supports chained operations (e.g. 90° → horizontal flip → 270° → vertical flip) with pixel-level mathematical exactness.
+  - **Export Formats & Quality:** Export directly to lossless PNG (preserving full transparency), universal JPG (with white background protection), or WebP.
+  - **Rigorous Verification:** 28/28 unit tests, 28/28 Chrome CDP checks (Desktop + Mobile), and 14/14 difficult asymmetric quadrant tests passing 100%.
+  - **Active Tool Count:** Platform updated to **35 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-21] — Phase 5.5: WebP to PNG Implementation (Phase 5: 5/10 In Progress)
 
 ### Added

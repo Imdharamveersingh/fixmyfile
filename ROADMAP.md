@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 5 Tools | `IN PROGRESS (5/10)` |
+| **Phase 5** | Image Expansion | 10 Tools | 6 Tools | `IN PROGRESS (6/10)` |
 | **Phase 6** | Media Tools | 10 Tools | 0 Tools | `NOT STARTED (0/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 6 Tools | 0 Tools | `NOT STARTED (0/6)` |
-| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **34 Tools** | **34 Active / 21 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **35 Tools** | **35 Active / 20 Planned** |
 
 ---
 
@@ -122,7 +122,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 5: Image Expansion
 
-**Phase Status:** `IN PROGRESS (5/10)` — Active development underway.
+**Phase Status:** `IN PROGRESS (6/10)` — Active development underway.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
@@ -131,7 +131,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 32 | **JPG to WebP** | Image Conversion | `/jpg-to-webp` | `COMPLETE (PASS)` | Encode JPG images to optimized, lightweight WebP format. |
 | 33 | **WebP to PNG** | Image Conversion | `/webp-to-png` | `COMPLETE (PASS)` | Convert WebP graphics to lossless PNG with alpha preservation. |
 | 34 | **Image Cropper** | Image Editing | `/image-cropper` | `COMPLETE (PASS)` | Interactive canvas cropping with custom aspect ratios, rotation, and high-res export. |
-| 35 | **Image Rotate / Flip** | Image Editing | `NOT STARTED` | Image rotation (90° steps / arbitrary) and flip transforms. |
+| 35 | **Image Rotate / Flip** | Image Editing | `/image-rotate-flip` | `COMPLETE (PASS)` | Image rotation (90° steps / 180° / 270°) and horizontal / vertical flip transforms. |
 | 36 | **Image Watermark** | Image Editing | `NOT STARTED` | Apply text and image watermarks with opacity and positioning. |
 | 37 | **Image to PDF** | Image Conversion | `NOT STARTED` | Multi-image batch ingestion (PNG, WebP, GIF) to PDF. |
 | 38 | **Image Upscaler** | Image Editing | `NOT STARTED` | Client-side resolution enlargement and bicubic enhancement. |
