@@ -1,6 +1,16 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import { ALL_TOOLS, PHASE_1_TOOLS, PHASE_2_TOOLS, PHASE_3_TOOLS, PHASE_4_TOOLS, PHASE_5_TOOLS, PHASE_6_TOOLS, TOTAL_STRATEGY_TOOLS } from '../tools/toolsRegistry';
+import {
+  ALL_TOOLS,
+  PHASE_1_TOOLS,
+  PHASE_2_TOOLS,
+  PHASE_3_TOOLS,
+  PHASE_4_TOOLS,
+  PHASE_5_TOOLS,
+  PHASE_6_TOOLS,
+  PHASE_7_TOOLS,
+  TOTAL_STRATEGY_TOOLS
+} from '../tools/toolsRegistry';
 
 export default function HomePage() {
   return (
@@ -8,18 +18,18 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="hero-badge-wrap">
           <span className="hero-eyebrow">FAST • FREE • PRIVATE</span>
-          <div className="hero-badge">Phase 6 Active</div>
+          <div className="hero-badge">Phase 7 Complete</div>
         </div>
         <h1 className="hero-title">
           Simple tools for <span className="text-gradient">everyday files</span>.
         </h1>
         <p className="hero-description">
-          A clean, focused collection of high-demand digital utility tools.
-          Phase 1–4 PDF, image, and generator tools are complete, with Phase 5 image expansion now underway.
+          A clean, focused collection of 50 high-demand digital utility tools.
+          Phase 1–7 PDF, image, generator, media, and OCR text extraction tools are 100% complete and verified client-side.
         </p>
 
         <div className="hero-actions">
-          <a href="#tools-phase5" className="btn-hero-primary">
+          <a href="#tools-phase1" className="btn-hero-primary">
             Explore All Tools
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
@@ -46,20 +56,20 @@ export default function HomePage() {
 
       <div id="browse-categories" className="category-anchor"></div>
 
-      {/* Phase 3: Calculators & Generators */}
-      <section id="tools-phase3" className="tools-section">
+      {/* Phase 1: PDF Tools */}
+      <section id="tools-phase1" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 3: Calculators & Generators</h2>
+            <h2 className="section-title">Phase 1: PDF Tools</h2>
             <p className="section-subtitle">
-              High-demand utility generators and calculators, built for instant client-side computation and privacy.
+              Fully verified in-browser PDF conversion, merging, and compression suite.
             </p>
           </div>
-          <span className="phase-indicator">7 tools complete</span>
+          <span className="phase-indicator">{PHASE_1_TOOLS.length} tools complete</span>
         </div>
 
-        <div className="tools-grid phase3-grid">
-          {PHASE_3_TOOLS.map((tool) => (
+        <div className="tools-grid">
+          {PHASE_1_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>
@@ -74,7 +84,7 @@ export default function HomePage() {
               High-demand image editing and conversion utilities with in-browser AI processing.
             </p>
           </div>
-          <span className="phase-indicator">6 tools complete</span>
+          <span className="phase-indicator">{PHASE_2_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -84,20 +94,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 1: PDF Tools */}
-      <section id="tools-phase1" className="tools-section">
+      {/* Phase 3: Calculators & Generators */}
+      <section id="tools-phase3" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 1: PDF Tools</h2>
+            <h2 className="section-title">Phase 3: Calculators & Generators</h2>
             <p className="section-subtitle">
-              Fully verified in-browser PDF conversion, merging, and compression suite.
+              High-demand utility generators and calculators, built for instant client-side computation and privacy.
             </p>
           </div>
-          <span className="phase-indicator">6 tools complete</span>
+          <span className="phase-indicator">{PHASE_3_TOOLS.length} tools complete</span>
         </div>
 
-        <div className="tools-grid">
-          {PHASE_1_TOOLS.map((tool) => (
+        <div className="tools-grid phase3-grid">
+          {PHASE_3_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>
@@ -131,7 +141,7 @@ export default function HomePage() {
               Advanced in-browser image editing and format transformation suite with instant client-side privacy.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_5_TOOLS.length} {PHASE_5_TOOLS.length === 1 ? 'tool' : 'tools'} active</span>
+          <span className="phase-indicator">{PHASE_5_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -150,11 +160,30 @@ export default function HomePage() {
               High-performance client-side audio and video processing suite powered by WebAssembly.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_6_TOOLS.length} {PHASE_6_TOOLS.length === 1 ? 'tool' : 'tools'} active</span>
+          <span className="phase-indicator">{PHASE_6_TOOLS.length} tools active</span>
         </div>
 
         <div className="tools-grid">
           {PHASE_6_TOOLS.map((tool) => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Phase 7: OCR / Text / Advanced File Tools */}
+      <section id="tools-phase7" className="tools-section">
+        <div className="section-header">
+          <div>
+            <h2 className="section-title">Phase 7: OCR / Text / Advanced File Tools</h2>
+            <p className="section-subtitle">
+              High-accuracy client-side optical character recognition, structural document text extraction, and browser-first image adjustment.
+            </p>
+          </div>
+          <span className="phase-indicator">{PHASE_7_TOOLS.length} tools complete</span>
+        </div>
+
+        <div className="tools-grid">
+          {PHASE_7_TOOLS.map((tool) => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
         </div>

@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phase 1: PDF Tools</h4>
+          <h4 className="footer-heading">PDF Tools</h4>
           <ul className="footer-links">
             <li><Link to="/jpg-to-pdf">JPG to PDF</Link></li>
             <li><Link to="/pdf-to-word">PDF to Word</Link></li>
@@ -46,16 +46,17 @@ export default function Footer() {
             <li><Link to="/extract-pdf-pages">Extract PDF Pages</Link></li>
             <li><Link to="/delete-pdf-pages">Delete PDF Pages</Link></li>
             <li><Link to="/reorder-pdf-pages">Reorder PDF Pages</Link></li>
+            <li><Link to="/pdf-ocr">PDF OCR</Link></li>
+            <li><Link to="/extract-text-from-pdf">Extract Text from PDF</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phase 2: Image Tools</h4>
+          <h4 className="footer-heading">Image Tools</h4>
           <ul className="footer-links">
             <li><Link to="/background-remover">Background Remover</Link></li>
             <li><Link to="/image-compressor">Image Compressor</Link></li>
             <li><Link to="/image-resizer">Image Resizer</Link></li>
-            <li><Link to="/image-converter">Image Converter</Link></li>
             <li><Link to="/image-cropper">Image Cropper</Link></li>
             <li><Link to="/heic-to-jpg">HEIC to JPG</Link></li>
             <li><Link to="/webp-to-jpg">WebP to JPG</Link></li>
@@ -66,13 +67,34 @@ export default function Footer() {
             <li><Link to="/image-to-pdf">Image to PDF</Link></li>
             <li><Link to="/image-upscaler">Image Upscaler</Link></li>
             <li><Link to="/image-to-base64">Image to Base64</Link></li>
+            <li><Link to="/image-converter">Image Converter</Link></li>
             <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
             <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phase 3: Calculators & Generators</h4>
+          <h4 className="footer-heading">Phase 7: OCR & Text</h4>
+          <ul className="footer-links">
+            <li><Link to="/image-to-text">Image to Text</Link></li>
+            <li><Link to="/pdf-ocr">PDF OCR</Link></li>
+            <li><Link to="/jpg-to-text">JPG to Text</Link></li>
+            <li><Link to="/png-to-text">PNG to Text</Link></li>
+            <li><Link to="/screenshot-to-text">Screenshot to Text</Link></li>
+            <li><Link to="/extract-text-from-pdf">Extract Text from PDF</Link></li>
+            <li><Link to="/image-cropper">Image Cropper</Link></li>
+          </ul>
+          <h4 className="footer-heading" style={{ marginTop: '18px' }}>Media Tools (Phase 6)</h4>
+          <ul className="footer-links">
+            <li><Link to="/mp4-to-mp3">MP4 to MP3</Link></li>
+            <li><Link to="/video-compressor">Video Compressor</Link></li>
+            <li><Link to="/video-to-gif">Video to GIF</Link></li>
+            <li><Link to="/gif-maker">GIF Maker</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <h4 className="footer-heading">Calculators & Generators</h4>
           <ul className="footer-links">
             <li><Link to="/qr-code-generator">QR Code Generator</Link></li>
             <li><Link to="/barcode-generator">Barcode Generator</Link></li>
@@ -82,7 +104,7 @@ export default function Footer() {
             <li><Link to="/word-counter">Word Counter</Link></li>
             <li><Link to="/emi-calculator">EMI Calculator</Link></li>
           </ul>
-          <span className="footer-pill" style={{ marginTop: '12px', display: 'inline-block' }}>Phase 3 Active</span>
+          <span className="footer-pill" style={{ marginTop: '14px', display: 'inline-block' }}>Phase 7 Complete</span>
         </div>
       </div>
 

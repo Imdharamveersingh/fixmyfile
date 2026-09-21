@@ -413,7 +413,7 @@ export const PHASE_7_TOOLS = [
     name: 'Image to Text',
     path: '/image-to-text',
     category: 'OCR & Text',
-    description: 'Extract text from photos, scans, and signage directly in your browser with high-accuracy client-side OCR.',
+    description: 'Extract text from images directly in your browser.',
     status: 'Ready',
     phase: 'Phase 7'
   },
@@ -422,7 +422,7 @@ export const PHASE_7_TOOLS = [
     name: 'PDF OCR',
     path: '/pdf-ocr',
     category: 'OCR & Text',
-    description: 'Process image-only or flat PDF documents and generate searchable, selectable text layers client-side.',
+    description: 'Turn scanned or image-only PDFs into searchable PDFs.',
     status: 'Ready',
     phase: 'Phase 7'
   },
@@ -431,7 +431,7 @@ export const PHASE_7_TOOLS = [
     name: 'JPG to Text',
     path: '/jpg-to-text',
     category: 'OCR & Text',
-    description: 'OCR recognition specifically optimized for JPEG receipts, scanned documents, and photographed papers.',
+    description: 'Extract text from JPG and JPEG receipts, scans, and documents.',
     status: 'Ready',
     phase: 'Phase 7'
   },
@@ -440,7 +440,7 @@ export const PHASE_7_TOOLS = [
     name: 'PNG to Text',
     path: '/png-to-text',
     category: 'OCR & Text',
-    description: 'OCR extraction optimized for screenshots, code snippets, tables, and high-contrast PNG images.',
+    description: 'Extract text from PNG screenshots, code, tables, and UI images.',
     status: 'Ready',
     phase: 'Phase 7'
   },
@@ -449,7 +449,7 @@ export const PHASE_7_TOOLS = [
     name: 'Screenshot to Text',
     path: '/screenshot-to-text',
     category: 'OCR & Text',
-    description: 'Instant OCR extraction for desktop and mobile screenshots with clipboard paste and drop support.',
+    description: 'Paste a screenshot and extract its text instantly.',
     status: 'Ready',
     phase: 'Phase 7'
   },
@@ -458,7 +458,16 @@ export const PHASE_7_TOOLS = [
     name: 'Extract Text from PDF',
     path: '/extract-text-from-pdf',
     category: 'Text Extraction',
-    description: 'Extract readable textual content from multi-page PDF documents page-by-page directly in your browser.',
+    description: 'Extract structured text from text-based PDF documents.',
+    status: 'Ready',
+    phase: 'Phase 7'
+  },
+  {
+    id: 'image-cropper',
+    name: 'Image Cropper',
+    path: '/image-cropper',
+    category: 'Image Editing',
+    description: 'Crop images to custom areas and common aspect ratios in your browser.',
     status: 'Ready',
     phase: 'Phase 7'
   }

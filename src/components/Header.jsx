@@ -5,7 +5,7 @@ import { getToolByPath } from '../tools/toolsRegistry';
 export default function Header() {
   const location = useLocation();
   const currentTool = getToolByPath(location.pathname);
-  const brandBadgeText = currentTool?.phase || 'Phase 4';
+  const brandBadgeText = currentTool?.phase || 'Phase 7 Complete';
 
   return (
     <header className="site-header">
@@ -55,6 +55,8 @@ export default function Header() {
               <Link to="/extract-pdf-pages">Extract PDF Pages</Link>
               <Link to="/delete-pdf-pages">Delete PDF Pages</Link>
               <Link to="/reorder-pdf-pages">Reorder PDF Pages</Link>
+              <Link to="/pdf-ocr">PDF OCR</Link>
+              <Link to="/extract-text-from-pdf">Extract Text from PDF</Link>
             </div>
           </div>
 
@@ -68,6 +70,10 @@ export default function Header() {
               <Link to="/image-compressor">Image Compressor</Link>
               <Link to="/image-resizer">Image Resizer</Link>
               <Link to="/image-cropper">Image Cropper</Link>
+              <Link to="/image-to-text">Image to Text</Link>
+              <Link to="/jpg-to-text">JPG to Text</Link>
+              <Link to="/png-to-text">PNG to Text</Link>
+              <Link to="/screenshot-to-text">Screenshot to Text</Link>
               <Link to="/heic-to-jpg">HEIC to JPG</Link>
               <Link to="/webp-to-jpg">WebP to JPG</Link>
               <Link to="/jpg-to-webp">JPG to WebP</Link>
@@ -101,7 +107,7 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <Link to="/#tools-phase3" className="header-cta-btn">
+          <Link to="/#tools-phase1" className="header-cta-btn">
             Explore Tools
           </Link>
         </div>
