@@ -4,6 +4,18 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-21] — Phase 5.5: WebP to PNG Implementation (Phase 5: 5/10 In Progress)
+
+### Added
+- **WebP to PNG Tool (`/webp-to-png`):** Client-side WebP to lossless PNG conversion engine using the HTML5 Canvas pipeline with zero server uploads.
+  - **Full Transparency / Alpha Preservation:** Preserves RGBA alpha channel so transparent WebP graphics convert to clean 32-bit RGBA PNG with zero halo or background artifacts.
+  - **Optional Background Flattening:** Supports custom background color fill for users wishing to flatten alpha channels.
+  - **Robust Input & Output Validation:** Verifies input WebP RIFF/WEBP binary header and output PNG signature (`89 50 4E 47 0D 0A 1A 0A`) plus IHDR chunk width, height, and color type.
+  - **High-Precision Testing:** 30/30 unit tests, 22/22 Chrome CDP tests across Desktop (1440x900) and Mobile (375x667), 15/15 difficult edge tests verifying 1280x720 alpha-channel pixel integrity.
+  - **Active Tool Count:** Platform updated to **34 Active Tools** out of **55 Total Strategy Tools**.
+
+---
+
 ## [2026-09-20] — Phase 5.4: JPG to WebP Implementation (Phase 5: 4/10 In Progress)
 
 ### Added

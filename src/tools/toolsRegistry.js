@@ -311,6 +311,15 @@ export const PHASE_5_TOOLS = [
     description: 'Convert JPEG images to modern WebP format for up to 35% smaller file sizes with lossy or lossless modes.',
     status: 'Ready',
     phase: 'Phase 5'
+  },
+  {
+    id: 'webp-to-png',
+    name: 'WebP to PNG',
+    path: '/webp-to-png',
+    category: 'Image Conversion',
+    description: 'Convert WebP images to lossless PNG format client-side with full transparency and dimension preservation.',
+    status: 'Ready',
+    phase: 'Phase 5'
   }
 ];
 
