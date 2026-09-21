@@ -272,18 +272,12 @@ export default function GifMakerTool() {
             <p className="result-subtitle">Your animated GIF is ready to preview and download.</p>
 
             {/* Live GIF preview */}
-            <div style={{ textAlign: 'center', margin: '20px 0' }}>
+            <div className="gif-result-preview-wrap">
               <img
                 id="gif-maker-preview"
                 src={gifResult.url}
                 alt="Generated Animated GIF Preview"
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '360px',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.35)',
-                  border: '1px solid rgba(255,255,255,0.1)'
-                }}
+                className="gif-result-preview"
               />
             </div>
 
@@ -339,7 +333,6 @@ export default function GifMakerTool() {
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onClick={() => fileInputRef.current?.click()}
-              style={{ cursor: 'pointer' }}
               aria-label="Drop images here or click to select"
               role="button"
               tabIndex={0}
@@ -413,44 +406,15 @@ export default function GifMakerTool() {
                 {/* Frame thumbnail grid */}
                 <div
                   id="gif-frame-grid"
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
-                    gap: '12px',
-                    marginTop: '16px'
-                  }}
+                  className="gif-frame-grid"
                 >
                   {frames.map((frame, idx) => (
                     <div
                       key={frame.id}
                       className="gif-frame-card"
-                      style={{
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '10px',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        position: 'relative'
-                      }}
                     >
                       {/* Frame number badge */}
-                      <div
-                        style={{
-                          position: 'absolute',
-                          top: '6px',
-                          left: '6px',
-                          background: 'rgba(0,0,0,0.7)',
-                          color: '#fff',
-                          fontSize: '11px',
-                          fontWeight: 700,
-                          borderRadius: '4px',
-                          padding: '1px 6px',
-                          zIndex: 1,
-                          lineHeight: '18px'
-                        }}
-                        aria-label={`Frame ${idx + 1}`}
-                      >
+                      <div className="gif-frame-badge" aria-label={`Frame ${idx + 1}`}>
                         {idx + 1}
                       </div>
 
@@ -458,52 +422,22 @@ export default function GifMakerTool() {
                       <img
                         src={frame.thumbUrl}
                         alt={`Frame ${idx + 1}: ${frame.file.name}`}
-                        style={{
-                          width: '100%',
-                          aspectRatio: '1',
-                          objectFit: 'cover',
-                          display: 'block'
-                        }}
+                        className="gif-frame-thumb"
                       />
 
                       {/* Filename */}
-                      <div
-                        style={{
-                          padding: '4px 6px',
-                          fontSize: '10px',
-                          color: 'rgba(255,255,255,0.6)',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          whiteSpace: 'nowrap',
-                          maxWidth: '100%'
-                        }}
-                        title={frame.file.name}
-                      >
+                      <div className="gif-frame-filename" title={frame.file.name}>
                         {frame.file.name}
                       </div>
 
                       {/* Reorder / Remove controls */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          borderTop: '1px solid rgba(255,255,255,0.07)',
-                          background: 'rgba(0,0,0,0.2)'
-                        }}
-                      >
+                      <div className="gif-frame-controls">
                         <button
                           type="button"
                           aria-label={`Move frame ${idx + 1} left`}
                           disabled={idx === 0 || isProcessing}
                           onClick={() => moveFrame(frame.id, -1)}
-                          style={{
-                            flex: 1,
-                            border: 'none',
-                            background: 'transparent',
-                            color: idx === 0 ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.7)',
-                            cursor: idx === 0 ? 'not-allowed' : 'pointer',
-                            padding: '6px',
-                            fontSize: '14px'
-                          }}
+                          className="gif-frame-btn"
                           title="Move left"
                         >
                           ‹
@@ -513,15 +447,7 @@ export default function GifMakerTool() {
                           aria-label={`Remove frame ${idx + 1}`}
                           disabled={isProcessing}
                           onClick={() => removeFrame(frame.id)}
-                          style={{
-                            flex: 1,
-                            border: 'none',
-                            background: 'transparent',
-                            color: 'rgba(255,100,100,0.8)',
-                            cursor: isProcessing ? 'not-allowed' : 'pointer',
-                            padding: '6px',
-                            fontSize: '12px'
-                          }}
+                          className="gif-frame-btn gif-frame-btn--remove"
                           title="Remove frame"
                         >
                           ✕
@@ -531,15 +457,7 @@ export default function GifMakerTool() {
                           aria-label={`Move frame ${idx + 1} right`}
                           disabled={idx === frames.length - 1 || isProcessing}
                           onClick={() => moveFrame(frame.id, 1)}
-                          style={{
-                            flex: 1,
-                            border: 'none',
-                            background: 'transparent',
-                            color: idx === frames.length - 1 ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.7)',
-                            cursor: idx === frames.length - 1 ? 'not-allowed' : 'pointer',
-                            padding: '6px',
-                            fontSize: '14px'
-                          }}
+                          className="gif-frame-btn"
                           title="Move right"
                         >
                           ›
@@ -551,7 +469,7 @@ export default function GifMakerTool() {
 
                 {/* Notice when < 2 frames */}
                 {frames.length === 1 && (
-                  <p style={{ color: 'rgba(255,200,80,0.9)', fontSize: '13px', marginTop: '12px', textAlign: 'center' }}>
+                  <p className="gif-frame-warning">
                     Add at least one more image to create an animated GIF.
                   </p>
                 )}
