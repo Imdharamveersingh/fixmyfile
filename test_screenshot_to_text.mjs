@@ -317,9 +317,15 @@ try {
     expression: `(async () => {
       const btn = document.getElementById('btn-paste-clipboard');
       btn.click();
-      await new Promise(r => setTimeout(r, 400));
+      for (let i = 0; i < 25; i++) {
+        await new Promise(r => setTimeout(r, 100));
+        const notice = document.getElementById('screenshot-clipboard-notice');
+        if (notice && notice.textContent.trim().length > 0) {
+          return notice.textContent.trim();
+        }
+      }
       const notice = document.getElementById('screenshot-clipboard-notice');
-      return notice ? notice.textContent : '';
+      return notice ? notice.textContent.trim() : '';
     })()`,
     returnByValue: true
   });

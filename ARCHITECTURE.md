@@ -9,10 +9,12 @@ This document describes the technical design, routing structure, component hiera
 FixMyFile is built as a modular, client-rendered single-page application (SPA) using **React 19**, **Vite 8**, and **React Router v7**.
 
 ### Core Principles
-- **Canonical Path-Based Routing:** Every tool operates on a dedicated URL path (e.g., `/jpg-to-pdf`), ensuring clean browser history, bookmarking, and search engine discoverability.
-- **Tool Isolation:** Each tool lives in its own directory under `src/tools/<tool-id>/`. Tools do not import or depend on one another.
-- **Shared Layout Shell:** A single `Layout` component wraps all routed views, providing a persistent `Header` and `Footer` while mounting page content inside `<Outlet />`.
-- **Centralized Registry:** Tool metadata (name, path, category, description, phase, status) is declared once in `src/tools/toolsRegistry.js` and imported by navigation, cards, and tool views.
+- **Canonical Path-Based Routing:** Every tool operates on a dedicated URL path (e.g., `/jpg-to-pdf`, `/image-cropper`), ensuring clean browser history, bookmarking, and search engine discoverability.
+- **Route-Level Code Splitting:** Every tool module is loaded on-demand via `React.lazy()` and wrapped in `<Suspense fallback={<LoadingFallback />}>` and `<ErrorBoundary>`. The initial entry bundle is ~313 KB uncompressed (~94 KB gzip).
+- **Tool Isolation:** Each tool lives in its own directory under `src/tools/<tool-id>/`. Heavy libraries (Tesseract.js, FFmpeg WASM, ONNX Runtime, PDF.js, ExcelJS, docx, pptxgenjs) are loaded only when their specific tool route is accessed.
+- **Shared Layout Shell:** A single `Layout` component wraps all routed views, providing a persistent `Header` with accessible dropdown navigation, a skip-to-content bypass link (`#main-content`), and a global `Footer`.
+- **Dynamic SEO Metadata:** Per-route title, description, canonical link, OpenGraph tags, and JSON-LD structured data are managed via `src/components/SEO.jsx` utilizing `VITE_SITE_URL` (production default: `https://fixmyfile.netlify.app`).
+- **Centralized Registry:** Tool metadata (name, path, category, description, phase, status) is declared once in `src/tools/toolsRegistry.js` as the internal source of truth.
 
 ---
 
@@ -22,27 +24,34 @@ FixMyFile is built as a modular, client-rendered single-page application (SPA) u
 src/
 ├── assets/                  # Logos, icons, and static images
 ├── components/              # Shared, reusable UI components
-│   ├── Header.jsx           # Global sticky header with logo and navigation
-│   ├── Footer.jsx           # Multi-column global footer with quick tool links
-│   ├── Layout.jsx           # Top-level shell rendering Header + Outlet + Footer
-│   ├── ToolCard.jsx         # Card component used in tool listing grids
-│   └── ToolPlaceholder.jsx  # Reusable status view for tools pending implementation
+│   ├── ErrorBoundary.jsx    # React error boundary catching route-level exceptions
+│   ├── Footer.jsx           # Global footer with quick tool links & privacy guarantee
+│   ├── Header.jsx           # Sticky header with compact multi-column dropdowns & ARIA
+│   ├── Layout.jsx           # Top-level shell with skip-link + Header + Outlet + Footer
+│   ├── LoadingFallback.jsx  # Accessible, spinner-based suspense loading indicator
+│   ├── SEO.jsx              # React Helmet metadata injection and canonical URL management
+│   └── ToolCard.jsx         # Card component used in tool listing grids
 ├── pages/                   # Top-level views
-│   ├── HomePage.jsx         # Directory view listing active tools & phase stats
-│   └── NotFoundPage.jsx     # 404 fallback page for unmatched URLs
-├── tools/                   # Tool modules (one subfolder per tool)
-│   ├── compress-pdf/        # Compress PDF tool entrypoint
-│   ├── jpg-to-pdf/          # JPG to PDF tool entrypoint
-│   ├── merge-pdf/           # Merge PDF tool entrypoint
-│   ├── pdf-to-jpg/          # PDF to JPG tool entrypoint
-│   ├── pdf-to-word/         # PDF to Word tool entrypoint
-│   ├── word-to-pdf/         # Word to PDF tool entrypoint
-│   └── toolsRegistry.js     # Single source of truth for tool metadata
+│   ├── HomePage.jsx         # Directory view listing 49 active tools & category sections
+│   └── NotFoundPage.jsx     # Accessible 404 fallback page for unmatched URLs
+├── services/                # Shared domain engines and processing pipelines
+│   └── ocr/                 # Local Tesseract Web Worker OCR & PDF layer engine
+├── tools/                   # 49 modular tool implementations (one subfolder per tool)
+│   ├── background-remover/  # AI background removal via ONNX Runtime & WebAssembly
+│   ├── barcode-generator/   # 1D barcode generator supporting 8 industrial formats
+│   ├── compress-pdf/        # Lossless structural PDF stream compression via pdf-lib
+│   ├── gif-maker/           # Animated GIF assembly via client-side FFmpeg WASM
+│   ├── image-cropper/       # HTML5 Canvas cropping studio with aspect ratio lock (Phase 7.7)
+│   ├── mp4-to-mp3/          # Client-side audio extraction via FFmpeg WASM
+│   ├── pdf-ocr/             # Searchable PDF OCR layer generator via pdf-lib + Tesseract
+│   ├── qr-code-generator/   # Vector SVG/PNG QR code generator
+│   ├── toolsRegistry.js     # Internal canonical tool registry (49 active tools)
+│   └── ...                  # Remaining active tool implementations
 ├── utils/                   # Shared utility helpers
 │   └── helpers.js           # String formatters and general helper functions
 ├── App.css                  # Component, layout, and tool view styling
-├── App.jsx                  # React Router configuration (<Routes>, <Route>)
-├── index.css                # CSS variables, typography, and base CSS reset
+├── App.jsx                  # React Router configuration with React.lazy code splitting
+├── index.css                # CSS variables, typography, focus-visible & reduced-motion reset
 └── main.jsx                 # Application DOM mount
 ```
 
@@ -50,106 +59,88 @@ src/
 
 ## 3. Layout & Routing Architecture
 
-Routing is configured in [`src/App.jsx`](file:///d:/tool-website/src/App.jsx) via `BrowserRouter`:
+Routing is configured in `src/App.jsx` with route-level code splitting via `React.lazy`:
 
 ```jsx
-<BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Layout />}>
-      <Route index element={<HomePage />} />
-      <Route path="jpg-to-pdf" element={<JpgToPdfTool />} />
-      <Route path="pdf-to-word" element={<PdfToWordTool />} />
-      <Route path="pdf-to-jpg" element={<PdfToJpgTool />} />
-      <Route path="word-to-pdf" element={<WordToPdfTool />} />
-      <Route path="merge-pdf" element={<MergePdfTool />} />
-      <Route path="compress-pdf" element={<CompressPdfTool />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Route>
-  </Routes>
-</BrowserRouter>
-```
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import NotFoundPage from './pages/NotFoundPage';
+import LoadingFallback from './components/LoadingFallback';
+import ErrorBoundary from './components/ErrorBoundary';
 
-### Active Phase 1 Routes
-1. `/` — Home directory and tool grid.
-2. `/jpg-to-pdf` — JPG to PDF tool placeholder.
-3. `/pdf-to-word` — PDF to Word tool placeholder.
-4. `/pdf-to-jpg` — PDF to JPG tool placeholder.
-5. `/word-to-pdf` — Word to PDF tool placeholder.
-6. `/merge-pdf` — Merge PDF tool placeholder.
-7. `/compress-pdf` — Compress PDF tool placeholder.
+// Lazy-loaded tool components (49 active routes)
+const JpgToPdf = lazy(() => import('./tools/jpg-to-pdf'));
+const ImageCropper = lazy(() => import('./tools/image-cropper'));
+// ... other tool modules
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route
+              path="jpg-to-pdf"
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <JpgToPdf />
+                </Suspense>
+              }
+            />
+            {/* 48 additional active tool routes */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </ErrorBoundary>
+    </BrowserRouter>
+  );
+}
+```
 
 ---
 
 ## 4. Reusable Component Approach
 
-- **`Layout`**: Houses the global application structure. Prevents page re-renders of header and footer when navigating between routes.
-- **`ToolPlaceholder`**: Renders standard breadcrumbs, tool titles, category badges, route information, and an honest "Tool implementation coming next" panel without simulated operations.
-- **`ToolCard`**: Standardized presentation card used on the homepage with hover elevation, category tagging, and path pills.
+- **`Layout`**: Houses global page landmarks. Features a top skip-to-content bypass link targeting `<main id="main-content">`, ensuring full keyboard accessibility.
+- **`Header`**: Sticky header with brand logo (optimized 512×512 PNG) and keyboard-navigable dropdown mega-menus for PDF Tools, Image Tools, and Media Tools with full ARIA attributes (`aria-expanded`, `aria-haspopup`, `aria-controls`, `role="menu"`).
+- **`SEO`**: Synchronizes document title, description, canonical link, OpenGraph tags, and JSON-LD structured data on every route.
+- **`ToolCard`**: Standardized card used on the homepage featuring clean category indicators with zero internal development phase badges.
+- **`LoadingFallback`**: Accessible suspense loading indicator with `role="status"` and `aria-live="polite"`.
+- **`ErrorBoundary`**: Prevents whole-app crashes by catching isolated chunk-loading or tool runtime failures.
 
 ---
 
-## 5. Adding a New Tool (Standard Workflow)
+## 5. Active Tool Categories (49 Unique Tools)
 
-To add a new tool cleanly without disrupting existing code:
+FixMyFile features **49 unique active tools** organized across 7 internal phases:
 
-1. **Register Metadata:**
-   Add the tool configuration to `PHASE_X_TOOLS` in `src/tools/toolsRegistry.js`:
-   ```javascript
-   {
-     id: 'example-tool',
-     name: 'Example Tool',
-     path: '/example-tool',
-     category: 'Category Name',
-     description: 'Short user-facing description.',
-     status: 'Implementation Coming Next',
-     phase: 'Phase X'
-   }
-   ```
-2. **Create Tool Module:**
-   Create a new directory: `src/tools/example-tool/index.jsx`.
-   Initially render `ToolPlaceholder` with its registered metadata:
-   ```jsx
-   import React from 'react';
-   import ToolPlaceholder from '../../components/ToolPlaceholder';
-   import { getToolById } from '../toolsRegistry';
-
-   export default function ExampleTool() {
-     const tool = getToolById('example-tool');
-     return <ToolPlaceholder tool={tool} />;
-   }
-   ```
-3. **Add Route:**
-   Import the component in `src/App.jsx` and add `<Route path="example-tool" element={<ExampleTool />} />`.
-4. **Update Navigation & Footer:**
-   Add link references in `src/components/Header.jsx` and `src/components/Footer.jsx` if appropriate for its category.
-5. **Implement Logic (When Scheduled):**
-   Replace the placeholder inside `src/tools/example-tool/` with the functional processing interface once its phase begins.
+1. **PDF Tools (Phase 1 & Phase 4 — 16 tools):**
+   - Core conversions (`/jpg-to-pdf`, `/pdf-to-word`, `/pdf-to-jpg`, `/word-to-pdf`)
+   - Organization (`/merge-pdf`, `/compress-pdf`, `/split-pdf`, `/rotate-pdf`, `/extract-pdf-pages`, `/delete-pdf-pages`, `/reorder-pdf-pages`)
+   - Security (`/protect-pdf`, `/unlock-pdf`)
+   - Office conversions (`/pdf-to-excel`, `/pdf-to-powerpoint`, `/pdf-to-text`)
+2. **Image Tools (Phase 2, Phase 5 & Phase 7.7 — 16 tools):**
+   - Core editing & optimization (`/background-remover`, `/image-compressor`, `/image-resizer`, `/image-converter`, `/jpg-to-png`, `/png-to-jpg`)
+   - Extended formats & transforms (`/heic-to-jpg`, `/webp-to-jpg`, `/jpg-to-webp`, `/webp-to-png`, `/image-rotate-flip`, `/image-watermark`, `/image-to-pdf`, `/image-upscaler`, `/image-to-base64`)
+   - Phase 7.7 Canvas Studio (`/image-cropper`)
+3. **Calculators & Generators (Phase 3 — 7 tools):**
+   - High-utility generation (`/qr-code-generator`, `/barcode-generator`, `/password-generator`)
+   - Calculation & analytics (`/currency-converter`, `/percentage-calculator`, `/word-counter`, `/emi-calculator`)
+4. **Media Tools (Phase 6 — 4 active tools):**
+   - Audio & video processing (`/mp4-to-mp3`, `/video-compressor`, `/video-to-gif`, `/gif-maker`)
+   - Note: 6 Phase 6 tools (Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4) are deferred for future release.
+5. **OCR / Text / Advanced File Tools (Phase 7 — 7 tools):**
+   - In-browser text recognition (`/image-to-text`, `/pdf-ocr`, `/jpg-to-text`, `/png-to-text`, `/screenshot-to-text`, `/extract-text-from-pdf`, `/image-cropper`)
 
 ---
 
-## 6. Planned Tool Categories & Expansion Roadmap
+## 6. Client-Side Processing Architecture
 
-The architecture accommodates **55 total planned tools** organized across 5 core categories and 7 phases as established in `tool-build-strategy.md`:
+> **Privacy Guarantee:** There is **NO** backend server, database, API service, or tracking layer. 100% of processing occurs in the user's browser.
 
-1. **PDF Tools:**
-   - *Phase 1 (Complete — 6 tools):* Core PDF document conversion, merging, and compression.
-   - *Phase 4 (Planned — 10 tools):* Advanced PDF page manipulation (splitting, rotation, protection, unlocking, reordering) and presentation/spreadsheet conversions.
-2. **Image Tools:**
-   - *Phase 2 (Complete — 6 tools):* Essential image optimization, background removal, resizing, and format transcoding.
-   - *Phase 5 (Planned — 10 tools):* Extended image manipulation (HEIC/WebP transcoding, cropping, rotating, watermarking, upscaling, Base64 conversion).
-3. **Calculators & Generators:**
-   - *Phase 3 (Complete — 7 tools):* High-utility interactive calculators and code generators (QR, Barcode, Currency, Percentage, Password, Word Counter, EMI).
-4. **Media Tools:**
-   - *Phase 6 (Planned — 10 tools):* Audio/video conversion, extraction, GIF generation, and trimming utilities.
-5. **OCR / Text / Advanced File Tools:**
-   - *Phase 7 (Planned — 6 tools):* Optical character recognition, text extraction from scanned documents and images.
-
----
-
-## 7. Future Architecture (Planned & Postponed)
-
-> **Current State:** There is **NO** backend server, database, API service, or authentication layer. Everything is purely client-side static rendering.
-
-- **Client-Side Processing Engines:** Future phases will continue to prioritize specialized, lightweight WebAssembly or browser-native processing libraries encapsulated strictly within each relevant tool directory.
-- **Web Workers:** CPU-intensive file processing (e.g., video transcoding or deep neural network OCR) will be delegated to background Web Workers to maintain UI responsiveness.
-- **Backend / Cloud Services:** Currently out of scope. If heavy operations in future phases genuinely require server-assisted processing, they will be introduced behind modular adapter interfaces rather than direct hard dependencies.
+- **WebAssembly & Web Workers:** CPU-intensive tasks (FFmpeg video encoding, Tesseract neural OCR, ONNX background removal) execute inside dedicated Web Workers with local WASM binaries (`public/vendor/`).
+- **Performance Budget:** Initial homepage footprint is ~313 KB uncompressed (~94 KB gzip). Heavy assets are loaded solely on route access.
+- **Production Deployment:** Hosted on Netlify at `https://fixmyfile.netlify.app`.

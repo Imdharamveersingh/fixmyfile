@@ -4,6 +4,93 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-09-24] — Step 7: Automated Test Repair & Test Suite Synchronization (Commit `66637f7`)
+
+### Changed
+- **Synchronized Test Assertions:** Brought automated test suites into alignment with canonical 49-tool architecture.
+  - Updated stale tool count assertions from incremental historical numbers (43–48) to canonical `ALL_TOOLS.length === 49` across `test_gif_maker.mjs`, `test_video_to_gif.mjs`, `test_image_to_text.mjs`, `test_jpg_to_text.mjs`, `test_png_to_text.mjs`, `test_screenshot_to_text.mjs`, and `test_pdf_ocr.mjs`.
+  - Updated legacy Phase 3 snapshot test (`test_homepage_phase3.mjs`) to validate modern 49-tool homepage and non-phased category titles.
+  - Updated footer navigation assertion in `test_qr_code_generator.mjs` to match production "Calculators & Generators".
+  - Replaced non-deterministic delay in `test_gif_maker.mjs` with deterministic DOM polling for lazy chunk rendering.
+- **Fixed PDF.js Dev Worker Resolution:** Updated `src/services/ocr/ocrPdfLayer.js` to dynamically serve `/node_modules/pdfjs-dist/build/pdf.worker.mjs` during local Vite dev testing while maintaining the hashed production asset in production builds.
+### Added
+- **Accessibility Architecture Test Suite:** Added `test_accessibility_architecture.mjs` validating Layout skip link, single main landmark across all 49 tools, Header dropdown ARIA relationships, Footer trust badge `aria-hidden`, and CSS focus-visible / reduced-motion tokens.
+- **Milestone:** All **55 test suites** passing (100% pass rate, 0 failed, 0 skipped).
+
+---
+
+## [2026-09-23] — Step 6: Accessibility Audit & Remediation (Commit `8482e5d`)
+
+### Added
+- **Skip-to-Content Bypass Link:** Added visually hidden, focus-visible `<a href="#main-content" className="skip-to-content">` inside `Layout.jsx`.
+- **Target Main Landmark:** Guaranteed exactly one `<main id="main-content">` landmark per routed page; eliminated duplicate internal `<main>` tags across tool index files.
+- **Keyboard-Navigable Dropdowns:** Added full ARIA attributes (`aria-expanded`, `aria-haspopup`, `aria-controls`, `role="menu"`, `role="menuitem"`, `tabIndex`) to Header mega-menus, plus `Escape` key event listener restoring focus to the parent trigger button.
+- **Accessibility CSS Tokens:** Added global `:focus-visible` interactive outline tokens and `@media (prefers-reduced-motion: reduce)` accessibility overrides in `index.css`.
+- **Accessible Dropzones:** Added keyboard activation (`tabIndex={0}`, `Enter`/`Space` handlers) and decorative SVG handling (`aria-hidden="true"`) across dropzones.
+
+---
+
+## [2026-09-23] — Step 5: Logo Asset Optimization (Commit `db01761`)
+
+### Changed
+- **Optimized Brand Logo Asset:** Downsampled `public/logo.png` from ~896 KB (2048×2048) to ~76.8 KB (512×512) preserving RGBA transparency, sharp pixel rendering, and favicon/SEO compatibility. Reduced logo asset size by ~91.4% with zero visual regression.
+
+---
+
+## [2026-09-23] — Step 4: Route-Level Code Splitting & Performance Optimization (Commit `c2b351f`)
+
+### Changed
+- **Dynamic Route-Level Code Splitting:** Converted synchronous tool imports in `App.jsx` to `React.lazy()` dynamic imports wrapped in `<Suspense fallback={<LoadingFallback />}>` and `<ErrorBoundary>`.
+- **Performance Budget Optimization:**
+  - Initial JS bundle footprint reduced from ~4.71 MB uncompressed (~1.35 MB gzip) to **~313 KB uncompressed (~94 KB gzip)**.
+  - Heavy libraries (ONNX Runtime, Tesseract.js, FFmpeg WASM, PDF.js, ExcelJS, docx, pptxgenjs, cropperjs) isolated into discrete on-demand chunks loaded strictly upon tool route access.
+
+---
+
+## [2026-09-23] — Step 3.1: Production SEO Domain Configuration (Commit `4927cdce`)
+
+### Changed
+- **Production Base Domain Canonicalization:** Configured `VITE_SITE_URL` to point to production deployment `https://fixmyfile.netlify.app`.
+- **Sitemap & Robots Automation:** Updated sitemap generation script (`scripts/generate_sitemap.mjs`) to produce `sitemap.xml` with 50 canonical URLs on `https://fixmyfile.netlify.app` and updated `robots.txt` Sitemap directive.
+
+---
+
+## [2026-09-23] — Step 3: Production SEO Foundation & Per-Tool Metadata (Commit `2b972c3`)
+
+### Added
+- **Centralized SEO Component:** Implemented `src/components/SEO.jsx` utilizing `react-helmet-async` for per-route dynamic `<title>`, `<meta name="description">`, `<link rel="canonical">`, OpenGraph (`og:*`), Twitter Cards, and schema.org JSON-LD structured data.
+- **50 Canonical URLs:** Automated generation of `public/sitemap.xml` (1 homepage + 49 active tools) and `public/robots.txt`.
+
+---
+
+## [2026-09-23] — Step 2.5: Removal of Public-Facing Development Status Labels (Commit `6813865`)
+
+### Changed
+- **Professional Public UI Transformation:** Removed internal roadmap/development badges ("Phase 1", "Phase 7", "Phase 7 Complete", "Ready") from public UI:
+  - Header brand badge removed.
+  - Hero section badge and roadmap stats removed; updated hero description to reflect a clean collection of 49 high-demand tools.
+  - Homepage section headers cleaned of phase prefixes (e.g., "Calculators & Generators", "Image Tools", "PDF Tools").
+  - `ToolCard.jsx` updated to render only functional category tags.
+  - Internal phase metadata strictly preserved in `toolsRegistry.js` for architectural testing and governance.
+
+---
+
+## [2026-09-23] — Step 2: Header Navigation & Compact Multi-Column Menus (Commit `350bc1f`)
+
+### Changed
+- **Multi-Column Header Mega-Menus:** Converted long vertical dropdowns for PDF Tools and Image Tools into responsive multi-column grid layouts with category grouping.
+- **Added Media Tools Dropdown:** Integrated Media Tools (`/mp4-to-mp3`, `/video-compressor`, `/video-to-gif`, `/gif-maker`) into Header navigation.
+
+---
+
+## [2026-09-23] — Step 1: Canonicalize Image Cropper (Phase 7.7) & Tool Registry Deduplication (Commit `7a36278`)
+
+### Fixed
+- **Tool Catalog Duplication Resolved:** Removed duplicate Image Cropper entry from `PHASE_5_TOOLS`. Canonicalized Image Cropper as Phase 7.7 only (`PHASE_7_TOOLS`).
+- **Tool Count Canonicalized:** Corrected `ALL_TOOLS.length` from 50 (with duplicate) to exactly **49 unique active tools**.
+
+---
+
 ## [2026-09-22] — Phase 7.7: Image Cropper Implementation (Phase 7: 7/7 Complete)
 
 ### Added

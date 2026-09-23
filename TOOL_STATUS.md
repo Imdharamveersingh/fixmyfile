@@ -108,7 +108,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 
 ---
 
-## Phase 6 Tools: Media Tools (Planned)
+## Phase 6 Tools: Media Tools (4 Active / 6 Deferred)
 
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
@@ -116,12 +116,12 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 40 | **Video Compressor** | Video Optimization | Phase 6 | `/video-compressor` | `COMPLETE / PASS` |
 | 41 | **Video to GIF** | Video Conversion | Phase 6 | `/video-to-gif` | `COMPLETE / PASS` |
 | 42 | **GIF Maker** | Media Generation | Phase 6 | `/gif-maker` | `COMPLETE / PASS` |
-| 43 | **Audio Converter** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 44 | **M4A to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 45 | **WAV to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 46 | **MP3 Cutter** | Audio Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 47 | **Video Trimmer** | Video Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 48 | **Video to MP4** | Video Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 43 | **Audio Converter** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
+| 44 | **M4A to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
+| 45 | **WAV to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
+| 46 | **MP3 Cutter** | Audio Editing | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
+| 47 | **Video Trimmer** | Video Editing | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
+| 48 | **Video to MP4** | Video Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / DEFERRED` |
 
 ---
 
@@ -142,6 +142,7 @@ This document provides a comprehensive inventory and real-time status tracker fo
 ---
 
 ## Summary Governance Rules
-- Actual routes and application code exist **only** for the 19 completed Phase 1–3 tools.
-- No dummy routes or premature placeholder files are to be created for future tools (20–55).
-- All planned tools follow the authoritative build sequence defined in `tool-build-strategy.md`.
+- Actual routes and application code exist for all **49 active tools** across Phases 1 through 7.
+- Image Cropper is canonicalized as Phase 7.7 only (single active entry).
+- The 6 deferred Phase 6 tools (Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4) remain planned for future release without stub routes.
+- All tools follow the authoritative specification defined in `tool-build-strategy.md`.

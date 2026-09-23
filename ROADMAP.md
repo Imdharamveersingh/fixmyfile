@@ -140,7 +140,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 6: Media Tools
 
-**Phase Status:** `IN PROGRESS (4/10)` — Tools 39, 40, 41 & 42 complete; 6 planned.
+**Phase Status:** `4 ACTIVE / 6 DEFERRED (4/10)` — Tools 39, 40, 41 & 42 complete; 6 deferred.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
@@ -148,12 +148,12 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 40 | **Video Compressor** | Video Optimization | `COMPLETE (PASS)` | Compress video bitrate and dimensions for web/chat sharing client-side via FFmpeg WASM. |
 | 41 | **Video to GIF** | Video Conversion | `COMPLETE (PASS)` | Convert short video clips into animated GIF loops with palettegen/paletteuse and FPS controls. |
 | 42 | **GIF Maker** | Media Generation | `COMPLETE (PASS)` | Assemble animated GIFs from sequences of uploaded images. |
-| 43 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
-| 44 | **M4A to MP3** | Audio Conversion | `NOT STARTED` | Convert voice memos and Apple M4A audio to MP3. |
-| 45 | **WAV to MP3** | Audio Conversion | `NOT STARTED` | Compress large uncompressed WAV recordings into MP3. |
-| 46 | **MP3 Cutter** | Audio Editing | `NOT STARTED` | Visual audio trimmer and waveform audio slicer for clips. |
-| 47 | **Video Trimmer** | Video Editing | `NOT STARTED` | Trim start and end timestamps from video files without re-encoding. |
-| 48 | **Video to MP4** | Video Conversion | `NOT STARTED` | Transcode legacy or non-standard video formats (MKV, MOV) to MP4. |
+| 43 | **Audio Converter** | Audio Conversion | `PLANNED / DEFERRED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
+| 44 | **M4A to MP3** | Audio Conversion | `PLANNED / DEFERRED` | Convert voice memos and Apple M4A audio to MP3. |
+| 45 | **WAV to MP3** | Audio Conversion | `PLANNED / DEFERRED` | Compress large uncompressed WAV recordings into MP3. |
+| 46 | **MP3 Cutter** | Audio Editing | `PLANNED / DEFERRED` | Visual audio trimmer and waveform audio slicer for clips. |
+| 47 | **Video Trimmer** | Video Editing | `PLANNED / DEFERRED` | Trim start and end timestamps from video files without re-encoding. |
+| 48 | **Video to MP4** | Video Conversion | `PLANNED / DEFERRED` | Transcode legacy or non-standard video formats (MKV, MOV) to MP4. |
 
 ---
 
@@ -175,6 +175,6 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Governance & Execution Rules
 
-1. **Sequential Phasing:** Phase 4 must reach 100% completion before Phase 5 commences. No out-of-order phase development is permitted.
-2. **Authoritative Alignment:** All tools and priorities derive strictly from `tool-build-strategy.md`.
-3. **Honest Readiness:** Only the 19 completed Phase 1–3 tools are active. Future tools will have routes and UI registered only when their respective development phase officially starts.
+1. **Sequential Phasing:** Tools are developed in structured phases adhering to the master architecture.
+2. **Authoritative Alignment:** All tools and priorities derive strictly from `tool-build-strategy.md` with Image Cropper canonicalized as Phase 7.7.
+3. **Honest Readiness:** All 49 unique tools across Phases 1 through 7 are 100% active, verified, and deployed. The 6 deferred Phase 6 audio/video tools remain scheduled for future release.
