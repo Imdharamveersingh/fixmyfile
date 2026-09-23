@@ -1,11 +1,11 @@
-import { ALL_TOOLS, getToolByPath } from '../tools/toolsRegistry.js';
+import { getToolByPath } from '../tools/toolsRegistry.js';
 
 /**
  * SEO & Domain Configuration for FixMyFile
  *
  * Configurable Base URL for canonical URLs, sitemaps, and social share tags.
  * Overridable via VITE_SITE_URL in production environments.
- * Default fallback is 'https://fixmyfile.com' as established across project test suites.
+ * Default production fallback is 'https://fixmyfile.netlify.app'.
  */
 const envUrl =
   typeof import.meta !== 'undefined' && import.meta.env?.VITE_SITE_URL
@@ -14,7 +14,7 @@ const envUrl =
       ? process.env.VITE_SITE_URL
       : null;
 
-export const SITE_URL = (envUrl || 'https://fixmyfile.com').replace(/\/$/, '');
+export const SITE_URL = (envUrl || 'https://fixmyfile.netlify.app').replace(/\/$/, '');
 
 export const DEFAULT_SITE_METADATA = {
   title: 'FixMyFile — Free Online File Tools | Privacy-First',

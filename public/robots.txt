@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fixmyfile.com/sitemap.xml
+Sitemap: https://fixmyfile.netlify.app/sitemap.xml

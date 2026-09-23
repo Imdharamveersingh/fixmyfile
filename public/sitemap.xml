@@ -1,252 +1,252 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fixmyfile.com/</loc>
+    <loc>https://fixmyfile.netlify.app/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/jpg-to-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/jpg-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-to-word</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-to-word</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-to-jpg</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/word-to-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/word-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/merge-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/merge-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/compress-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/compress-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/background-remover</loc>
+    <loc>https://fixmyfile.netlify.app/background-remover</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-compressor</loc>
+    <loc>https://fixmyfile.netlify.app/image-compressor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-resizer</loc>
+    <loc>https://fixmyfile.netlify.app/image-resizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-converter</loc>
+    <loc>https://fixmyfile.netlify.app/image-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/jpg-to-png</loc>
+    <loc>https://fixmyfile.netlify.app/jpg-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/png-to-jpg</loc>
+    <loc>https://fixmyfile.netlify.app/png-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/qr-code-generator</loc>
+    <loc>https://fixmyfile.netlify.app/qr-code-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/barcode-generator</loc>
+    <loc>https://fixmyfile.netlify.app/barcode-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/currency-converter</loc>
+    <loc>https://fixmyfile.netlify.app/currency-converter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/percentage-calculator</loc>
+    <loc>https://fixmyfile.netlify.app/percentage-calculator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/password-generator</loc>
+    <loc>https://fixmyfile.netlify.app/password-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/word-counter</loc>
+    <loc>https://fixmyfile.netlify.app/word-counter</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/emi-calculator</loc>
+    <loc>https://fixmyfile.netlify.app/emi-calculator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/split-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/split-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-to-excel</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-to-excel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-to-powerpoint</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-to-powerpoint</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/rotate-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/rotate-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/protect-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/protect-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/unlock-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/unlock-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-to-text</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/extract-pdf-pages</loc>
+    <loc>https://fixmyfile.netlify.app/extract-pdf-pages</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/delete-pdf-pages</loc>
+    <loc>https://fixmyfile.netlify.app/delete-pdf-pages</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/reorder-pdf-pages</loc>
+    <loc>https://fixmyfile.netlify.app/reorder-pdf-pages</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/heic-to-jpg</loc>
+    <loc>https://fixmyfile.netlify.app/heic-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/webp-to-jpg</loc>
+    <loc>https://fixmyfile.netlify.app/webp-to-jpg</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/jpg-to-webp</loc>
+    <loc>https://fixmyfile.netlify.app/jpg-to-webp</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/webp-to-png</loc>
+    <loc>https://fixmyfile.netlify.app/webp-to-png</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-rotate-flip</loc>
+    <loc>https://fixmyfile.netlify.app/image-rotate-flip</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-watermark</loc>
+    <loc>https://fixmyfile.netlify.app/image-watermark</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-to-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/image-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-upscaler</loc>
+    <loc>https://fixmyfile.netlify.app/image-upscaler</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-to-base64</loc>
+    <loc>https://fixmyfile.netlify.app/image-to-base64</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/mp4-to-mp3</loc>
+    <loc>https://fixmyfile.netlify.app/mp4-to-mp3</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/video-compressor</loc>
+    <loc>https://fixmyfile.netlify.app/video-compressor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/video-to-gif</loc>
+    <loc>https://fixmyfile.netlify.app/video-to-gif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/gif-maker</loc>
+    <loc>https://fixmyfile.netlify.app/gif-maker</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-to-text</loc>
+    <loc>https://fixmyfile.netlify.app/image-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/pdf-ocr</loc>
+    <loc>https://fixmyfile.netlify.app/pdf-ocr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/jpg-to-text</loc>
+    <loc>https://fixmyfile.netlify.app/jpg-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/png-to-text</loc>
+    <loc>https://fixmyfile.netlify.app/png-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/screenshot-to-text</loc>
+    <loc>https://fixmyfile.netlify.app/screenshot-to-text</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/extract-text-from-pdf</loc>
+    <loc>https://fixmyfile.netlify.app/extract-text-from-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fixmyfile.com/image-cropper</loc>
+    <loc>https://fixmyfile.netlify.app/image-cropper</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

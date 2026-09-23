@@ -34,3 +34,8 @@ ${urls
 
 fs.writeFileSync(sitemapPath, xml.trim() + '\n', 'utf8');
 console.log(`Generated ${sitemapPath} with ${urls.length} URLs (1 homepage + ${ALL_TOOLS.length} active tools).`);
+
+const robotsPath = path.resolve('public/robots.txt');
+const robotsContent = `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+fs.writeFileSync(robotsPath, robotsContent, 'utf8');
+console.log(`Updated ${robotsPath} with Sitemap: ${SITE_URL}/sitemap.xml.`);

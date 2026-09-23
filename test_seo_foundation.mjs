@@ -28,6 +28,8 @@ const titles = new Set();
 const descriptions = new Set();
 const canonicals = new Set();
 
+assert.equal(SITE_URL, 'https://fixmyfile.netlify.app', 'SITE_URL must default to https://fixmyfile.netlify.app');
+
 for (const tool of ALL_TOOLS) {
   const seo = getPageSEO(tool.path);
 
@@ -39,6 +41,8 @@ for (const tool of ALL_TOOLS) {
   assert(seo.title.includes(tool.name), `Title "${seo.title}" must contain tool name "${tool.name}"`);
   assert(seo.title.includes('FixMyFile'), `Title "${seo.title}" must contain brand name "FixMyFile"`);
   assert.equal(seo.canonical, `${SITE_URL}${tool.path}`, `Canonical must match ${SITE_URL}${tool.path}`);
+  assert(seo.canonical.startsWith('https://fixmyfile.netlify.app'), `Canonical URL must start with https://fixmyfile.netlify.app`);
+  assert(!seo.canonical.includes('fixmyfile.com'), `Canonical must NOT contain fixmyfile.com`);
 
   // Description length and quality checks
   assert(
@@ -68,12 +72,16 @@ const robotsContent = fs.readFileSync(robotsPath, 'utf8');
 assert(robotsContent.includes('User-agent: *'), 'robots.txt must allow User-agent: *');
 assert(robotsContent.includes('Allow: /'), 'robots.txt must specify Allow: /');
 assert(robotsContent.includes(`Sitemap: ${SITE_URL}/sitemap.xml`), `robots.txt must link to ${SITE_URL}/sitemap.xml`);
-console.log('  ✓ public/robots.txt verified with valid User-agent, Allow, and Sitemap directive');
+assert(robotsContent.includes('Sitemap: https://fixmyfile.netlify.app/sitemap.xml'), 'robots.txt must link to Netlify sitemap');
+assert(!robotsContent.includes('fixmyfile.com'), 'robots.txt must not contain fixmyfile.com');
+console.log('  ✓ public/robots.txt verified with valid User-agent, Allow, Netlify Sitemap directive, and zero fixmyfile.com');
 
 // 2. Sitemap.xml
 const sitemapPath = path.resolve('public/sitemap.xml');
 assert(fs.existsSync(sitemapPath), 'public/sitemap.xml must exist');
 const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+
+assert(!sitemapContent.includes('fixmyfile.com'), 'sitemap.xml must contain zero occurrences of fixmyfile.com');
 
 const sitemapLocs = Array.from(sitemapContent.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)).map((m) => m[1]);
 assert.equal(sitemapLocs.length, 50, `Sitemap must contain exactly 50 URLs (1 home + 49 tools), got ${sitemapLocs.length}`);
@@ -83,13 +91,15 @@ assert.equal(uniqueLocs.size, 50, `Sitemap URLs must be unique, got ${uniqueLocs
 
 // Verify homepage present
 assert(uniqueLocs.has(`${SITE_URL}/`), `Sitemap must contain homepage: ${SITE_URL}/`);
+assert(uniqueLocs.has('https://fixmyfile.netlify.app/'), 'Sitemap must contain https://fixmyfile.netlify.app/');
 
-// Verify all 49 tools present in sitemap
+// Verify all 49 tools present in sitemap and start with Netlify host
 for (const tool of ALL_TOOLS) {
   const expectedUrl = `${SITE_URL}${tool.path}`;
   assert(uniqueLocs.has(expectedUrl), `Sitemap missing tool URL: ${expectedUrl}`);
+  assert(expectedUrl.startsWith('https://fixmyfile.netlify.app'), `Tool URL must start with Netlify host: ${expectedUrl}`);
 }
-console.log('  ✓ public/sitemap.xml verified with exactly 50 unique URLs (1 home + 49 tools) and zero duplicates');
+console.log('  ✓ public/sitemap.xml verified with exactly 50 unique URLs on https://fixmyfile.netlify.app and zero fixmyfile.com');
 
 // ----------------------------------------------------
 // GROUP 3: Real Chrome CDP In-Browser DOM & Route Audit
@@ -170,6 +180,7 @@ async function runChromeSeoTests() {
         expression: `(() => {
           const getMeta = (selector, attr = 'content') => document.head.querySelector(selector)?.getAttribute(attr) || null;
           const canonical = document.head.querySelector('link[rel="canonical"]')?.getAttribute('href') || null;
+          const canonicalCount = document.head.querySelectorAll('link[rel="canonical"]').length;
           const structuredDataEl = document.head.querySelector('script#fixmyfile-structured-data');
           let structuredData = null;
           if (structuredDataEl) {
@@ -179,6 +190,7 @@ async function runChromeSeoTests() {
             title: document.title,
             description: getMeta('meta[name="description"]'),
             canonical,
+            canonicalCount,
             robots: getMeta('meta[name="robots"]'),
             ogTitle: getMeta('meta[property="og:title"]'),
             ogDescription: getMeta('meta[property="og:description"]'),
@@ -207,6 +219,10 @@ async function runChromeSeoTests() {
     assert.equal(homeSeo.title, DEFAULT_SITE_METADATA.title, 'Home title must match default title');
     assert.equal(homeSeo.description, DEFAULT_SITE_METADATA.description, 'Home description must match default');
     assert.equal(homeSeo.canonical, `${SITE_URL}/`, 'Home canonical must be root URL');
+    assert.equal(homeSeo.canonical, 'https://fixmyfile.netlify.app/', 'Home canonical must match Netlify domain');
+    assert.equal(homeSeo.canonicalCount, 1, 'Exactly 1 canonical tag must exist on Homepage');
+    assert(!homeSeo.canonical.includes('fixmyfile.com'), 'Home canonical must NOT contain fixmyfile.com');
+    assert(!homeSeo.ogUrl.includes('fixmyfile.com'), 'Home og:url must NOT contain fixmyfile.com');
     assert.equal(homeSeo.ogTitle, DEFAULT_SITE_METADATA.title);
     assert.equal(homeSeo.ogUrl, `${SITE_URL}/`);
     assert.equal(homeSeo.twitterTitle, DEFAULT_SITE_METADATA.title);
@@ -240,14 +256,18 @@ async function runChromeSeoTests() {
       assert(domSeo.title.includes(tool.name), `${r}: Title "${domSeo.title}" must contain "${tool.name}"`);
       assert(domSeo.title.includes('FixMyFile'), `${r}: Title must contain "FixMyFile"`);
       assert.equal(domSeo.canonical, `${SITE_URL}${r}`, `${r}: Canonical must be ${SITE_URL}${r}`);
+      assert.equal(domSeo.canonical, `https://fixmyfile.netlify.app${r}`, `${r}: Canonical must start with Netlify domain`);
+      assert.equal(domSeo.canonicalCount, 1, `${r}: Exactly 1 canonical tag must exist`);
+      assert(!domSeo.canonical.includes('fixmyfile.com'), `${r}: Canonical must NOT contain fixmyfile.com`);
       assert.equal(domSeo.description, expectedSeo.description, `${r}: Meta description mismatch`);
       assert.equal(domSeo.ogUrl, `${SITE_URL}${r}`, `${r}: OG URL must match canonical`);
+      assert(!domSeo.ogUrl.includes('fixmyfile.com'), `${r}: OG URL must NOT contain fixmyfile.com`);
       assert.equal(domSeo.ogTitle, domSeo.title, `${r}: OG title must match document title`);
       assert.equal(domSeo.twitterTitle, domSeo.title, `${r}: Twitter title must match document title`);
       assert.equal(domSeo.structuredData?.['@type'], 'WebApplication');
       assert.equal(domSeo.structuredData?.name, tool.name);
 
-      console.log(`   ✓ ${tool.name} (${r}): title="${domSeo.title}"`);
+      console.log(`   ✓ ${tool.name} (${r}): title="${domSeo.title}" canonical="${domSeo.canonical}"`);
     }
 
     // 3. Test In-App Client-Side Route Transitions (SPA dynamic metadata updates)
