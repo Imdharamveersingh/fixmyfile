@@ -122,12 +122,11 @@ FixMyFile is designed as a browser-first, privacy-focused, path-based utility to
 | 31 | **WebP to JPG** | Decode modern Google WebP images to universal JPG format with background handling. | `PLANNED / NOT STARTED` |
 | 32 | **JPG to WebP** | Convert JPG images to high-efficiency lossy/lossless WebP for modern web publishing. | `PLANNED / NOT STARTED` |
 | 33 | **WebP to PNG** | Convert WebP graphics to lossless PNG preserving transparency channels. | `PLANNED / NOT STARTED` |
-| 34 | **Image Cropper** | Interactive canvas cropping with custom bounding boxes and aspect ratio locks. | `PLANNED / NOT STARTED` |
-| 35 | **Image Rotate / Flip** | Arbitrary or 90-degree image rotation, horizontal flip, and vertical mirror. | `PLANNED / NOT STARTED` |
-| 36 | **Image Watermark** | Stamp customizable text or graphic watermarks with opacity and positioning controls. | `PLANNED / NOT STARTED` |
-| 37 | **Image to PDF** | Multi-format image ingestion (PNG, WEBP, GIF, SVG) to formatted PDF documents. | `PLANNED / NOT STARTED` |
-| 38 | **Image Upscaler** | Client-side bicubic / super-resolution scaling for enlarged digital graphics. | `PLANNED / NOT STARTED` |
-| 39 | **Image to Base64** | Encode image binaries into direct data URI / Base64 strings for web embedding. | `PLANNED / NOT STARTED` |
+| 34 | **Image Rotate / Flip** | Arbitrary or 90-degree image rotation, horizontal flip, and vertical mirror. | `PLANNED / NOT STARTED` |
+| 35 | **Image Watermark** | Stamp customizable text or graphic watermarks with opacity and positioning controls. | `PLANNED / NOT STARTED` |
+| 36 | **Image to PDF** | Multi-format image ingestion (PNG, WEBP, GIF, SVG) to formatted PDF documents. | `PLANNED / NOT STARTED` |
+| 37 | **Image Upscaler** | Client-side bicubic / super-resolution scaling for enlarged digital graphics. | `PLANNED / NOT STARTED` |
+| 38 | **Image to Base64** | Encode image binaries into direct data URI / Base64 strings for web embedding. | `PLANNED / NOT STARTED` |
 
 ---
 
@@ -167,13 +166,13 @@ FixMyFile is designed as a browser-first, privacy-focused, path-based utility to
 
 | # | Tool Name | Target Scope & Capabilities | Status |
 |---|---|---|---|
-| 50 | **Image to Text** | In-browser OCR extraction of text from photos, scans, and signage (`/image-to-text`). | `COMPLETE` |
-| 51 | **PDF OCR** | Scan image-only or flat PDF documents and generate searchable text layers (`/pdf-ocr`). | `COMPLETE` |
-| 52 | **JPG to Text** | OCR text recognition specifically tailored for JPEG receipts and scanned papers (`/jpg-to-text`). | `COMPLETE` |
-| 53 | **PNG to Text** | Extract code, tabular data, and UI text from high-contrast PNG screenshots (`/png-to-text`). | `COMPLETE` |
-| 54 | **Screenshot to Text** | Instant clipboard-paste OCR utility for capturing text from screen grabs (`/screenshot-to-text`). | `COMPLETE` |
-| 55 | **Extract Text from PDF** | Deep structural text harvesting from complex multi-page PDF documents (`/extract-text-from-pdf`). | `COMPLETE` |
-| 56 | **Image Cropper** | Newly approved Phase 7.7 tool (`/image-cropper`). Interactive canvas cropping with custom aspect ratios, rotation, and high-resolution export. | `COMPLETE` |
+| 49 | **Image to Text** | In-browser OCR extraction of text from photos, scans, and signage (`/image-to-text`). | `COMPLETE` |
+| 50 | **PDF OCR** | Scan image-only or flat PDF documents and generate searchable text layers (`/pdf-ocr`). | `COMPLETE` |
+| 51 | **JPG to Text** | OCR text recognition specifically tailored for JPEG receipts and scanned papers (`/jpg-to-text`). | `COMPLETE` |
+| 52 | **PNG to Text** | Extract code, tabular data, and UI text from high-contrast PNG screenshots (`/png-to-text`). | `COMPLETE` |
+| 53 | **Screenshot to Text** | Instant clipboard-paste OCR utility for capturing text from screen grabs (`/screenshot-to-text`). | `COMPLETE` |
+| 54 | **Extract Text from PDF** | Deep structural text harvesting from complex multi-page PDF documents (`/extract-text-from-pdf`). | `COMPLETE` |
+| 55 | **Image Cropper** | Newly approved Phase 7.7 tool (`/image-cropper`). Interactive canvas cropping with custom aspect ratios, rotation, and high-resolution export. | `COMPLETE` |
 
 
 ---

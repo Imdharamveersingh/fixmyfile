@@ -108,7 +108,14 @@ async function runImageCropperChromeTest() {
 
     console.log('2. Navigating to /image-cropper...');
     await send('Page.navigate', { url: `${BASE_URL}/image-cropper` });
-    await new Promise((r) => setTimeout(r, 1200));
+    for (let wait = 0; wait < 20; wait++) {
+      await new Promise((r) => setTimeout(r, 200));
+      const chk = await send('Runtime.evaluate', {
+        expression: `!!document.querySelector('#image-cropper-dropzone')`,
+        returnByValue: true
+      });
+      if (chk.result?.value) break;
+    }
 
     // Evaluate Desktop UI Elements
     const desktopEvaluation = await send('Runtime.evaluate', {
@@ -132,7 +139,7 @@ async function runImageCropperChromeTest() {
     console.log('   Desktop Evaluation:', dRes);
     assert(dRes.title.includes('Image Cropper'), 'Document title must contain "Image Cropper"');
     assert.equal(dRes.h1, 'Image Cropper', 'H1 must be "Image Cropper"');
-    assert.equal(dRes.phaseBadge, 'Phase 5', 'Page badge must be Phase 5');
+    assert.equal(dRes.phaseBadge, 'Phase 7.7', 'Page badge must be Phase 7.7');
     assert(dRes.hasDropzone, 'Dropzone must be visible');
     assert(dRes.hasFileInput, 'File input must exist');
 

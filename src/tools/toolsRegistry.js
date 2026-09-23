@@ -277,15 +277,6 @@ export const PHASE_4_TOOLS = [
 
 export const PHASE_5_TOOLS = [
   {
-    id: 'image-cropper',
-    name: 'Image Cropper',
-    path: '/image-cropper',
-    category: 'Image Editing',
-    description: 'Crop JPG, PNG, WebP, and common images client-side with custom aspect ratios, rotation, and high-precision export.',
-    status: 'Ready',
-    phase: 'Phase 5'
-  },
-  {
     id: 'heic-to-jpg',
     name: 'HEIC to JPG',
     path: '/heic-to-jpg',
@@ -467,9 +458,9 @@ export const PHASE_7_TOOLS = [
     name: 'Image Cropper',
     path: '/image-cropper',
     category: 'Image Editing',
-    description: 'Crop images to custom areas and common aspect ratios in your browser.',
+    description: 'Crop JPG, PNG, WebP, and common images client-side with custom aspect ratios, rotation, and high-precision export.',
     status: 'Ready',
-    phase: 'Phase 7'
+    phase: 'Phase 7.7'
   }
 ];
 

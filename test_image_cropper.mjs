@@ -8,6 +8,7 @@ import UPNG from 'upng-js';
 import {
   ALL_TOOLS,
   PHASE_5_TOOLS,
+  PHASE_7_TOOLS,
   TOTAL_STRATEGY_TOOLS,
   getToolByPath
 } from './src/tools/toolsRegistry.js';
@@ -26,15 +27,18 @@ let testsPassed = 0;
 
 // Test 1: Route & Registry verification
 {
-  console.log('Test 1: Tool Registry & Active Tools verification (30/55, Phase 5)...');
+  console.log('Test 1: Tool Registry & Active Tools verification (Phase 7.7 canonical)...');
   const cropTool = getToolByPath('/image-cropper');
   assert(cropTool, 'Route /image-cropper must exist in registry');
   assert.equal(cropTool.id, 'image-cropper');
   assert.equal(cropTool.name, 'Image Cropper');
-  assert.equal(cropTool.phase, 'Phase 5');
+  assert.equal(cropTool.phase, 'Phase 7.7');
   assert.equal(cropTool.category, 'Image Editing');
-  assert(PHASE_5_TOOLS.some((t) => t.id === 'image-cropper'), 'image-cropper must be in PHASE_5_TOOLS');
-  assert(ALL_TOOLS.length >= 30, `Expected at least 30 active tools, got ${ALL_TOOLS.length}`);
+  assert(PHASE_7_TOOLS.some((t) => t.id === 'image-cropper'), 'image-cropper must be in PHASE_7_TOOLS');
+  assert(!PHASE_5_TOOLS.some((t) => t.id === 'image-cropper'), 'image-cropper must NOT be in PHASE_5_TOOLS');
+  assert.equal(ALL_TOOLS.length, 49, `Expected exactly 49 active tools, got ${ALL_TOOLS.length}`);
+  const uniqueIds = new Set(ALL_TOOLS.map((t) => t.id));
+  assert.equal(uniqueIds.size, 49, `Expected 49 unique tool IDs, got ${uniqueIds.size}`);
   assert.equal(TOTAL_STRATEGY_TOOLS, 55, 'Total strategy tools must remain 55');
 
   // Verify App.jsx registration

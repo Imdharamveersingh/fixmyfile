@@ -8,8 +8,8 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 | Metric | Count | Status |
 |---|---|---|
-| **Total Master Planned Tools** | **56** | Across Phases 1 through 7 (including approved 7.7) |
-| **Current Implemented / Active Tools** | **50** | 100% Production-Ready & Verified |
+| **Total Master Planned Tools** | **55** | Across Phases 1 through 7 (including approved 7.7) |
+| **Current Implemented / Active Tools** | **49** | 100% Production-Ready & Verified |
 | **Remaining Future Planned Tools** | **6** | Formally Scheduled in Master Strategy (Phase 6 audio/video) |
 
 ### Status Legend
@@ -30,10 +30,10 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | **Phase 2** | Image Foundation | 6 Tools | 6 Tools | `COMPLETE (6/6)` |
 | **Phase 3** | Generators & Calculators | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
 | **Phase 4** | PDF Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
-| **Phase 5** | Image Expansion | 10 Tools | 10 Tools | `COMPLETE (10/10)` |
+| **Phase 5** | Image Expansion | 9 Tools | 9 Tools | `COMPLETE (9/9)` |
 | **Phase 6** | Media Tools | 10 Tools | 4 Tools | `IN PROGRESS (4/10)` |
 | **Phase 7** | OCR / Text / Advanced File Tools | 7 Tools | 7 Tools | `COMPLETE (7/7)` |
-| **TOTAL** | **Master Tool Inventory** | **56 Tools** | **50 Tools** | **50 Active / 6 Planned** |
+| **TOTAL** | **Master Tool Inventory** | **55 Tools** | **49 Tools** | **49 Active / 6 Planned** |
 
 ---
 
@@ -122,7 +122,7 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 ## Phase 5: Image Expansion
 
-**Phase Status:** `COMPLETE (10/10)` — All 10 tools implemented and verified.
+**Phase Status:** `COMPLETE (9/9)` — All 9 tools implemented and verified.
 
 | # | Tool | Category | Path | Status | Target Scope |
 |---|---|---|---|---|---|
@@ -130,31 +130,30 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 | 31 | **WebP to JPG** | Image Conversion | `/webp-to-jpg` | `COMPLETE (PASS)` | Convert Google WebP graphics to universal JPG format. |
 | 32 | **JPG to WebP** | Image Conversion | `/jpg-to-webp` | `COMPLETE (PASS)` | Encode JPG images to optimized, lightweight WebP format. |
 | 33 | **WebP to PNG** | Image Conversion | `/webp-to-png` | `COMPLETE (PASS)` | Convert WebP graphics to lossless PNG with alpha preservation. |
-| 34 | **Image Cropper** | Image Editing | `/image-cropper` | `COMPLETE (PASS)` | Interactive canvas cropping with custom aspect ratios, rotation, and high-res export. |
-| 35 | **Image Rotate / Flip** | Image Editing | `/image-rotate-flip` | `COMPLETE (PASS)` | Image rotation (90° steps / 180° / 270°) and horizontal / vertical flip transforms. |
-| 36 | **Image Watermark** | Image Editing | `/image-watermark` | `COMPLETE (PASS)` | Apply text and image watermarks with opacity and positioning. |
-| 37 | **Image to PDF** | Image Conversion | `/image-to-pdf` | `COMPLETE (PASS)` | Multi-image batch ingestion (JPG, PNG, WebP, GIF, SVG) to formatted PDF. |
-| 38 | **Image Upscaler** | Image Editing | `/image-upscaler` | `COMPLETE (PASS)` | Client-side resolution enlargement and bicubic enhancement. |
-| 39 | **Image to Base64** | Image Utilities | `/image-to-base64` | `COMPLETE (PASS)` | Convert image binaries into Base64 / Data URI strings. |
+| 34 | **Image Rotate / Flip** | Image Editing | `/image-rotate-flip` | `COMPLETE (PASS)` | Image rotation (90° steps / 180° / 270°) and horizontal / vertical flip transforms. |
+| 35 | **Image Watermark** | Image Editing | `/image-watermark` | `COMPLETE (PASS)` | Apply text and image watermarks with opacity and positioning. |
+| 36 | **Image to PDF** | Image Conversion | `/image-to-pdf` | `COMPLETE (PASS)` | Multi-image batch ingestion (JPG, PNG, WebP, GIF, SVG) to formatted PDF. |
+| 37 | **Image Upscaler** | Image Editing | `/image-upscaler` | `COMPLETE (PASS)` | Client-side resolution enlargement and bicubic enhancement. |
+| 38 | **Image to Base64** | Image Utilities | `/image-to-base64` | `COMPLETE (PASS)` | Convert image binaries into Base64 / Data URI strings. |
 
 ---
 
 ## Phase 6: Media Tools
 
-**Phase Status:** `IN PROGRESS (4/10)` — Tools 40, 41, 42 & 43 complete; 6 planned.
+**Phase Status:** `IN PROGRESS (4/10)` — Tools 39, 40, 41 & 42 complete; 6 planned.
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
-| 40 | **MP4 to MP3** | Audio Extraction | `COMPLETE (PASS)` | Extract audio streams from MP4 video containers to MP3 format client-side via FFmpeg WASM. |
-| 41 | **Video Compressor** | Video Optimization | `COMPLETE (PASS)` | Compress video bitrate and dimensions for web/chat sharing client-side via FFmpeg WASM. |
-| 42 | **Video to GIF** | Video Conversion | `COMPLETE (PASS)` | Convert short video clips into animated GIF loops with palettegen/paletteuse and FPS controls. |
-| 43 | **GIF Maker** | Media Generation | `COMPLETE (PASS)` | Assemble animated GIFs from sequences of uploaded images. |
-| 44 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
-| 45 | **M4A to MP3** | Audio Conversion | `NOT STARTED` | Convert voice memos and Apple M4A audio to MP3. |
-| 46 | **WAV to MP3** | Audio Conversion | `NOT STARTED` | Compress large uncompressed WAV recordings into MP3. |
-| 47 | **MP3 Cutter** | Audio Editing | `NOT STARTED` | Visual audio trimmer and waveform audio slicer for clips. |
-| 48 | **Video Trimmer** | Video Editing | `NOT STARTED` | Trim start and end timestamps from video files without re-encoding. |
-| 49 | **Video to MP4** | Video Conversion | `NOT STARTED` | Transcode legacy or non-standard video formats (MKV, MOV) to MP4. |
+| 39 | **MP4 to MP3** | Audio Extraction | `COMPLETE (PASS)` | Extract audio streams from MP4 video containers to MP3 format client-side via FFmpeg WASM. |
+| 40 | **Video Compressor** | Video Optimization | `COMPLETE (PASS)` | Compress video bitrate and dimensions for web/chat sharing client-side via FFmpeg WASM. |
+| 41 | **Video to GIF** | Video Conversion | `COMPLETE (PASS)` | Convert short video clips into animated GIF loops with palettegen/paletteuse and FPS controls. |
+| 42 | **GIF Maker** | Media Generation | `COMPLETE (PASS)` | Assemble animated GIFs from sequences of uploaded images. |
+| 43 | **Audio Converter** | Audio Conversion | `NOT STARTED` | Transcode between common audio formats (MP3, WAV, AAC, OGG). |
+| 44 | **M4A to MP3** | Audio Conversion | `NOT STARTED` | Convert voice memos and Apple M4A audio to MP3. |
+| 45 | **WAV to MP3** | Audio Conversion | `NOT STARTED` | Compress large uncompressed WAV recordings into MP3. |
+| 46 | **MP3 Cutter** | Audio Editing | `NOT STARTED` | Visual audio trimmer and waveform audio slicer for clips. |
+| 47 | **Video Trimmer** | Video Editing | `NOT STARTED` | Trim start and end timestamps from video files without re-encoding. |
+| 48 | **Video to MP4** | Video Conversion | `NOT STARTED` | Transcode legacy or non-standard video formats (MKV, MOV) to MP4. |
 
 ---
 
@@ -164,13 +163,13 @@ This document outlines the multi-phase master roadmap for **FixMyFile**, trackin
 
 | # | Tool | Category | Status | Target Scope |
 |---|---|---|---|---|
-| 50 | **Image to Text** | OCR & Text | `COMPLETE (PASS)` | In-browser OCR extraction from photographs, signs, and documents. |
-| 51 | **PDF OCR** | OCR & Text | `COMPLETE (PASS)` | Scan image-only/scanned PDF files and generate searchable text. |
-| 52 | **JPG to Text** | OCR & Text | `COMPLETE (PASS)` | Specialized OCR for receipts, invoices, and paper photos. |
-| 53 | **PNG to Text** | OCR & Text | `COMPLETE (PASS)` | High-accuracy text recognition for screenshots and UI captures. |
-| 54 | **Screenshot to Text** | OCR & Text | `COMPLETE (PASS)` | Clipboard-paste OCR tool for instant screen text extraction. |
-| 55 | **Extract Text from PDF** | Text Extraction | `COMPLETE (PASS)` | Structural text and metadata harvesting from complex PDFs. |
-| 56 | **Image Cropper** | Image Editing | `COMPLETE (PASS)` | Newly approved Phase 7.7 tool (`/image-cropper`). Interactive canvas cropping with custom aspect ratios, rotation, and high-resolution export. |
+| 49 | **Image to Text** | OCR & Text | `COMPLETE (PASS)` | In-browser OCR extraction from photographs, signs, and documents. |
+| 50 | **PDF OCR** | OCR & Text | `COMPLETE (PASS)` | Scan image-only/scanned PDF files and generate searchable text. |
+| 51 | **JPG to Text** | OCR & Text | `COMPLETE (PASS)` | Specialized OCR for receipts, invoices, and paper photos. |
+| 52 | **PNG to Text** | OCR & Text | `COMPLETE (PASS)` | High-accuracy text recognition for screenshots and UI captures. |
+| 53 | **Screenshot to Text** | OCR & Text | `COMPLETE (PASS)` | Clipboard-paste OCR tool for instant screen text extraction. |
+| 54 | **Extract Text from PDF** | Text Extraction | `COMPLETE (PASS)` | Structural text and metadata harvesting from complex PDFs. |
+| 55 | **Image Cropper** | Image Editing | `COMPLETE (PASS)` | Newly approved Phase 7.7 tool (`/image-cropper`). Interactive canvas cropping with custom aspect ratios, rotation, and high-resolution export. |
 
 ---
 

@@ -44,12 +44,12 @@ for (const r of expectedPhase7Routes) {
   assert(t.category, `Tool at ${r} must have a category`);
   assert(t.description, `Tool at ${r} must have a description`);
   assert.equal(t.status, 'Ready');
-  assert.equal(t.phase, 'Phase 7');
+  assert(t.phase === 'Phase 7' || t.phase === 'Phase 7.7', `Tool at ${r} must be Phase 7 or 7.7, got ${t.phase}`);
 }
 console.log('  ✓ All 7 Phase 7 tools verified with correct properties and Phase 7 designation');
 
-assert.equal(ALL_TOOLS.length, 50, `Expected exactly 50 active tools in ALL_TOOLS, got ${ALL_TOOLS.length}`);
-console.log(`  ✓ ALL_TOOLS active count is factually 50 (got ${ALL_TOOLS.length})`);
+assert.equal(ALL_TOOLS.length, 49, `Expected exactly 49 active tools in ALL_TOOLS, got ${ALL_TOOLS.length}`);
+console.log(`  ✓ ALL_TOOLS active count is factually 49 (got ${ALL_TOOLS.length})`);
 
 assert.equal(TOTAL_STRATEGY_TOOLS, 55, 'TOTAL_STRATEGY_TOOLS must be 55');
 console.log('  ✓ TOTAL_STRATEGY_TOOLS remains 55');
@@ -59,7 +59,7 @@ assert.equal(PHASE_1_TOOLS.length, 6, 'Phase 1 count intact (6)');
 assert.equal(PHASE_2_TOOLS.length, 6, 'Phase 2 count intact (6)');
 assert.equal(PHASE_3_TOOLS.length, 7, 'Phase 3 count intact (7)');
 assert.equal(PHASE_4_TOOLS.length, 10, 'Phase 4 count intact (10)');
-assert.equal(PHASE_5_TOOLS.length, 10, 'Phase 5 count intact (10)');
+assert.equal(PHASE_5_TOOLS.length, 9, 'Phase 5 count intact (9)');
 assert.equal(PHASE_6_TOOLS.length, 4, 'Phase 6 count intact (4)');
 console.log('  ✓ Existing Phase 1–6 tool arrays remain fully intact');
 passedTests += 5;
@@ -197,9 +197,9 @@ async function runChromeHomeTests() {
 
     const activeToolsStat = heroData.statCards.find(s => s.lbl.includes('Active Tools'));
     const strategyToolsStat = heroData.statCards.find(s => s.lbl.includes('Total Strategy Tools'));
-    assert.equal(activeToolsStat?.num, '50', 'Active Tools metric must be exactly 50');
+    assert.equal(activeToolsStat?.num, '49', 'Active Tools metric must be exactly 49');
     assert.equal(strategyToolsStat?.num, '55', 'Total Strategy Tools metric must be 55');
-    console.log('   ✓ Header and Hero badges display "Phase 7 Complete" and Active Tools = 50');
+    console.log('   ✓ Header and Hero badges display "Phase 7 Complete" and Active Tools = 49');
 
     // Evaluate Phase 7 Section
     console.log('4. Evaluating Phase 7 Section on Home page...');
@@ -256,6 +256,32 @@ async function runChromeHomeTests() {
       'tools-phase7'
     ], 'Sections must follow conceptual order Phase 1 through 7');
     console.log('   ✓ Conceptual ordering Phase 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 confirmed');
+
+    // Verify Phase 5 does NOT contain Image Cropper and total Home tool cards is exactly 49
+    console.log('5b. Verifying Phase 5 and Total Home Card Counts...');
+    const cardAuditEval = await send('Runtime.evaluate', {
+      expression: `(() => {
+        const p5Cards = Array.from(document.querySelectorAll('#tools-phase5 .tool-card')).map(a => a.getAttribute('href'));
+        const allCards = Array.from(document.querySelectorAll('.tools-section .tool-card')).map(a => a.getAttribute('href'));
+        const cropperCards = Array.from(document.querySelectorAll('.tool-card[href="/image-cropper"]'));
+        return {
+          p5CardCount: p5Cards.length,
+          p5HasCropper: p5Cards.includes('/image-cropper'),
+          totalToolCards: allCards.length,
+          uniqueToolCards: new Set(allCards).size,
+          cropperCardCount: cropperCards.length
+        };
+      })()`,
+      returnByValue: true
+    });
+    const cardAudit = cardAuditEval.result.value;
+    console.log('   Card Audit:', cardAudit);
+    assert.equal(cardAudit.p5CardCount, 9, 'Phase 5 must render exactly 9 cards');
+    assert.equal(cardAudit.p5HasCropper, false, 'Phase 5 must NOT contain Image Cropper');
+    assert.equal(cardAudit.totalToolCards, 49, 'Total rendered tool cards must be exactly 49');
+    assert.equal(cardAudit.uniqueToolCards, 49, 'Total unique rendered tool cards must be exactly 49');
+    assert.equal(cardAudit.cropperCardCount, 1, 'Image Cropper card must appear exactly once on Home');
+    console.log('   ✓ Phase 5 has 9 cards (no Image Cropper), total 49 cards (exactly 1 Image Cropper)');
 
     // Verify Footer Phase 7 Links
     console.log('6. Verifying Footer Phase 7 Discovery...');

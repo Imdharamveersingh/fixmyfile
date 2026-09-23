@@ -20,10 +20,10 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | **Image Foundation** | Phase 2 | 6 | 6 | `COMPLETE (6/6)` |
 | **Calculators & Generators** | Phase 3 | 7 | 7 | `COMPLETE (7/7)` |
 | **PDF Expansion** | Phase 4 | 10 | 10 | `COMPLETE (10/10)` |
-| **Image Expansion** | Phase 5 | 10 | 10 | `COMPLETE (10/10)` |
+| **Image Expansion** | Phase 5 | 9 | 9 | `COMPLETE (9/9)` |
 | **Media Tools** | Phase 6 | 10 | 4 | `IN PROGRESS (4/10)` |
 | **OCR / Text / Advanced File Tools** | Phase 7 | 7 | 7 | `COMPLETE (7/7)` |
-| **TOTAL** | **Phases 1–7** | **56** | **50** | **50 Active / 6 Planned** |
+| **TOTAL** | **Phases 1–7** | **55** | **49** | **49 Active / 6 Planned** |
 
 ---
 
@@ -100,12 +100,11 @@ This document provides a comprehensive inventory and real-time status tracker fo
 | 31 | **WebP to JPG** | Image Conversion | Phase 5 | `/webp-to-jpg` | `COMPLETE / PASS` |
 | 32 | **JPG to WebP** | Image Conversion | Phase 5 | `/jpg-to-webp` | `COMPLETE / PASS` |
 | 33 | **WebP to PNG** | Image Conversion | Phase 5 | `/webp-to-png` | `COMPLETE / PASS` |
-| 34 | **Image Cropper** | Image Editing | Phase 5 | `/image-cropper` | `COMPLETE / PASS` |
-| 35 | **Image Rotate / Flip** | Image Editing | Phase 5 | `/image-rotate-flip` | `COMPLETE / PASS` |
-| 36 | **Image Watermark** | Image Editing | Phase 5 | `/image-watermark` | `COMPLETE / PASS` |
-| 37 | **Image to PDF** | Image Conversion | Phase 5 | `/image-to-pdf` | `COMPLETE / PASS` |
-| 38 | **Image Upscaler** | Image Editing | Phase 5 | `/image-upscaler` | `COMPLETE / PASS` |
-| 39 | **Image to Base64** | Image Utilities | Phase 5 | `/image-to-base64` | `COMPLETE / PASS` |
+| 34 | **Image Rotate / Flip** | Image Editing | Phase 5 | `/image-rotate-flip` | `COMPLETE / PASS` |
+| 35 | **Image Watermark** | Image Editing | Phase 5 | `/image-watermark` | `COMPLETE / PASS` |
+| 36 | **Image to PDF** | Image Conversion | Phase 5 | `/image-to-pdf` | `COMPLETE / PASS` |
+| 37 | **Image Upscaler** | Image Editing | Phase 5 | `/image-upscaler` | `COMPLETE / PASS` |
+| 38 | **Image to Base64** | Image Utilities | Phase 5 | `/image-to-base64` | `COMPLETE / PASS` |
 
 ---
 
@@ -113,16 +112,16 @@ This document provides a comprehensive inventory and real-time status tracker fo
 
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
-| 40 | **MP4 to MP3** | Audio Extraction | Phase 6 | `/mp4-to-mp3` | `COMPLETE / PASS` |
-| 41 | **Video Compressor** | Video Optimization | Phase 6 | `/video-compressor` | `COMPLETE / PASS` |
-| 42 | **Video to GIF** | Video Conversion | Phase 6 | `/video-to-gif` | `COMPLETE / PASS` |
-| 43 | **GIF Maker** | Media Generation | Phase 6 | `/gif-maker` | `COMPLETE / PASS` |
-| 44 | **Audio Converter** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 45 | **M4A to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 46 | **WAV to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 47 | **MP3 Cutter** | Audio Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 48 | **Video Trimmer** | Video Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
-| 49 | **Video to MP4** | Video Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 39 | **MP4 to MP3** | Audio Extraction | Phase 6 | `/mp4-to-mp3` | `COMPLETE / PASS` |
+| 40 | **Video Compressor** | Video Optimization | Phase 6 | `/video-compressor` | `COMPLETE / PASS` |
+| 41 | **Video to GIF** | Video Conversion | Phase 6 | `/video-to-gif` | `COMPLETE / PASS` |
+| 42 | **GIF Maker** | Media Generation | Phase 6 | `/gif-maker` | `COMPLETE / PASS` |
+| 43 | **Audio Converter** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 44 | **M4A to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 45 | **WAV to MP3** | Audio Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 46 | **MP3 Cutter** | Audio Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 47 | **Video Trimmer** | Video Editing | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
+| 48 | **Video to MP4** | Video Conversion | Phase 6 | *Planned (TBD)* | `PLANNED / NOT STARTED` |
 
 ---
 
@@ -130,13 +129,13 @@ This document provides a comprehensive inventory and real-time status tracker fo
 
 | # | Tool Name | Category | Phase | Path | Status |
 |---|---|---|---|---|---|
-| 50 | **Image to Text** | OCR & Text | Phase 7 | `/image-to-text` | `COMPLETE / PASS` |
-| 51 | **PDF OCR** | OCR & Text | Phase 7 | `/pdf-ocr` | `COMPLETE / PASS` |
-| 52 | **JPG to Text** | OCR & Text | Phase 7 | `/jpg-to-text` | `COMPLETE / PASS` |
-| 53 | **PNG to Text** | OCR & Text | Phase 7 | `/png-to-text` | `COMPLETE / PASS` |
-| 54 | **Screenshot to Text** | OCR & Text | Phase 7 | `/screenshot-to-text` | `COMPLETE / PASS` |
-| 55 | **Extract Text from PDF** | Text Extraction | Phase 7 | `/extract-text-from-pdf` | `COMPLETE / PASS` |
-| 56 | **Image Cropper** | Image Editing | Phase 7 | `/image-cropper` | `COMPLETE / PASS` |
+| 49 | **Image to Text** | OCR & Text | Phase 7 | `/image-to-text` | `COMPLETE / PASS` |
+| 50 | **PDF OCR** | OCR & Text | Phase 7 | `/pdf-ocr` | `COMPLETE / PASS` |
+| 51 | **JPG to Text** | OCR & Text | Phase 7 | `/jpg-to-text` | `COMPLETE / PASS` |
+| 52 | **PNG to Text** | OCR & Text | Phase 7 | `/png-to-text` | `COMPLETE / PASS` |
+| 53 | **Screenshot to Text** | OCR & Text | Phase 7 | `/screenshot-to-text` | `COMPLETE / PASS` |
+| 54 | **Extract Text from PDF** | Text Extraction | Phase 7 | `/extract-text-from-pdf` | `COMPLETE / PASS` |
+| 55 | **Image Cropper** | Image Editing | Phase 7.7 | `/image-cropper` | `COMPLETE / PASS` |
 
 *Validation Note: All seven Phase 7 tools verified via automated regression suites, difficult edge-case benchmarks, and real Chrome CDP sessions across desktop and mobile viewports.*
 

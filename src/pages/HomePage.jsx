@@ -24,7 +24,7 @@ export default function HomePage() {
           Simple tools for <span className="text-gradient">everyday files</span>.
         </h1>
         <p className="hero-description">
-          A clean, focused collection of 50 high-demand digital utility tools.
+          A clean, focused collection of 49 high-demand digital utility tools.
           Phase 1–7 PDF, image, generator, media, and OCR text extraction tools are 100% complete and verified client-side.
         </p>
 

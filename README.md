@@ -110,7 +110,6 @@ FixMyFile employs clean, canonical path-based URLs for every tool to optimize us
 | `/extract-pdf-pages` | Extract PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
 | `/delete-pdf-pages` | Delete PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
 | `/reorder-pdf-pages` | Reorder PDF Pages | PDF Organization | Phase 4 | Complete · In-Browser |
-| `/image-cropper` | Image Cropper | Image Editing | Phase 5 | Complete · In-Browser |
 | `/heic-to-jpg` | HEIC to JPG | Image Conversion | Phase 5 | Complete · In-Browser |
 | `/webp-to-jpg` | WebP to JPG | Image Conversion | Phase 5 | Complete · In-Browser |
 | `/jpg-to-webp` | JPG to WebP | Image Conversion | Phase 5 | Complete · In-Browser |

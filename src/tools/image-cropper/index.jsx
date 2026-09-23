@@ -413,7 +413,7 @@ export default function ImageCropperTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image Cropper</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 5</span>
+          <span className="tool-badge-accent">Phase 7.7</span>
         </div>
         <p className="tool-intro">
           Crop JPG, PNG, WebP, and common images client-side with pixel precision. Select custom aspect ratios,

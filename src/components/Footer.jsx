@@ -57,7 +57,6 @@ export default function Footer() {
             <li><Link to="/background-remover">Background Remover</Link></li>
             <li><Link to="/image-compressor">Image Compressor</Link></li>
             <li><Link to="/image-resizer">Image Resizer</Link></li>
-            <li><Link to="/image-cropper">Image Cropper</Link></li>
             <li><Link to="/heic-to-jpg">HEIC to JPG</Link></li>
             <li><Link to="/webp-to-jpg">WebP to JPG</Link></li>
             <li><Link to="/jpg-to-webp">JPG to WebP</Link></li>

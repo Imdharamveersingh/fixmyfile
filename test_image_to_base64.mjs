@@ -25,7 +25,7 @@ assert(toolEntry?.phase === 'Phase 5', 'image-to-base64 has phase Phase 5');
 assert(toolEntry?.category === 'Image Utilities', 'image-to-base64 has category Image Utilities');
 assert(ALL_TOOLS.length >= 39, `ALL_TOOLS has 39 entries (found ${ALL_TOOLS.length})`);
 assert(TOTAL_STRATEGY_TOOLS === 55, 'TOTAL_STRATEGY_TOOLS is still 55');
-assert(PHASE_5_TOOLS.length === 10, `PHASE_5_TOOLS is complete with 10 tools (found ${PHASE_5_TOOLS.length})`);
+assert(PHASE_5_TOOLS.length === 9, `PHASE_5_TOOLS is complete with 9 tools (found ${PHASE_5_TOOLS.length})`);
 
 // GROUP 2: App.jsx Integration
 console.log('\nGROUP 2: App.jsx Integration');
