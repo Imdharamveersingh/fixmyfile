@@ -248,7 +248,7 @@ export default function JpgToWebpTool() {
       : null;
 
   return (
-    <main className="tool-page" id="jpg-to-webp-tool">
+    <div className="tool-page" id="jpg-to-webp-tool">
       <title>JPG to WebP Converter — FixMyFile</title>
 
       {/* Header */}
@@ -477,6 +477,6 @@ export default function JpgToWebpTool() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

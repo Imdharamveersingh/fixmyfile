@@ -221,7 +221,7 @@ export default function ImageToTextTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {/* Error Alert */}
         {errorMessage && (
           <div className="alert-error" role="alert" id="image-to-text-error">
@@ -246,7 +246,12 @@ export default function ImageToTextTool() {
             role="button"
             tabIndex={0}
             aria-label="Drop image here or click to select"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') fileInputRef.current?.click(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
           >
             <input
               ref={fileInputRef}
@@ -485,7 +490,7 @@ export default function ImageToTextTool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* SEO / Info Section */}
       <section className="tool-info-section">

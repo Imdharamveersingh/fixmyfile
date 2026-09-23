@@ -28,11 +28,16 @@ export default function Header() {
     };
   }, []);
 
-  // Close on Escape key
+  // Close on Escape key and return focus to triggering button
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.key === 'Escape' && activeDropdown) {
+        const btnId = `nav-dropdown-btn-${activeDropdown}`;
         setActiveDropdown(null);
+        setTimeout(() => {
+          const btn = document.getElementById(btnId);
+          if (btn) btn.focus();
+        }, 0);
       }
     }
     window.addEventListener('keydown', handleKeyDown);
@@ -99,9 +104,11 @@ export default function Header() {
           >
             <button
               type="button"
+              id="nav-dropdown-btn-pdf"
               className={`nav-dropdown-btn ${activeDropdown === 'pdf' ? 'active' : ''}`}
               aria-expanded={activeDropdown === 'pdf'}
               aria-haspopup="true"
+              aria-controls="nav-dropdown-menu-pdf"
               onClick={() => toggleDropdown('pdf')}
               onKeyDown={(e) => handleDropdownKeyDown(e, 'pdf')}
             >
@@ -109,6 +116,7 @@ export default function Header() {
                 PDF Tools
                 <svg
                   className="dropdown-caret"
+                  aria-hidden="true"
                   width="12"
                   height="12"
                   viewBox="0 0 24 24"
@@ -124,9 +132,10 @@ export default function Header() {
             </button>
 
             <div
+              id="nav-dropdown-menu-pdf"
               className={`nav-dropdown-menu mega-menu mega-menu-pdf ${activeDropdown === 'pdf' ? 'is-open' : ''}`}
               role="region"
-              aria-label="PDF Tools Menu"
+              aria-labelledby="nav-dropdown-btn-pdf"
             >
               <div className="mega-menu-grid mega-menu-3col">
                 {/* Column 1: PDF Conversion */}
@@ -182,9 +191,11 @@ export default function Header() {
           >
             <button
               type="button"
+              id="nav-dropdown-btn-image"
               className={`nav-dropdown-btn ${activeDropdown === 'image' ? 'active' : ''}`}
               aria-expanded={activeDropdown === 'image'}
               aria-haspopup="true"
+              aria-controls="nav-dropdown-menu-image"
               onClick={() => toggleDropdown('image')}
               onKeyDown={(e) => handleDropdownKeyDown(e, 'image')}
             >
@@ -192,6 +203,7 @@ export default function Header() {
                 Image Tools
                 <svg
                   className="dropdown-caret"
+                  aria-hidden="true"
                   width="12"
                   height="12"
                   viewBox="0 0 24 24"
@@ -207,9 +219,10 @@ export default function Header() {
             </button>
 
             <div
+              id="nav-dropdown-menu-image"
               className={`nav-dropdown-menu mega-menu mega-menu-image ${activeDropdown === 'image' ? 'is-open' : ''}`}
               role="region"
-              aria-label="Image Tools Menu"
+              aria-labelledby="nav-dropdown-btn-image"
             >
               <div className="mega-menu-grid mega-menu-3col">
                 {/* Column 1: Image Editing & Optimization */}
@@ -267,9 +280,11 @@ export default function Header() {
           >
             <button
               type="button"
+              id="nav-dropdown-btn-media"
               className={`nav-dropdown-btn ${activeDropdown === 'media' ? 'active' : ''}`}
               aria-expanded={activeDropdown === 'media'}
               aria-haspopup="true"
+              aria-controls="nav-dropdown-menu-media"
               onClick={() => toggleDropdown('media')}
               onKeyDown={(e) => handleDropdownKeyDown(e, 'media')}
             >
@@ -277,6 +292,7 @@ export default function Header() {
                 Media Tools
                 <svg
                   className="dropdown-caret"
+                  aria-hidden="true"
                   width="12"
                   height="12"
                   viewBox="0 0 24 24"
@@ -292,9 +308,10 @@ export default function Header() {
             </button>
 
             <div
+              id="nav-dropdown-menu-media"
               className={`nav-dropdown-menu mega-menu mega-menu-media ${activeDropdown === 'media' ? 'is-open' : ''}`}
               role="region"
-              aria-label="Media Tools Menu"
+              aria-labelledby="nav-dropdown-btn-media"
             >
               <div className="mega-menu-grid mega-menu-2col">
                 {/* Column 1: Audio Extraction */}
@@ -328,9 +345,11 @@ export default function Header() {
           >
             <button
               type="button"
+              id="nav-dropdown-btn-generators"
               className={`nav-dropdown-btn ${activeDropdown === 'generators' ? 'active' : ''}`}
               aria-expanded={activeDropdown === 'generators'}
               aria-haspopup="true"
+              aria-controls="nav-dropdown-menu-generators"
               onClick={() => toggleDropdown('generators')}
               onKeyDown={(e) => handleDropdownKeyDown(e, 'generators')}
             >
@@ -338,6 +357,7 @@ export default function Header() {
                 Generators
                 <svg
                   className="dropdown-caret"
+                  aria-hidden="true"
                   width="12"
                   height="12"
                   viewBox="0 0 24 24"
@@ -353,9 +373,10 @@ export default function Header() {
             </button>
 
             <div
+              id="nav-dropdown-menu-generators"
               className={`nav-dropdown-menu mega-menu mega-menu-generators ${activeDropdown === 'generators' ? 'is-open' : ''}`}
               role="region"
-              aria-label="Generators and Calculators Menu"
+              aria-labelledby="nav-dropdown-btn-generators"
             >
               <div className="mega-menu-grid mega-menu-2col">
                 {/* Column 1: Code & Security */}

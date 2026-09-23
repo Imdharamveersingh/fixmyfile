@@ -520,7 +520,7 @@ export default function ImageWatermarkTool() {
   ];
 
   return (
-    <main className="tool-page" id="image-watermark-tool">
+    <div className="tool-page" id="image-watermark-tool">
       {/* Header */}
       <div className="tool-header">
         <div className="tool-breadcrumb">
@@ -1046,6 +1046,6 @@ export default function ImageWatermarkTool() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

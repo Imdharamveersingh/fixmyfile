@@ -222,7 +222,7 @@ export default function PngToTextTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {/* Error Alert */}
         {errorMessage && (
           <div className="alert-error" role="alert" id="png-to-text-error">
@@ -247,7 +247,12 @@ export default function PngToTextTool() {
             role="button"
             tabIndex={0}
             aria-label="Drop PNG image here or click to select"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') fileInputRef.current?.click(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
           >
             <input
               ref={fileInputRef}
@@ -496,7 +501,7 @@ export default function PngToTextTool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* SEO / Info Section */}
       <section className="tool-info-section">

@@ -386,7 +386,7 @@ export default function ImageRotateFlipTool() {
   };
 
   return (
-    <main className="tool-page" id="image-rotate-flip-tool">
+    <div className="tool-page" id="image-rotate-flip-tool">
       {/* Header */}
       <div className="tool-header">
         <div className="tool-breadcrumb">
@@ -747,6 +747,6 @@ export default function ImageRotateFlipTool() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

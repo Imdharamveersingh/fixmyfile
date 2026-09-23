@@ -244,7 +244,7 @@ export default function GifMakerTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
 
         {/* Error banner */}
         {errorMessage && (
@@ -552,7 +552,7 @@ export default function GifMakerTool() {
             )}
           </>
         )}
-      </main>
+      </div>
 
       {/* Info / SEO section */}
       <section className="tool-info-section">

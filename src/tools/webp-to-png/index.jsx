@@ -330,7 +330,7 @@ export default function WebpToPngTool() {
   };
 
   return (
-    <main className="tool-page" id="webp-to-png-tool">
+    <div className="tool-page" id="webp-to-png-tool">
       <title>WebP to PNG Converter — FixMyFile</title>
 
       {/* Header */}
@@ -589,6 +589,6 @@ export default function WebpToPngTool() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

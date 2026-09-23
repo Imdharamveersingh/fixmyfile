@@ -169,7 +169,7 @@ export default function Mp4ToMp3Tool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {errorMessage && (
           <div className="alert-error" role="alert">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -371,7 +371,7 @@ export default function Mp4ToMp3Tool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* Informational & SEO Section */}
       <section className="tool-info-section">

@@ -449,8 +449,10 @@ export default function ImageCropperTool() {
           onClick={() => fileInputRef.current?.click()}
           role="button"
           tabIndex={0}
+          aria-label="Upload image to crop"
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
               fileInputRef.current?.click();
             }
           }}

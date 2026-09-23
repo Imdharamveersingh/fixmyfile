@@ -279,7 +279,7 @@ export default function ScreenshotToTextTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {/* Error Alert */}
         {errorMessage && (
           <div className="alert-error" role="alert" id="screenshot-to-text-error">
@@ -327,7 +327,12 @@ export default function ScreenshotToTextTool() {
             role="button"
             tabIndex={0}
             aria-label="Drop screenshot here, click to select, or press Ctrl+V to paste"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') fileInputRef.current?.click(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
           >
             <input
               ref={fileInputRef}
@@ -585,7 +590,7 @@ export default function ScreenshotToTextTool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* SEO / Info Section */}
       <section className="tool-info-section">

@@ -20,9 +20,12 @@ function RouteContent() {
 export default function Layout() {
   return (
     <div className="app-layout">
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <SEO />
       <Header />
-      <main className="main-content">
+      <main className="main-content" id="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<LoadingFallback />}>
             <RouteContent />

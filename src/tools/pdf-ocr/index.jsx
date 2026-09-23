@@ -152,7 +152,7 @@ export default function PdfOcrTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {/* Error Alert */}
         {errorMessage && (
           <div className="alert-error" role="alert" id="pdf-ocr-error">
@@ -177,7 +177,12 @@ export default function PdfOcrTool() {
             role="button"
             tabIndex={0}
             aria-label="Drop PDF file here or click to select"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') fileInputRef.current?.click(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
           >
             <input
               ref={fileInputRef}
@@ -342,7 +347,7 @@ export default function PdfOcrTool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* SEO / Info Section */}
       <section className="tool-info-section">

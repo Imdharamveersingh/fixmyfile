@@ -218,7 +218,7 @@ export default function ExtractTextFromPdfTool() {
       </header>
 
       {/* Main Workspace */}
-      <main className="tool-workspace">
+      <div className="tool-workspace">
         {/* Error Alert */}
         {errorMessage && (
           <div className="alert-error" role="alert" id="extract-text-from-pdf-error">
@@ -243,7 +243,12 @@ export default function ExtractTextFromPdfTool() {
             role="button"
             tabIndex={0}
             aria-label="Drop PDF here or click to select"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') fileInputRef.current?.click(); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
           >
             <input
               ref={fileInputRef}
@@ -533,7 +538,7 @@ export default function ExtractTextFromPdfTool() {
             </div>
           </div>
         )}
-      </main>
+      </div>
 
       {/* SEO / Info Section */}
       <section className="tool-info-section">
