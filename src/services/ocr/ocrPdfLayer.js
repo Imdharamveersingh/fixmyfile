@@ -15,7 +15,10 @@ export { pdfjsLib };
 
 // Ensure PDF.js worker is properly configured
 if (typeof window !== 'undefined' && pdfjsLib && !pdfjsLib.GlobalWorkerOptions?.workerSrc) {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/pdf.worker-TGcf_-kp.mjs';
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? '/node_modules/pdfjs-dist/build/pdf.worker.mjs'
+      : '/assets/pdf.worker-TGcf_-kp.mjs';
 }
 
 /**

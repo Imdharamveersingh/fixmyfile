@@ -63,7 +63,7 @@ assert(screenshotToTextTool?.status === 'Ready', 'tool status is Ready');
 
 const inAllTools = ALL_TOOLS.find((t) => t.id === 'screenshot-to-text');
 assert(!!inAllTools, 'screenshot-to-text is registered in ALL_TOOLS');
-assert(ALL_TOOLS.length === 48, `ALL_TOOLS count is exactly 48 (found ${ALL_TOOLS.length})`);
+assert(ALL_TOOLS.length === 49, `ALL_TOOLS count is exactly 49 (found ${ALL_TOOLS.length})`);
 assert(TOTAL_STRATEGY_TOOLS === 55, 'TOTAL_STRATEGY_TOOLS remains 55');
 
 const appJsx = fs.readFileSync('src/App.jsx', 'utf-8');

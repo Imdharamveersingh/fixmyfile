@@ -95,7 +95,7 @@ assert(tool?.category === 'Video Conversion', 'tool category is Video Conversion
 assert(tool?.phase === 'Phase 6', 'tool phase is Phase 6');
 assert(tool?.status === 'Ready', 'tool status is Ready');
 assert(ALL_TOOLS.some((t) => t.id === 'video-to-gif'), 'video-to-gif is registered in ALL_TOOLS');
-assert(ALL_TOOLS.length === 43, `ALL_TOOLS count is exactly 43 (found ${ALL_TOOLS.length})`);
+assert(ALL_TOOLS.length === 49, `ALL_TOOLS count is exactly 49 (found ${ALL_TOOLS.length})`);
 assert(TOTAL_STRATEGY_TOOLS === 55, 'TOTAL_STRATEGY_TOOLS remains 55');
 
 const appJsx = fs.readFileSync('src/App.jsx', 'utf8');

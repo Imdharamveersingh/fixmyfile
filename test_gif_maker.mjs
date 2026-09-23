@@ -96,7 +96,7 @@ assert(gifMakerTool?.category === 'Video Conversion', 'tool category is Video Co
 assert(gifMakerTool?.phase === 'Phase 6', 'tool phase is Phase 6');
 assert(gifMakerTool?.status === 'Ready', 'tool status is Ready');
 assert(ALL_TOOLS.some((t) => t.id === 'gif-maker'), 'gif-maker is registered in ALL_TOOLS');
-assert(ALL_TOOLS.length === 43, `ALL_TOOLS count is exactly 43 (found ${ALL_TOOLS.length})`);
+assert(ALL_TOOLS.length === 49, `ALL_TOOLS count is exactly 49 (found ${ALL_TOOLS.length})`);
 assert(TOTAL_STRATEGY_TOOLS === 55, 'TOTAL_STRATEGY_TOOLS remains 55');
 
 const appJsx = fs.readFileSync('src/App.jsx', 'utf8');
@@ -302,7 +302,13 @@ async function runBrowserTests() {
     await send('Page.enable');
     await send('Runtime.enable');
     await send('Page.navigate', { url: 'http://localhost:5173/gif-maker' });
-    await new Promise((r) => setTimeout(r, 2000));
+    for (let i = 0; i < 30; i++) {
+      const check = await send('Runtime.evaluate', {
+        expression: '!!document.getElementById("gif-maker-dropzone")'
+      });
+      if (check.result?.value) break;
+      await new Promise((r) => setTimeout(r, 200));
+    }
 
     // ── Check page load ──────────────────────────────────────────────────────
     const pageCheck = await send('Runtime.evaluate', {
