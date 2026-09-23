@@ -50,8 +50,8 @@ runTest('Header.jsx includes Word Counter in Generators menu', () => {
   assert.match(headerSource, /to="\/word-counter"/);
 });
 
-runTest('Footer.jsx includes Word Counter in Phase 3 links', () => {
-  assert.match(footerSource, /to="\/word-counter"/);
+runTest('Footer.jsx includes compact Calculators & Generators link', () => {
+  assert.match(footerSource, /Calculators & Generators/);
 });
 
 // 2. Word Count Engine

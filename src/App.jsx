@@ -109,6 +109,12 @@ const JpgToTextTool = lazy(() => import('./tools/jpg-to-text'));
 const PngToTextTool = lazy(() => import('./tools/png-to-text'));
 const ScreenshotToTextTool = lazy(() => import('./tools/screenshot-to-text'));
 const ExtractTextFromPdfTool = lazy(() => import('./tools/extract-text-from-pdf'));
+const WhyFixMyFilePage = lazy(() => import('./pages/WhyFixMyFilePage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsPage = lazy(() => import('./pages/TermsPage'));
+const BlogListingPage = lazy(() => import('./pages/BlogListingPage'));
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 export default function App() {
@@ -167,6 +173,12 @@ export default function App() {
           <Route path="password-generator" element={<PasswordGeneratorTool />} />
           <Route path="word-counter" element={<WordCounterTool />} />
           <Route path="emi-calculator" element={<EmiCalculatorTool />} />
+          <Route path="why-fixmyfile" element={<WhyFixMyFilePage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="privacy" element={<PrivacyPolicyPage />} />
+          <Route path="terms" element={<TermsPage />} />
+          <Route path="blog" element={<BlogListingPage />} />
+          <Route path="blog/:slug" element={<BlogArticlePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

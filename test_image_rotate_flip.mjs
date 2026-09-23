@@ -180,9 +180,9 @@ test('Header.jsx contains image-rotate-flip link', () => {
   assert.ok(c.includes('/image-rotate-flip'));
 });
 
-test('Footer.jsx contains image-rotate-flip link', () => {
+test('Footer.jsx contains compact Image Tools link', () => {
   const c = fs.readFileSync(path.join(__dirname, 'src/components/Footer.jsx'), 'utf8');
-  assert.ok(c.includes('/image-rotate-flip'));
+  assert.ok(c.includes('Image Tools'));
 });
 
 test('Required control buttons have semantic IDs', () => {

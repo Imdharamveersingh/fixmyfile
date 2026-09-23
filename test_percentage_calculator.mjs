@@ -46,8 +46,8 @@ runTest('Header.jsx includes Percentage Calculator in Generators menu', () => {
   assert.match(headerSource, /to="\/percentage-calculator"/);
 });
 
-runTest('Footer.jsx includes Percentage Calculator in Phase 3 links', () => {
-  assert.match(footerSource, /to="\/percentage-calculator"/);
+runTest('Footer.jsx includes compact Calculators & Generators link', () => {
+  assert.match(footerSource, /Calculators & Generators/);
 });
 
 // 2. Mode definitions

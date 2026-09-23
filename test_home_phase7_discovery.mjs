@@ -81,14 +81,13 @@ assert(!headerJsx.includes('Phase 7 Complete'), 'Header brand badge must NOT be 
 console.log('  ✓ Header.jsx includes Phase 7 navigation links without development badges');
 
 const footerJsx = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf8');
-assert(footerJsx.includes('OCR & Text Tools'), 'Footer must contain OCR & Text Tools heading');
+assert(footerJsx.includes('OCR & Text'), 'Footer must contain OCR & Text link');
 assert(!footerJsx.includes('Phase 7: OCR & Text'), 'Footer must NOT contain Phase 7 heading');
-assert(footerJsx.includes('/extract-text-from-pdf'), 'Footer must link to /extract-text-from-pdf');
-assert(footerJsx.includes('/image-cropper'), 'Footer must link to /image-cropper');
+assert(footerJsx.includes('/image-to-text'), 'Footer must link to OCR & Text tools');
 assert(footerJsx.includes('Media Tools'), 'Footer must contain Media Tools');
 assert(!footerJsx.includes('Media Tools (Phase 6)'), 'Footer must NOT contain Media Tools (Phase 6)');
 assert(!footerJsx.includes('Phase 7 Complete'), 'Footer must NOT contain Phase 7 Complete badge');
-console.log('  ✓ Footer.jsx includes Phase 7 OCR links and Media links without Phase badges');
+console.log('  ✓ Footer.jsx includes compact OCR and Media links without Phase badges');
 passedTests += 3;
 
 // GROUP 3: Real Google Chrome CDP Automation
@@ -298,10 +297,8 @@ async function runChromeHomeTests() {
     });
     const fData = footerEval.result.value;
     assert.notEqual(fData.pill, 'Phase 7 Complete', 'Footer pill must NOT display Phase 7 Complete');
-    for (const r of expectedPhase7Routes) {
-      assert(fData.footerLinks.includes(r), `Footer must link to Phase 7 tool ${r}`);
-    }
-    console.log('   ✓ All 7 Phase 7 routes discovered in Footer');
+    assert(fData.footerLinks.includes('/image-to-text'), 'Footer must link to OCR & Text tools');
+    console.log('   ✓ Compact OCR & Text discovery in Footer');
 
     // Verify Responsive Viewports for Horizontal Overflow
     const viewports = [

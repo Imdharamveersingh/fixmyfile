@@ -61,9 +61,9 @@ runTest('Header.jsx includes EMI Calculator in navigation', () => {
   assert.ok(headerSrc.includes('/emi-calculator'), 'Header.jsx must have link to /emi-calculator');
 });
 
-runTest('Footer.jsx includes EMI Calculator in Phase 3 links', () => {
+runTest('Footer.jsx includes compact Calculators & Generators link', () => {
   const footerSrc = fs.readFileSync(path.join(__dirname, 'src', 'components', 'Footer.jsx'), 'utf-8');
-  assert.ok(footerSrc.includes('/emi-calculator'), 'Footer.jsx must have link to /emi-calculator');
+  assert.ok(footerSrc.includes('Calculators & Generators'), 'Footer.jsx must have link to Calculators & Generators');
 });
 
 // 2. Mathematical Accuracy Tests

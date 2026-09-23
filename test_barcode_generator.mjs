@@ -102,8 +102,8 @@ async function runAllTests() {
     assert.match(headerSource, /\/barcode-generator/);
   });
 
-  testFn('Footer.jsx contains barcode-generator link', () => {
-    assert.match(footerSource, /\/barcode-generator/);
+  testFn('Footer.jsx contains compact Calculators & Generators link', () => {
+    assert.match(footerSource, /Calculators & Generators/);
   });
 
   // 4. Component existence

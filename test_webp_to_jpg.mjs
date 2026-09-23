@@ -172,9 +172,9 @@ test('Header.jsx contains webp-to-jpg link', () => {
   assert.ok(content.includes('/webp-to-jpg'), 'webp-to-jpg missing from Header');
 });
 
-test('Footer.jsx contains webp-to-jpg link', () => {
+test('Footer.jsx contains compact Image Tools link', () => {
   const content = fs.readFileSync(path.join(__dirname, 'src/components/Footer.jsx'), 'utf8');
-  assert.ok(content.includes('/webp-to-jpg'), 'webp-to-jpg missing from Footer');
+  assert.ok(content.includes('Image Tools'), 'Image Tools missing from Footer');
 });
 
 // --- 9. Object URL Safety ---

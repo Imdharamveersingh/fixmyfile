@@ -92,7 +92,7 @@ console.log('\nGROUP 8: Navigation & Semantic IDs');
 const headerContent = fs.readFileSync('./src/components/Header.jsx', 'utf8');
 assert(headerContent.includes('/image-upscaler'), 'Header.jsx contains link to /image-upscaler');
 const footerContent = fs.readFileSync('./src/components/Footer.jsx', 'utf8');
-assert(footerContent.includes('/image-upscaler'), 'Footer.jsx contains link to /image-upscaler');
+assert(footerContent.includes('Image Tools'), 'Footer.jsx contains compact Image Tools link');
 assert(componentContent.includes('id="image-upscaler-dropzone"'), 'Dropzone has id image-upscaler-dropzone');
 assert(componentContent.includes('id="image-upscaler-scale-2x"'), '2x Scale button has id image-upscaler-scale-2x');
 assert(componentContent.includes('id="image-upscaler-scale-4x"'), '4x Scale button has id image-upscaler-scale-4x');

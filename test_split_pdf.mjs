@@ -58,7 +58,7 @@ test('=== Split PDF Automated Test Suite ===', async (t) => {
     assert.match(headerContent, /<Link to="\/split-pdf">Split PDF<\/Link>/);
 
     const footerContent = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf8');
-    assert.match(footerContent, /<Link to="\/split-pdf">Split PDF<\/Link>/);
+    assert.match(footerContent, /PDF Tools/);
   });
 
   await t.test('3. Range Parsing - Valid Patterns', () => {

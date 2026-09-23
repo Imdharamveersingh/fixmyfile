@@ -181,9 +181,9 @@ test('Header.jsx contains webp-to-png link', () => {
   assert.ok(c.includes('/webp-to-png'));
 });
 
-test('Footer.jsx contains webp-to-png link', () => {
+test('Footer.jsx contains compact Image Tools link', () => {
   const c = fs.readFileSync(path.join(__dirname, 'src/components/Footer.jsx'), 'utf8');
-  assert.ok(c.includes('/webp-to-png'));
+  assert.ok(c.includes('Image Tools'));
 });
 
 // GROUP 9: UX States & Accessibility

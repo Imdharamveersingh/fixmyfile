@@ -39,7 +39,8 @@ console.log('  ✓ All 4 implemented Media Tools discoverable in Header.jsx');
 
 // Verify all 49 tools are represented across Header
 const allNavLinks = Array.from(headerJsx.matchAll(/to="(\/[a-z0-9-]+)"/g)).map(m => m[1]);
-const uniqueNavLinks = new Set(allNavLinks);
+const toolNavLinks = allNavLinks.filter(p => ALL_TOOLS.some(t => t.path === p));
+const uniqueNavLinks = new Set(toolNavLinks);
 
 console.log(`  Found ${uniqueNavLinks.size} unique tool routes in Header navigation.`);
 assert.equal(uniqueNavLinks.size, 49, `Header must link to all 49 unique tools, got ${uniqueNavLinks.size}`);

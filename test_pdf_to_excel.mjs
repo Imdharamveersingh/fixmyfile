@@ -61,7 +61,7 @@ test('=== PDF to Excel Automated Test Suite ===', async (t) => {
     assert.match(headerContent, /<Link to="\/pdf-to-excel">PDF to Excel<\/Link>/);
 
     const footerContent = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf8');
-    assert.match(footerContent, /<Link to="\/pdf-to-excel">PDF to Excel<\/Link>/);
+    assert.match(footerContent, /PDF Tools/);
   });
 
   await t.test('3. Cell Value Parser - Types & Conversions', () => {

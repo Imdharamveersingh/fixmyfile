@@ -1,4 +1,5 @@
 import { getToolByPath } from '../tools/toolsRegistry.js';
+import { getArticleBySlug } from '../data/blogArticles.js';
 
 /**
  * SEO & Domain Configuration for FixMyFile
@@ -118,6 +119,76 @@ export function getPageSEO(pathname) {
       twitterImage: DEFAULT_SITE_METADATA.image,
       robots: 'index, follow'
     };
+  }
+
+  // Informational Pages
+  const INFORMATIONAL_PAGES = {
+    '/why-fixmyfile': {
+      title: 'Why FixMyFile — Private, In-Browser File Utilities',
+      description: 'Learn why FixMyFile uses client-side WebAssembly and Canvas to process PDFs, images, and videos directly in your browser with zero server uploads.'
+    },
+    '/contact': {
+      title: 'Contact & Support — FixMyFile',
+      description: 'Get in touch with the FixMyFile team. Report issues, request new file tools, or contribute via our open GitHub repository.'
+    },
+    '/privacy': {
+      title: 'Privacy Policy — FixMyFile',
+      description: 'FixMyFile privacy policy. Learn how our client-first architecture processes your documents locally without cloud storage or tracking cookies.'
+    },
+    '/terms': {
+      title: 'Terms & Conditions — FixMyFile',
+      description: 'Terms of use for FixMyFile online file conversion and editing utilities. Free, client-side, and privacy-respecting tools.'
+    },
+    '/blog': {
+      title: 'Blog & Practical Guides — FixMyFile',
+      description: 'Expert guides, tutorials, and deep-dives on PDF compression, local OCR extraction, image conversion, and privacy-first web utilities.'
+    }
+  };
+
+  if (INFORMATIONAL_PAGES[normalizedPath]) {
+    const page = INFORMATIONAL_PAGES[normalizedPath];
+    const canonical = `${SITE_URL}${normalizedPath}`;
+    return {
+      title: page.title,
+      description: page.description,
+      canonical,
+      ogType: 'website',
+      ogTitle: page.title,
+      ogDescription: page.description,
+      ogUrl: canonical,
+      ogImage: DEFAULT_SITE_METADATA.image,
+      twitterCard: 'summary',
+      twitterTitle: page.title,
+      twitterDescription: page.description,
+      twitterImage: DEFAULT_SITE_METADATA.image,
+      robots: 'index, follow'
+    };
+  }
+
+  // Blog Article Pages (/blog/:slug)
+  if (normalizedPath.startsWith('/blog/')) {
+    const slug = normalizedPath.replace('/blog/', '');
+    const article = getArticleBySlug(slug);
+
+    if (article) {
+      const canonical = `${SITE_URL}/blog/${article.slug}`;
+      return {
+        title: article.seoTitle || `${article.title} — FixMyFile`,
+        description: article.seoDescription || article.excerpt,
+        canonical,
+        ogType: 'article',
+        ogTitle: article.seoTitle || article.title,
+        ogDescription: article.seoDescription || article.excerpt,
+        ogUrl: canonical,
+        ogImage: DEFAULT_SITE_METADATA.image,
+        twitterCard: 'summary',
+        twitterTitle: article.seoTitle || article.title,
+        twitterDescription: article.seoDescription || article.excerpt,
+        twitterImage: DEFAULT_SITE_METADATA.image,
+        robots: 'index, follow',
+        articleData: article
+      };
+    }
   }
 
   const tool = getToolByPath(normalizedPath);

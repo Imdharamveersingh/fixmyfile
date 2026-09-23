@@ -62,8 +62,8 @@ runTest('Header.jsx includes Currency Converter in Generators menu', () => {
   assert.match(headerSource, /to="\/currency-converter"/);
 });
 
-runTest('Footer.jsx includes Currency Converter in Phase 3 links', () => {
-  assert.match(footerSource, /to="\/currency-converter"/);
+runTest('Footer.jsx includes compact Calculators & Generators link', () => {
+  assert.match(footerSource, /Calculators & Generators/);
 });
 
 // 2. Engine Supported Currencies

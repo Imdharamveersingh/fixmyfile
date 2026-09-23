@@ -51,8 +51,8 @@ runTest('Header.jsx includes Password Generator in Generators menu', () => {
   assert.match(headerSource, /to="\/password-generator"/);
 });
 
-runTest('Footer.jsx includes Password Generator in Phase 3 links', () => {
-  assert.match(footerSource, /to="\/password-generator"/);
+runTest('Footer.jsx includes compact Calculators & Generators link', () => {
+  assert.match(footerSource, /Calculators & Generators/);
 });
 
 // 2. Cryptographic Security Standards

@@ -134,7 +134,7 @@ console.log('\nGROUP 7: Navigation & Semantic IDs');
 const headerContent = fs.readFileSync('./src/components/Header.jsx', 'utf8');
 assert(headerContent.includes('/image-to-pdf'), 'Header.jsx contains link to /image-to-pdf');
 const footerContent = fs.readFileSync('./src/components/Footer.jsx', 'utf8');
-assert(footerContent.includes('/image-to-pdf'), 'Footer.jsx contains link to /image-to-pdf');
+assert(footerContent.includes('Image Tools'), 'Footer.jsx contains compact Image Tools link');
 assert(componentContent.includes('id="image-to-pdf-dropzone"'), 'Dropzone has id image-to-pdf-dropzone');
 assert(componentContent.includes('id="image-to-pdf-convert-btn"'), 'Convert button has id image-to-pdf-convert-btn');
 assert(componentContent.includes('id="image-to-pdf-download-btn"'), 'Download button has id image-to-pdf-download-btn');

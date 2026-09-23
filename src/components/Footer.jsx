@@ -7,6 +7,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-container">
+        {/* Brand Block */}
         <div className="footer-col brand-col">
           <div className="footer-brand">
             <img
@@ -19,101 +20,77 @@ export default function Footer() {
             <span className="brand-title">FixMyFile</span>
           </div>
           <p className="footer-desc">
-            Fast, client-focused online utility tools. Built for simplicity, speed, and privacy.
+            Fast, browser-based file utilities built with simplicity, privacy, and practical workflows in mind.
           </p>
           <div className="footer-trust-badge">
-            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg
+              aria-hidden="true"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
             <span>100% Private & Browser-Based</span>
           </div>
         </div>
 
+        {/* Tools Column */}
         <div className="footer-col">
-          <h4 className="footer-heading">PDF Tools</h4>
+          <h4 className="footer-heading">Tools</h4>
           <ul className="footer-links">
-            <li><Link to="/jpg-to-pdf">JPG to PDF</Link></li>
-            <li><Link to="/pdf-to-word">PDF to Word</Link></li>
-            <li><Link to="/pdf-to-jpg">PDF to JPG</Link></li>
-            <li><Link to="/word-to-pdf">Word to PDF</Link></li>
-            <li><Link to="/merge-pdf">Merge PDF</Link></li>
-            <li><Link to="/compress-pdf">Compress PDF</Link></li>
-            <li><Link to="/split-pdf">Split PDF</Link></li>
-            <li><Link to="/pdf-to-excel">PDF to Excel</Link></li>
-            <li><Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link></li>
-            <li><Link to="/rotate-pdf">Rotate PDF</Link></li>
-            <li><Link to="/protect-pdf">Protect PDF</Link></li>
-            <li><Link to="/unlock-pdf">Unlock PDF</Link></li>
-            <li><Link to="/pdf-to-text">PDF to Text</Link></li>
-            <li><Link to="/extract-pdf-pages">Extract PDF Pages</Link></li>
-            <li><Link to="/delete-pdf-pages">Delete PDF Pages</Link></li>
-            <li><Link to="/reorder-pdf-pages">Reorder PDF Pages</Link></li>
-            <li><Link to="/pdf-ocr">PDF OCR</Link></li>
-            <li><Link to="/extract-text-from-pdf">Extract Text from PDF</Link></li>
+            <li><Link to="/compress-pdf">PDF Tools</Link></li>
+            <li><Link to="/background-remover">Image Tools</Link></li>
+            <li><Link to="/image-to-text">OCR & Text</Link></li>
+            <li><Link to="/video-compressor">Media Tools</Link></li>
+            <li><Link to="/qr-code-generator">Calculators & Generators</Link></li>
           </ul>
         </div>
 
+        {/* Resources Column */}
         <div className="footer-col">
-          <h4 className="footer-heading">Image Tools</h4>
+          <h4 className="footer-heading">Resources</h4>
           <ul className="footer-links">
-            <li><Link to="/background-remover">Background Remover</Link></li>
-            <li><Link to="/image-compressor">Image Compressor</Link></li>
-            <li><Link to="/image-resizer">Image Resizer</Link></li>
-            <li><Link to="/heic-to-jpg">HEIC to JPG</Link></li>
-            <li><Link to="/webp-to-jpg">WebP to JPG</Link></li>
-            <li><Link to="/jpg-to-webp">JPG to WebP</Link></li>
-            <li><Link to="/webp-to-png">WebP to PNG</Link></li>
-            <li><Link to="/image-rotate-flip">Image Rotate / Flip</Link></li>
-            <li><Link to="/image-watermark">Image Watermark</Link></li>
-            <li><Link to="/image-to-pdf">Image to PDF</Link></li>
-            <li><Link to="/image-upscaler">Image Upscaler</Link></li>
-            <li><Link to="/image-to-base64">Image to Base64</Link></li>
-            <li><Link to="/image-converter">Image Converter</Link></li>
-            <li><Link to="/jpg-to-png">JPG to PNG</Link></li>
-            <li><Link to="/png-to-jpg">PNG to JPG</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/why-fixmyfile">Why FixMyFile</Link></li>
           </ul>
         </div>
 
+        {/* Company Column */}
         <div className="footer-col">
-          <h4 className="footer-heading">OCR & Text Tools</h4>
+          <h4 className="footer-heading">Company</h4>
           <ul className="footer-links">
-            <li><Link to="/image-to-text">Image to Text</Link></li>
-            <li><Link to="/pdf-ocr">PDF OCR</Link></li>
-            <li><Link to="/jpg-to-text">JPG to Text</Link></li>
-            <li><Link to="/png-to-text">PNG to Text</Link></li>
-            <li><Link to="/screenshot-to-text">Screenshot to Text</Link></li>
-            <li><Link to="/extract-text-from-pdf">Extract Text from PDF</Link></li>
-            <li><Link to="/image-cropper">Image Cropper</Link></li>
-          </ul>
-          <h4 className="footer-heading" style={{ marginTop: '18px' }}>Media Tools</h4>
-          <ul className="footer-links">
-            <li><Link to="/mp4-to-mp3">MP4 to MP3</Link></li>
-            <li><Link to="/video-compressor">Video Compressor</Link></li>
-            <li><Link to="/video-to-gif">Video to GIF</Link></li>
-            <li><Link to="/gif-maker">GIF Maker</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
+        {/* Legal Column */}
         <div className="footer-col">
-          <h4 className="footer-heading">Calculators & Generators</h4>
+          <h4 className="footer-heading">Legal</h4>
           <ul className="footer-links">
-            <li><Link to="/qr-code-generator">QR Code Generator</Link></li>
-            <li><Link to="/barcode-generator">Barcode Generator</Link></li>
-            <li><Link to="/currency-converter">Currency Converter</Link></li>
-            <li><Link to="/percentage-calculator">Percentage Calculator</Link></li>
-            <li><Link to="/password-generator">Password Generator</Link></li>
-            <li><Link to="/word-counter">Word Counter</Link></li>
-            <li><Link to="/emi-calculator">EMI Calculator</Link></li>
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms & Conditions</Link></li>
           </ul>
-          <span className="footer-pill" style={{ marginTop: '14px', display: 'inline-block' }}>100% Client-Side</span>
         </div>
       </div>
 
+      {/* Bottom Legal / Copyright Row */}
       <div className="footer-bottom">
         <div className="footer-bottom-container">
-          <p>&copy; {currentYear} FixMyFile. All rights reserved.</p>
+          <p>&copy; {currentYear} FixMyFile. Built for simple, privacy-focused file utilities.</p>
           <div className="footer-bottom-links">
             <Link to="/">Home</Link>
             <span>•</span>
-            <span className="footer-tag">Client-side Tools</span>
+            <Link to="/why-fixmyfile">Why FixMyFile</Link>
+            <span>•</span>
+            <Link to="/privacy">Privacy</Link>
+            <span>•</span>
+            <Link to="/terms">Terms</Link>
           </div>
         </div>
       </div>

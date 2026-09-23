@@ -169,9 +169,9 @@ test('Header.jsx contains image-watermark link', () => {
   assert.ok(c.includes('/image-watermark'));
 });
 
-test('Footer.jsx contains image-watermark link', () => {
+test('Footer.jsx contains compact Image Tools link', () => {
   const c = fs.readFileSync(path.join(__dirname, 'src/components/Footer.jsx'), 'utf8');
-  assert.ok(c.includes('/image-watermark'));
+  assert.ok(c.includes('Image Tools'));
 });
 
 test('Key interactive elements have semantic IDs', () => {

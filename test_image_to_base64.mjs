@@ -98,7 +98,7 @@ console.log('\nGROUP 7: Navigation & Semantic IDs');
 const headerContent = fs.readFileSync('./src/components/Header.jsx', 'utf8');
 assert(headerContent.includes('/image-to-base64'), 'Header.jsx contains link to /image-to-base64');
 const footerContent = fs.readFileSync('./src/components/Footer.jsx', 'utf8');
-assert(footerContent.includes('/image-to-base64'), 'Footer.jsx contains link to /image-to-base64');
+assert(footerContent.includes('Image Tools'), 'Footer.jsx contains compact Image Tools link');
 assert(componentContent.includes('id="image-to-base64-dropzone"'), 'Dropzone has id image-to-base64-dropzone');
 assert(componentContent.includes('id="image-to-base64-copy-datauri-btn"'), 'Copy Data URI button has id');
 assert(componentContent.includes('id="image-to-base64-copy-raw-btn"'), 'Copy Raw button has id');

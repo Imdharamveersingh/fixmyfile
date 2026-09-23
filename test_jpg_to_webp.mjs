@@ -162,9 +162,9 @@ test('Header.jsx contains jpg-to-webp link', () => {
   assert.ok(c.includes('/jpg-to-webp'));
 });
 
-test('Footer.jsx contains jpg-to-webp link', () => {
+test('Footer.jsx contains compact Image Tools link', () => {
   const c = fs.readFileSync(path.join(__dirname, 'src/components/Footer.jsx'), 'utf8');
-  assert.ok(c.includes('/jpg-to-webp'));
+  assert.ok(c.includes('Image Tools'));
 });
 
 // GROUP 9: UX States

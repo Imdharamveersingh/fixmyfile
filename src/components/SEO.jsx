@@ -34,28 +34,55 @@ function setStructuredData(seo) {
     document.head.appendChild(script);
   }
 
-  const schema = seo.tool
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'WebApplication',
-        name: seo.tool.name,
-        url: seo.canonical,
-        description: seo.description,
-        applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'All',
-        offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD'
-        }
-      }
-    : {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
+  let schema;
+  if (seo.articleData) {
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: seo.articleData.title,
+      description: seo.articleData.excerpt,
+      datePublished: seo.articleData.publishDate,
+      author: {
+        '@type': 'Organization',
+        name: seo.articleData.author || 'FixMyFile'
+      },
+      publisher: {
+        '@type': 'Organization',
         name: 'FixMyFile',
-        url: seo.canonical,
-        description: seo.description
-      };
+        logo: {
+          '@type': 'ImageObject',
+          url: `${DEFAULT_SITE_METADATA.image}`
+        }
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': seo.canonical
+      }
+    };
+  } else if (seo.tool) {
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: seo.tool.name,
+      url: seo.canonical,
+      description: seo.description,
+      applicationCategory: 'UtilitiesApplication',
+      operatingSystem: 'All',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      }
+    };
+  } else {
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'FixMyFile',
+      url: seo.canonical,
+      description: seo.description
+    };
+  }
 
   script.textContent = JSON.stringify(schema);
 }

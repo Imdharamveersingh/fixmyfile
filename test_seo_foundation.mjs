@@ -84,10 +84,10 @@ const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 assert(!sitemapContent.includes('fixmyfile.com'), 'sitemap.xml must contain zero occurrences of fixmyfile.com');
 
 const sitemapLocs = Array.from(sitemapContent.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)).map((m) => m[1]);
-assert.equal(sitemapLocs.length, 50, `Sitemap must contain exactly 50 URLs (1 home + 49 tools), got ${sitemapLocs.length}`);
+assert.equal(sitemapLocs.length, 62, `Sitemap must contain exactly 62 URLs (1 home + 49 tools + 5 info + 7 blog), got ${sitemapLocs.length}`);
 
 const uniqueLocs = new Set(sitemapLocs);
-assert.equal(uniqueLocs.size, 50, `Sitemap URLs must be unique, got ${uniqueLocs.size}`);
+assert.equal(uniqueLocs.size, 62, `Sitemap URLs must be unique, got ${uniqueLocs.size}`);
 
 // Verify homepage present
 assert(uniqueLocs.has(`${SITE_URL}/`), `Sitemap must contain homepage: ${SITE_URL}/`);
@@ -99,7 +99,7 @@ for (const tool of ALL_TOOLS) {
   assert(uniqueLocs.has(expectedUrl), `Sitemap missing tool URL: ${expectedUrl}`);
   assert(expectedUrl.startsWith('https://fixmyfile.netlify.app'), `Tool URL must start with Netlify host: ${expectedUrl}`);
 }
-console.log('  ✓ public/sitemap.xml verified with exactly 50 unique URLs on https://fixmyfile.netlify.app and zero fixmyfile.com');
+console.log('  ✓ public/sitemap.xml verified with exactly 62 unique URLs on https://fixmyfile.netlify.app and zero fixmyfile.com');
 
 // ----------------------------------------------------
 // GROUP 3: Real Chrome CDP In-Browser DOM & Route Audit

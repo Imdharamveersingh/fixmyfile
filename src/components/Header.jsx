@@ -404,6 +404,15 @@ export default function Header() {
               </div>
             </div>
           </div>
+
+          <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              isActive ? 'nav-link active' : 'nav-link'
+            }
+          >
+            Blog
+          </NavLink>
         </nav>
 
         <div className="header-actions">

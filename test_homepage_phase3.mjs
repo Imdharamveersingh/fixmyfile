@@ -133,8 +133,7 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
     const footerPath = path.resolve('src/components/Footer.jsx');
     const footerContent = fs.readFileSync(footerPath, 'utf8');
     assert.match(footerContent, /Calculators & Generators/);
-    assert.match(footerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
-    assert.match(footerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
+    assert.match(footerContent, /<Link to="\/qr-code-generator">Calculators & Generators<\/Link>/);
     assert.match(footerContent, /100% Private & Browser-Based/);
   });
 
