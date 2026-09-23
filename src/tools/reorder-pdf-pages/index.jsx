@@ -269,7 +269,6 @@ export default function ReorderPdfPagesTool() {
       <header className="tool-header">
         <div className="tool-title-row">
           <h1 className="tool-main-title">Reorder PDF Pages — Rearrange Page Order</h1>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro">
           Easily rearrange, shuffle, or reverse the page sequence of your PDF document. All pages are preserved with exact layout fidelity. 100% private in-browser.

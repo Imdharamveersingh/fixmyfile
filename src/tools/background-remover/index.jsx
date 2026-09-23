@@ -343,7 +343,6 @@ export default function BackgroundRemoverTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Background Remover</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 2.1</span>
         </div>
         <p className="tool-intro">
           Remove backgrounds from JPG and PNG images in seconds. Powered by advanced in-browser AI segmentation

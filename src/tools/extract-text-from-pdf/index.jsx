@@ -209,7 +209,6 @@ export default function ExtractTextFromPdfTool() {
       {/* Header */}
       <header className="tool-header">
         <div className="tool-badge-wrap">
-          <span className="tool-phase-badge">Phase 7 • Text & Document Tools</span>
           <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
         </div>
         <h1 className="tool-title">Extract Text from PDF</h1>

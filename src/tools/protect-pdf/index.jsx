@@ -195,7 +195,6 @@ export default function ProtectPdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">Protect PDF with Password</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Encrypt your PDF with standard military-grade AES-256 bit encryption directly in your browser.

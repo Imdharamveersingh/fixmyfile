@@ -345,7 +345,6 @@ export default function ImageUpscalerTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image Upscaler</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 5</span>
         </div>
         <p className="tool-description">
           Enlarge and upscale your images with client-side progressive bicubic resampling and edge enhancement. Zero server uploads, 100% private.

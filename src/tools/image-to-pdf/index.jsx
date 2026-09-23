@@ -391,7 +391,6 @@ export default function ImageToPdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image to PDF Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 5</span>
         </div>
         <p className="tool-description">
           Convert JPG, PNG, WebP, GIF, and SVG images into a single clean PDF document. Reorder pages, adjust margins, and select page sizing directly in your browser.

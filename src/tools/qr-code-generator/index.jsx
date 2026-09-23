@@ -338,7 +338,7 @@ export default function QrCodeGeneratorTool() {
       {/* Header & Badges */}
       <div className="tool-header">
         <div className="tool-badge-row">
-          <span className="tool-badge">Phase 3 · Generator</span>
+          <span className="tool-badge">Generator</span>
           <span className="tool-badge-format">QR · SVG + PNG</span>
         </div>
         <h1 className="tool-title">QR Code Generator Online</h1>

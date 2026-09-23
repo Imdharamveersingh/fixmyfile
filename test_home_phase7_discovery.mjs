@@ -69,24 +69,26 @@ console.log('\nGROUP 2: Component Source Code Inspection');
 const homeJsx = fs.readFileSync(path.resolve('src/pages/HomePage.jsx'), 'utf8');
 assert(homeJsx.includes('tools-phase7'), 'HomePage.jsx must have section #tools-phase7');
 assert(homeJsx.includes('PHASE_7_TOOLS'), 'HomePage.jsx must consume PHASE_7_TOOLS');
-assert(homeJsx.includes('Phase 7 Complete'), 'HomePage.jsx hero badge must say Phase 7 Complete');
-console.log('  ✓ HomePage.jsx correctly imports and renders Phase 7 section and Phase 7 Complete hero badge');
+assert(!homeJsx.includes('Phase 7 Complete'), 'HomePage.jsx hero badge must NOT say Phase 7 Complete');
+console.log('  ✓ HomePage.jsx correctly imports and renders Phase 7 section without development badges');
 
 const headerJsx = fs.readFileSync(path.resolve('src/components/Header.jsx'), 'utf8');
 assert(headerJsx.includes('/pdf-ocr'), 'Header must link to /pdf-ocr');
 assert(headerJsx.includes('/extract-text-from-pdf'), 'Header must link to /extract-text-from-pdf');
 assert(headerJsx.includes('/image-to-text'), 'Header must link to /image-to-text');
 assert(headerJsx.includes('/image-cropper'), 'Header must link to /image-cropper');
-assert(headerJsx.includes('Phase 7 Complete'), 'Header default brand badge must be Phase 7 Complete');
-console.log('  ✓ Header.jsx includes Phase 7 navigation links and Phase 7 Complete badge');
+assert(!headerJsx.includes('Phase 7 Complete'), 'Header brand badge must NOT be Phase 7 Complete');
+console.log('  ✓ Header.jsx includes Phase 7 navigation links without development badges');
 
 const footerJsx = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf8');
-assert(footerJsx.includes('Phase 7: OCR & Text'), 'Footer must contain Phase 7 heading');
+assert(footerJsx.includes('OCR & Text Tools'), 'Footer must contain OCR & Text Tools heading');
+assert(!footerJsx.includes('Phase 7: OCR & Text'), 'Footer must NOT contain Phase 7 heading');
 assert(footerJsx.includes('/extract-text-from-pdf'), 'Footer must link to /extract-text-from-pdf');
 assert(footerJsx.includes('/image-cropper'), 'Footer must link to /image-cropper');
-assert(footerJsx.includes('Media Tools (Phase 6)'), 'Footer must contain Phase 6 Media Tools');
-assert(footerJsx.includes('Phase 7 Complete'), 'Footer must contain Phase 7 Complete badge');
-console.log('  ✓ Footer.jsx includes Phase 7 OCR links, Phase 6 Media links, and Phase 7 Complete badge');
+assert(footerJsx.includes('Media Tools'), 'Footer must contain Media Tools');
+assert(!footerJsx.includes('Media Tools (Phase 6)'), 'Footer must NOT contain Media Tools (Phase 6)');
+assert(!footerJsx.includes('Phase 7 Complete'), 'Footer must NOT contain Phase 7 Complete badge');
+console.log('  ✓ Footer.jsx includes Phase 7 OCR links and Media links without Phase badges');
 passedTests += 3;
 
 // GROUP 3: Real Google Chrome CDP Automation
@@ -192,14 +194,14 @@ async function runChromeHomeTests() {
 
     const heroData = heroEval.result.value;
     console.log('   Hero Data:', heroData);
-    assert.equal(heroData.brandBadge, 'Phase 7 Complete', 'Brand badge must display "Phase 7 Complete"');
-    assert.equal(heroData.heroBadge, 'Phase 7 Complete', 'Hero badge must display "Phase 7 Complete"');
+    assert.equal(heroData.brandBadge, undefined, 'Brand badge must NOT be present in header');
+    assert.equal(heroData.heroBadge, undefined, 'Hero badge must NOT be present in hero');
 
     const activeToolsStat = heroData.statCards.find(s => s.lbl.includes('Active Tools'));
     const strategyToolsStat = heroData.statCards.find(s => s.lbl.includes('Total Strategy Tools'));
     assert.equal(activeToolsStat?.num, '49', 'Active Tools metric must be exactly 49');
     assert.equal(strategyToolsStat?.num, '55', 'Total Strategy Tools metric must be 55');
-    console.log('   ✓ Header and Hero badges display "Phase 7 Complete" and Active Tools = 49');
+    console.log('   ✓ Header and Hero badges cleanly removed, Active Tools = 49');
 
     // Evaluate Phase 7 Section
     console.log('4. Evaluating Phase 7 Section on Home page...');
@@ -223,16 +225,17 @@ async function runChromeHomeTests() {
 
     const p7Data = phase7Eval.result.value;
     assert(p7Data && p7Data.hasSec, 'Phase 7 section #tools-phase7 must exist on Home page');
-    assert.equal(p7Data.title, 'Phase 7: OCR / Text / Advanced File Tools');
-    assert.equal(p7Data.indicator, '7 tools complete');
+    assert.equal(p7Data.title, 'OCR & Text Tools');
+    assert.equal(p7Data.indicator, undefined, 'Section indicator must not exist');
     assert.equal(p7Data.cardCount, 7, 'Phase 7 must render exactly 7 tool cards');
-    console.log(`   Phase 7 Section: "${p7Data.title}" with indicator "${p7Data.indicator}"`);
+    console.log(`   Phase 7 Section: "${p7Data.title}"`);
     console.log(`   Cards Rendered: ${p7Data.cardCount}`);
 
     for (const r of expectedPhase7Routes) {
       const found = p7Data.cards.find(c => c.href === r);
       assert(found, `Card linking to ${r} must render in Phase 7 section`);
-      console.log(`     ✓ Found card: ${found.name} (${found.href}) [${found.cat}] - ${found.status}`);
+      assert(!found.status, `Card ${found.name} must not have development status tag`);
+      console.log(`     ✓ Found card: ${found.name} (${found.href}) [${found.cat}]`);
     }
 
     // Verify Conceptual Phase Order: Phase 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
@@ -294,7 +297,7 @@ async function runChromeHomeTests() {
       returnByValue: true
     });
     const fData = footerEval.result.value;
-    assert.equal(fData.pill, 'Phase 7 Complete', 'Footer pill must display Phase 7 Complete');
+    assert.notEqual(fData.pill, 'Phase 7 Complete', 'Footer pill must NOT display Phase 7 Complete');
     for (const r of expectedPhase7Routes) {
       assert(fData.footerLinks.includes(r), `Footer must link to Phase 7 tool ${r}`);
     }

@@ -317,7 +317,6 @@ export default function JpgToPdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">JPG to PDF Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 1</span>
         </div>
         <p className="tool-intro">
           Convert your JPG and JPEG images into clean, standard A4 PDF documents. Fast, 100% private,
@@ -660,22 +659,22 @@ export default function JpgToPdfTool() {
           <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
           <div className="related-tools-grid">
             <Link to="/pdf-to-jpg" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">PDF to JPG</h3>
               <p className="related-desc">Extract pages from PDF files as high-quality JPG images.</p>
             </Link>
             <Link to="/merge-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Merge PDF</h3>
               <p className="related-desc">Combine multiple PDF files into one consolidated document.</p>
             </Link>
             <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Compress PDF</h3>
               <p className="related-desc">Reduce PDF file size while maintaining visual clarity.</p>
             </Link>
             <Link to="/pdf-to-word" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">PDF to Word</h3>
               <p className="related-desc">Convert PDF documents into editable Word DOCX files.</p>
             </Link>

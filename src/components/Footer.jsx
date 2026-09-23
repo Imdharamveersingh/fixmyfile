@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
-          <h4 className="footer-heading">Phase 7: OCR & Text</h4>
+          <h4 className="footer-heading">OCR & Text Tools</h4>
           <ul className="footer-links">
             <li><Link to="/image-to-text">Image to Text</Link></li>
             <li><Link to="/pdf-ocr">PDF OCR</Link></li>
@@ -83,7 +83,7 @@ export default function Footer() {
             <li><Link to="/extract-text-from-pdf">Extract Text from PDF</Link></li>
             <li><Link to="/image-cropper">Image Cropper</Link></li>
           </ul>
-          <h4 className="footer-heading" style={{ marginTop: '18px' }}>Media Tools (Phase 6)</h4>
+          <h4 className="footer-heading" style={{ marginTop: '18px' }}>Media Tools</h4>
           <ul className="footer-links">
             <li><Link to="/mp4-to-mp3">MP4 to MP3</Link></li>
             <li><Link to="/video-compressor">Video Compressor</Link></li>
@@ -103,7 +103,7 @@ export default function Footer() {
             <li><Link to="/word-counter">Word Counter</Link></li>
             <li><Link to="/emi-calculator">EMI Calculator</Link></li>
           </ul>
-          <span className="footer-pill" style={{ marginTop: '14px', display: 'inline-block' }}>Phase 7 Complete</span>
+          <span className="footer-pill" style={{ marginTop: '14px', display: 'inline-block' }}>100% Client-Side</span>
         </div>
       </div>
 

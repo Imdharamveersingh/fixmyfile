@@ -356,7 +356,6 @@ export default function ImageCompressorTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image Compressor</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 2.2</span>
         </div>
         <p className="tool-intro">
           Compress JPG and PNG images directly in your browser with fine-tuned quality control.

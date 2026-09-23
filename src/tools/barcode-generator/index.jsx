@@ -204,7 +204,7 @@ export default function BarcodeGeneratorTool() {
     <div className="tool-page barcode-tool-page">
       <div className="tool-header-area">
         <div className="tool-header-content">
-          <span className="tool-badge">Phase 3 · Generator</span>
+          <span className="tool-badge">Generator</span>
           <h1 className="tool-title" id="barcode-tool-title">Barcode Generator Online</h1>
           <p className="tool-subtitle">
             Create real, machine-readable 1D barcodes in your browser. Supports CODE 128, CODE 39,

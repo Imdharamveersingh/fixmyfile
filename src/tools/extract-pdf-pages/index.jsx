@@ -290,7 +290,6 @@ export default function ExtractPdfPagesTool() {
       <header className="tool-header">
         <div className="tool-title-row">
           <h1 className="tool-main-title">Extract PDF Pages — Save Specific Pages</h1>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro">
           Select specific pages or custom page ranges from your PDF document and create a new, lightweight PDF instantly. 100% private in-browser extraction.

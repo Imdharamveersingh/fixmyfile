@@ -160,7 +160,6 @@ export default function Mp4ToMp3Tool() {
       {/* Hero Header */}
       <header className="tool-header">
         <div className="tool-badge-wrap">
-          <span className="tool-phase-badge">Phase 6 • Media Tools</span>
           <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
         </div>
         <h1 className="tool-title">MP4 to MP3 Converter</h1>

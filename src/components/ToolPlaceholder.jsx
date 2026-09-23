@@ -16,7 +16,6 @@ export default function ToolPlaceholder({ tool }) {
         <div className="tool-title-row">
           <h1 className="tool-title">{name}</h1>
           <span className="tool-category-pill">{category}</span>
-          <span className="tool-phase-pill">{phase || 'Phase 1'}</span>
         </div>
 
         <p className="tool-subtitle">{description}</p>
@@ -37,7 +36,7 @@ export default function ToolPlaceholder({ tool }) {
         <div className="placeholder-icon-wrapper">
           <span className="placeholder-icon">⏳</span>
         </div>
-        <div className="placeholder-status-badge">Phase 1 Planned</div>
+        <div className="placeholder-status-badge">Planned Tool</div>
         <h2 className="placeholder-heading">Tool implementation coming next</h2>
         <p className="placeholder-message">
           The route for <strong>{name}</strong> is now configured and active at <code>{path}</code>.

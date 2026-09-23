@@ -49,7 +49,7 @@ export default function WordCounterTool() {
     <div className="tool-page word-counter-page">
       <div className="tool-header-area">
         <div className="tool-header-content">
-          <span className="tool-badge">Phase 3 · Text</span>
+          <span className="tool-badge">Text Utility</span>
           <h1 className="tool-title" id="word-counter-tool-title">Word Counter Online</h1>
           <p className="tool-subtitle">
             Live text analytics and metric counter. Analyze words, characters, sentences,

@@ -5,7 +5,7 @@ import React from 'react';
  * Displays the official user/project logo asset (/logo.png),
  * maintaining clean 1:1 aspect ratio and crisp rendering.
  */
-export default function Logo({ showBadge = false, badgeText = 'Phase 3', isFooter = false }) {
+export default function Logo({ showBadge = false, badgeText = '', isFooter = false }) {
   return (
     <div className={`brand-logo-container ${isFooter ? 'is-footer' : ''}`}>
       <img

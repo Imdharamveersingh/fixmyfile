@@ -187,7 +187,6 @@ export default function PdfToPowerPointTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">PDF to PowerPoint Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentations directly in your browser.

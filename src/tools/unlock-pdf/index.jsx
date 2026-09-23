@@ -219,7 +219,6 @@ export default function UnlockPdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">Unlock PDF — Remove Password</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Remove password protection and permissions security from your PDF documents completely in your browser.

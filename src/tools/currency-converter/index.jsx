@@ -132,7 +132,7 @@ export default function CurrencyConverterTool() {
     <div className="tool-page currency-tool-page">
       <div className="tool-header-area">
         <div className="tool-header-content">
-          <span className="tool-badge">Phase 3 · Calculator</span>
+          <span className="tool-badge">Calculator</span>
           <h1 className="tool-title" id="currency-tool-title">Currency Converter Online</h1>
           <p className="tool-subtitle">
             Instant, reliable currency conversion with live exchange rates, smart offline fallback,

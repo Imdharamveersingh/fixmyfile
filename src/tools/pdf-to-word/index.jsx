@@ -200,7 +200,6 @@ export default function PdfToWordTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">PDF to Word Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 1</span>
         </div>
         <p className="tool-intro">
           Convert text-based PDF files into editable Microsoft Word (.docx) documents directly in your
@@ -512,7 +511,7 @@ export default function PdfToWordTool() {
               <h3 className="faq-question">Why does my scanned PDF have no text in Word?</h3>
               <p className="faq-answer">
                 Scanned PDFs consist of raw pictures of pages rather than digital character codes. This tool extracts
-                selectable text. Converting image scans requires OCR, which is scheduled for a future tool phase.
+                selectable text. Converting image scans requires OCR, which is supported by our PDF OCR tool.
               </p>
             </div>
             <div className="faq-item">
@@ -530,22 +529,22 @@ export default function PdfToWordTool() {
           <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
           <div className="related-tools-grid">
             <Link to="/jpg-to-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1 · Ready</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">JPG to PDF</h3>
               <p className="related-desc">Convert JPG images into standard PDF files in your browser.</p>
             </Link>
             <Link to="/pdf-to-jpg" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">PDF to JPG</h3>
               <p className="related-desc">Extract pages from PDF files as high-quality JPG images.</p>
             </Link>
             <Link to="/merge-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Merge PDF</h3>
               <p className="related-desc">Combine multiple PDF documents into a single organized file.</p>
             </Link>
             <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Compress PDF</h3>
               <p className="related-desc">Reduce PDF file size while preserving document quality.</p>
             </Link>

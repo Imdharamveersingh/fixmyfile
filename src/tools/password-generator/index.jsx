@@ -85,7 +85,7 @@ export default function PasswordGeneratorTool() {
     <div className="tool-page password-tool-page">
       <div className="tool-header-area">
         <div className="tool-header-content">
-          <span className="tool-badge">Phase 3 · Security</span>
+          <span className="tool-badge">Security Tool</span>
           <h1 className="tool-title" id="password-tool-title">Password Generator Online</h1>
           <p className="tool-subtitle">
             Generate strong, cryptographically secure passwords locally in your browser

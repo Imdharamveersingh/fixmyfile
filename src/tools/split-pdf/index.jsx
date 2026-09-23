@@ -228,7 +228,6 @@ export default function SplitPdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">Split PDF</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Extract specific pages or split your PDF into multiple separate documents in seconds.

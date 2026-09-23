@@ -440,7 +440,6 @@ export default function ImageResizerTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image Resizer</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 2.3</span>
         </div>
         <p className="tool-intro">
           Resize JPG and PNG images online to exact dimensions or social media presets.

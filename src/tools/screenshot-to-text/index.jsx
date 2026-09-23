@@ -270,7 +270,6 @@ export default function ScreenshotToTextTool() {
       {/* Header */}
       <header className="tool-header">
         <div className="tool-badge-wrap">
-          <span className="tool-phase-badge">Phase 7 • OCR & Text Tools</span>
           <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
         </div>
         <h1 className="tool-title">Screenshot to Text (OCR)</h1>

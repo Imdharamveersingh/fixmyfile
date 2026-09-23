@@ -18,14 +18,13 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="hero-badge-wrap">
           <span className="hero-eyebrow">FAST • FREE • PRIVATE</span>
-          <div className="hero-badge">Phase 7 Complete</div>
         </div>
         <h1 className="hero-title">
           Simple tools for <span className="text-gradient">everyday files</span>.
         </h1>
         <p className="hero-description">
           A clean, focused collection of 49 high-demand digital utility tools.
-          Phase 1–7 PDF, image, generator, media, and OCR text extraction tools are 100% complete and verified client-side.
+          PDF, image, generator, media, and OCR text extraction tools are verified and processed securely client-side.
         </p>
 
         <div className="hero-actions">
@@ -56,16 +55,15 @@ export default function HomePage() {
 
       <div id="browse-categories" className="category-anchor"></div>
 
-      {/* Phase 1: PDF Tools */}
+      {/* PDF Tools */}
       <section id="tools-phase1" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 1: PDF Tools</h2>
+            <h2 className="section-title">PDF Tools</h2>
             <p className="section-subtitle">
               Fully verified in-browser PDF conversion, merging, and compression suite.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_1_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -75,16 +73,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 2: Image Tools */}
+      {/* Image Tools */}
       <section id="tools-phase2" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 2: Image Tools</h2>
+            <h2 className="section-title">Image Tools</h2>
             <p className="section-subtitle">
               High-demand image editing and conversion utilities with in-browser AI processing.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_2_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -94,16 +91,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 3: Calculators & Generators */}
+      {/* Calculators & Generators */}
       <section id="tools-phase3" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 3: Calculators & Generators</h2>
+            <h2 className="section-title">Calculators & Generators</h2>
             <p className="section-subtitle">
               High-demand utility generators and calculators, built for instant client-side computation and privacy.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_3_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid phase3-grid">
@@ -113,16 +109,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 4: PDF Tools */}
+      {/* Advanced PDF Tools */}
       <section id="tools-phase4" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 4: PDF Tools</h2>
+            <h2 className="section-title">Advanced PDF Tools</h2>
             <p className="section-subtitle">
               Complete in-browser PDF manipulation suite: split, convert to Excel and PowerPoint, rotate, protect, unlock, extract text, isolate pages, delete pages, and reorder.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_4_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -132,16 +127,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 5: Image Expansion */}
+      {/* Advanced Image Tools */}
       <section id="tools-phase5" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 5: Image Tools (Expansion)</h2>
+            <h2 className="section-title">Advanced Image Tools</h2>
             <p className="section-subtitle">
               Advanced in-browser image editing and format transformation suite with instant client-side privacy.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_5_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -151,16 +145,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 6: Media Tools */}
+      {/* Media Tools */}
       <section id="tools-phase6" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 6: Media Tools</h2>
+            <h2 className="section-title">Media Tools</h2>
             <p className="section-subtitle">
               High-performance client-side audio and video processing suite powered by WebAssembly.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_6_TOOLS.length} tools active</span>
         </div>
 
         <div className="tools-grid">
@@ -170,16 +163,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Phase 7: OCR / Text / Advanced File Tools */}
+      {/* OCR & Text Tools */}
       <section id="tools-phase7" className="tools-section">
         <div className="section-header">
           <div>
-            <h2 className="section-title">Phase 7: OCR / Text / Advanced File Tools</h2>
+            <h2 className="section-title">OCR & Text Tools</h2>
             <p className="section-subtitle">
               High-accuracy client-side optical character recognition, structural document text extraction, and browser-first image adjustment.
             </p>
           </div>
-          <span className="phase-indicator">{PHASE_7_TOOLS.length} tools complete</span>
         </div>
 
         <div className="tools-grid">
@@ -207,7 +199,7 @@ export default function HomePage() {
             </div>
             <div className="arch-feature-item">
               <span className="feature-dot"></span>
-              <span>Isolated tool logic ready for phase-by-phase implementation</span>
+              <span>Isolated tool logic engineered for modular reliability</span>
             </div>
             <div className="arch-feature-item">
               <span className="feature-dot"></span>

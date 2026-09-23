@@ -344,7 +344,7 @@ export default function JpgToPngTool() {
       {/* Tool Header */}
       <div className="tool-header">
         <div className="tool-badge-row">
-          <span className="tool-badge">Phase 2 · Image Driver</span>
+          <span className="tool-badge">Image Tool</span>
           <span className="tool-badge-tag">Client-Side · 100% Private</span>
           <span className="tool-badge-format">JPG → PNG</span>
         </div>

@@ -145,7 +145,6 @@ export default function VideoCompressorTool() {
       {/* Hero Header */}
       <header className="tool-header">
         <div className="tool-badge-wrap">
-          <span className="tool-phase-badge">Phase 6 • Media Tools</span>
           <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
         </div>
         <h1 className="tool-title">Video Compressor</h1>

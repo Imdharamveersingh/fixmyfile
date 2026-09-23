@@ -300,7 +300,6 @@ export default function DeletePdfPagesTool() {
       <header className="tool-header">
         <div className="tool-title-row">
           <h1 className="tool-main-title">Delete PDF Pages — Remove Pages Online</h1>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro">
           Select unwanted pages or custom page ranges to remove from your PDF and create a clean, trimmed document. 100% private in-browser processing.

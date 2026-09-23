@@ -181,7 +181,6 @@ export default function HeicToJpgTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">HEIC to JPG Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 5</span>
         </div>
         <p className="tool-intro">
           Convert Apple iPhone HEIC and HEIF photos to high-compatibility JPG format in seconds.

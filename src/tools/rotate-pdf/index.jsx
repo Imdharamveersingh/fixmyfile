@@ -204,7 +204,6 @@ export default function RotatePdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">Rotate PDF Pages</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Rotate individual PDF pages or all pages simultaneously. Permanently align orientations clockwise or counter-clockwise with 100% privacy in your browser.

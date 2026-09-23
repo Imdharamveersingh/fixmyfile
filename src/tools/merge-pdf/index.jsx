@@ -280,7 +280,6 @@ export default function MergePdfTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Merge PDF</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 1</span>
         </div>
         <p className="tool-intro">
           Combine multiple PDF documents into a single organized file in your desired order. Fast, 100% private,
@@ -710,27 +709,27 @@ export default function MergePdfTool() {
           <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
           <div className="related-tools-grid">
             <Link to="/jpg-to-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1 · Ready</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">JPG to PDF</h3>
               <p className="related-desc">Convert JPG and JPEG images into clean, formatted PDF documents.</p>
             </Link>
             <Link to="/pdf-to-word" className="related-tool-card">
-              <span className="related-badge">Phase 1 · Ready</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">PDF to Word</h3>
               <p className="related-desc">Convert PDF documents into editable Microsoft Word DOCX files.</p>
             </Link>
             <Link to="/pdf-to-jpg" className="related-tool-card">
-              <span className="related-badge">Phase 1 · Ready</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">PDF to JPG</h3>
               <p className="related-desc">Extract pages from PDF files and save them as high-quality JPG images.</p>
             </Link>
             <Link to="/word-to-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1 · Ready</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Word to PDF</h3>
               <p className="related-desc">Convert Word DOCX documents directly into standardized PDF files.</p>
             </Link>
             <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">Phase 1</span>
+              <span className="related-badge">PDF Tool</span>
               <h3 className="related-title">Compress PDF</h3>
               <p className="related-desc">Reduce PDF file size while preserving optimal visual quality.</p>
             </Link>

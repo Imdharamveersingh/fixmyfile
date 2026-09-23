@@ -71,7 +71,7 @@ export default function PercentageCalculatorTool() {
     <div className="tool-page percentage-tool-page">
       <div className="tool-header-area">
         <div className="tool-header-content">
-          <span className="tool-badge">Phase 3 · Calculator</span>
+          <span className="tool-badge">Calculator</span>
           <h1 className="tool-title" id="percentage-tool-title">Percentage Calculator Online</h1>
           <p className="tool-subtitle">
             Calculate percentage values, percentage changes, additions, and subtractions

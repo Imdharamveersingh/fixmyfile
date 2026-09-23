@@ -209,7 +209,6 @@ export default function PdfToTextTool() {
         <div className="tool-title-row">
           <h1 className="tool-h1 tool-main-title">PDF to Text — Extract Text Online</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">{toolMeta?.phase || 'Phase 4'}</span>
         </div>
         <p className="tool-intro tool-main-desc">
           Extract clean, selectable text from your PDF documents directly in your browser.

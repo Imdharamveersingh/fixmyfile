@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { getToolByPath } from '../tools/toolsRegistry';
 
 export default function Header() {
   const location = useLocation();
-  const currentTool = getToolByPath(location.pathname);
-  const brandBadgeText = currentTool?.phase || 'Phase 7 Complete';
 
   const [activeDropdown, setActiveDropdown] = useState(null);
   const headerRef = useRef(null);
@@ -81,7 +78,6 @@ export default function Header() {
             height="32"
           />
           <span className="brand-name">FixMyFile</span>
-          <span className="brand-badge">{brandBadgeText}</span>
         </Link>
 
         <nav className="site-nav" aria-label="Main Navigation">

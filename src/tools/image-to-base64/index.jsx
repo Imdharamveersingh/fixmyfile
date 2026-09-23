@@ -229,7 +229,6 @@ export default function ImageToBase64Tool() {
         <div className="tool-title-row">
           <h1 className="tool-h1">Image to Base64 Converter</h1>
           <span className="tool-badge-primary">Free · In-Browser</span>
-          <span className="tool-badge-accent">Phase 5</span>
         </div>
         <p className="tool-description">
           Convert JPG, PNG, WebP, GIF, and SVG images directly into standard Base64 Data URIs and raw encoded strings for web embedding, CSS, and HTML.
