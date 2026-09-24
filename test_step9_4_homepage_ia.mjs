@@ -169,7 +169,7 @@ test('=== FIXMYFILE STEP 9.4: HOMEPAGE DISCOVERY & BRAND POLISH TEST SUITE ===',
     assert.ok(!footerJsx.includes('>FixMyFile<'), 'Footer must not render separate visible FixMyFile text');
 
     // index.html favicon references
-    assert.ok(indexHtml.includes('href="/logo.png"'), 'index.html has logo.png favicon');
+    assert.ok(indexHtml.includes('href="/favicon.png"'), 'index.html has favicon.png favicon');
     assert.ok(!indexHtml.includes('/favicon.svg'), 'index.html removes legacy Vite favicon.svg');
   });
 

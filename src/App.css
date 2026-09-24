@@ -31,7 +31,7 @@
 .header-container {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,9 +55,9 @@
 }
 
 .brand-logo-img {
-  height: 48px;
+  height: 58px;
   width: auto;
-  max-width: 130px;
+  max-width: 185px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
@@ -65,8 +65,8 @@
 
 @media (max-width: 640px) {
   .brand-logo-img {
-    height: 41px;
-    max-width: 105px;
+    height: 46px;
+    max-width: 130px;
   }
 }
 
@@ -1175,10 +1175,11 @@
 }
 
 .tool-h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.1rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -6704,17 +6705,17 @@
 }
 
 .footer-logo-img {
-  height: 58px;
+  height: 70px;
   width: auto;
-  max-width: 155px;
+  max-width: 210px;
   object-fit: contain;
   display: block;
 }
 
 @media (max-width: 640px) {
   .footer-logo-img {
-    height: 48px;
-    max-width: 125px;
+    height: 56px;
+    max-width: 160px;
   }
 }
 
@@ -6882,10 +6883,11 @@
 }
 
 .tool-main-title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.1rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
@@ -9784,12 +9786,14 @@
   font-weight: 600;
 }
 
-.tool-detail-h1 {
-  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-  font-weight: 800;
+.tool-detail-h1,
+.tool-h1,
+.tool-main-title {
+  font-size: clamp(2.1rem, 2.8vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: var(--text-primary, #0f172a);
-  letter-spacing: -0.025em;
-  line-height: 1.25;
+  letter-spacing: -0.02em;
   margin: 0 0 10px 0;
 }
 
@@ -9805,8 +9809,13 @@
   .tool-detail-header {
     margin-bottom: 22px;
   }
-  .tool-detail-h1 {
-    font-size: 1.75rem;
+  .tool-detail-h1,
+  .tool-h1,
+  .tool-main-title {
+    font-size: clamp(1.75rem, 7vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     margin-bottom: 8px;
   }
   .tool-detail-description {

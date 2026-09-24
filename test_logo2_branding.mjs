@@ -41,14 +41,14 @@ test('=== FIXMYFILE: LOGO BRANDING REPLACEMENT TEST SUITE ===', async (t) => {
 
   // 5. CSS Responsive Sizing Rules
   await t.test('5. CSS responsive sizing rules for logo in Header and Footer', () => {
-    assert.match(appCss, /\.brand-logo-img\s*\{[^}]*height:\s*48px;/, 'Desktop header logo height is 48px');
+    assert.match(appCss, /\.brand-logo-img\s*\{[^}]*height:\s*58px;/, 'Desktop header logo height is 58px');
     assert.match(appCss, /\.brand-logo-img\s*\{[^}]*object-fit:\s*contain;/, 'Header logo uses object-fit: contain');
-    assert.match(appCss, /\.footer-logo-img\s*\{[^}]*height:\s*58px;/, 'Footer logo height is 58px');
+    assert.match(appCss, /\.footer-logo-img\s*\{[^}]*height:\s*70px;/, 'Footer logo height is 70px');
     assert.match(appCss, /\.footer-logo-img\s*\{[^}]*object-fit:\s*contain;/, 'Footer logo uses object-fit: contain');
 
     // Mobile overrides
-    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.brand-logo-img\s*\{[^}]*height:\s*41px;/, 'Mobile header logo height scaled to 41px');
-    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.footer-logo-img\s*\{[^}]*height:\s*48px;/, 'Mobile footer logo height scaled to 48px');
+    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.brand-logo-img\s*\{[^}]*height:\s*46px;/, 'Mobile header logo height scaled to 46px');
+    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.footer-logo-img\s*\{[^}]*height:\s*56px;/, 'Mobile footer logo height scaled to 56px');
   });
 });
 
