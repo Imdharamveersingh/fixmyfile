@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Word Counter">
+  <title>Word Counter</title>
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="#2563EB12"/>
+  <g stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="13"/><path d="M20 26h12M28 20l6 6-6 6"/></g>
+  <g transform="translate(35 34)">
+    <rect x="0" y="0" width="22" height="22" rx="7" fill="#2563EB"/>
+    <path d="M6 11h9M11 6l5 5-5 5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

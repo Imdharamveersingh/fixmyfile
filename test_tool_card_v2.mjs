@@ -13,6 +13,7 @@ import {
   TOTAL_STRATEGY_TOOLS
 } from './src/tools/toolsRegistry.js';
 import { TOOL_ICON_DEFS } from './src/components/toolIconDefs.js';
+import { TOOL_SVG_MAP } from './src/components/toolSvgMap.js';
 
 test('=== FIXMYFILE: TOOL CARD UI POLISH V2 TEST SUITE ===', async (t) => {
   const toolCardSrc = fs.readFileSync('src/components/ToolCard.jsx', 'utf-8');
@@ -25,6 +26,12 @@ test('=== FIXMYFILE: TOOL CARD UI POLISH V2 TEST SUITE ===', async (t) => {
     assert.equal(ALL_TOOLS.length, 49, 'ALL_TOOLS must contain exactly 49 active tools');
     assert.equal(TOTAL_STRATEGY_TOOLS, 55, 'TOTAL_STRATEGY_TOOLS must be 55');
 
+    // Verify non-tool UI icons remain in TOOL_ICON_DEFS
+    assert.ok(TOOL_ICON_DEFS.default, 'TOOL_ICON_DEFS must retain default icon');
+    assert.ok(TOOL_ICON_DEFS.mail, 'TOOL_ICON_DEFS must retain mail icon');
+    assert.ok(TOOL_ICON_DEFS.copy, 'TOOL_ICON_DEFS must retain copy icon');
+    assert.ok(TOOL_ICON_DEFS.check, 'TOOL_ICON_DEFS must retain check icon');
+
     const ids = new Set();
     const paths = new Set();
 
@@ -34,10 +41,10 @@ test('=== FIXMYFILE: TOOL CARD UI POLISH V2 TEST SUITE ===', async (t) => {
       assert.ok(tool.path, `Tool ${tool.id} must have a path`);
       assert.ok(tool.icon, `Tool ${tool.id} must have an icon defined in registry`);
 
-      // Verify icon exists in TOOL_ICON_DEFS
+      // Verify icon exists in TOOL_SVG_MAP
       assert.ok(
-        TOOL_ICON_DEFS[tool.icon],
-        `Tool ${tool.id} icon '${tool.icon}' must exist in TOOL_ICON_DEFS dictionary`
+        TOOL_SVG_MAP[tool.icon],
+        `Tool ${tool.id} icon '${tool.icon}' must exist in TOOL_SVG_MAP dictionary`
       );
 
       // Verify uniqueness
