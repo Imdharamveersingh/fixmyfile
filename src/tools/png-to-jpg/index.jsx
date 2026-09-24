@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -432,7 +433,9 @@ export default function PngToJpgTool() {
             }}
             aria-label="Upload a PNG image by clicking or dragging and dropping"
           >
-            <div className="dropzone-icon">🖼️</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="png-to-jpg" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your PNG image here</h2>
             <p className="dropzone-subtext">or click to browse your device</p>
             <div className="dropzone-badge-list">

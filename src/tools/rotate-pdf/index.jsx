@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { getPdfRotationMeta, rotatePdf, normalizeRotation } from './rotateEngine';
 import { formatBytes } from '../../utils/helpers';
@@ -228,10 +229,8 @@ export default function RotatePdfTool() {
               }}
             />
             <div className="dropzone-icon" aria-hidden="true">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-              </svg>
-            </div>
+            <ToolIcon icon="rotate-pdf" size={48} />
+          </div>
             <h3 className="dropzone-title">Upload your PDF document</h3>
             <p className="dropzone-subtext dropzone-subtitle">Drag & drop your PDF here, or click to browse</p>
             <button

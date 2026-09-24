@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   ASPECT_RATIOS,
@@ -455,10 +456,8 @@ export default function ImageCropperTool() {
             }}
             id="image-cropper-file-input"
           />
-          <div className="dropzone-icon">
-            <span className="material-symbols-outlined" style={{ fontSize: '48px', color: 'var(--primary)' }}>
-              crop
-            </span>
+          <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="image-cropper" size={48} />
           </div>
           <h3 className="dropzone-title">Click or Drag & Drop Image Here</h3>
           <p className="dropzone-subtitle">

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Human-readable file size formatter
@@ -252,12 +253,9 @@ export default function ImageToBase64Tool() {
               if (e.key === 'Enter' || e.key === ' ') openFilePicker();
             }}
           >
-            <div className="dropzone-icon">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-            </div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="image-to-base64" size={48} />
+          </div>
             <p className="dropzone-title">Click or drag an image here to encode to Base64</p>
             <p className="dropzone-hint">
               Supports JPG, PNG, WebP, GIF, SVG, BMP, ICO • Max 50 MB • Pure client-side

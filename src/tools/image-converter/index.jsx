@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -514,7 +515,9 @@ export default function ImageConverterTool() {
             }}
             aria-label="Upload an image by clicking or dragging and dropping"
           >
-            <div className="dropzone-icon">🔄</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="image-converter" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your image here</h2>
             <p className="dropzone-subtext">or click to browse your device</p>
             <div className="dropzone-badge-list">

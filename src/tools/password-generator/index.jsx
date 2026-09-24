@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PRESETS,
@@ -94,6 +95,7 @@ export default function PasswordGeneratorTool() {
 
       <div className="password-app-layout">
         <div className="password-card">
+          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="password-generator" size={48} /></div>
           {/* Presets Row */}
           <div className="password-presets-row">
             <span className="presets-label">Security Presets:</span>

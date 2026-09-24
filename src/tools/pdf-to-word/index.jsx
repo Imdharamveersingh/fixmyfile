@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -255,7 +256,9 @@ export default function PdfToWordTool() {
               className="hidden-file-input"
               aria-hidden="true"
             />
-            <div className="dropzone-icon">📄</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="pdf-to-word" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your PDF document here</h2>
             <p className="dropzone-subtext">or click to browse your device for a PDF file</p>
             <div className="dropzone-badge-list">

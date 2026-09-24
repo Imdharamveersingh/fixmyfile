@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -274,13 +275,9 @@ export default function JpgToWebpTool() {
             aria-label="Upload JPG or JPEG image"
             onKeyDown={(e) => e.key === 'Enter' && fileInputRef.current?.click()}
           >
-            <div className="upload-icon-wrap">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-            </div>
+            <div className="upload-icon-wrap" aria-hidden="true">
+            <ToolIcon icon="jpg-to-webp" size={48} />
+          </div>
             <p className="upload-title">Drop your JPG image here</p>
             <p className="upload-subtitle">or click to browse — .jpg / .jpeg files only</p>
             <button

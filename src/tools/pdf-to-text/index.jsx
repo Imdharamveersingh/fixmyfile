@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -233,26 +234,9 @@ export default function PdfToTextTool() {
               style={{ display: 'none' }}
               aria-label="Upload PDF file"
             />
-            <div className="dropzone-icon-wrapper">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="dropzone-main-icon"
-                aria-hidden="true"
-              >
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-                <line x1="10" y1="9" x2="8" y2="9" />
-              </svg>
-            </div>
+            <div className="dropzone-icon-wrapper" aria-hidden="true">
+            <ToolIcon icon="pdf-to-text" size={48} />
+          </div>
             <h3 className="dropzone-title">Select a PDF to extract text</h3>
             <p className="dropzone-subtitle">
               Drag &amp; drop a PDF here, or click to browse from your device

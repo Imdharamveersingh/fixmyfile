@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   validateMp4File,
@@ -191,13 +192,9 @@ export default function Mp4ToMp3Tool() {
                 if (e.target.files?.[0]) handleFile(e.target.files[0]);
               }}
             />
-            <div className="dropzone-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
-            </div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="mp4-to-mp3" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your MP4 video here</h2>
             <p className="dropzone-desc">or browse from your device. Supported format: .mp4 (up to 500 MB)</p>
             <button

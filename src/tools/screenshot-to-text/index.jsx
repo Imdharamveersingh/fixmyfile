@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -334,13 +335,9 @@ export default function ScreenshotToTextTool() {
                 if (e.target.files?.[0]) handleFileSelect(e.target.files[0]);
               }}
             />
-            <div className="dropzone-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg>
-            </div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="screenshot-to-text" size={48} />
+          </div>
             <h2 className="dropzone-title">Press Ctrl+V to paste or drop screenshot here</h2>
             <p className="dropzone-desc">
               Supports clipboard paste (Ctrl+V / Cmd+V), PNG, JPG, and WebP (up to {formatBytes(MAX_IMAGE_FILE_SIZE)})

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { calculateEMI, formatCurrency } from './emiEngine';
 
@@ -88,6 +89,7 @@ Calculated via FixMyFile EMI Calculator`;
       <div className="emi-calculator-layout">
         {/* Input Card */}
         <div className="emi-input-card">
+          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="emi-calculator" size={48} /></div>
           <div className="emi-card-header">
             <h2 className="emi-section-title">Loan Parameters</h2>
             <div className="currency-selector-badge">

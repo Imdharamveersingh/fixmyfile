@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -544,11 +545,9 @@ export default function ImageWatermarkTool() {
             aria-label="Upload image to watermark"
             onKeyDown={(e) => e.key === 'Enter' && fileInputRef.current?.click()}
           >
-            <div className="upload-icon-wrap">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-              </svg>
-            </div>
+            <div className="upload-icon-wrap" aria-hidden="true">
+            <ToolIcon icon="image-watermark" size={48} />
+          </div>
             <p className="upload-title">Drop your image here</p>
             <p className="upload-subtitle">Supports JPG, PNG, WebP, GIF, and BMP</p>
             <button

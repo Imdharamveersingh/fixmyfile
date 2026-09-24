@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { getPdfMetadata, parsePageSelection, extractPdfPages } from './extractEngine';
 import { formatBytes } from '../../utils/helpers';
@@ -302,25 +303,9 @@ export default function ExtractPdfPagesTool() {
               style={{ display: 'none' }}
               aria-label="Upload PDF file"
             />
-            <div className="dropzone-icon-wrapper">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="dropzone-main-icon"
-                aria-hidden="true"
-              >
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                <polyline points="14 2 14 8 20 8" />
-                <path d="M9 13h6" />
-                <path d="M12 10v6" />
-              </svg>
-            </div>
+            <div className="dropzone-icon-wrapper" aria-hidden="true">
+            <ToolIcon icon="extract-pdf-pages" size={48} />
+          </div>
             <h3 className="dropzone-title">Select a PDF to extract pages</h3>
             <p className="dropzone-subtitle">
               Drag &amp; drop a PDF here, or click to browse from your device

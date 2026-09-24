@@ -34,7 +34,8 @@ export default function ToolDetailHeader({
   if (!meta) return null;
 
   const breadcrumbName = meta.name;
-  const headingTitle = title || meta.name;
+  const rawTitle = (title || meta.name).trim();
+  const headingTitle = /\bfree\b/i.test(rawTitle) ? rawTitle : `${rawTitle} Free`;
   const desc = description || meta.description;
 
   return (

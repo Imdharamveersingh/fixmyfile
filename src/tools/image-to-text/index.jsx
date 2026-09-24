@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -253,13 +254,9 @@ export default function ImageToTextTool() {
                 if (e.target.files?.[0]) handleFileSelect(e.target.files[0]);
               }}
             />
-            <div className="dropzone-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-            </div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="image-to-text" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your image here</h2>
             <p className="dropzone-desc">
               or browse from your device. Supported formats: JPG, PNG, WebP (up to {formatBytes(MAX_IMAGE_FILE_SIZE)})

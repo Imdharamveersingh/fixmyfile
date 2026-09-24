@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { jsPDF } from 'jspdf';
 import { formatBytes } from '../../utils/helpers';
@@ -358,7 +359,9 @@ export default function JpgToPdfTool() {
               className="hidden-file-input"
               aria-hidden="true"
             />
-            <div className="dropzone-icon">🖼️</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="jpg-to-pdf" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your JPG / JPEG images here</h2>
             <p className="dropzone-subtext">or click to browse your computer or mobile device</p>
             <div className="dropzone-badge-list">

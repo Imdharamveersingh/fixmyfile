@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { getPdfMetadata, parsePagesToDelete, deletePdfPages } from './deleteEngine';
 import { formatBytes } from '../../utils/helpers';
@@ -312,24 +313,9 @@ export default function DeletePdfPagesTool() {
               style={{ display: 'none' }}
               aria-label="Upload PDF file"
             />
-            <div className="dropzone-icon-wrapper">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="dropzone-main-icon"
-                aria-hidden="true"
-              >
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="9" y1="15" x2="15" y2="15" />
-              </svg>
-            </div>
+            <div className="dropzone-icon-wrapper" aria-hidden="true">
+            <ToolIcon icon="delete-pdf-pages" size={48} />
+          </div>
             <h3 className="dropzone-title">Select a PDF to delete pages</h3>
             <p className="dropzone-subtitle">
               Drag &amp; drop a PDF here, or click to browse from your device

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { formatBytes } from '../../utils/helpers';
 
@@ -382,7 +383,9 @@ export default function BackgroundRemoverTool() {
             }}
             aria-label="Upload an image by clicking or dragging and dropping"
           >
-            <div className="dropzone-icon">🪄</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="background-remover" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your image here</h2>
             <p className="dropzone-subtext">or click to browse your computer or mobile device</p>
             <div className="dropzone-badge-list">

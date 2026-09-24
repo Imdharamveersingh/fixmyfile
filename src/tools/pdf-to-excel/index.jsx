@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -210,14 +211,8 @@ export default function PdfToExcelTool() {
               }}
             />
             <div className="dropzone-icon" aria-hidden="true">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <path d="M8 13h8" />
-                <path d="M8 17h8" />
-                <path d="M10 9h4" />
-              </svg>
-            </div>
+            <ToolIcon icon="pdf-to-excel" size={48} />
+          </div>
             <h3 className="dropzone-title">Upload your PDF document</h3>
             <p className="dropzone-subtext dropzone-subtitle">Drag & drop your PDF here, or click to browse</p>
             <button

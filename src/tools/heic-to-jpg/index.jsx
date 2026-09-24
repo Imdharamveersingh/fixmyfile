@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { validateHeicFile, convertHeicToJpg, getHeicConvertedName } from './heicEngine.js';
 
@@ -221,10 +222,8 @@ export default function HeicToJpgTool() {
             }}
             id="heic-file-input"
           />
-          <div className="dropzone-icon">
-            <span className="material-symbols-outlined" style={{ fontSize: '48px', color: 'var(--primary)' }}>
-              photo_camera
-            </span>
+          <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="heic-to-jpg" size={48} />
           </div>
           <h3 className="dropzone-title">Click or Drag & Drop HEIC/HEIF Image Here</h3>
           <p className="dropzone-subtitle">

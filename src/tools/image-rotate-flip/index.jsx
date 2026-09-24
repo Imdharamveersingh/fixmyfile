@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -410,11 +411,9 @@ export default function ImageRotateFlipTool() {
             aria-label="Upload image to rotate and flip"
             onKeyDown={(e) => e.key === 'Enter' && fileInputRef.current?.click()}
           >
-            <div className="upload-icon-wrap">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-              </svg>
-            </div>
+            <div className="upload-icon-wrap" aria-hidden="true">
+            <ToolIcon icon="image-rotate-flip" size={48} />
+          </div>
             <p className="upload-title">Drop your image here</p>
             <p className="upload-subtitle">Supports JPG, PNG, WebP, GIF, and BMP</p>
             <button

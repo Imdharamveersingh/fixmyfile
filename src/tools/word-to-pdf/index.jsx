@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
+import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { renderAsync } from 'docx-preview';
 import html2canvas from 'html2canvas';
@@ -469,7 +470,9 @@ export default function WordToPdfTool() {
               className="hidden-file-input"
               aria-hidden="true"
             />
-            <div className="dropzone-icon">📝</div>
+            <div className="dropzone-icon" aria-hidden="true">
+            <ToolIcon icon="word-to-pdf" size={48} />
+          </div>
             <h2 className="dropzone-title">Drop your Word document here</h2>
             <p className="dropzone-subtext">or click to browse your device for a .docx file</p>
             <div className="dropzone-badge-list">

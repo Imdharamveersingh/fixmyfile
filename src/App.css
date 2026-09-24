@@ -9933,3 +9933,31 @@
   }
 }
 
+/* ============================================================
+   Unified Workspace & Dropzone Tool Icons
+   ============================================================ */
+.dropzone-icon,
+.dropzone-icon-wrapper,
+.upload-icon-wrap,
+.workspace-tool-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.dropzone-icon img.tool-icon-svg,
+.dropzone-icon-wrapper img.tool-icon-svg,
+.upload-icon-wrap img.tool-icon-svg,
+.workspace-tool-icon-wrap img.tool-icon-svg,
+.workspace-tool-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.workspace-tool-icon-wrap {
+  padding: 6px 0;
+}
+
