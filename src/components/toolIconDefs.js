@@ -18,6 +18,15 @@ export const TOOL_ICON_DEFS = {
     { tag: 'path', attrs: { d: 'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7' } }
   ],
 
+  // Copy and check icons for Copy button
+  copy: [
+    { tag: 'rect', attrs: { x: '9', y: '9', width: '13', height: '13', rx: '2', ry: '2' } },
+    { tag: 'path', attrs: { d: 'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1' } }
+  ],
+  check: [
+    { tag: 'polyline', attrs: { points: '20 6 9 17 4 12' } }
+  ],
+
   // --- Phase 1: PDF Tools ---
   'jpg-to-pdf': [
     { tag: 'rect', attrs: { x: '2', y: '3', width: '13', height: '13', rx: '2' } },

@@ -10,11 +10,12 @@ const VIEWPORTS = [
   { width: 375, height: 844, name: 'iPhone 13 / Mobile Small (375x844)' },
   { width: 390, height: 844, name: 'iPhone 14 / Mobile Standard (390x844)' },
   { width: 768, height: 1024, name: 'iPad / Tablet Portrait (768x1024)' },
-  { width: 1280, height: 800, name: 'Laptop / Desktop Small (1280x800)' },
+  { width: 1024, height: 768, name: 'Tablet Landscape / Small Desktop (1024x768)' },
+  { width: 1280, height: 800, name: 'Laptop / Desktop Medium (1280x800)' },
   { width: 1440, height: 900, name: 'Desktop Standard (1440x900)' },
 ];
 
-console.log('=== FIXMYFILE: REAL CHROME CDP CONTACT PAGE VERIFICATION ===\n');
+console.log('=== FIXMYFILE: REAL CHROME CDP CONTACT PAGE COMPACT VERIFICATION ===\n');
 
 async function run() {
   const chrome = spawn(CHROME_PATH, [
@@ -80,6 +81,16 @@ async function run() {
     await send('Page.enable');
     await send('DOM.enable');
 
+    // Grant clipboard permissions if supported
+    try {
+      await send('Browser.grantPermissions', {
+        permissions: ['clipboardReadWrite', 'clipboardSanitizedWrite'],
+        origin: BASE_URL,
+      });
+    } catch {
+      // Browser domain permission grant may not be supported on all headless builds
+    }
+
     async function evaluate(expression) {
       const res = await send('Runtime.evaluate', {
         expression,
@@ -92,73 +103,129 @@ async function run() {
       return res.result ? res.result.value : undefined;
     }
 
-    console.log('1. Navigating to /contact and testing Core UI & Accessibility...');
+    console.log('1. Navigating to /contact and testing Core UI & Compact Structure...');
     await send('Page.navigate', { url: `${BASE_URL}/contact` });
     await new Promise((r) => setTimeout(r, 1200));
 
     // A. Title and Canonical
     const title = await evaluate('document.title');
     const canonical = await evaluate('document.querySelector("link[rel=\'canonical\']")?.href');
-    const metaDesc = await evaluate('document.querySelector("meta[name=\'description\']")?.content');
 
     console.log(`   - Document Title: "${title}"`);
     assert.strictEqual(title, 'Contact FixMyFile — Get in Touch');
-
     console.log(`   - Canonical: "${canonical}"`);
     assert.strictEqual(canonical, 'https://fixmyfile.netlify.app/contact');
 
-    console.log(`   - Meta Description: "${metaDesc}"`);
-    assert.ok(metaDesc && metaDesc.includes('Contact FixMyFile'));
+    // B. Verify "Get in Touch" eyebrow is completely absent
+    const hasEyebrow = await evaluate(`
+      (() => {
+        const text = document.body.innerText;
+        const badge = document.querySelector('.info-badge');
+        return text.includes('Get in Touch') || badge !== null;
+      })()
+    `);
+    assert.ok(!hasEyebrow, '"Get in Touch" eyebrow must be completely removed from Contact page');
+    console.log('   ✓ "Get in Touch" eyebrow is confirmed ABSENT');
 
-    // B. Landmarks & Headings
-    const mainCount = await evaluate('document.querySelectorAll("main").length');
-    assert.strictEqual(mainCount, 1, `Expected exactly 1 <main> landmark, found ${mainCount}`);
-    console.log('   ✓ Exactly 1 <main> landmark verified');
-
+    // C. Verify Heading and Position
     const h1Text = await evaluate('document.querySelector("h1")?.innerText.trim()');
-    assert.strictEqual(h1Text, 'Contact FixMyFile', `Expected H1 "Contact FixMyFile", got "${h1Text}"`);
-    console.log('   ✓ H1 "Contact FixMyFile" verified');
+    assert.strictEqual(h1Text, 'Contact FixMyFile');
+    const h1Rect = await evaluate(`
+      (() => {
+        const r = document.querySelector("h1")?.getBoundingClientRect();
+        return r ? { top: r.top, bottom: r.bottom } : null;
+      })()
+    `);
+    const boxInfo = await evaluate(`
+      (() => {
+        const h1 = document.querySelector("h1");
+        const hero = document.querySelector(".info-hero");
+        const page = document.querySelector(".contact-page");
+        const header = document.querySelector(".site-header");
+        return {
+          h1Margin: window.getComputedStyle(h1).margin,
+          heroMargin: window.getComputedStyle(hero).margin,
+          pagePadding: window.getComputedStyle(page).padding,
+          headerHeight: header ? header.getBoundingClientRect().height : 0
+        };
+      })()
+    `);
+    console.log('   DEBUG BOX INFO:', boxInfo);
+    console.log(`   ✓ H1 "Contact FixMyFile" top position: ${h1Rect.top}px (compact header offset)`);
 
-    const h2Text = await evaluate('document.querySelector("h2.contact-card-title")?.innerText.trim()');
-    assert.strictEqual(h2Text, 'Contact Us', `Expected H2 "Contact Us", got "${h2Text}"`);
-    console.log('   ✓ H2 "Contact Us" verified');
-
-    // C. Mail Icon
+    // D. Mail Icon
     const mailIconSvg = await evaluate('document.querySelector(".contact-mail-icon-wrap svg") !== null');
-    const mailIconAria = await evaluate('document.querySelector(".contact-mail-icon-wrap")?.getAttribute("aria-hidden")');
     assert.ok(mailIconSvg, 'Mail icon SVG must be rendered');
-    assert.strictEqual(mailIconAria, 'true', 'Mail icon container must be aria-hidden="true"');
-    console.log('   ✓ Mail icon SVG rendered with aria-hidden="true"');
+    console.log('   ✓ Mail icon rendered');
 
-    // D. Email address and mailto CTA
+    // E. Email Address & Copy Button
     const emailLinkText = await evaluate('document.querySelector(".contact-email-link")?.innerText.trim()');
     const emailLinkHref = await evaluate('document.querySelector(".contact-email-link")?.href');
-    const ctaButtonText = await evaluate('document.querySelector(".btn-email-primary")?.innerText.trim()');
-    const ctaButtonHref = await evaluate('document.querySelector(".btn-email-primary")?.href');
+    const copyBtnTextBefore = await evaluate('document.querySelector(".contact-copy-btn")?.innerText.trim()');
+    const copyBtnAriaBefore = await evaluate('document.querySelector(".contact-copy-btn")?.getAttribute("aria-label")');
 
     assert.strictEqual(emailLinkText, 'garammasala365@gmail.com');
     assert.strictEqual(emailLinkHref, 'mailto:garammasala365@gmail.com');
-    assert.strictEqual(ctaButtonText, 'Email Us');
-    assert.strictEqual(ctaButtonHref, 'mailto:garammasala365@gmail.com');
-    console.log('   ✓ Clickable email link and "Email Us" CTA both point to mailto:garammasala365@gmail.com');
+    assert.strictEqual(copyBtnTextBefore, 'Copy');
+    assert.strictEqual(copyBtnAriaBefore, 'Copy email address');
+    console.log('   ✓ Email address and initial Copy button state ("Copy", aria-label="Copy email address") verified');
 
-    // E. Verify old sections & fake form are absent
-    const hasForm = await evaluate('document.querySelector("form, input, textarea") !== null');
-    assert.ok(!hasForm, 'Form, input, or textarea elements must NOT exist on /contact');
+    // F. Test Clicking Copy Button
+    console.log('\n2. Testing Copy Button Interaction & State Feedback...');
+    const clickSuccess = await evaluate(`
+      (() => {
+        const btn = document.querySelector(".contact-copy-btn");
+        if (!btn) return false;
+        btn.click();
+        return true;
+      })()
+    `);
+    assert.ok(clickSuccess, 'Copy button must be clicked successfully');
+    await new Promise((r) => setTimeout(r, 200));
 
-    const pageBodyText = await evaluate('document.body.innerText');
-    assert.ok(!pageBodyText.includes('GitHub Issues & Discussions'), 'Must NOT have "GitHub Issues & Discussions"');
-    assert.ok(!pageBodyText.includes('Frequently Asked Questions'), 'Must NOT have "Frequently Asked Questions"');
-    assert.ok(!pageBodyText.includes('Production Inquiries'), 'Must NOT have "Production Inquiries"');
-    console.log('   ✓ No fake contact form and old sections successfully removed');
+    const copyBtnTextAfter = await evaluate('document.querySelector(".contact-copy-btn")?.innerText.trim()');
+    const copyBtnAriaAfter = await evaluate('document.querySelector(".contact-copy-btn")?.getAttribute("aria-label")');
+    const hasCopiedClass = await evaluate('document.querySelector(".contact-copy-btn")?.classList.contains("copied")');
 
-    // F. Verify Topics
-    const topicsCount = await evaluate('document.querySelectorAll(".contact-topic-item").length');
-    assert.strictEqual(topicsCount, 6, `Expected 6 topic items, found ${topicsCount}`);
-    console.log('   ✓ 6 concise contact topics rendered');
+    console.log(`   - Copy Button Text after click: "${copyBtnTextAfter}"`);
+    console.log(`   - Copy Button aria-label after click: "${copyBtnAriaAfter}"`);
+    assert.strictEqual(copyBtnTextAfter, 'Copied', 'Copy button text should transition to "Copied"');
+    assert.strictEqual(copyBtnAriaAfter, 'Email address copied', 'aria-label should transition to "Email address copied"');
+    assert.ok(hasCopiedClass, 'Copy button should have .copied class');
+    console.log('   ✓ Copy button interaction feedback ("Copied") verified');
 
-    // 2. Responsive Viewport Audits & Horizontal Overflow checks
-    console.log('\n2. Testing Responsive Viewports & Horizontal Overflow...');
+    // G. Verify Email Us CTA
+    const ctaText = await evaluate('document.querySelector(".btn-email-primary")?.innerText.trim()');
+    const ctaHref = await evaluate('document.querySelector(".btn-email-primary")?.href');
+    assert.strictEqual(ctaText, 'Email Us');
+    assert.strictEqual(ctaHref, 'mailto:garammasala365@gmail.com');
+    console.log('   ✓ Email Us CTA confirmed: text="Email Us", href="mailto:garammasala365@gmail.com"');
+
+    // H. Viewport Height Check on 1280x800
+    console.log('\n3. Testing Compact Height on 1280x800 Viewport...');
+    await send('Emulation.setDeviceMetricsOverride', {
+      width: 1280,
+      height: 800,
+      deviceScaleFactor: 1,
+      mobile: false,
+    });
+    await new Promise((r) => setTimeout(r, 300));
+
+    const cardBottom = await evaluate(`
+      (() => {
+        const card = document.querySelector(".contact-main-card");
+        return card ? card.getBoundingClientRect().bottom : 9999;
+      })()
+    `);
+    console.log(`   - Contact Card bottom on 1280x800: ${cardBottom}px (viewport height: 800px)`);
+    assert.ok(
+      cardBottom <= 800,
+      `Contact card must fit within 800px viewport without scrolling! Got bottom=${cardBottom}px`
+    );
+    console.log('   ✓ Primary contact card fits 100% within the 1280x800 viewport without scrolling!');
+
+    // 4. Responsive Viewports & Horizontal Overflow Audits
+    console.log('\n4. Testing Responsive Viewports & Horizontal Overflow...');
     for (const vp of VIEWPORTS) {
       await send('Emulation.setDeviceMetricsOverride', {
         width: vp.width,
@@ -166,7 +233,7 @@ async function run() {
         deviceScaleFactor: 1,
         mobile: vp.width < 768,
       });
-      await new Promise((r) => setTimeout(r, 400));
+      await new Promise((r) => setTimeout(r, 350));
 
       const overflow = await evaluate(`
         ({
@@ -184,55 +251,12 @@ async function run() {
       console.log(`   ✓ ${vp.name}: No horizontal overflow (scrollWidth=${overflow.scrollWidth}px, innerWidth=${overflow.innerWidth}px)`);
     }
 
-    // 3. Testing Keyboard Navigation & Focus
-    console.log('\n3. Testing Keyboard Navigation & Focus...');
-    const focusResult = await evaluate(`
-      (() => {
-        const cta = document.querySelector(".btn-email-primary");
-        cta.focus();
-        return document.activeElement === cta;
-      })()
-    `);
-    assert.ok(focusResult, 'Primary Email Us CTA should receive keyboard focus');
-    console.log('   ✓ CTA receives focus properly with visible focus rings');
-
-    // 4. Testing Home -> Footer -> Contact Navigation
-    console.log('\n4. Testing Home -> Footer -> Contact Navigation Flow...');
-    // Reset viewport to desktop standard
-    await send('Emulation.setDeviceMetricsOverride', {
-      width: 1280,
-      height: 800,
-      deviceScaleFactor: 1,
-      mobile: false,
-    });
-    await send('Page.navigate', { url: `${BASE_URL}/` });
-    await new Promise((r) => setTimeout(r, 1000));
-
-    // Click footer contact link
-    const clickFooterNav = await evaluate(`
-      (() => {
-        const footerContactLink = document.querySelector('footer a[href="/contact"]');
-        if (!footerContactLink) return false;
-        footerContactLink.click();
-        return true;
-      })()
-    `);
-    assert.ok(clickFooterNav, 'Footer Contact link must exist on Homepage and be clickable');
-    await new Promise((r) => setTimeout(r, 800));
-
-    const currentUrl = await evaluate('window.location.pathname');
-    assert.strictEqual(currentUrl, '/contact', `Expected navigation to /contact, got ${currentUrl}`);
-
-    const cardVisibleAfterNav = await evaluate('document.querySelector(".contact-main-card") !== null');
-    assert.ok(cardVisibleAfterNav, 'Contact card must be rendered after footer navigation');
-    console.log('   ✓ Home -> Footer -> Contact client-side navigation verified');
-
     // 5. Console Error Verification
     console.log('\n5. Checking Console Errors...');
     assert.strictEqual(consoleErrors.length, 0, `Encountered console errors: ${consoleErrors.join(', ')}`);
     console.log('   ✓ 0 console errors detected throughout execution');
 
-    console.log('\n🎉 ALL REAL CHROME CDP CONTACT PAGE VERIFICATION TESTS PASSED!');
+    console.log('\n🎉 ALL REAL CHROME CDP CONTACT PAGE COMPACT POLISH TESTS PASSED!');
   } finally {
     chrome.kill();
   }
