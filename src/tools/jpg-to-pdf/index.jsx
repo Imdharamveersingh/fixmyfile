@@ -305,7 +305,7 @@ export default function JpgToPdfTool() {
   };
 
   return (
-    <div className="tool-view-container">
+    <div className="tool-view-container jpg-to-pdf-page">
       {/* Normalized Universal Tool Detail Header & Breadcrumb */}
       <ToolDetailHeader
         toolId="jpg-to-pdf"
