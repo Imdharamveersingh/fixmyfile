@@ -91,7 +91,7 @@ export default function BlogArticlePage() {
               >
                 <div className="related-tool-info">
                   <span className="related-tool-name">{tool.name}</span>
-                  <span className="related-tool-cta">Open Tool →</span>
+                  <span className="related-tool-cta">Open Tool</span>
                 </div>
               </Link>
             ))}

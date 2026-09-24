@@ -74,8 +74,8 @@ assert(!toolCardSrc.includes('tool-phase-badge'), 'ToolCard.jsx must not render 
 assert(!toolCardSrc.includes('tool-status-tag'), 'ToolCard.jsx must not render tool-status-tag (Ready badge)');
 assert(!toolCardSrc.includes('phase'), 'ToolCard.jsx must not display tool.phase');
 assert(!toolCardSrc.includes('status'), 'ToolCard.jsx must not display tool.status');
-assert(toolCardSrc.includes('tool-category-badge'), 'ToolCard.jsx must retain tool-category-badge');
-console.log('  ✓ ToolCard.jsx source renders only category badge; Phase and Ready badges are removed');
+assert(!toolCardSrc.includes('tool-category-badge'), 'ToolCard.jsx must not render tool-category-badge');
+console.log('  ✓ ToolCard.jsx source renders with icons; visible category, Phase, and Ready badges are removed');
 
 const headerSrc = fs.readFileSync('src/components/Header.jsx', 'utf-8');
 assert(!headerSrc.includes('brandBadgeText'), 'Header.jsx must not calculate brandBadgeText');
@@ -251,7 +251,7 @@ try {
   assert.equal(hRes.cardCount, 49, 'All 49 tool cards must render on Home');
   assert.equal(hRes.cardsWithPhaseBadge, 0, '0 tool cards may have Phase badges');
   assert.equal(hRes.cardsWithStatusTag, 0, '0 tool cards may have Ready status tags');
-  assert.equal(hRes.cardsWithCategoryBadge, 49, 'All 49 cards must retain category badges');
+  assert.equal(hRes.cardsWithCategoryBadge, 0, '0 tool cards may have visible category badges in V2');
   assert.equal(hRes.completeMatches.length, 0, 'No "X tools complete" text in rendered body');
 
   // Verify section titles don't start with "Phase X:"
@@ -293,7 +293,7 @@ try {
   console.log('\n  Tool Detail Pages In-Browser Evaluation:');
   for (const t of representativeTools) {
     await send('Page.navigate', { url: `${BASE_URL}${t.path}` });
-    await new Promise(r => setTimeout(r, 600));
+    await new Promise(r => setTimeout(r, 1200));
 
     const toolDomAudit = await send('Runtime.evaluate', {
       expression: `(() => {

@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "node scripts/generate_sitemap.mjs && vite build",
     "lint": "oxlint",
+    "test": "node test_tool_card_v2.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
