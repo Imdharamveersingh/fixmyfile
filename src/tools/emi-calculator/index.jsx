@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { calculateEMI, formatCurrency } from './emiEngine';
 
 const PRESETS = [
@@ -320,6 +321,9 @@ Calculated via FixMyFile EMI Calculator`;
           </button>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="emi-calculator" />
     </div>
   );
 }

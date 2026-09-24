@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -502,57 +503,9 @@ export default function PdfToTextTool() {
         )}
       </div>
 
-      {/* Educational & Features Section */}
-      <section className="tool-info-section">
-        <h2 className="tool-info-title">Why Extract PDF to Text with FixMyFile?</h2>
-        <div className="info-cards-grid">
-          <div className="info-card-item">
-            <div className="info-card-icon">🔒</div>
-            <h3 className="info-card-heading">100% In-Browser Privacy</h3>
-            <p className="info-card-text">
-              Your documents never touch an external server. The entire text extraction pipeline runs directly inside your local browser memory.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">📑</div>
-            <h3 className="info-card-heading">Structured Page Separation</h3>
-            <p className="info-card-text">
-              Multi-page documents are clearly demarcated with page headers and natural line-break spacing so you never lose document context.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">⚡</div>
-            <h3 className="info-card-heading">Instant Download &amp; Copy</h3>
-            <p className="info-card-text">
-              Download clean UTF-8 text files ready for notes, data analysis, or LLM feeding, or quickly copy extracted text with a single click.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-container-box">
-          <h3 className="faq-section-title">Frequently Asked Questions</h3>
-          <div className="faq-list">
-            <div className="faq-item">
-              <h4 className="faq-question">Does this tool support OCR on scanned images?</h4>
-              <p className="faq-answer">
-                No. This tool extracts embedded, selectable text streams from digital PDFs. Scanned documents or photocopies without a searchable text layer cannot be read by this tool, and OCR is not currently supported.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h4 className="faq-question">What format is the downloaded file?</h4>
-              <p className="faq-answer">
-                The output is standard plain text (.txt) encoded in universal UTF-8. It preserves multilingual characters, symbols, and readable paragraph spacing.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h4 className="faq-question">Can I extract text from a password-protected PDF?</h4>
-              <p className="faq-answer">
-                If your PDF is encrypted with an open password, please use our free Unlock PDF tool first to remove the password, and then extract the text here.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="pdf-to-text" />
     </div>
   );
 }

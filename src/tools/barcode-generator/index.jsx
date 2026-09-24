@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   BARCODE_FORMATS,
   generateBarcodeSvg,
@@ -676,6 +677,9 @@ export default function BarcodeGeneratorTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="barcode-generator" />
     </div>
   );
 }

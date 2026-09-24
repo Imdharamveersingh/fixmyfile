@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Human-readable file size formatter
@@ -726,55 +727,9 @@ export default function ImageUpscalerTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Section */}
-      <section className="tool-info-section" style={{ marginTop: '40px' }}>
-        <h2 className="info-title">How In-Browser Image Upscaling Works</h2>
-        <div className="info-grid">
-          <div className="info-card">
-            <span className="info-card-icon">📐</span>
-            <h3 className="info-card-title">1. Progressive Bicubic Resampling</h3>
-            <p className="info-card-text">
-              Upscaling enlarges pixel dimensions step-by-step using high-quality cubic interpolation algorithms natively integrated in your browser.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">✨</span>
-            <h3 className="info-card-title">2. Edge Acuity Enhancement</h3>
-            <p className="info-card-text">
-              An optional spatial unsharp filter sharpens gradient transitions and prevents blurry pixel halos commonly caused by naive image stretching.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">🔒</span>
-            <h3 className="info-card-title">3. 100% Client-Side Privacy</h3>
-            <p className="info-card-text">
-              Zero cloud uploads. Your images remain safely on your device, processing in private browser memory with instant performance.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-section" style={{ marginTop: '32px' }}>
-          <h3 className="info-title">Frequently Asked Questions</h3>
-          <div className="faq-item">
-            <h4 className="faq-question">What is the difference between image resizing and upscaling?</h4>
-            <p className="faq-answer">
-              Standard resizing often downsizes or uses fast nearest-neighbor interpolation. Our upscaler applies progressive multi-pass bicubic resampling with edge filtering to maintain visual clarity when magnifying images.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">Does this upscaler preserve transparent PNG or WebP backgrounds?</h4>
-            <p className="faq-answer">
-              Yes. When exporting to PNG or WebP, the alpha transparency channel is fully preserved. When exporting to JPG, transparent areas are cleanly filled with white.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">Why is there a maximum resolution limit?</h4>
-            <p className="faq-answer">
-              Web browsers allocate canvas memory locally. To ensure your device and browser tab do not freeze or crash, outputs are protected within a safe ceiling of 40 megapixels.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-upscaler" />
     </div>
   );
 }

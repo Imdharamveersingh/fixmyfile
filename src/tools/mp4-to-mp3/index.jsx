@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import {
   validateMp4File,
@@ -373,52 +374,9 @@ export default function Mp4ToMp3Tool() {
         )}
       </div>
 
-      {/* Informational & SEO Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>⚡ Client-Side WebAssembly</h3>
-            <p>
-              FixMyFile uses a local WebAssembly engine directly in your web browser. Audio extraction occurs at full processor speeds without internet transmission latency.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🔒 Complete File Privacy</h3>
-            <p>
-              Your videos never leave your computer or mobile phone. No servers, no logs, and no cloud caching. What happens on your machine stays on your machine.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🎵 Universal Compatibility</h3>
-            <p>
-              The output is a standardized MPEG Audio Layer III (.mp3) stream compatible with every car stereo, mobile device, media player, and digital audio workstation.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Does this tool upload my video to a remote server?</h4>
-            <p>
-              No. Unlike other converter sites, FixMyFile executes 100% of the extraction and MP3 encoding inside your web browser. Your video bytes never leave your machine.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What happens if my MP4 has no audio track?</h4>
-            <p>
-              The tool inspects the video container. If no audio stream is detected, it will inform you gracefully and refuse to generate an invalid empty file.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What audio bitrates are available?</h4>
-            <p>
-              You can choose between 128 kbps (compact voice/speech), 192 kbps (standard music fidelity), 256 kbps, and 320 kbps (studio maximum quality).
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="mp4-to-mp3" />
     </div>
   );
 }

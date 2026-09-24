@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   SUPPORTED_CURRENCIES,
   CURRENCY_MAP,
@@ -346,6 +347,9 @@ export default function CurrencyConverterTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="currency-converter" />
     </div>
   );
 }

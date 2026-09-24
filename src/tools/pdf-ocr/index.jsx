@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { processPdfOcr, validatePdfInput } from '../../services/ocr/ocrPdfLayer';
 import { terminateOcrWorker } from '../../services/ocr/ocrEngine';
@@ -349,57 +350,9 @@ export default function PdfOcrTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔍 Searchable & Selectable</h3>
-            <p>
-              Adds an invisible OCR text layer over scanned documents without altering the visual appearance
-              of the original pages. You can search, highlight, and copy text effortlessly.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🔒 100% Client-Side Privacy</h3>
-            <p>
-              Your sensitive documents never leave your browser. OCR processing happens entirely in your local
-              browser memory using WebAssembly.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📄 Preserves Original Layout</h3>
-            <p>
-              Maintains page dimensions, high-resolution scanned graphics, page counts, and embedded media
-              while overlaying aligned text at exact word coordinates.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>What does making a PDF searchable mean?</h4>
-            <p>
-              When a document is scanned from paper or saved as a flat image, it contains pixels rather than selectable text.
-              PDF OCR scans those pixels, identifies characters, and embeds a hidden layer of text underneath the visual image.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Can I search the output PDF with Ctrl+F?</h4>
-            <p>
-              Yes! The generated PDF is standard PDF format compatible with Adobe Acrobat, Google Chrome, Edge, Safari, and Preview.
-              You can press Ctrl+F (or Cmd+F on Mac) to search for any recognized word.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Are my PDFs uploaded to an external server?</h4>
-            <p>
-              No. All operations, from page rendering to OCR recognition and PDF recompilation, execute strictly inside your local browser.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="pdf-ocr" />
     </div>
   );
 }

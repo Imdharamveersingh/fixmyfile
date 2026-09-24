@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, validatePageOrder, reorderPdfPages } from './reorderEngine';
@@ -638,33 +639,9 @@ export default function ReorderPdfPagesTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Educational Section */}
-      <section className="tool-info-section">
-        <h2 className="tool-info-title">Why Reorder PDF Pages with FixMyFile?</h2>
-        <div className="info-cards-grid">
-          <div className="info-card-item">
-            <div className="info-card-icon">🔄</div>
-            <h3 className="info-card-heading">Flexible Sequence Control</h3>
-            <p className="info-card-text">
-              Rearrange any document page order with arrow controls or direct numeric sequence input.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">🔒</div>
-            <h3 className="info-card-heading">100% In-Browser Privacy</h3>
-            <p className="info-card-text">
-              Pages are reorganized locally on your device with zero cloud uploads or data leaks.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">💎</div>
-            <h3 className="info-card-heading">100% Page Preservation</h3>
-            <p className="info-card-text">
-              All original pages, orientations, vector elements, and visual layers remain pristine.
-            </p>
-          </div>
-        </div>
-      </section>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="reorder-pdf-pages" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, parsePagesToDelete, deletePdfPages } from './deleteEngine';
@@ -641,33 +642,9 @@ export default function DeletePdfPagesTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Educational Section */}
-      <section className="tool-info-section">
-        <h2 className="tool-info-title">Why Delete PDF Pages with FixMyFile?</h2>
-        <div className="info-cards-grid">
-          <div className="info-card-item">
-            <div className="info-card-icon">⚡</div>
-            <h3 className="info-card-heading">Instant Trim &amp; Clean</h3>
-            <p className="info-card-text">
-              Quickly trim cover sheets, blank pages, and unwanted appendices from any document in seconds.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">🔒</div>
-            <h3 className="info-card-heading">Client-Side Privacy</h3>
-            <p className="info-card-text">
-              Pages are removed in local browser memory without uploading sensitive files to third-party servers.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">🛡️</div>
-            <h3 className="info-card-heading">Zero Document Corruption</h3>
-            <p className="info-card-text">
-              Ensures the remaining document retains 100% of its vector fonts, shapes, forms, and visual fidelity.
-            </p>
-          </div>
-        </div>
-      </section>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="delete-pdf-pages" />
     </div>
   );
 }

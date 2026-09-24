@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import {
   ASPECT_RATIOS,
@@ -1163,6 +1164,9 @@ export default function ImageCropperTool() {
           </div>
         </div>
       )}
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-cropper" />
     </div>
   );
 }

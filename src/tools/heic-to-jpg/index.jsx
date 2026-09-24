@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { validateHeicFile, convertHeicToJpg, getHeicConvertedName } from './heicEngine.js';
 
@@ -526,6 +527,9 @@ export default function HeicToJpgTool() {
           )}
         </div>
       )}
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="heic-to-jpg" />
     </div>
   );
 }

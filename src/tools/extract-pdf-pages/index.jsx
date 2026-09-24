@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, parsePageSelection, extractPdfPages } from './extractEngine';
@@ -629,33 +630,9 @@ export default function ExtractPdfPagesTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Educational Section */}
-      <section className="tool-info-section">
-        <h2 className="tool-info-title">Why Extract PDF Pages with FixMyFile?</h2>
-        <div className="info-cards-grid">
-          <div className="info-card-item">
-            <div className="info-card-icon">⚡</div>
-            <h3 className="info-card-heading">Instant Client-Side Extraction</h3>
-            <p className="info-card-text">
-              Pages are extracted in milliseconds directly inside your web browser. No waiting on remote cloud queues or server upload lags.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">🔒</div>
-            <h3 className="info-card-heading">100% Private &amp; Secure</h3>
-            <p className="info-card-text">
-              Your confidential documents never leave your computer. Processing occurs entirely in your browser memory without cloud retention.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">📐</div>
-            <h3 className="info-card-heading">Lossless Layout Fidelity</h3>
-            <p className="info-card-text">
-              All vector graphics, embedded fonts, annotations, high-resolution imagery, and page dimensions remain untouched.
-            </p>
-          </div>
-        </div>
-      </section>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="extract-pdf-pages" />
     </div>
   );
 }

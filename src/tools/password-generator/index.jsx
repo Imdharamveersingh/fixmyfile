@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PRESETS,
   generatePassword
@@ -329,6 +330,9 @@ export default function PasswordGeneratorTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="password-generator" />
     </div>
   );
 }

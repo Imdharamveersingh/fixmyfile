@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -789,86 +789,9 @@ export default function PngToJpgTool() {
         </div>
       </section>
 
-      {/* Educational & Explanatory Guide Section */}
-      <section className="seo-guide-section" aria-label="PNG to JPG Conversion Guide">
-        <div className="guide-card">
-          <h2 className="guide-title">How to Convert PNG to JPG Online</h2>
-          <ol className="guide-steps">
-            <li>
-              <strong>Upload your PNG image:</strong> Drag and drop your `.png` file into the upload zone or click to select from your device.
-            </li>
-            <li>
-              <strong>Select your background color:</strong> If your PNG contains transparency, pick White, Black, or a custom color for transparent regions.
-            </li>
-            <li>
-              <strong>Adjust quality:</strong> Fine-tune the JPEG quality slider to balance file size and visual sharpness.
-            </li>
-            <li>
-              <strong>Convert & Download:</strong> Click "Convert to JPG", review the side-by-side preview, and download your JPG immediately.
-            </li>
-          </ol>
-        </div>
-      </section>
 
-      {/* FAQ Section */}
-      <section className="faq-section" aria-label="Frequently Asked Questions">
-        <h2 className="section-title">Frequently Asked Questions</h2>
-        <div className="faq-list">
-          <div className="faq-item">
-            <h3 className="faq-question">Why does JPG require a background color?</h3>
-            <p className="faq-answer">
-              The JPEG image specification does not support alpha transparency channels. When converting transparent PNG files to JPG, transparent areas must be filled with a solid color (white by default, black, or custom).
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Does converting PNG to JPG resize my image?</h3>
-            <p className="faq-answer">
-              Never. FixMyFile preserves the exact pixel width and height of your original image. Every dimension is strictly validated before download.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Are my images uploaded to external servers?</h3>
-            <p className="faq-answer">
-              No. All operations run directly in your browser using the HTML5 Canvas 2D API. Your files remain completely private on your own device.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Tools */}
-      <section className="related-tools-section" aria-label="Related tools">
-        <h2 className="section-title">Related Image Tools</h2>
-        <div className="related-tools-grid">
-          <Link to="/jpg-to-png" className="related-tool-card">
-            <span className="related-badge">Image Conversion</span>
-            <h3 className="related-title">JPG to PNG</h3>
-            <p className="related-desc">
-              Convert JPG images into high-fidelity, lossless PNG format.
-            </p>
-          </Link>
-          <Link to="/image-converter" className="related-tool-card">
-            <span className="related-badge">Image Conversion</span>
-            <h3 className="related-title">Image Converter</h3>
-            <p className="related-desc">
-              Convert between JPG, PNG, and WEBP formats with custom options.
-            </p>
-          </Link>
-          <Link to="/image-compressor" className="related-tool-card">
-            <span className="related-badge">Image Optimization</span>
-            <h3 className="related-title">Image Compressor</h3>
-            <p className="related-desc">
-              Reduce image file sizes while preserving visual clarity and alpha transparency.
-            </p>
-          </Link>
-          <Link to="/background-remover" className="related-tool-card">
-            <span className="related-badge">AI Image Editing</span>
-            <h3 className="related-title">Background Remover</h3>
-            <p className="related-desc">
-              Extract subjects and create transparent PNG cutouts with client-side AI.
-            </p>
-          </Link>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="png-to-jpg" />
     </div>
   );
 }

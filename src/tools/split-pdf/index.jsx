@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { getToolByPath } from '../toolsRegistry';
 import {
@@ -541,34 +542,9 @@ export default function SplitPdfTool() {
         </span>
       </div>
 
-      {/* How it works & FAQ */}
-      <div className="tool-guide-section">
-        <div className="tool-guide-card">
-          <h2 className="tool-guide-heading">How to Split a PDF</h2>
-          <ol className="tool-guide-steps">
-            <li><strong>Upload your PDF:</strong> Drag & drop your PDF file or click "Choose PDF File".</li>
-            <li><strong>Select split mode:</strong> Choose "Split by Ranges", "Extract into Single PDF", or "Burst".</li>
-            <li><strong>Enter page numbers:</strong> Specify custom page ranges like <code>1-3, 5</code>.</li>
-            <li><strong>Download your files:</strong> Click "Split PDF Now" and download your newly created documents.</li>
-          </ol>
-        </div>
 
-        <div className="tool-guide-card">
-          <h2 className="tool-guide-heading">Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Can I extract pages from a password-protected PDF?</h4>
-            <p>You must first unlock or remove the password before splitting the document.</p>
-          </div>
-          <div className="faq-item">
-            <h4>Is there a file size limit?</h4>
-            <p>Because processing occurs in your browser, documents up to several hundred megabytes work smoothly depending on your device memory.</p>
-          </div>
-          <div className="faq-item">
-            <h4>Does splitting alter my original document?</h4>
-            <p>No, your original PDF remains completely untouched on your device.</p>
-          </div>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="split-pdf" />
     </div>
   );
 }

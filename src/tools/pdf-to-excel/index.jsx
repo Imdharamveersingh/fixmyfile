@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -385,34 +386,9 @@ export default function PdfToExcelTool() {
         </span>
       </div>
 
-      {/* Guides & FAQ */}
-      <div className="tool-guide-section">
-        <div className="tool-guide-card">
-          <h2 className="tool-guide-heading">How to Convert PDF to Excel</h2>
-          <ol className="tool-guide-steps">
-            <li><strong>Select your PDF:</strong> Drag & drop your PDF file or browse from your device.</li>
-            <li><strong>Automatic Structure Detection:</strong> The engine analyzes coordinates to reconstruct rows, columns, and numbers.</li>
-            <li><strong>Convert:</strong> Click "Convert to Excel (.xlsx)" to generate the OpenXML spreadsheet.</li>
-            <li><strong>Download:</strong> Save your formatted <code>.xlsx</code> file directly to your computer.</li>
-          </ol>
-        </div>
 
-        <div className="tool-guide-card">
-          <h2 className="tool-guide-heading">Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Does this produce a real .xlsx file or just a renamed CSV?</h4>
-            <p>FixMyFile generates a genuine OpenXML Microsoft Excel (.xlsx) workbook with real worksheets, styled headers, and numeric cell formatting.</p>
-          </div>
-          <div className="faq-item">
-            <h4>Can it extract scanned PDF documents?</h4>
-            <p>Scanned documents consisting only of raster images require optical character recognition (OCR). For best results, use documents with selectable text and tables.</p>
-          </div>
-          <div className="faq-item">
-            <h4>Are numbers and currencies preserved?</h4>
-            <p>Yes. Integer, floating point, and percentage values are converted to native spreadsheet numeric types.</p>
-          </div>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="pdf-to-excel" />
     </div>
   );
 }

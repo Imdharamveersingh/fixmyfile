@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -996,92 +996,9 @@ export default function ImageConverterTool() {
         </div>
       </section>
 
-      {/* Educational & Explanatory Guide Section */}
-      <section className="seo-guide-section" aria-label="Image Conversion Guide">
-        <div className="guide-card">
-          <h2 className="guide-title">How to Convert Images Online with FixMyFile</h2>
-          <ol className="guide-steps">
-            <li>
-              <strong>Upload your image:</strong> Drag and drop your JPG, PNG, or WEBP file into the upload zone or click to select from your device.
-            </li>
-            <li>
-              <strong>Select target format:</strong> Pick JPG, PNG, or WEBP depending on your project needs.
-            </li>
-            <li>
-              <strong>Adjust settings:</strong> For JPG/WEBP, fine-tune the quality slider. If converting transparent PNG/WEBP to JPG, choose your background fill color.
-            </li>
-            <li>
-              <strong>Convert & Download:</strong> Click "Convert", verify the side-by-side preview, and download your newly formatted image instantly.
-            </li>
-          </ol>
-        </div>
-      </section>
 
-      {/* FAQ Section */}
-      <section className="faq-section" aria-label="Frequently Asked Questions">
-        <h2 className="section-title">Frequently Asked Questions</h2>
-        <div className="faq-list">
-          <div className="faq-item">
-            <h3 className="faq-question">Are my images uploaded to an external server?</h3>
-            <p className="faq-answer">
-              No. FixMyFile processes all conversions strictly inside your browser using the HTML5 Canvas API. Your photos and images never leave your local machine.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Does converting image formats change its dimensions?</h3>
-            <p className="faq-answer">
-              Never. FixMyFile preserves the exact pixel width and height of your source image. If you need to change dimensions, use our dedicated Image Resizer tool.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">What happens to transparent regions when converting PNG to JPG?</h3>
-            <p className="faq-answer">
-              Because the JPEG standard does not support alpha transparency channels, transparent areas are filled with your chosen background color (white by default, black, or custom).
-            </p>
-          </div>
-          <div className="faq-item">
-            <h3 className="faq-question">Can I convert between the same format?</h3>
-            <p className="faq-answer">
-              Yes. Converting to the same format allows you to re-encode the image with custom quality parameters or apply explicit background colors.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Tools */}
-      <section className="related-tools-section" aria-label="Related tools">
-        <h2 className="section-title">Related Image Tools</h2>
-        <div className="related-tools-grid">
-          <Link to="/image-compressor" className="related-tool-card">
-            <span className="related-badge">Image Optimization</span>
-            <h3 className="related-title">Image Compressor</h3>
-            <p className="related-desc">
-              Reduce image file sizes while preserving visual clarity and alpha transparency.
-            </p>
-          </Link>
-          <Link to="/image-resizer" className="related-tool-card">
-            <span className="related-badge">Image Editing</span>
-            <h3 className="related-title">Image Resizer</h3>
-            <p className="related-desc">
-              Resize JPG and PNG images with aspect ratio lock and social media presets.
-            </p>
-          </Link>
-          <Link to="/background-remover" className="related-tool-card">
-            <span className="related-badge">AI Image Editing</span>
-            <h3 className="related-title">Background Remover</h3>
-            <p className="related-desc">
-              Instantly extract subjects from backgrounds with on-device client-side AI.
-            </p>
-          </Link>
-          <Link to="/jpg-to-pdf" className="related-tool-card">
-            <span className="related-badge">PDF Conversion</span>
-            <h3 className="related-title">JPG to PDF</h3>
-            <p className="related-desc">
-              Convert one or multiple JPG images into a clean, formatted PDF document.
-            </p>
-          </Link>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-converter" />
     </div>
   );
 }

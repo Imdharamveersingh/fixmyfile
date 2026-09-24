@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -402,40 +403,9 @@ export default function PdfToPowerPointTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Content Section */}
-      <div className="tool-info-section" style={{ marginTop: '2.5rem' }}>
-        <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', marginBottom: '1.25rem' }}>
-          Why Convert PDF to PowerPoint with FixMyFile?
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Genuine OpenXML .PPTX
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Generates compliant Microsoft PowerPoint presentation packages that open cleanly in PowerPoint, Google Slides, Keynote, and LibreOffice.
-            </p>
-          </div>
 
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              High-DPI 2x Rendering
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Each slide is rendered at double density to preserve diagrams, typography, and charts with crystal clear fidelity.
-            </p>
-          </div>
-
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Zero Server Uploads
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              All processing happens entirely in your local browser using client-side JavaScript. Your confidential pitch decks and documents never touch a remote server.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="pdf-to-powerpoint" />
     </div>
   );
 }

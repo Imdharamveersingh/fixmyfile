@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -500,40 +501,9 @@ export default function ProtectPdfTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Content Section */}
-      <div className="tool-info-section" style={{ marginTop: '2.5rem' }}>
-        <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', marginBottom: '1.25rem' }}>
-          Why Protect PDF with FixMyFile?
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Genuine AES-256 Encryption
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Protects documents using genuine AES-256 standard encryption. Requires the password to open in Adobe Acrobat, Chrome, Apple Preview, and mobile viewers.
-            </p>
-          </div>
 
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Zero Server Uploads
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Your file and password never leave your device. Encryption is computed locally in web browser memory with cryptographic randomness.
-            </p>
-          </div>
-
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              No Password Storage
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Passwords are automatically cleared from state upon encryption or reset, ensuring no traces remain in browser history or session storage.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="protect-pdf" />
     </div>
   );
 }

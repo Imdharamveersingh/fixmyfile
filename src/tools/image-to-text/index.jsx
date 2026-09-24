@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -492,57 +493,9 @@ export default function ImageToTextTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔒 100% Client-Side Privacy</h3>
-            <p>
-              Your images never leave your computer or phone. All optical character recognition is performed
-              locally using WebAssembly and Web Workers.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>⚡ Neural Network OCR</h3>
-            <p>
-              Powered by high-precision LSTM optical character recognition trained to detect text from photos,
-              scanned papers, receipts, and signage.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📋 Instant Copy & Export</h3>
-            <p>
-              Copy extracted text directly to your clipboard or download it as a clean `.txt` document with preserved
-              line breaks.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Are my images uploaded to any remote server?</h4>
-            <p>
-              Never. FixMyFile runs the complete OCR recognition engine inside your browser using WebAssembly.
-              Zero bytes of image data are sent across the network.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What image formats can I upload?</h4>
-            <p>
-              Image to Text supports JPG, JPEG, PNG, and WebP images up to 50 MB each.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>How can I get the highest OCR accuracy?</h4>
-            <p>
-              For best results, ensure your image is sharp, evenly lit, right-side up, and has high contrast between
-              the text and the background.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-to-text" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { analyzeText } from './wordEngine';
 
 const SAMPLE_TEXT =
@@ -182,6 +183,9 @@ export default function WordCounterTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="word-counter" />
     </div>
   );
 }

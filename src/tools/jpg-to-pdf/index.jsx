@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { formatBytes } from '../../utils/helpers';
@@ -549,138 +550,9 @@ export default function JpgToPdfTool() {
         )}
       </section>
 
-      {/* SEO & Informational Content */}
-      <section className="seo-content-section">
-        {/* How to Convert */}
-        <div className="info-block">
-          <h2 className="info-heading">How to Convert JPG to PDF Online</h2>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h3 className="step-title">Upload JPG Images</h3>
-              <p className="step-desc">
-                Click "Choose JPG Images" or drag and drop your JPG or JPEG images into the upload area.
-                You can select multiple photos at once.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h3 className="step-title">Arrange Page Order</h3>
-              <p className="step-desc">
-                Use the Up and Down arrow controls to arrange your images in the exact sequence you want
-                them to appear in the PDF document.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h3 className="step-title">Download Your PDF</h3>
-              <p className="step-desc">
-                Click "Convert to PDF". Your document is compiled instantly in your browser.
-                Click "Download PDF" to save your document immediately.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Features Grid */}
-        <div className="info-block">
-          <h2 className="info-heading">Key Features of FixMyFile JPG to PDF</h2>
-          <div className="features-grid">
-            <div className="feature-item">
-              <span className="feature-icon">🔒</span>
-              <h3 className="feature-title">100% Client-Side Privacy</h3>
-              <p className="feature-desc">
-                Your images are converted locally inside your web browser. Files are never uploaded to
-                any external server, ensuring complete confidentiality.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">📑</span>
-              <h3 className="feature-title">Multi-Image Merging</h3>
-              <p className="feature-desc">
-                Combine as many JPG or JPEG pictures as you need into a single unified multi-page PDF document.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">📐</span>
-              <h3 className="feature-title">Preserved Aspect Ratios</h3>
-              <p className="feature-desc">
-                Automatic orientation adjustment (portrait or landscape) and proportional scaling ensure
-                your images are never stretched or distorted.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">⚡</span>
-              <h3 className="feature-title">Instant & Free</h3>
-              <p className="feature-desc">
-                No registrations, account signups, watermarks, or wait times. Get high-quality PDF
-                documents in seconds.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="info-block">
-          <h2 className="info-heading">Frequently Asked Questions</h2>
-          <div className="faq-list">
-            <div className="faq-item">
-              <h3 className="faq-question">Are my images uploaded to your servers?</h3>
-              <p className="faq-answer">
-                No. FixMyFile executes the entire conversion locally in your browser using modern client-side
-                APIs. Your pictures never leave your device.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Which image file extensions are supported?</h3>
-              <p className="faq-answer">
-                This tool accepts all standard JPEG image files, including <code>.jpg</code> and <code>.jpeg</code> extensions.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Can I change the order of images before generating the PDF?</h3>
-              <p className="faq-answer">
-                Yes! Once your images are selected, use the Up and Down arrow buttons beside each image card
-                to organize the pages in your preferred sequence.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">What page format does the generated PDF use?</h3>
-              <p className="faq-answer">
-                The output uses standard A4 page dimensions with clean margins and auto-orientation
-                (portrait or landscape) matched to each photo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Related Tools */}
-        <div className="info-block">
-          <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
-          <div className="related-tools-grid">
-            <Link to="/pdf-to-jpg" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">PDF to JPG</h3>
-              <p className="related-desc">Extract pages from PDF files as high-quality JPG images.</p>
-            </Link>
-            <Link to="/merge-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Merge PDF</h3>
-              <p className="related-desc">Combine multiple PDF files into one consolidated document.</p>
-            </Link>
-            <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Compress PDF</h3>
-              <p className="related-desc">Reduce PDF file size while maintaining visual clarity.</p>
-            </Link>
-            <Link to="/pdf-to-word" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">PDF to Word</h3>
-              <p className="related-desc">Convert PDF documents into editable Word DOCX files.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="jpg-to-pdf" />
     </div>
   );
 }

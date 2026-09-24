@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
@@ -718,35 +719,9 @@ export default function ImageRotateFlipTool() {
         </div>
       )}
 
-      {/* Info Section */}
-      <div className="tool-info-section" style={{ marginTop: '3rem' }}>
-        <h2 className="tool-info-title">About Image Rotation and Flipping</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-          {[
-            {
-              title: 'Precise 90° / 180° / 270° Rotation',
-              body: 'Correct sideways or upside-down smartphone photos in one click with automatic canvas aspect ratio adaptation.'
-            },
-            {
-              title: 'Horizontal & Vertical Mirroring',
-              body: 'Mirror selfie portraits horizontally or flip images vertically for creative graphics and symmetry corrections.'
-            },
-            {
-              title: 'Lossless Preview & Multiple Formats',
-              body: 'Real-time HTML5 Canvas transformation ensures instant feedback before exporting to PNG, JPG, or WebP.'
-            },
-            {
-              title: 'Complete Client-Side Security',
-              body: 'Your photos remain local on your device at all times. Zero server communication or cloud processing.'
-            }
-          ].map(({ title, body }) => (
-            <div key={title} style={{ background: 'var(--surface-2, #1a1a2e)', borderRadius: '10px', padding: '1rem 1.25rem' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>{title}</h3>
-              <p style={{ fontSize: '0.83rem', color: 'var(--text-muted, #aaa)', margin: 0 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-rotate-flip" />
     </div>
   );
 }

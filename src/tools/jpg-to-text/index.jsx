@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -491,56 +492,9 @@ export default function JpgToTextTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔒 Complete Client-Side Security</h3>
-            <p>
-              Your JPG documents never leave your computer or phone. All optical character recognition is performed
-              locally using WebAssembly and Web Workers.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🧾 Scans & Receipts OCR</h3>
-            <p>
-              Optimized preprocessing with contrast enhancement specifically tailored for photographed receipts,
-              invoices, bills, and scanned paper documents.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📋 Instant Copy & Export</h3>
-            <p>
-              Quickly copy recognized text to your clipboard or download it as a clean `.txt` document with preserved
-              line breaks.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Can I convert receipt photos to text?</h4>
-            <p>
-              Yes. JPG to Text is ideal for photographed receipts, invoices, and paper documents. The built-in
-              contrast enhancement assists in reading dark or unevenly lit text.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What formats are accepted?</h4>
-            <p>
-              This tool specifically validates and processes standard JPG and JPEG files up to 50 MB.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Is any data uploaded to external servers?</h4>
-            <p>
-              Zero data is uploaded. Everything runs locally in your web browser.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="jpg-to-text" />
     </div>
   );
 }

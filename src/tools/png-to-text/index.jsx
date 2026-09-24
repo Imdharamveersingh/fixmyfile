@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -503,56 +504,9 @@ export default function PngToTextTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔒 Complete Client-Side Security</h3>
-            <p>
-              Your PNG images never leave your computer or phone. Optical character recognition executes
-              locally using WebAssembly and Web Workers.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>💻 Screenshots & Code OCR</h3>
-            <p>
-              Optimized for high-contrast graphics, application UI captures, programming code snippets, tables,
-              and error dialogues.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📋 Instant Copy & Export</h3>
-            <p>
-              Quickly copy recognized text to your clipboard or download it as a clean `.txt` document with preserved
-              line breaks.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Can I extract text from code screenshots?</h4>
-            <p>
-              Yes. PNG to Text is optimized for high-contrast screenshots including IDE code snippets, console logs,
-              and tables. Note that text formatting is plain text, not semantic code parsing.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What formats are accepted?</h4>
-            <p>
-              This tool specifically validates and processes standard PNG (.png) files up to 50 MB.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Are my screenshots sent to external AI servers?</h4>
-            <p>
-              Zero data is sent to external servers. FixMyFile executes all OCR algorithms inside your browser.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="png-to-text" />
     </div>
   );
 }

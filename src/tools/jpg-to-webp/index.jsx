@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
@@ -460,23 +461,9 @@ export default function JpgToWebpTool() {
         </div>
       )}
 
-      {/* Info */}
-      <div className="tool-info-section" style={{ marginTop: '3rem' }}>
-        <h2 className="tool-info-title">About JPG to WebP Conversion</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-          {[
-            { title: '100% Private', body: 'All processing runs entirely inside your browser using the Canvas API. No files ever leave your device.' },
-            { title: 'Smaller Files', body: 'WebP typically achieves 25–35% smaller file sizes than JPEG at equivalent visual quality, improving page load speed.' },
-            { title: 'Lossy or Lossless', body: 'Choose lossy WebP for web publishing or lossless WebP for perfect quality preservation with full detail.' },
-            { title: 'Universal Browser Support', body: 'WebP is supported natively in Chrome, Safari 14+, Firefox, and Edge — covering 97%+ of modern browsers.' },
-          ].map(({ title, body }) => (
-            <div key={title} style={{ background: 'var(--surface-2, #1a1a2e)', borderRadius: '10px', padding: '1rem 1.25rem' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>{title}</h3>
-              <p style={{ fontSize: '0.83rem', color: 'var(--text-muted, #aaa)', margin: 0 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="jpg-to-webp" />
     </div>
   );
 }

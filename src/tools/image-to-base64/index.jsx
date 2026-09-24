@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Human-readable file size formatter
@@ -558,55 +559,9 @@ export default function ImageToBase64Tool() {
         )}
       </div>
 
-      {/* Feature & FAQ Section */}
-      <section className="tool-info-section" style={{ marginTop: '40px' }}>
-        <h2 className="info-title">Why Convert Images to Base64?</h2>
-        <div className="info-grid">
-          <div className="info-card">
-            <span className="info-card-icon">⚡</span>
-            <h3 className="info-card-title">1. Eliminate HTTP Requests</h3>
-            <p className="info-card-text">
-              Embedding small icons, badges, and logos directly in HTML or CSS eliminates extra network requests and prevents layout shifts.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">🎯</span>
-            <h3 className="info-card-title">2. Exact Byte Integrity</h3>
-            <p className="info-card-text">
-              FixMyFile encodes your original binary bytes directly without passing them through canvas or compression algorithms. 100% pixel-perfect.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">🛡️</span>
-            <h3 className="info-card-title">3. Private In-Browser Encoding</h3>
-            <p className="info-card-text">
-              Encoding is completed instantly inside your browser memory using the native HTML5 FileReader API with zero server upload.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-section" style={{ marginTop: '32px' }}>
-          <h3 className="info-title">Frequently Asked Questions</h3>
-          <div className="faq-item">
-            <h4 className="faq-question">What is the difference between Data URI and Raw Base64?</h4>
-            <p className="faq-answer">
-              A Data URI includes the <code>data:image/png;base64,</code> prefix, allowing web browsers to immediately render it as an image source. Raw Base64 contains only the pure encoded string, which is useful for API payloads or database storage.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">Does Base64 increase the image file size?</h4>
-            <p className="faq-answer">
-              Yes. Binary-to-Base64 encoding uses 6 bits per ASCII character, resulting in an approximate 33% increase in character length compared to raw binary. It is best suited for icons, logos, and small graphics under 100 KB.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">Are my images saved or sent anywhere?</h4>
-            <p className="faq-answer">
-              No. FixMyFile executes all conversions locally on your client machine. No files or strings ever leave your web browser.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-to-base64" />
     </div>
   );
 }

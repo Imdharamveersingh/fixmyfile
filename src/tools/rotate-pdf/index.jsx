@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { getToolByPath } from '../toolsRegistry';
 import { getPdfRotationMeta, rotatePdf, normalizeRotation } from './rotateEngine';
@@ -578,40 +579,9 @@ export default function RotatePdfTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Content Section */}
-      <div className="tool-info-section" style={{ marginTop: '2.5rem' }}>
-        <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0F172A', marginBottom: '1.25rem' }}>
-          Why Rotate PDF Pages with FixMyFile?
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Per-Page & Bulk Control
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Rotate individual pages independently (e.g. Page 1 at 90°, Page 3 at 180°) or rotate the entire document in bulk with one click.
-            </p>
-          </div>
 
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              Lossless Transformation
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Rotates page coordinate viewports without re-rasterizing text or degrading image resolution. Crisp fonts and vector elements stay intact.
-            </p>
-          </div>
-
-          <div style={{ background: '#FFFFFF', padding: '1.25rem', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '0.4rem' }}>
-              100% Client-Side Privacy
-            </h3>
-            <p style={{ fontSize: '0.875rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Processed locally using web standards. No files are transmitted or stored on remote servers, keeping sensitive documents safe.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="rotate-pdf" />
     </div>
   );
 }

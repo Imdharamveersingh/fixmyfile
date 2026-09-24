@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import {
   validateVideoFile,
@@ -413,52 +414,9 @@ export default function VideoCompressorTool() {
         )}
       </div>
 
-      {/* Informational & SEO Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>⚡ Client-Side WebAssembly</h3>
-            <p>
-              FixMyFile uses a high-performance WebAssembly FFmpeg pipeline directly in your web browser. Video compression runs locally at full CPU speed with zero cloud queues.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🔒 Guaranteed Privacy</h3>
-            <p>
-              Your videos never leave your device. There are no server uploads, no cloud storage, and no tracking. Everything happens strictly on your machine.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📱 Perfect for Sharing</h3>
-            <p>
-              Output files are universal H.264 MP4 videos optimized with FastStart for instant playback on iOS, Android, Discord, WhatsApp, Slack, and email clients.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Does this tool upload my video to an external server?</h4>
-            <p>
-              No. 100% of the video compression, rescaling, and encoding runs inside your browser using WebAssembly. Your media files are never transmitted anywhere.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Which compression preset should I choose?</h4>
-            <p>
-              For messaging platforms like WhatsApp or Discord, the <strong>Messaging & Social (720p)</strong> preset provides the ideal balance of sharpness and low file size. For email attachments with strict 25 MB limits, choose <strong>Email & Ultra Compact (480p)</strong>.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Will compressing my video preserve audio and aspect ratio?</h4>
-            <p>
-              Yes. The video’s aspect ratio is preserved without stretching, and audio is encoded in universal AAC unless you choose the "Remove audio track" option.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="video-compressor" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   Link as LinkIcon,
   FileText,
@@ -1124,6 +1125,9 @@ export default function QrCodeGeneratorTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="qr-code-generator" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
@@ -592,56 +593,9 @@ export default function ScreenshotToTextTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔒 Complete Client-Side Security</h3>
-            <p>
-              Your screenshots and clipboard data never leave your browser. Optical character recognition executes
-              locally using WebAssembly and Web Workers.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📋 Instant Paste Workflow</h3>
-            <p>
-              Take a screenshot with PrintScreen or Snipping Tool, press `Ctrl+V` on this page, and extract text immediately
-              without saving image files to disk first.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>⚡ Neural Network Accuracy</h3>
-            <p>
-              Trained on diverse digital fonts, dialogue boxes, system notifications, error screens, and web browser views.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Can I paste directly from my clipboard?</h4>
-            <p>
-              Yes. Simply press Ctrl+V (or Cmd+V on macOS) anywhere on this page, or click "Paste from Clipboard".
-              Your clipboard image will be processed immediately.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What happens if my browser restricts clipboard access?</h4>
-            <p>
-              FixMyFile provides a graceful fallback: you can always use the "Choose Image File" button or drag and drop
-              any saved screenshot file.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Are pasted screenshots uploaded to an AI server?</h4>
-            <p>
-              No. Zero bytes of your screenshots are ever uploaded. All OCR recognition runs inside your local browser.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="screenshot-to-text" />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import UPNG from 'upng-js';
 
@@ -747,94 +748,9 @@ export default function ImageCompressorTool() {
         )}
       </section>
 
-      {/* Educational Guide & SEO Section */}
-      <section className="tool-guide-section" aria-label="Educational guide and features">
-        <div className="guide-card">
-          <h2 className="guide-h2">How to Compress Images Online for Free</h2>
-          <div className="guide-steps">
-            <div className="guide-step">
-              <div className="step-num">1</div>
-              <h3 className="step-title">Upload JPG or PNG</h3>
-              <p className="step-desc">
-                Drag and drop your image into the dropzone or choose a file from your device.
-              </p>
-            </div>
-            <div className="guide-step">
-              <div className="step-num">2</div>
-              <h3 className="step-title">Adjust Quality Level</h3>
-              <p className="step-desc">
-                Use the slider or presets to dial in your target quality (default: 80% balanced).
-              </p>
-            </div>
-            <div className="guide-step">
-              <div className="step-num">3</div>
-              <h3 className="step-title">Download & Save</h3>
-              <p className="step-desc">
-                Inspect side-by-side file sizes and download your optimized image with 1:1 dimensions.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Feature Highlights Grid */}
-        <div className="features-grid">
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              🔒
-            </span>
-            <h3 className="feature-title">100% Client-Side Privacy</h3>
-            <p className="feature-desc">
-              Images are encoded directly in your browser. Files are never uploaded to any remote server or third-party cloud.
-            </p>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              📐
-            </span>
-            <h3 className="feature-title">Zero Dimension Alteration</h3>
-            <p className="feature-desc">
-              Your image width and height remain completely unaltered. Compression optimizes image bytes without downscaling pixels.
-            </p>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              ✨
-            </span>
-            <h3 className="feature-title">Alpha Transparency Preserved</h3>
-            <p className="feature-desc">
-              PNG transparent backgrounds remain fully transparent through intelligent color palette quantization.
-            </p>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2 className="faq-title">Frequently Asked Questions</h2>
-          <div className="faq-list">
-            <details className="faq-item">
-              <summary className="faq-question">Will compressing an image reduce its resolution or dimensions?</summary>
-              <p className="faq-answer">
-                No. FixMyFile Image Compressor preserves your image's exact dimensions (e.g. 1920 × 1080 stays 1920 × 1080).
-                Only file weight and encoding data are optimized.
-              </p>
-            </details>
-            <details className="faq-item">
-              <summary className="faq-question">Does PNG compression remove my transparent background?</summary>
-              <p className="faq-answer">
-                No. PNG compression uses advanced palette quantization that preserves RGBA alpha transparency channels.
-                Transparent images will remain transparent.
-              </p>
-            </details>
-            <details className="faq-item">
-              <summary className="faq-question">Why did my already-compressed image not get smaller?</summary>
-              <p className="faq-answer">
-                Some images have already been aggressively compressed with high optimization. Re-compressing an already-optimal image
-                may yield minimal or zero additional reduction. FixMyFile reports this honestly and lets you keep the original.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-compressor" />
     </div>
   );
 }

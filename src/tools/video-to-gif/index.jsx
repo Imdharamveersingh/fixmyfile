@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import {
   validateVideoFile,
@@ -422,52 +423,9 @@ export default function VideoToGifTool() {
         )}
       </div>
 
-      {/* Informational & SEO Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🎨 Adaptive Palette Optimization</h3>
-            <p>
-              FixMyFile uses a two-pass palettegen and paletteuse algorithm. It calculates the exact 256-color palette customized for your video frames to avoid color banding and graininess.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🔒 Complete Client-Side Privacy</h3>
-            <p>
-              Your videos never leave your computer or smartphone. 100% of the extraction, palette calculation, and GIF rendering happens directly in your browser.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>⚡ Universal GIF Loops</h3>
-            <p>
-              Generated GIF animations are configured with infinite looping (`-loop 0`) and standard GIF89a encoding, compatible with Discord, Slack, Reddit, Twitter/X, and messaging apps.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Does this tool upload my video to a remote server?</h4>
-            <p>
-              No. Unlike other GIF converters that upload your footage to cloud servers, FixMyFile processes 100% of the video locally using WebAssembly.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What framerate (FPS) should I choose?</h4>
-            <p>
-              For most meme clips, animations, and reaction loops, <strong>10 FPS</strong> or <strong>15 FPS</strong> offers the best trade-off between smooth animation and lightweight file sizes.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Why is my GIF file size larger than the source video?</h4>
-            <p>
-              Modern MP4 videos use advanced inter-frame video compression (like H.264), whereas the GIF format stores individual 256-color paletted frames with basic LZW compression. Lowering the resolution or choosing a shorter duration limit keeps GIF sizes compact.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="video-to-gif" />
     </div>
   );
 }

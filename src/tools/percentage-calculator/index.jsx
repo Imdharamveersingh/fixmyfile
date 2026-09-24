@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PERCENTAGE_MODES,
   calculatePercentage
@@ -223,6 +224,9 @@ export default function PercentageCalculatorTool() {
           </div>
         </div>
       </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="percentage-calculator" />
     </div>
   );
 }

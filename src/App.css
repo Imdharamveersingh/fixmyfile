@@ -9451,4 +9451,256 @@
   }
 }
 
+/* ============================================================
+   Step 9.2: Universal Tool Detail Page Content & Related Tools
+   ============================================================ */
+
+.tool-detail-content-area {
+  width: 100%;
+  max-width: 1040px;
+  margin: 56px auto 32px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.tool-content-heading {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+/* 1. Privacy Banner */
+.tool-privacy-note-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.tool-privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.tool-privacy-text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 2. How-to Section */
+.tool-howto-section {
+  margin-bottom: 48px;
+}
+
+.tool-howto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tool-howto-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 150ms ease;
+}
+
+.tool-howto-card:hover {
+  border-color: var(--primary-border);
+}
+
+.tool-howto-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tool-howto-number {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tool-howto-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.tool-howto-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* 3. FAQ Section */
+.tool-faq-section {
+  margin-bottom: 48px;
+}
+
+.tool-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-faq-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tool-faq-item.is-open {
+  border-color: var(--primary-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tool-faq-header {
+  margin: 0;
+}
+
+.tool-faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: background-color 150ms ease;
+}
+
+.tool-faq-trigger:hover {
+  background-color: var(--bg-surface-secondary);
+}
+
+.tool-faq-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.tool-faq-question {
+  flex: 1;
+}
+
+.tool-faq-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 200ms ease, color 150ms ease;
+}
+
+.tool-faq-chevron.is-open {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.tool-faq-panel {
+  padding: 0 20px 16px;
+}
+
+.tool-faq-answer p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 4. Related Tools Section */
+.tool-related-section {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.tool-related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .tool-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tool-detail-content-area {
+    margin-top: 40px;
+    padding: 0 12px;
+  }
+
+  .tool-privacy-note-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+
+  .tool-howto-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-related-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-faq-trigger {
+    padding: 14px 16px;
+    font-size: 0.96rem;
+  }
+
+  .tool-faq-panel {
+    padding: 0 16px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-faq-chevron {
+    transition: none;
+  }
+}
+
+
 

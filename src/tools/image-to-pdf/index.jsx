@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 
@@ -824,55 +825,9 @@ export default function ImageToPdfTool() {
         )}
       </div>
 
-      {/* Feature & FAQ Section */}
-      <section className="tool-info-section" style={{ marginTop: '40px' }}>
-        <h2 className="info-title">How to Convert Images to PDF in FixMyFile</h2>
-        <div className="info-grid">
-          <div className="info-card">
-            <span className="info-card-icon">📁</span>
-            <h3 className="info-card-title">1. Upload Any Image</h3>
-            <p className="info-card-text">
-              Add single or multiple JPG, PNG, WebP, GIF, or SVG images. Everything is processed directly in your browser.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">🔀</span>
-            <h3 className="info-card-title">2. Order & Customize</h3>
-            <p className="info-card-text">
-              Reorder pages with simple up/down controls, configure page dimensions (A4, Letter, or Auto), and set custom margins.
-            </p>
-          </div>
-          <div className="info-card">
-            <span className="info-card-icon">⚡</span>
-            <h3 className="info-card-title">3. Instant Download</h3>
-            <p className="info-card-text">
-              Click Convert to generate an authentic PDF document with perfectly preserved aspect ratio and clean margins.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-section" style={{ marginTop: '32px' }}>
-          <h3 className="info-title">Frequently Asked Questions</h3>
-          <div className="faq-item">
-            <h4 className="faq-question">Are my images uploaded to any server?</h4>
-            <p className="faq-answer">
-              No. FixMyFile uses a strict browser-first architecture. All PDF generation executes locally inside your web browser using HTML5 Canvas and jsPDF.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">How does Image to PDF handle transparent PNG or WebP graphics?</h4>
-            <p className="faq-answer">
-              Transparent backgrounds are composited over a clean white background to prevent dark or inverted color artifacts commonly seen in basic PDF viewers.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4 className="faq-question">What is the difference between A4, Letter, and Auto page sizing?</h4>
-            <p className="faq-answer">
-              A4 and Letter produce standardized document pages suitable for printing, scaling your images to fit the page. Auto calculates individual page sizes based on each image's native pixel dimensions.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-to-pdf" />
     </div>
   );
 }

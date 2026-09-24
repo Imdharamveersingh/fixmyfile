@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import { renderAsync } from 'docx-preview';
 import html2canvas from 'html2canvas';
@@ -613,145 +614,9 @@ export default function WordToPdfTool() {
         )}
       </section>
 
-      {/* SEO & Informational Content */}
-      <section className="seo-content-section">
-        {/* How to Convert */}
-        <div className="info-block">
-          <h2 className="info-heading">How to Convert Word to PDF Online</h2>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h3 className="step-title">Select Your Word Document</h3>
-              <p className="step-desc">
-                Click "Choose Word File" or drag and drop your <code>.docx</code> document into the upload area.
-                The document is loaded securely inside your web browser.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h3 className="step-title">Render & Convert</h3>
-              <p className="step-desc">
-                Click "Convert to PDF". The tool parses paragraphs, headings, and formatting locally,
-                generating standardized high-fidelity PDF pages.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h3 className="step-title">Download PDF File</h3>
-              <p className="step-desc">
-                Click "Download PDF" to save your clean, ready-to-share document instantly.
-                Universally readable across all devices and operating systems.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Features Grid */}
-        <div className="info-block">
-          <h2 className="info-heading">Key Features of FixMyFile Word to PDF</h2>
-          <div className="features-grid">
-            <div className="feature-item">
-              <span className="feature-icon">🔒</span>
-              <h3 className="feature-title">100% Client-Side Privacy</h3>
-              <p className="feature-desc">
-                Your Word documents are parsed and converted entirely on your computer or mobile device.
-                Confidential business or personal files never touch any third-party servers.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">📄</span>
-              <h3 className="feature-title">Standardized A4 Output</h3>
-              <p className="feature-desc">
-                Generates universally formatted A4 PDF pages with consistent typography, margins,
-                and layout preserved from your Word source.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">📑</span>
-              <h3 className="feature-title">Multi-Page Document Support</h3>
-              <p className="feature-desc">
-                Seamlessly renders multi-page Word files, keeping page breaks in order and structuring
-                multi-page documents accurately.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">⚡</span>
-              <h3 className="feature-title">Instant & Free</h3>
-              <p className="feature-desc">
-                No software installation, account signups, subscriptions, or file watermarks.
-                Convert unlimited Word documents right when you need them.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="info-block">
-          <h2 className="info-heading">Frequently Asked Questions</h2>
-          <div className="faq-list">
-            <div className="faq-item">
-              <h3 className="faq-question">Are my Word files uploaded to your servers?</h3>
-              <p className="faq-answer">
-                No. FixMyFile executes all document parsing and PDF rendering directly in your browser
-                using client-side JavaScript. Your documents never leave your machine.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Can I convert older .doc files?</h3>
-              <p className="faq-answer">
-                This tool is optimized for modern Office Open XML format (<code>.docx</code>). If you have an older
-                binary <code>.doc</code> file, simply open it in Word, Google Docs, or LibreOffice and save it as <code>.docx</code> first.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Does the converted PDF retain formatting?</h3>
-              <p className="faq-answer">
-                Yes. Standard formatting including headings, paragraph spacing, bold/italic text styles, and page breaks
-                are preserved during client-side rendering.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Is there a limit on file size or page count?</h3>
-              <p className="faq-answer">
-                Because processing occurs locally in your browser memory, standard multi-page documents convert
-                swiftly without artificial upload caps or server queue delays.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Related Tools */}
-        <div className="info-block">
-          <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
-          <div className="related-tools-grid">
-            <Link to="/pdf-to-word" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">PDF to Word</h3>
-              <p className="related-desc">Convert PDF documents into editable Word DOCX files.</p>
-            </Link>
-            <Link to="/jpg-to-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">JPG to PDF</h3>
-              <p className="related-desc">Convert JPG images into clean, formatted PDF documents.</p>
-            </Link>
-            <Link to="/pdf-to-jpg" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">PDF to JPG</h3>
-              <p className="related-desc">Extract pages from PDF files as high-quality JPG images.</p>
-            </Link>
-            <Link to="/merge-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Merge PDF</h3>
-              <p className="related-desc">Combine multiple PDF documents into a single organized file.</p>
-            </Link>
-            <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Compress PDF</h3>
-              <p className="related-desc">Reduce PDF file size while preserving optimal visual quality.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="word-to-pdf" />
     </div>
   );
 }

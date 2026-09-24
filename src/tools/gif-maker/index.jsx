@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import {
   validateImageFile,
@@ -554,59 +555,9 @@ export default function GifMakerTool() {
         )}
       </div>
 
-      {/* Info / SEO section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🎞️ Real Animated GIF Output</h3>
-            <p>
-              FixMyFile assembles your image frames into a genuine GIF89a file using FFmpeg WebAssembly with
-              palettegen and paletteuse — the same high-quality pipeline used by professional tools.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🔒 Zero Cloud Processing</h3>
-            <p>
-              Your images are read directly in your browser and converted locally. Nothing is ever uploaded.
-              The entire FFmpeg engine runs as WebAssembly code on your device.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>🖼️ Mixed Format Support</h3>
-            <p>
-              Freely combine JPG, PNG, and WebP frames in a single GIF. Images with different dimensions are
-              automatically letterboxed onto a unified canvas to avoid distortion.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>How many frames can I add?</h4>
-            <p>
-              Up to {MAX_FRAME_COUNT} frames per GIF, with a combined input size limit of 200 MB.
-              Each individual image may be up to 50 MB.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>What happens if my frames have different sizes?</h4>
-            <p>
-              The tool computes the largest frame dimensions across your selection, applies your chosen
-              resolution cap, then fits every frame into that shared canvas with letterboxing (black padding)
-              to preserve aspect ratios without distortion.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Why is the GIF larger than my source images?</h4>
-            <p>
-              GIF is an older format that stores every frame as a palette-indexed image with basic LZW
-              compression, unlike modern lossy image codecs. Choosing a lower resolution or fewer FPS
-              will significantly reduce the output file size.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="gif-maker" />
     </div>
   );
 }

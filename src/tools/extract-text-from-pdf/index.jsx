@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -540,55 +541,9 @@ export default function ExtractTextFromPdfTool() {
         )}
       </div>
 
-      {/* SEO / Info Section */}
-      <section className="tool-info-section">
-        <div className="info-grid">
-          <div className="info-card">
-            <h3>🔒 Complete Client-Side Security</h3>
-            <p>
-              Your PDF documents are never uploaded to any remote server. Text streams are parsed directly in your
-              local browser memory.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📑 Multi-Page Reading Order</h3>
-            <p>
-              Intelligent spatial grouping reconstructs visual reading order from top to bottom and left to right,
-              preserving paragraphs and lines.
-            </p>
-          </div>
-          <div className="info-card">
-            <h3>📋 Instant Copy & Export</h3>
-            <p>
-              Copy all extracted text or individual pages directly to your clipboard, or export everything as a clean `.txt` document.
-            </p>
-          </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-item">
-            <h4>Can I extract text from scanned PDFs?</h4>
-            <p>
-              If your PDF is a scanned document containing flat images without selectable text, use our dedicated{' '}
-              <Link to="/pdf-ocr" style={{ color: '#2563eb', fontWeight: 600 }}>PDF OCR tool</Link> to generate searchable text using optical character recognition.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Does this tool support password-protected PDFs?</h4>
-            <p>
-              If your PDF has an open password, unlock it first using our Unlock PDF tool, then extract the text here.
-            </p>
-          </div>
-          <div className="faq-item">
-            <h4>Are my files stored or logged?</h4>
-            <p>
-              Never. FixMyFile processes all documents 100% in your browser. Zero data is sent across the internet.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="extract-text-from-pdf" />
     </div>
   );
 }

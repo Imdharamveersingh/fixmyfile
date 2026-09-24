@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -511,140 +512,9 @@ export default function PdfToJpgTool() {
         )}
       </section>
 
-      {/* SEO & Informational Content */}
-      <section className="seo-content-section">
-        {/* How to Convert */}
-        <div className="info-block">
-          <h2 className="info-heading">How to Convert PDF to JPG Online</h2>
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h3 className="step-title">Select Your PDF Document</h3>
-              <p className="step-desc">
-                Click "Choose PDF File" or drag and drop your document into the upload area. Your file is
-                read completely within your web browser.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h3 className="step-title">Render & Convert Pages</h3>
-              <p className="step-desc">
-                Click "Convert to JPG". The converter processes each page locally at high resolution, preserving
-                the natural proportions and typography.
-              </p>
-            </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h3 className="step-title">Preview & Download Images</h3>
-              <p className="step-desc">
-                Review crisp JPG previews for each page. Download individual pages as needed or save all
-                pages in one click.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Features Grid */}
-        <div className="info-block">
-          <h2 className="info-heading">Key Features of FixMyFile PDF to JPG</h2>
-          <div className="features-grid">
-            <div className="feature-item">
-              <span className="feature-icon">🔒</span>
-              <h3 className="feature-title">100% Client-Side Privacy</h3>
-              <p className="feature-desc">
-                Your PDF files are parsed and rendered exclusively in your browser memory. No documents are
-                ever transmitted to external cloud servers.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">🖼️</span>
-              <h3 className="feature-title">High-Definition Output</h3>
-              <p className="feature-desc">
-                Every page is rendered with sharp vector rasterization, ensuring legible text, vibrant diagrams,
-                and crisp illustrations.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">📐</span>
-              <h3 className="feature-title">Preserved Aspect Ratios</h3>
-              <p className="feature-desc">
-                Supports both portrait and landscape pages in the same document without cropping, distortion,
-                or unwanted margins.
-              </p>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">⚡</span>
-              <h3 className="feature-title">Instant & Unlimited</h3>
-              <p className="feature-desc">
-                No signups, email registrations, file limits, or watermarks. Convert as many documents as you need
-                completely free.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="info-block">
-          <h2 className="info-heading">Frequently Asked Questions</h2>
-          <div className="faq-list">
-            <div className="faq-item">
-              <h3 className="faq-question">Are my PDF files uploaded to any servers?</h3>
-              <p className="faq-answer">
-                No. FixMyFile executes the entire PDF rendering and JPG conversion workflow locally inside
-                your browser. Your files never leave your device.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">What JPG quality is generated?</h3>
-              <p className="faq-answer">
-                We balance high clarity with efficient file sizes using calibrated 88% JPEG compression
-                and high-DPI canvas rendering.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Can I download all converted pages at once?</h3>
-              <p className="faq-answer">
-                Yes! When your PDF has multiple pages, a "Download All JPGs" button appears to trigger sequential
-                downloads of all converted pages.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h3 className="faq-question">Does this tool support password-protected PDFs?</h3>
-              <p className="faq-answer">
-                For security reasons, password-protected PDFs must be unlocked before conversion. Unencrypted
-                standard PDFs convert immediately.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Related Tools */}
-        <div className="info-block">
-          <h2 className="info-heading">Explore Other FixMyFile Tools</h2>
-          <div className="related-tools-grid">
-            <Link to="/jpg-to-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">JPG to PDF</h3>
-              <p className="related-desc">Convert JPG images into clean, formatted PDF documents.</p>
-            </Link>
-            <Link to="/pdf-to-word" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">PDF to Word</h3>
-              <p className="related-desc">Convert PDF documents into editable Word DOCX files.</p>
-            </Link>
-            <Link to="/merge-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Merge PDF</h3>
-              <p className="related-desc">Combine multiple PDF documents into a single organized file.</p>
-            </Link>
-            <Link to="/compress-pdf" className="related-tool-card">
-              <span className="related-badge">PDF Tool</span>
-              <h3 className="related-title">Compress PDF</h3>
-              <p className="related-desc">Reduce PDF file size while preserving optimal visual quality.</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="pdf-to-jpg" />
     </div>
   );
 }

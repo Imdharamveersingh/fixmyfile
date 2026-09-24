@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
@@ -560,35 +561,9 @@ export default function WebpToPngTool() {
         </div>
       )}
 
-      {/* Info Section */}
-      <div className="tool-info-section" style={{ marginTop: '3rem' }}>
-        <h2 className="tool-info-title">Why Convert WebP to PNG?</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-          {[
-            {
-              title: '100% Client-Side Privacy',
-              body: 'Your images are decoded and encoded right on your machine via HTML5 Canvas. No data is sent over the internet.'
-            },
-            {
-              title: 'Full Alpha Channel Preservation',
-              body: 'Transparent backgrounds in WebP are accurately rendered into 32-bit RGBA PNG, perfect for logos, UI graphics, and icons.'
-            },
-            {
-              title: 'Universal Compatibility',
-              body: 'PNG is supported by every software application, older browser, graphic design tool (Photoshop, Figma, Illustrator), and printing pipeline.'
-            },
-            {
-              title: 'Pixel-Perfect Fidelity',
-              body: 'Canvas PNG export produces lossless output preserving exact source image dimensions without downsampling or artifact generation.'
-            }
-          ].map(({ title, body }) => (
-            <div key={title} style={{ background: 'var(--surface-2, #1a1a2e)', borderRadius: '10px', padding: '1rem 1.25rem' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>{title}</h3>
-              <p style={{ fontSize: '0.83rem', color: 'var(--text-muted, #aaa)', margin: 0 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="webp-to-png" />
     </div>
   );
 }

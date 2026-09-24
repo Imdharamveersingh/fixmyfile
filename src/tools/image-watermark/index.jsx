@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
@@ -1017,35 +1018,9 @@ export default function ImageWatermarkTool() {
         </div>
       )}
 
-      {/* Info Section */}
-      <div className="tool-info-section" style={{ marginTop: '3rem' }}>
-        <h2 className="tool-info-title">About Image Watermarking</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-          {[
-            {
-              title: 'Permanent Pixel Baking',
-              body: 'Watermarks are directly rasterized into canvas pixels before export, preventing easy layer separation or removal.'
-            },
-            {
-              title: 'Position Presets & Diagonal Tiling',
-              body: 'Place discreet corner logos or protect photos from unauthorized theft with dense diagonal repeat patterns.'
-            },
-            {
-              title: 'Custom Typography & Opacity',
-              body: 'Fine-tune font size, color, opacity, and rotation angles to strike the ideal balance between copyright and visibility.'
-            },
-            {
-              title: 'Zero Cloud Uploads',
-              body: 'All photo processing is computed client-side in your web browser. Your private photos never touch external servers.'
-            }
-          ].map(({ title, body }) => (
-            <div key={title} style={{ background: 'var(--surface-2, #1a1a2e)', borderRadius: '10px', padding: '1rem 1.25rem' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>{title}</h3>
-              <p style={{ fontSize: '0.83rem', color: 'var(--text-muted, #aaa)', margin: 0 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-watermark" />
     </div>
   );
 }

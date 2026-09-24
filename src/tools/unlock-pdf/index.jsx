@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
@@ -555,57 +556,9 @@ export default function UnlockPdfTool() {
         )}
       </div>
 
-      {/* Educational & Features Section */}
-      <section className="tool-info-section">
-        <h2 className="tool-info-title">Why Unlock PDF with FixMyFile?</h2>
-        <div className="info-cards-grid">
-          <div className="info-card-item">
-            <div className="info-card-icon">🔒</div>
-            <h3 className="info-card-heading">100% In-Browser Privacy</h3>
-            <p className="info-card-text">
-              Your password and documents never leave your computer. All decryption runs locally in your browser memory using WebAssembly.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">⚡</div>
-            <h3 className="info-card-heading">Instant Removal</h3>
-            <p className="info-card-text">
-              Once authenticated, your PDF is completely reconstructed without encryption dictionaries, so it can be opened freely on any device or reader.
-            </p>
-          </div>
-          <div className="info-card-item">
-            <div className="info-card-icon">🛡️</div>
-            <h3 className="info-card-heading">Safe &amp; Standards-Compliant</h3>
-            <p className="info-card-text">
-              Adheres strictly to ISO PDF standards. We do not perform unauthorized brute force cracking, ensuring security integrity.
-            </p>
-          </div>
-        </div>
 
-        <div className="faq-container-box">
-          <h3 className="faq-section-title">Frequently Asked Questions</h3>
-          <div className="faq-list">
-            <div className="faq-item">
-              <h4 className="faq-question">Can this tool crack a forgotten PDF password?</h4>
-              <p className="faq-answer">
-                No. In strict adherence to ethical and security standards, FixMyFile does not run brute-force attacks or dictionary crackers. You must enter the correct document password to decrypt it, or unlock permissible owner restrictions.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h4 className="faq-question">What is the difference between an Open Password and an Owner Password?</h4>
-              <p className="faq-answer">
-                An <strong>Open Password</strong> (User Password) prevents anyone from reading the PDF without entering the password. An <strong>Owner Password</strong> allows viewing but restricts printing, copying, or modifying the document. FixMyFile can remove both once authenticated.
-              </p>
-            </div>
-            <div className="faq-item">
-              <h4 className="faq-question">Will the unlocked PDF require a password when opened elsewhere?</h4>
-              <p className="faq-answer">
-                No. The downloaded output is completely decrypted. It can be opened, printed, and viewed on any PDF reader (such as Adobe Acrobat, Apple Preview, or Chrome) without prompting for passwords.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="unlock-pdf" />
     </div>
   );
 }

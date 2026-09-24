@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
@@ -534,23 +535,9 @@ export default function WebpToJpgTool() {
         </div>
       )}
 
-      {/* Info section */}
-      <div className="tool-info-section" style={{ marginTop: '3rem' }}>
-        <h2 className="tool-info-title">About WebP to JPG Conversion</h2>
-        <div className="info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-          {[
-            { title: '100% Private', body: 'All conversion happens inside your browser. Your images are never uploaded to any server.' },
-            { title: 'Transparency Handling', body: 'WebP supports alpha transparency. Choose your preferred background color for the converted JPEG.' },
-            { title: 'Quality Control', body: 'Adjust JPEG quality from 10% to 100% to balance file size and visual fidelity.' },
-            { title: 'Universal Compatibility', body: 'JPEG files work in every image viewer, email client, social platform, and document tool.' },
-          ].map(({ title, body }) => (
-            <div key={title} className="info-card" style={{ background: 'var(--surface-2, #1a1a2e)', borderRadius: '10px', padding: '1rem 1.25rem' }}>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.4rem' }}>{title}</h3>
-              <p style={{ fontSize: '0.83rem', color: 'var(--text-muted, #aaa)', margin: 0 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="webp-to-jpg" />
     </div>
   );
 }

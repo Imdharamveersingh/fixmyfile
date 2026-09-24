@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 
 // Format bytes into readable file size
@@ -863,93 +864,9 @@ export default function ImageResizerTool() {
         )}
       </section>
 
-      {/* Educational Guide & SEO Section */}
-      <section className="tool-guide-section" aria-label="Educational guide and features">
-        <div className="guide-card">
-          <h2 className="guide-h2">How to Resize Images Online for Free</h2>
-          <div className="guide-steps">
-            <div className="guide-step">
-              <div className="step-num">1</div>
-              <h3 className="step-title">Upload JPG or PNG</h3>
-              <p className="step-desc">
-                Drag and drop your image into the dropzone or choose a file from your device.
-              </p>
-            </div>
-            <div className="guide-step">
-              <div className="step-num">2</div>
-              <h3 className="step-title">Enter Target Dimensions</h3>
-              <p className="step-desc">
-                Input your desired width or height. Keep aspect ratio locked to avoid distortion.
-              </p>
-            </div>
-            <div className="guide-step">
-              <div className="step-num">3</div>
-              <h3 className="step-title">Download Resized Image</h3>
-              <p className="step-desc">
-                Inspect side-by-side dimensions and download your perfectly scaled image instantly.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* Feature Highlights */}
-        <div className="features-grid">
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              🔒
-            </span>
-            <h3 className="feature-title">100% Client-Side Privacy</h3>
-            <p className="feature-desc">
-              Your images are processed directly inside your browser. Files never touch external servers or third-party storage.
-            </p>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              ✨
-            </span>
-            <h3 className="feature-title">Alpha Transparency Preserved</h3>
-            <p className="feature-desc">
-              PNG transparent backgrounds remain fully intact through clean RGBA canvas rendering.
-            </p>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon" aria-hidden="true">
-              ⚡
-            </span>
-            <h3 className="feature-title">Smart Social Presets</h3>
-            <p className="feature-desc">
-              Quickly scale to popular sizes (Full HD, Square, 4:5 Instagram Portrait, 9:16 Story) with automatic proportional fit.
-            </p>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="faq-section">
-          <h2 className="faq-title">Frequently Asked Questions</h2>
-          <div className="faq-list">
-            <details className="faq-item">
-              <summary className="faq-question">Will resizing my image stretch or distort it?</summary>
-              <p className="faq-answer">
-                No, as long as the Aspect Ratio Lock is enabled (default). Any change to width will automatically calculate
-                the exact proportional height, keeping your image completely undistorted.
-              </p>
-            </details>
-            <details className="faq-item">
-              <summary className="faq-question">How do presets work when aspect ratio is locked?</summary>
-              <p className="faq-answer">
-                Presets use a "Fit Inside" algorithm: the image scales proportionally to fit within the preset bounding box
-                without any cropping or stretching. If you unlock the ratio, it scales to the exact dimensions entered.
-              </p>
-            </details>
-            <details className="faq-item">
-              <summary className="faq-question">Does PNG resizing preserve transparent cutouts?</summary>
-              <p className="faq-answer">
-                Yes! Resized PNGs retain their alpha transparency channel with zero white background bleeding.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
+      {/* Normalized Universal Tool Detail Content: Privacy Note, How-To, FAQ & Related Tools */}
+      <ToolDetailContent toolId="image-resizer" />
     </div>
   );
 }
