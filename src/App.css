@@ -9816,7 +9816,7 @@
 }
 
 /* ============================================================
-   Experimental Lightweight Page Entrance Animations
+   Lightweight Page Entrance Animations (Homepage + All 49 Tools)
    ============================================================ */
 @keyframes pageFadeUpSubtle {
   from {
@@ -9855,23 +9855,47 @@
   animation-delay: 160ms;
 }
 
-/* Representative Tool Page (/jpg-to-pdf) Stagger */
+/* ============================================================
+   Universal Tool Page Stagger (Covers all 49 Active Tools)
+   Sequence:
+   1. Breadcrumb: 0ms
+   2. Tool Title / H1: 50ms
+   3. Tool Description: 100ms
+   4. Primary Interactive Tool Interface / Card: 150ms
+   ============================================================ */
+.tool-detail-header .tool-breadcrumb-nav,
 .jpg-to-pdf-page .tool-breadcrumb-nav {
   animation: pageFadeUpSubtle 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0ms;
 }
 
+.tool-detail-header .tool-detail-h1,
 .jpg-to-pdf-page .tool-detail-h1 {
   animation: pageFadeUpSubtle 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 50ms;
 }
 
+.tool-detail-header .tool-detail-description,
 .jpg-to-pdf-page .tool-detail-description {
   animation: pageFadeUpSubtle 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 100ms;
 }
 
-.jpg-to-pdf-page .converter-card {
+/* Primary Interactive Tool Interface Containers across all 49 tools */
+.converter-card,
+.workbench-card,
+.tool-workspace,
+.qr-app-layout,
+.barcode-app-layout,
+.currency-app-layout,
+.percentage-app-layout,
+.password-app-layout,
+.word-counter-app-layout,
+.emi-calculator-layout,
+.dropzone-container,
+[class*="tool-view-container"] > .tool-section,
+[class*="tool-page"] > .tool-section,
+[class*="tool-view-container"] > .tool-card {
   animation: pageFadeUpSubtle 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 150ms;
 }
@@ -9883,10 +9907,26 @@
   .home-page .hero-description,
   .home-page .hero-actions,
   .home-page .tools-section,
+  .tool-detail-header .tool-breadcrumb-nav,
+  .tool-detail-header .tool-detail-h1,
+  .tool-detail-header .tool-detail-description,
   .jpg-to-pdf-page .tool-breadcrumb-nav,
   .jpg-to-pdf-page .tool-detail-h1,
   .jpg-to-pdf-page .tool-detail-description,
-  .jpg-to-pdf-page .converter-card {
+  .converter-card,
+  .workbench-card,
+  .tool-workspace,
+  .qr-app-layout,
+  .barcode-app-layout,
+  .currency-app-layout,
+  .percentage-app-layout,
+  .password-app-layout,
+  .word-counter-app-layout,
+  .emi-calculator-layout,
+  .dropzone-container,
+  [class*="tool-view-container"] > .tool-section,
+  [class*="tool-page"] > .tool-section,
+  [class*="tool-view-container"] > .tool-card {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;

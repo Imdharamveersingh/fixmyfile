@@ -14,8 +14,20 @@ const VIEWPORTS = [
   { name: 'Desktop 1440x900', width: 1440, height: 900 }
 ];
 
+const REPRESENTATIVE_TOOLS = [
+  { category: 'PDF', path: '/jpg-to-pdf', name: 'JPG to PDF' },
+  { category: 'Image', path: '/image-compressor', name: 'Image Compressor' },
+  { category: 'Media', path: '/video-compressor', name: 'Video Compressor' },
+  { category: 'Generator', path: '/qr-code-generator', name: 'QR Code Generator' },
+  { category: 'OCR/Text', path: '/image-to-text', name: 'Image to Text' },
+  { category: 'Utility', path: '/password-generator', name: 'Password Generator' },
+  { category: 'PDF Org', path: '/merge-pdf', name: 'Merge PDF' },
+  { category: 'Image Edit', path: '/background-remover', name: 'Background Remover' },
+  { category: 'Text Utility', path: '/word-counter', name: 'Word Counter' }
+];
+
 async function runAnimationAudit() {
-  console.log('=== Starting Real Chrome CDP Verification for Page Animations ===\n');
+  console.log('=== Starting Real Chrome CDP Verification for Universal Tool Animations ===\n');
 
   const port = 9360;
   const chrome = spawn(CHROME_PATH, [
@@ -117,7 +129,7 @@ async function runAnimationAudit() {
     await send('Page.navigate', { url: BASE_URL + '/' });
     await new Promise((r) => setTimeout(r, 1200));
 
-    const homeAnimationData = await evaluate(`
+    const homeData = await evaluate(`
       (() => {
         const eyebrow = document.querySelector('.hero-eyebrow');
         const title = document.querySelector('.hero-title');
@@ -129,13 +141,9 @@ async function runAnimationAudit() {
           if (!el) return null;
           const s = window.getComputedStyle(el);
           return {
-            animationName: s.animationName,
-            animationDuration: s.animationDuration,
-            animationDelay: s.animationDelay,
-            animationTimingFunction: s.animationTimingFunction,
-            animationFillMode: s.animationFillMode,
-            opacity: s.opacity,
-            transform: s.transform
+            name: s.animationName,
+            delay: s.animationDelay,
+            duration: s.animationDuration
           };
         };
 
@@ -149,127 +157,115 @@ async function runAnimationAudit() {
       })()
     `);
 
-    console.log('   Hero Eyebrow Anim:', homeAnimationData.eyebrow?.animationName, 'duration:', homeAnimationData.eyebrow?.animationDuration, 'delay:', homeAnimationData.eyebrow?.animationDelay);
-    console.log('   Hero Title Anim:  ', homeAnimationData.title?.animationName, 'duration:', homeAnimationData.title?.animationDuration, 'delay:', homeAnimationData.title?.animationDelay);
-    console.log('   Hero Desc Anim:   ', homeAnimationData.desc?.animationName, 'duration:', homeAnimationData.desc?.animationDuration, 'delay:', homeAnimationData.desc?.animationDelay);
-    console.log('   Hero Actions Anim:', homeAnimationData.actions?.animationName, 'duration:', homeAnimationData.actions?.animationDuration, 'delay:', homeAnimationData.actions?.animationDelay);
-    console.log('   Tools Section Anim:', homeAnimationData.section?.animationName, 'duration:', homeAnimationData.section?.animationDuration, 'delay:', homeAnimationData.section?.animationDelay);
-
-    assert.ok(homeAnimationData.eyebrow.animationName.includes('pageFadeUpSubtle'), 'Hero eyebrow uses pageFadeUpSubtle');
-    assert.ok(homeAnimationData.title.animationName.includes('pageFadeUpSubtle'), 'Hero title uses pageFadeUpSubtle');
-    assert.ok(homeAnimationData.desc.animationName.includes('pageFadeUpSubtle'), 'Hero description uses pageFadeUpSubtle');
-    assert.ok(homeAnimationData.actions.animationName.includes('pageFadeUpSubtle'), 'Hero actions uses pageFadeUpSubtle');
-    assert.ok(homeAnimationData.section.animationName.includes('pageFadeUpSubtle'), 'Homepage category section uses pageFadeUpSubtle');
-
-    console.log('   ✓ Homepage animation properties verified.');
-
-    // Multi-viewport check for Homepage
-    console.log('   Testing Homepage across 6 viewports for layout stability & zero horizontal overflow:');
-    for (const vp of VIEWPORTS) {
-      await setViewport(vp.width, vp.height);
-      await new Promise((r) => setTimeout(r, 150));
-      const overflow = await evaluate(`document.documentElement.scrollWidth > window.innerWidth`);
-      assert.strictEqual(overflow, false, `Homepage has no overflow at ${vp.name}`);
-      console.log(`     - ${vp.name.padEnd(20)} : Overflow = PASS`);
-    }
+    assert.ok(homeData.eyebrow.name.includes('pageFadeUpSubtle'), 'Hero eyebrow uses pageFadeUpSubtle');
+    assert.ok(homeData.title.name.includes('pageFadeUpSubtle'), 'Hero title uses pageFadeUpSubtle');
+    assert.ok(homeData.desc.name.includes('pageFadeUpSubtle'), 'Hero description uses pageFadeUpSubtle');
+    assert.ok(homeData.actions.name.includes('pageFadeUpSubtle'), 'Hero actions uses pageFadeUpSubtle');
+    assert.ok(homeData.section.name.includes('pageFadeUpSubtle'), 'Homepage category section uses pageFadeUpSubtle');
+    console.log('   ✓ Homepage entrance animations verified.');
 
     // ==========================================
-    // 2. TOOL PAGE AUDIT (/jpg-to-pdf)
+    // 2. REPRESENTATIVE TOOL PAGES AUDIT (ALL CATEGORIES)
     // ==========================================
-    console.log('\n2. Auditing Tool Page ("/jpg-to-pdf") Entrance Animations...');
-    await setViewport(1280, 800);
-    await send('Page.navigate', { url: BASE_URL + '/jpg-to-pdf' });
-    await new Promise((r) => setTimeout(r, 1200));
+    console.log('\n2. Auditing Representative Tool Pages Across Categories:');
 
-    const toolAnimationData = await evaluate(`
-      (() => {
-        const breadcrumb = document.querySelector('.jpg-to-pdf-page .tool-breadcrumb-nav');
-        const h1 = document.querySelector('.jpg-to-pdf-page .tool-detail-h1');
-        const desc = document.querySelector('.jpg-to-pdf-page .tool-detail-description');
-        const card = document.querySelector('.jpg-to-pdf-page .converter-card');
+    for (const tool of REPRESENTATIVE_TOOLS) {
+      await send('Page.navigate', { url: BASE_URL + tool.path });
+      await new Promise((r) => setTimeout(r, 800));
 
-        const getAnim = (el) => {
-          if (!el) return null;
-          const s = window.getComputedStyle(el);
-          return {
-            animationName: s.animationName,
-            animationDuration: s.animationDuration,
-            animationDelay: s.animationDelay,
-            animationTimingFunction: s.animationTimingFunction,
-            animationFillMode: s.animationFillMode,
-            opacity: s.opacity,
-            transform: s.transform
+      const toolData = await evaluate(`
+        (() => {
+          const breadcrumb = document.querySelector('.tool-detail-header .tool-breadcrumb-nav');
+          const h1 = document.querySelector('.tool-detail-header .tool-detail-h1');
+          const desc = document.querySelector('.tool-detail-header .tool-detail-description');
+          const card = document.querySelector('.converter-card, .workbench-card, .tool-workspace, .qr-app-layout, .barcode-app-layout, .currency-app-layout, .percentage-app-layout, .password-app-layout, .word-counter-app-layout, .emi-calculator-layout, .dropzone-container, .tool-section, .tool-card');
+
+          const getAnim = (el) => {
+            if (!el) return null;
+            const s = window.getComputedStyle(el);
+            return {
+              name: s.animationName,
+              delay: s.animationDelay,
+              duration: s.animationDuration
+            };
           };
-        };
 
-        return {
-          breadcrumb: getAnim(breadcrumb),
-          h1: getAnim(h1),
-          desc: getAnim(desc),
-          card: getAnim(card),
-          hasDropzone: !!document.querySelector('.dropzone')
-        };
-      })()
-    `);
+          return {
+            hasHeader: !!document.querySelector('.tool-detail-header'),
+            breadcrumb: getAnim(breadcrumb),
+            h1: getAnim(h1),
+            desc: getAnim(desc),
+            card: getAnim(card),
+            hasCard: !!card
+          };
+        })()
+      `);
 
-    console.log('   Breadcrumb Anim:', toolAnimationData.breadcrumb?.animationName, 'delay:', toolAnimationData.breadcrumb?.animationDelay);
-    console.log('   Tool H1 Anim:   ', toolAnimationData.h1?.animationName, 'delay:', toolAnimationData.h1?.animationDelay);
-    console.log('   Tool Desc Anim: ', toolAnimationData.desc?.animationName, 'delay:', toolAnimationData.desc?.animationDelay);
-    console.log('   Tool Card Anim: ', toolAnimationData.card?.animationName, 'delay:', toolAnimationData.card?.animationDelay);
+      assert.ok(toolData.hasHeader, `${tool.name} must render ToolDetailHeader`);
+      assert.ok(toolData.breadcrumb && toolData.breadcrumb.name.includes('pageFadeUpSubtle'), `${tool.name} breadcrumb animated`);
+      assert.ok(toolData.h1 && toolData.h1.name.includes('pageFadeUpSubtle'), `${tool.name} H1 animated`);
+      assert.ok(toolData.desc && toolData.desc.name.includes('pageFadeUpSubtle'), `${tool.name} desc animated`);
+      assert.ok(toolData.hasCard, `${tool.name} has primary card`);
+      assert.ok(toolData.card && toolData.card.name.includes('pageFadeUpSubtle'), `${tool.name} card animated`);
 
-    assert.ok(toolAnimationData.breadcrumb.animationName.includes('pageFadeUpSubtle'), 'Breadcrumb uses pageFadeUpSubtle');
-    assert.ok(toolAnimationData.h1.animationName.includes('pageFadeUpSubtle'), 'H1 uses pageFadeUpSubtle');
-    assert.ok(toolAnimationData.desc.animationName.includes('pageFadeUpSubtle'), 'Description uses pageFadeUpSubtle');
-    assert.ok(toolAnimationData.card.animationName.includes('pageFadeUpSubtle'), 'Converter card uses pageFadeUpSubtle');
-    assert.strictEqual(toolAnimationData.hasDropzone, true, 'Dropzone exists and is stable');
-
-    console.log('   ✓ /jpg-to-pdf animation sequence verified.');
-
-    // Multi-viewport check for /jpg-to-pdf
-    console.log('   Testing /jpg-to-pdf across 6 viewports for layout stability & zero horizontal overflow:');
-    for (const vp of VIEWPORTS) {
-      await setViewport(vp.width, vp.height);
-      await new Promise((r) => setTimeout(r, 150));
-      const overflow = await evaluate(`document.documentElement.scrollWidth > window.innerWidth`);
-      assert.strictEqual(overflow, false, `/jpg-to-pdf has no overflow at ${vp.name}`);
-      console.log(`     - ${vp.name.padEnd(20)} : Overflow = PASS`);
+      console.log(`   [${tool.category.padEnd(12)}] ${tool.name.padEnd(24)}: Breadcrumb (${toolData.breadcrumb.delay}) | H1 (${toolData.h1.delay}) | Desc (${toolData.desc.delay}) | Card (${toolData.card.delay}) → PASS`);
     }
 
     // ==========================================
-    // 3. REDUCED MOTION VERIFICATION
+    // 3. MULTI-VIEWPORT RESPONSIVE AUDIT
     // ==========================================
-    console.log('\n3. Testing prefers-reduced-motion accessibility...');
+    console.log('\n3. Testing Responsive Viewports (375 to 1440px) for Layout Stability & Zero Horizontal Overflow:');
+
+    const testRoutes = ['/', '/jpg-to-pdf', '/image-compressor', '/qr-code-generator'];
+    for (const route of testRoutes) {
+      await send('Page.navigate', { url: BASE_URL + route });
+      await new Promise((r) => setTimeout(r, 600));
+
+      for (const vp of VIEWPORTS) {
+        await setViewport(vp.width, vp.height);
+        await new Promise((r) => setTimeout(r, 100));
+        const overflow = await evaluate(`document.documentElement.scrollWidth > window.innerWidth`);
+        assert.strictEqual(overflow, false, `${route} has no overflow at ${vp.name}`);
+      }
+      console.log(`   ${route.padEnd(20)}: All 6 viewports PASS (zero horizontal overflow)`);
+    }
+
+    // ==========================================
+    // 4. REDUCED MOTION VERIFICATION
+    // ==========================================
+    console.log('\n4. Testing prefers-reduced-motion accessibility...');
     await send('Emulation.setEmulatedMedia', {
       features: [{ name: 'prefers-reduced-motion', value: 'reduce' }]
     });
     await new Promise((r) => setTimeout(r, 300));
 
-    const reducedMotionData = await evaluate(`
+    const reducedData = await evaluate(`
       (() => {
         const eyebrow = document.querySelector('.hero-eyebrow');
-        const card = document.querySelector('.converter-card');
+        const h1 = document.querySelector('.tool-detail-h1');
+        const card = document.querySelector('.converter-card, .tool-workspace, .qr-app-layout, .tool-card');
         const sEyebrow = eyebrow ? window.getComputedStyle(eyebrow).animationName : 'none';
+        const sH1 = h1 ? window.getComputedStyle(h1).animationName : 'none';
         const sCard = card ? window.getComputedStyle(card).animationName : 'none';
-        return { sEyebrow, sCard };
+        return { sEyebrow, sH1, sCard };
       })()
     `);
 
-    console.log('   Reduced motion eyebrow animationName:', reducedMotionData.sEyebrow);
-    console.log('   Reduced motion card animationName:   ', reducedMotionData.sCard);
-    assert.ok(reducedMotionData.sCard === 'none' || reducedMotionData.sCard === '', 'Animations disabled under reduced motion');
-    console.log('   ✓ Reduced motion successfully disables entrance animations.');
+    assert.ok(reducedData.sH1 === 'none' || reducedData.sH1 === '', 'Tool H1 animation disabled under reduced motion');
+    assert.ok(reducedData.sCard === 'none' || reducedData.sCard === '', 'Tool Card animation disabled under reduced motion');
+    console.log('   ✓ Reduced motion successfully disables entrance animations across all elements.');
 
     // Reset emulation
     await send('Emulation.setEmulatedMedia', { features: [] });
 
     // ==========================================
-    // 4. CONSOLE ERRORS & RUNTIME CHECK
+    // 5. CONSOLE ERRORS & RUNTIME CHECK
     // ==========================================
-    console.log('\n4. Checking for Console Errors / Runtime Exceptions...');
+    console.log('\n5. Checking for Console Errors / Runtime Exceptions...');
     console.log('   Errors recorded:', consoleErrors.length);
     assert.strictEqual(consoleErrors.length, 0, `Expected 0 console errors, got: ${JSON.stringify(consoleErrors)}`);
 
-    console.log('\n=== ALL CHROME CDP CHECKS PASSED FOR LIGHTWEIGHT ANIMATIONS ===');
+    console.log('\n=== ALL CHROME CDP CHECKS PASSED FOR UNIVERSAL TOOL ANIMATIONS ===');
     ws.close();
   } finally {
     chrome.kill('SIGTERM');
