@@ -462,7 +462,7 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin-bottom: 32px;
+  margin-bottom: 18px;
   flex-wrap: wrap;
 }
 
@@ -600,9 +600,10 @@
   gap: 20px;
 }
 
-/* Phase 3 Centered Final Card on Desktop */
+/* Generators Centered Final Card on Desktop */
 @media (min-width: 1040px) {
-  .phase3-grid > :nth-child(7):last-child {
+  .phase3-grid > :nth-child(7):last-child,
+  .generators-grid > :nth-child(7):last-child {
     grid-column: 2;
   }
 }

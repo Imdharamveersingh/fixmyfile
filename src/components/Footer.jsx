@@ -13,11 +13,11 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="FixMyFile Logo"
-              className="footer-logo-img"
+              className="footer-logo-img brand-logo-img"
               width="32"
               height="32"
             />
-            <span className="brand-title">FixMyFile</span>
+            <span className="brand-title brand-name">FixMyFile</span>
           </div>
           <p className="footer-desc">
             Fast, browser-based file utilities built with simplicity, privacy, and practical workflows in mind.
