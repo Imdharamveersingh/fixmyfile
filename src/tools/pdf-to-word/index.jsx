@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 import { convertPdfToDocx } from './converterEngine';
@@ -189,24 +189,12 @@ export default function PdfToWordTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PDF to Word</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">PDF to Word Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Convert text-based PDF files into editable Microsoft Word (.docx) documents directly in your
-          browser. Fast, 100% private, and processed locally on your device without server uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="pdf-to-word"
+        title="PDF to Word Converter"
+        description="Convert text-based PDF files into editable Microsoft Word (.docx) documents directly in your browser. Fast, 100% private, and processed locally on your device without server uploads."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import UPNG from 'upng-js';
 
 // Format bytes into readable file size
@@ -341,28 +341,12 @@ export default function ImageCompressorTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator" aria-hidden="true">
-          /
-        </span>
-        <span className="breadcrumb-current">Image Compressor</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image Compressor</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Compress JPG and PNG images directly in your browser with fine-tuned quality control.
-          Preserves original dimensions and transparent PNG alpha channels with 100% client-side privacy.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-compressor"
+        title="Image Compressor"
+        description="Compress JPG and PNG images directly in your browser with fine-tuned quality control. Preserves original dimensions and transparent PNG alpha channels with 100% client-side privacy."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

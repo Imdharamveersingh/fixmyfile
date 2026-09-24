@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import {
   ASPECT_RATIOS,
   SUPPORTED_OUTPUT_FORMATS,
@@ -398,28 +398,12 @@ export default function ImageCropperTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumbs */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator" aria-hidden="true">
-          /
-        </span>
-        <span className="breadcrumb-current">Image Cropper</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image Cropper</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Crop JPG, PNG, WebP, and common images client-side with pixel precision. Select custom aspect ratios,
-          rotate, flip, and export high-resolution images with 100% privacy and zero server round-trips.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-cropper"
+        title="Image Cropper"
+        description="Crop JPG, PNG, WebP, and common images client-side with pixel precision. Select custom aspect ratios, rotate, flip, and export high-resolution images with 100% privacy and zero server round-trips."
+      />
 
       {/* Error Banner */}
       {errorMessage && (

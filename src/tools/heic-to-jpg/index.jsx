@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { validateHeicFile, convertHeicToJpg, getHeicConvertedName } from './heicEngine.js';
 
 function formatBytes(bytes) {
@@ -166,28 +166,12 @@ export default function HeicToJpgTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator" aria-hidden="true">
-          /
-        </span>
-        <span className="breadcrumb-current">HEIC to JPG</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">HEIC to JPG Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Convert Apple iPhone HEIC and HEIF photos to high-compatibility JPG format in seconds.
-          Works completely offline in your browser with 100% privacy and zero file uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="heic-to-jpg"
+        title="HEIC to JPG Converter"
+        description="Convert Apple iPhone HEIC and HEIF photos to high-compatibility JPG format in seconds. Works completely offline in your browser with 100% privacy and zero file uploads."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

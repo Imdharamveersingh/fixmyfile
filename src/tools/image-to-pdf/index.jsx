@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 
 // Human-readable file size formatter
@@ -380,23 +380,12 @@ export default function ImageToPdfTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Image to PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image to PDF Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-description">
-          Convert JPG, PNG, WebP, GIF, and SVG images into a single clean PDF document. Reorder pages, adjust margins, and select page sizing directly in your browser.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-to-pdf"
+        title="Image to PDF Converter"
+        description="Convert JPG, PNG, WebP, GIF, and SVG images into a single clean PDF document. Reorder pages, adjust margins, and select page sizing directly in your browser."
+      />
 
       {/* Main Tool Area */}
       <div className="tool-card">

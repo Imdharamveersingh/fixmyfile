@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Human-readable file size formatter
 function formatBytes(bytes, decimals = 2) {
@@ -334,23 +334,12 @@ export default function ImageUpscalerTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Image Upscaler</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image Upscaler</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-description">
-          Enlarge and upscale your images with client-side progressive bicubic resampling and edge enhancement. Zero server uploads, 100% private.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-upscaler"
+        title="Image Upscaler"
+        description="Enlarge and upscale your images with client-side progressive bicubic resampling and edge enhancement. Zero server uploads, 100% private."
+      />
 
       {/* Main Tool Area */}
       <div className="tool-card">

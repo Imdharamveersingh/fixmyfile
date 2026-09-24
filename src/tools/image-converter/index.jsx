@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -460,19 +461,12 @@ export default function ImageConverterTool() {
 
   return (
     <div className="tool-container">
-      {/* Tool Header */}
-      <div className="tool-header">
-        <div className="tool-badge-row">
-          <span className="tool-badge">Image Tool</span>
-          <span className="tool-badge-tag">Client-Side · 100% Private</span>
-          <span className="tool-badge-format">JPG · PNG · WEBP</span>
-        </div>
-        <h1 className="tool-title">Image Converter Online</h1>
-        <p className="tool-description">
-          Convert JPG, PNG, and WEBP images online in your browser. Choose your output format,
-          preserve alpha transparency or customize background fills, and keep your original dimensions intact.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-converter"
+        title="Image Converter Online"
+        description="Convert JPG, PNG, and WEBP images online in your browser. Choose your output format, preserve alpha transparency or customize background fills, and keep your original dimensions intact."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

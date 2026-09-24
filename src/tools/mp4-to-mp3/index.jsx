@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import {
   validateMp4File,
   convertMp4ToMp3,
@@ -151,23 +151,12 @@ export default function Mp4ToMp3Tool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb & Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">MP4 to MP3</span>
-      </nav>
-
-      {/* Hero Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">MP4 to MP3 Converter</h1>
-        <p className="tool-subtitle">
-          Extract high-fidelity MP3 audio from any MP4 video directly in your web browser. Fast, free, and zero cloud uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="mp4-to-mp3"
+        title="MP4 to MP3 Converter"
+        description="Extract high-fidelity MP3 audio from any MP4 video directly in your web browser. Fast, free, and zero cloud uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

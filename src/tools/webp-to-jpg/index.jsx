@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -273,19 +273,12 @@ export default function WebpToJpgTool() {
     <div className="tool-page" id="webp-to-jpg-tool">
       <title>WebP to JPG Converter — FixMyFile</title>
 
-      {/* Header */}
-      <div className="tool-header">
-        <div className="tool-breadcrumb">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-sep">›</span>
-          <span>WebP to JPG</span>
-        </div>
-        <h1 className="tool-title">WebP to JPG</h1>
-        <p className="tool-subtitle">
-          Convert Google WebP images to universal JPEG format. Handles transparency with your
-          chosen background color. 100% client‑side — your files never leave your browser.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="webp-to-jpg"
+        title="WebP to JPG"
+        description="Convert Google WebP images to universal JPEG format. Handles transparency with your chosen background color. 100% client‑side — your files never leave your browser."
+      />
 
       {/* Upload Zone — IDLE / ERROR */}
       {(processingState === 'IDLE' || processingState === 'ERROR') && (

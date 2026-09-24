@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import {
   validateImageFile,
   generateGifFromFrames,
@@ -225,24 +225,12 @@ export default function GifMakerTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">GIF Maker</span>
-      </nav>
-
-      {/* Hero Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">GIF Maker</h1>
-        <p className="tool-subtitle">
-          Upload multiple images, arrange their order, and generate a genuine animated GIF — entirely in your browser.
-          No uploads. No servers. No tricks.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="gif-maker"
+        title="GIF Maker"
+        description="Upload multiple images, arrange their order, and generate a genuine animated GIF — entirely in your browser. No uploads. No servers. No tricks."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

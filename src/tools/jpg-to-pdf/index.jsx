@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { formatBytes } from '../../utils/helpers';
 
@@ -306,24 +306,12 @@ export default function JpgToPdfTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">JPG to PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">JPG to PDF Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Convert your JPG and JPEG images into clean, standard A4 PDF documents. Fast, 100% private,
-          and processed entirely inside your browser. No files are ever sent to any server.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="jpg-to-pdf"
+        title="JPG to PDF Converter"
+        description="Convert your JPG and JPEG images into clean, standard A4 PDF documents. Fast, 100% private, and processed entirely inside your browser. No files are ever sent to any server."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

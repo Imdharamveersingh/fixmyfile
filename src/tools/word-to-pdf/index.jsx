@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { renderAsync } from 'docx-preview';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -419,24 +419,12 @@ export default function WordToPdfTool() {
         aria-hidden="true"
       />
 
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Word to PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Word to PDF Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Convert Microsoft Word (.docx) documents into clean, standardized PDF files directly in your
-          browser. Fast, 100% private, and processed locally on your device without server uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="word-to-pdf"
+        title="Word to PDF Converter"
+        description="Convert Microsoft Word (.docx) documents into clean, standardized PDF files directly in your browser. Fast, 100% private, and processed locally on your device without server uploads."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PERCENTAGE_MODES,
@@ -70,17 +71,12 @@ export default function PercentageCalculatorTool() {
 
   return (
     <div className="tool-page percentage-tool-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <span className="tool-badge">Calculator</span>
-          <h1 className="tool-title" id="percentage-tool-title">Percentage Calculator Online</h1>
-          <p className="tool-subtitle">
-            Calculate percentage values, percentage changes, additions, and subtractions
-            instantly with formula explanations.
-          </p>
-          <span className="tool-format-badge">5 Calculation Modes</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="percentage-calculator"
+        title="Percentage Calculator Online"
+        description="Calculate percentage values, percentage changes, additions, and subtractions instantly with formula explanations."
+      />
 
       <div className="percentage-app-layout">
         <div className="percentage-card">

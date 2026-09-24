@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import {
   validateVideoFile,
   compressVideo,
@@ -136,23 +136,12 @@ export default function VideoCompressorTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Video Compressor</span>
-      </nav>
-
-      {/* Hero Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">Video Compressor</h1>
-        <p className="tool-subtitle">
-          Reduce video bitrate and dimensions for messaging, WhatsApp, Discord, and email sharing. Fast, high-quality, and zero server uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="video-compressor"
+        title="Video Compressor"
+        description="Reduce video bitrate and dimensions for messaging, WhatsApp, Discord, and email sharing. Fast, high-quality, and zero server uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

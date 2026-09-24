@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { getToolByPath } from '../toolsRegistry';
 import { extractTextFromPdf, createTxtBlob } from './pdfToTextEngine';
 import { formatBytes } from '../../utils/helpers';
 
@@ -11,7 +10,6 @@ import { formatBytes } from '../../utils/helpers';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function PdfToTextTool() {
-  const toolMeta = getToolByPath('/pdf-to-text');
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -196,26 +194,12 @@ export default function PdfToTextTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb / Top Bar */}
-      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PDF to Text</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header tool-header-area">
-        <div className="tool-title-row">
-          <h1 className="tool-h1 tool-main-title">PDF to Text — Extract Text Online</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro tool-main-desc">
-          Extract clean, selectable text from your PDF documents directly in your browser.
-          Download as a formatted .txt file or copy to clipboard with zero server uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="pdf-to-text"
+        title="PDF to Text — Extract Text Online"
+        description="Extract clean, selectable text from your PDF documents directly in your browser. Download as a formatted .txt file or copy to clipboard with zero server uploads."
+      />
 
       {/* Main Workbench Card */}
       <div className="converter-card workbench-card">

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import {
   validateVideoFile,
   convertVideoToGif,
@@ -138,23 +138,12 @@ export default function VideoToGifTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Video to GIF</span>
-      </nav>
-
-      {/* Hero Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">Video to GIF Converter</h1>
-        <p className="tool-subtitle">
-          Transform video clips into vibrant, high-fidelity animated GIF loops with customizable framerate and resolution. Fast, free, and zero cloud uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="video-to-gif"
+        title="Video to GIF Converter"
+        description="Transform video clips into vibrant, high-fidelity animated GIF loops with customizable framerate and resolution. Fast, free, and zero cloud uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

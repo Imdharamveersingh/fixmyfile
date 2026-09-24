@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
   validateImageFile,
@@ -261,23 +261,12 @@ export default function ScreenshotToTextTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Screenshot to Text</span>
-      </nav>
-
-      {/* Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">Screenshot to Text (OCR)</h1>
-        <p className="tool-subtitle">
-          Extract text instantly from screenshots and clipboard screen captures. Paste with Ctrl+V or upload your image. 100% private, zero cloud uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="screenshot-to-text"
+        title="Screenshot to Text (OCR)"
+        description="Extract text instantly from screenshots and clipboard screen captures. Paste with Ctrl+V or upload your image. 100% private, zero cloud uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

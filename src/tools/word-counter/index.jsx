@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { analyzeText } from './wordEngine';
 
@@ -48,17 +49,12 @@ export default function WordCounterTool() {
 
   return (
     <div className="tool-page word-counter-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <span className="tool-badge">Text Utility</span>
-          <h1 className="tool-title" id="word-counter-tool-title">Word Counter Online</h1>
-          <p className="tool-subtitle">
-            Live text analytics and metric counter. Analyze words, characters, sentences,
-            paragraphs, and reading time in real time.
-          </p>
-          <span className="tool-format-badge">Unicode-Aware Engine</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="word-counter"
+        title="Word Counter Online"
+        description="Live text analytics and metric counter. Analyze words, characters, sentences, paragraphs, and reading time in real time."
+      />
 
       <div className="word-counter-app-layout">
         <div className="word-counter-card">

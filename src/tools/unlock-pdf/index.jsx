@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { getToolByPath } from '../toolsRegistry';
 import { checkPdfStatus, unlockPdf } from './unlockEngine';
 import { formatBytes } from '../../utils/helpers';
 
@@ -11,7 +10,6 @@ import { formatBytes } from '../../utils/helpers';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function UnlockPdfTool() {
-  const toolMeta = getToolByPath('/unlock-pdf');
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [pdfStatus, setPdfStatus] = useState(null); // { isEncrypted, requiresPassword, isOwnerOnly, pageCount }
@@ -206,26 +204,12 @@ export default function UnlockPdfTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb / Top Bar */}
-      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Unlock PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header tool-header-area">
-        <div className="tool-title-row">
-          <h1 className="tool-h1 tool-main-title">Unlock PDF — Remove Password</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro tool-main-desc">
-          Remove password protection and permissions security from your PDF documents completely in your browser.
-          100% private, client-side processing with zero server uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="unlock-pdf"
+        title="Unlock PDF — Remove Password"
+        description="Remove password protection and permissions security from your PDF documents completely in your browser. 100% private, client-side processing with zero server uploads."
+      />
 
       {/* Main Workbench Card */}
       <div className="converter-card workbench-card">

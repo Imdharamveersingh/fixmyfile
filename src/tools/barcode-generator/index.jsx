@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   BARCODE_FORMATS,
@@ -203,17 +204,12 @@ export default function BarcodeGeneratorTool() {
 
   return (
     <div className="tool-page barcode-tool-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <span className="tool-badge">Generator</span>
-          <h1 className="tool-title" id="barcode-tool-title">Barcode Generator Online</h1>
-          <p className="tool-subtitle">
-            Create real, machine-readable 1D barcodes in your browser. Supports CODE 128, CODE 39,
-            EAN-13, EAN-8, UPC-A, ITF-14, ITF, and Codabar. Download as PNG or SVG.
-          </p>
-          <span className="tool-format-badge">1D · SVG + PNG</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="barcode-generator"
+        title="Barcode Generator Online"
+        description="Create real, machine-readable 1D barcodes in your browser. Supports CODE 128, CODE 39, EAN-13, EAN-8, UPC-A, ITF-14, ITF, and Codabar. Download as PNG or SVG."
+      />
 
       <div className="barcode-app-layout">
         {/* ── LEFT: Configuration ────────────────────────────── */}

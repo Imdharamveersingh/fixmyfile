@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   SUPPORTED_CURRENCIES,
@@ -131,17 +132,12 @@ export default function CurrencyConverterTool() {
 
   return (
     <div className="tool-page currency-tool-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <span className="tool-badge">Calculator</span>
-          <h1 className="tool-title" id="currency-tool-title">Currency Converter Online</h1>
-          <p className="tool-subtitle">
-            Instant, reliable currency conversion with live exchange rates, smart offline fallback,
-            and zero tracking.
-          </p>
-          <span className="tool-format-badge">Live Exchange Rates</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="currency-converter"
+        title="Currency Converter Online"
+        description="Instant, reliable currency conversion with live exchange rates, smart offline fallback, and zero tracking."
+      />
 
       <div className="currency-app-layout">
         <div className="currency-card">

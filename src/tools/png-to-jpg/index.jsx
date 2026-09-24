@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 
 // Format bytes into human-readable string
@@ -378,19 +379,12 @@ export default function PngToJpgTool() {
 
   return (
     <div className="tool-container">
-      {/* Tool Header */}
-      <div className="tool-header">
-        <div className="tool-badge-row">
-          <span className="tool-badge">Image Tool</span>
-          <span className="tool-badge-tag">Client-Side · 100% Private</span>
-          <span className="tool-badge-format">PNG → JPG</span>
-        </div>
-        <h1 className="tool-title">PNG to JPG Converter Online</h1>
-        <p className="tool-description">
-          Convert PNG images to high-quality JPG format online for free. Choose your background color
-          for transparent regions, adjust compression quality, and preserve exact image dimensions.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="png-to-jpg"
+        title="PNG to JPG Converter Online"
+        description="Convert PNG images to high-quality JPG format online for free. Choose your background color for transparent regions, adjust compression quality, and preserve exact image dimensions."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
-import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, parsePagesToDelete, deletePdfPages } from './deleteEngine';
 import { formatBytes } from '../../utils/helpers';
 
 export default function DeletePdfPagesTool() {
-  const toolMeta = getToolByPath('/delete-pdf-pages');
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [totalPages, setTotalPages] = useState(0);
@@ -280,32 +278,12 @@ export default function DeletePdfPagesTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <ol className="breadcrumb-list">
-          <li className="breadcrumb-item">
-            <Link to="/" className="breadcrumb-link">
-              Home
-            </Link>
-          </li>
-          <li className="breadcrumb-separator" aria-hidden="true">
-            /
-          </li>
-          <li className="breadcrumb-item">
-            <span className="breadcrumb-current">Delete PDF Pages</span>
-          </li>
-        </ol>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-main-title">Delete PDF Pages — Remove Pages Online</h1>
-        </div>
-        <p className="tool-intro">
-          Select unwanted pages or custom page ranges to remove from your PDF and create a clean, trimmed document. 100% private in-browser processing.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="delete-pdf-pages"
+        title="Delete PDF Pages — Remove Pages Online"
+        description="Select unwanted pages or custom page ranges to remove from your PDF and create a clean, trimmed document. 100% private in-browser processing."
+      />
 
       {/* Main Workbench Card */}
       <div className="workbench-card">

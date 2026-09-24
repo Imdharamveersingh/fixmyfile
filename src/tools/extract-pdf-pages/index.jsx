@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
-import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, parsePageSelection, extractPdfPages } from './extractEngine';
 import { formatBytes } from '../../utils/helpers';
 
 export default function ExtractPdfPagesTool() {
-  const toolMeta = getToolByPath('/extract-pdf-pages');
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [totalPages, setTotalPages] = useState(0);
@@ -270,32 +268,12 @@ export default function ExtractPdfPagesTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <ol className="breadcrumb-list">
-          <li className="breadcrumb-item">
-            <Link to="/" className="breadcrumb-link">
-              Home
-            </Link>
-          </li>
-          <li className="breadcrumb-separator" aria-hidden="true">
-            /
-          </li>
-          <li className="breadcrumb-item">
-            <span className="breadcrumb-current">Extract PDF Pages</span>
-          </li>
-        </ol>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-main-title">Extract PDF Pages — Save Specific Pages</h1>
-        </div>
-        <p className="tool-intro">
-          Select specific pages or custom page ranges from your PDF document and create a new, lightweight PDF instantly. 100% private in-browser extraction.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="extract-pdf-pages"
+        title="Extract PDF Pages — Save Specific Pages"
+        description="Select specific pages or custom page ranges from your PDF document and create a new, lightweight PDF instantly. 100% private in-browser extraction."
+      />
 
       {/* Main Workbench Card */}
       <div className="workbench-card">

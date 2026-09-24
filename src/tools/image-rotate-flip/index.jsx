@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -388,19 +388,12 @@ export default function ImageRotateFlipTool() {
 
   return (
     <div className="tool-page" id="image-rotate-flip-tool">
-      {/* Header */}
-      <div className="tool-header">
-        <div className="tool-breadcrumb">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-sep">›</span>
-          <span>Image Rotate & Flip</span>
-        </div>
-        <h1 className="tool-title">Image Rotate & Flip</h1>
-        <p className="tool-subtitle">
-          Rotate images 90°, 180°, or 270° and mirror horizontally or vertically.
-          Fast, interactive live canvas preview with full client-side privacy.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-rotate-flip"
+        title="Image Rotate & Flip"
+        description="Rotate images 90°, 180°, or 270° and mirror horizontally or vertically. Fast, interactive live canvas preview with full client-side privacy."
+      />
 
       {/* Upload State (IDLE or ERROR without selected image) */}
       {processingState === 'IDLE' && !selectedFile && (

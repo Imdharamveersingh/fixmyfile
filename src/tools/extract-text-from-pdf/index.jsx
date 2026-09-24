@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
@@ -200,23 +201,12 @@ export default function ExtractTextFromPdfTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Extract Text from PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">Extract Text from PDF</h1>
-        <p className="tool-subtitle">
-          Extract readable textual content from multi-page PDF documents directly in your browser. Fast, accurate, and completely private.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="extract-text-from-pdf"
+        title="Extract Text from PDF"
+        description="Extract readable textual content from multi-page PDF documents directly in your browser. Fast, accurate, and completely private."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

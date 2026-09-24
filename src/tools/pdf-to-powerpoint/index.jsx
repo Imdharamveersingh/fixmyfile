@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { getToolByPath } from '../toolsRegistry';
 import { convertPdfToPowerpoint } from './powerpointEngine';
 import { formatBytes } from '../../utils/helpers';
 
@@ -11,7 +10,6 @@ import { formatBytes } from '../../utils/helpers';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function PdfToPowerPointTool() {
-  const toolMeta = getToolByPath('/pdf-to-powerpoint');
   const [selectedFile, setSelectedFile] = useState(null);
   const [pdfMeta, setPdfMeta] = useState(null);
   const [isConverting, setIsConverting] = useState(false);
@@ -174,26 +172,12 @@ export default function PdfToPowerPointTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb / Top Bar */}
-      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PDF to PowerPoint</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header tool-header-area">
-        <div className="tool-title-row">
-          <h1 className="tool-h1 tool-main-title">PDF to PowerPoint Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro tool-main-desc">
-          Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentations directly in your browser.
-          High-definition slide rendering with page notes preserved. 100% private.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="pdf-to-powerpoint"
+        title="PDF to PowerPoint Converter"
+        description="Convert PDF documents into genuine Microsoft PowerPoint (.pptx) presentations directly in your browser. High-definition slide rendering with page notes preserved. 100% private."
+      />
 
       {/* Main Workbench Card */}
       <div className="converter-card workbench-card">

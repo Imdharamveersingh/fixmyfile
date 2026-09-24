@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
-import { getToolByPath } from '../toolsRegistry';
 import { getPdfMetadata, validatePageOrder, reorderPdfPages } from './reorderEngine';
 import { formatBytes } from '../../utils/helpers';
 
 export default function ReorderPdfPagesTool() {
-  const toolMeta = getToolByPath('/reorder-pdf-pages');
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [totalPages, setTotalPages] = useState(0);
@@ -249,32 +247,12 @@ export default function ReorderPdfPagesTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <ol className="breadcrumb-list">
-          <li className="breadcrumb-item">
-            <Link to="/" className="breadcrumb-link">
-              Home
-            </Link>
-          </li>
-          <li className="breadcrumb-separator" aria-hidden="true">
-            /
-          </li>
-          <li className="breadcrumb-item">
-            <span className="breadcrumb-current">Reorder PDF Pages</span>
-          </li>
-        </ol>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-main-title">Reorder PDF Pages — Rearrange Page Order</h1>
-        </div>
-        <p className="tool-intro">
-          Easily rearrange, shuffle, or reverse the page sequence of your PDF document. All pages are preserved with exact layout fidelity. 100% private in-browser.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="reorder-pdf-pages"
+        title="Reorder PDF Pages — Rearrange Page Order"
+        description="Easily rearrange, shuffle, or reverse the page sequence of your PDF document. All pages are preserved with exact layout fidelity. 100% private in-browser."
+      />
 
       {/* Main Workbench Card */}
       <div className="workbench-card">

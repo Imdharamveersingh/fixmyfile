@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   Link as LinkIcon,
@@ -336,18 +337,12 @@ export default function QrCodeGeneratorTool() {
 
   return (
     <div className="tool-page-container qr-page-wrapper">
-      {/* Header & Badges */}
-      <div className="tool-header">
-        <div className="tool-badge-row">
-          <span className="tool-badge">Generator</span>
-          <span className="tool-badge-format">QR · SVG + PNG</span>
-        </div>
-        <h1 className="tool-title">QR Code Generator Online</h1>
-        <p className="tool-subtitle">
-          Create customized, high-resolution QR codes for links, text, Wi-Fi, email, and phone numbers.
-          Live reactive preview, vector SVG and crisp PNG downloads. 100% private in-browser generation.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="qr-code-generator"
+        title="QR Code Generator Online"
+        description="Create customized, high-resolution QR codes for links, text, Wi-Fi, email, and phone numbers. Live reactive preview, vector SVG and crisp PNG downloads. 100% private in-browser generation."
+      />
 
       {/* Error Alert Bar */}
       {effectiveError && (

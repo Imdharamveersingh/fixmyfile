@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Format bytes into readable file size
 function formatBytes(bytes, decimals = 2) {
@@ -425,28 +425,12 @@ export default function ImageResizerTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator" aria-hidden="true">
-          /
-        </span>
-        <span className="breadcrumb-current">Image Resizer</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image Resizer</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Resize JPG and PNG images online to exact dimensions or social media presets.
-          Preserves aspect ratio, image quality, and PNG alpha transparency with 100% client-side privacy.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-resizer"
+        title="Image Resizer"
+        description="Resize JPG and PNG images online to exact dimensions or social media presets. Preserves aspect ratio, image quality, and PNG alpha transparency with 100% client-side privacy."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

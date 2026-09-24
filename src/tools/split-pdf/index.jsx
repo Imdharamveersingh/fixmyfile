@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
-import { getToolByPath } from '../toolsRegistry';
 import {
   parsePageRanges,
   getPdfMetadata,
@@ -12,7 +11,6 @@ import {
 import { formatBytes } from '../../utils/helpers';
 
 export default function SplitPdfTool() {
-  const toolMeta = getToolByPath('/split-pdf');
   const [file, setFile] = useState(null);
   const [fileBuffer, setFileBuffer] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -215,26 +213,12 @@ export default function SplitPdfTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb / Top Bar */}
-      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Split PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header tool-header-area">
-        <div className="tool-title-row">
-          <h1 className="tool-h1 tool-main-title">Split PDF</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro tool-main-desc">
-          Extract specific pages or split your PDF into multiple separate documents in seconds.
-          100% private, processed entirely in your browser.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="split-pdf"
+        title="Split PDF"
+        description="Extract specific pages or split your PDF into multiple separate documents in seconds. 100% private, processed entirely in your browser."
+      />
 
       {/* Main Workbench Card */}
       <div className="converter-card workbench-card">

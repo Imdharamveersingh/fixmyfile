@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { formatBytes } from '../../utils/helpers';
 
 export default function BackgroundRemoverTool() {
@@ -330,26 +330,12 @@ export default function BackgroundRemoverTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Background Remover</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Background Remover</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Remove backgrounds from JPG and PNG images in seconds. Powered by advanced in-browser AI segmentation
-          with zero server uploads, 100% privacy, and instant transparent PNG export.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="background-remover"
+        title="Background Remover"
+        description="Remove backgrounds from JPG and PNG images in seconds. Powered by advanced in-browser AI segmentation with zero server uploads, 100% privacy, and instant transparent PNG export."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

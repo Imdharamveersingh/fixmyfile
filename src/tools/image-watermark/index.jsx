@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -522,19 +522,12 @@ export default function ImageWatermarkTool() {
 
   return (
     <div className="tool-page" id="image-watermark-tool">
-      {/* Header */}
-      <div className="tool-header">
-        <div className="tool-breadcrumb">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-sep">›</span>
-          <span>Image Watermark</span>
-        </div>
-        <h1 className="tool-title">Image Watermark</h1>
-        <p className="tool-subtitle">
-          Stamp custom text or graphic watermarks with live canvas preview, positioning presets,
-          diagonal tiling, and full transparency preservation. 100% in-browser privacy.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-watermark"
+        title="Image Watermark"
+        description="Stamp custom text or graphic watermarks with live canvas preview, positioning presets, diagonal tiling, and full transparency preservation. 100% in-browser privacy."
+      />
 
       {/* Upload Zone (IDLE / ERROR) */}
       {processingState === 'IDLE' && !selectedFile && (

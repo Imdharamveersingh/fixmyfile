@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { calculateEMI, formatCurrency } from './emiEngine';
 
@@ -77,15 +78,12 @@ Calculated via FixMyFile EMI Calculator`;
 
   return (
     <div className="tool-page emi-calculator-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <h1 className="tool-title">EMI Calculator</h1>
-          <p className="tool-description">
-            Calculate your monthly loan payments (Equated Monthly Installment), total interest, and complete repayment breakdown in seconds.
-          </p>
-          <span className="tool-format-badge">Financial Math Engine</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="emi-calculator"
+        title="EMI Calculator"
+        description="Calculate your monthly loan payments (Equated Monthly Installment), total interest, and complete repayment breakdown in seconds."
+      />
 
       <div className="emi-calculator-layout">
         {/* Input Card */}

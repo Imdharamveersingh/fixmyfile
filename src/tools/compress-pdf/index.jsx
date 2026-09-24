@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { PDFDocument } from 'pdf-lib';
 import { formatBytes } from '../../utils/helpers';
 
@@ -205,26 +205,12 @@ export default function CompressPdfTool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb-nav" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">
-          Home
-        </Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Compress PDF</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Compress PDF</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro">
-          Reduce PDF file size while preserving optimal text clarity, vector graphics, and visual quality.
-          Fast, 100% private, and processed directly inside your browser without uploading to any server.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="compress-pdf"
+        title="Compress PDF"
+        description="Reduce PDF file size while preserving optimal text clarity, vector graphics, and visual quality. Fast, 100% private, and processed directly inside your browser without uploading to any server."
+      />
 
       {/* Error Alert */}
       {errorMessage && (

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { processPdfOcr, validatePdfInput } from '../../services/ocr/ocrPdfLayer';
 import { terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import { formatBytes, MAX_PDF_FILE_SIZE } from '../../services/ocr/ocrUtils';
@@ -133,24 +133,12 @@ export default function PdfOcrTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PDF OCR</span>
-      </nav>
-
-      {/* Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">PDF OCR (Make PDF Searchable)</h1>
-        <p className="tool-subtitle">
-          Add a searchable, selectable text layer to scanned or flat PDF documents directly in your browser.
-          Preserve original formatting with zero cloud uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="pdf-ocr"
+        title="PDF OCR (Make PDF Searchable)"
+        description="Add a searchable, selectable text layer to scanned or flat PDF documents directly in your browser. Preserve original formatting with zero cloud uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

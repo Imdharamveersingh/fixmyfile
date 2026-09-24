@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Human-readable file size formatter
 function formatBytes(bytes, decimals = 2) {
@@ -218,23 +218,12 @@ export default function ImageToBase64Tool() {
 
   return (
     <div className="tool-view-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">Image to Base64</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header">
-        <div className="tool-title-row">
-          <h1 className="tool-h1">Image to Base64 Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-description">
-          Convert JPG, PNG, WebP, GIF, and SVG images directly into standard Base64 Data URIs and raw encoded strings for web embedding, CSS, and HTML.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="image-to-base64"
+        title="Image to Base64 Converter"
+        description="Convert JPG, PNG, WebP, GIF, and SVG images directly into standard Base64 Data URIs and raw encoded strings for web embedding, CSS, and HTML."
+      />
 
       {/* Main Tool Area */}
       <div className="tool-card">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PRESETS,
@@ -84,17 +85,12 @@ export default function PasswordGeneratorTool() {
 
   return (
     <div className="tool-page password-tool-page">
-      <div className="tool-header-area">
-        <div className="tool-header-content">
-          <span className="tool-badge">Security Tool</span>
-          <h1 className="tool-title" id="password-tool-title">Password Generator Online</h1>
-          <p className="tool-subtitle">
-            Generate strong, cryptographically secure passwords locally in your browser
-            using standard Web Crypto APIs. Zero server transmissions.
-          </p>
-          <span className="tool-format-badge">Web Crypto API</span>
-        </div>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="password-generator"
+        title="Password Generator Online"
+        description="Generate strong, cryptographically secure passwords locally in your browser using standard Web Crypto APIs. Zero server transmissions."
+      />
 
       <div className="password-app-layout">
         <div className="password-card">

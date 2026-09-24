@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect, useId } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import * as pdfjsLib from 'pdfjs-dist';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-import { getToolByPath } from '../toolsRegistry';
 import { convertPdfToExcel } from './excelEngine';
 import { formatBytes } from '../../utils/helpers';
 
@@ -11,7 +10,6 @@ import { formatBytes } from '../../utils/helpers';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function PdfToExcelTool() {
-  const toolMeta = getToolByPath('/pdf-to-excel');
   const [selectedFile, setSelectedFile] = useState(null);
   const [pdfMeta, setPdfMeta] = useState(null);
   const [isConverting, setIsConverting] = useState(false);
@@ -173,26 +171,12 @@ export default function PdfToExcelTool() {
 
   return (
     <div className="tool-view-container tool-page-container">
-      {/* Breadcrumb / Top Bar */}
-      <nav className="breadcrumb-nav tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/" className="breadcrumb-link">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <Link to="/#tools-phase4" className="breadcrumb-link">PDF Tools</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PDF to Excel</span>
-      </nav>
-
-      {/* Tool Header */}
-      <header className="tool-header tool-header-area">
-        <div className="tool-title-row">
-          <h1 className="tool-h1 tool-main-title">PDF to Excel Converter</h1>
-          <span className="tool-badge-primary">Free · In-Browser</span>
-        </div>
-        <p className="tool-intro tool-main-desc">
-          Convert PDF tables and spreadsheets into genuine Microsoft Excel (.xlsx) workbooks directly in your browser.
-          100% private with spatial column detection.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="pdf-to-excel"
+        title="PDF to Excel Converter"
+        description="Convert PDF tables and spreadsheets into genuine Microsoft Excel (.xlsx) workbooks directly in your browser. 100% private with spatial column detection."
+      />
 
       {/* Main Workbench Card */}
       <div className="converter-card workbench-card">

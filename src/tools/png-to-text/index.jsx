@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 import { runOcr, terminateOcrWorker } from '../../services/ocr/ocrEngine';
 import {
   validatePngFile,
@@ -204,23 +204,12 @@ export default function PngToTextTool() {
 
   return (
     <div className="tool-page-container">
-      {/* Breadcrumb Navigation */}
-      <nav className="tool-breadcrumbs" aria-label="Breadcrumb">
-        <Link to="/">Home</Link>
-        <span className="breadcrumb-separator">/</span>
-        <span className="breadcrumb-current">PNG to Text</span>
-      </nav>
-
-      {/* Header */}
-      <header className="tool-header">
-        <div className="tool-badge-wrap">
-          <span className="tool-privacy-badge">🔒 100% Client-Side • Private</span>
-        </div>
-        <h1 className="tool-title">PNG to Text (OCR)</h1>
-        <p className="tool-subtitle">
-          Extract text from PNG screenshots, code snippets, UI mockups, and high-contrast graphics directly in your browser. 100% private, zero uploads.
-        </p>
-      </header>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="png-to-text"
+        title="PNG to Text (OCR)"
+        description="Extract text from PNG screenshots, code snippets, UI mockups, and high-contrast graphics directly in your browser. 100% private, zero uploads."
+      />
 
       {/* Main Workspace */}
       <div className="tool-workspace">

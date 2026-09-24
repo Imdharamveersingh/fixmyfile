@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import ToolDetailHeader from '../../components/ToolDetailHeader';
 import ToolDetailContent from '../../components/ToolDetailContent';
-import { Link } from 'react-router-dom';
 
 // Format bytes into human-readable string
 function formatBytes(bytes, decimals = 2) {
@@ -334,19 +334,12 @@ export default function WebpToPngTool() {
     <div className="tool-page" id="webp-to-png-tool">
       <title>WebP to PNG Converter — FixMyFile</title>
 
-      {/* Header */}
-      <div className="tool-header">
-        <div className="tool-breadcrumb">
-          <Link to="/">Home</Link>
-          <span className="breadcrumb-sep">›</span>
-          <span>WebP to PNG</span>
-        </div>
-        <h1 className="tool-title">WebP to PNG</h1>
-        <p className="tool-subtitle">
-          Convert Google WebP images to lossless PNG format in your browser.
-          Preserves transparency, dimensions, and visual clarity with zero server uploads.
-        </p>
-      </div>
+      {/* Normalized Universal Tool Detail Header & Breadcrumb */}
+      <ToolDetailHeader
+        toolId="webp-to-png"
+        title="WebP to PNG"
+        description="Convert Google WebP images to lossless PNG format in your browser. Preserves transparency, dimensions, and visual clarity with zero server uploads."
+      />
 
       {/* Upload Zone */}
       {(processingState === 'IDLE' || processingState === 'ERROR') && (
