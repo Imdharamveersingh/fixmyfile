@@ -55,12 +55,19 @@
 }
 
 .brand-logo-img {
-  width: 32px;
-  height: 32px;
+  height: 38px;
+  width: auto;
+  max-width: 140px;
   object-fit: contain;
-  border-radius: var(--radius-sm);
   flex-shrink: 0;
   display: block;
+}
+
+@media (max-width: 640px) {
+  .brand-logo-img {
+    height: 30px;
+    max-width: 110px;
+  }
 }
 
 .brand-logo-container {
@@ -6685,18 +6692,30 @@
 }
 
 .footer-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 14px;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-brand:hover {
+  opacity: 0.88;
 }
 
 .footer-logo-img {
-  width: 32px;
-  height: 32px;
+  height: 44px;
+  width: auto;
+  max-width: 160px;
   object-fit: contain;
-  border-radius: var(--radius-sm);
   display: block;
+}
+
+@media (max-width: 640px) {
+  .footer-logo-img {
+    height: 36px;
+    max-width: 130px;
+  }
 }
 
 .brand-title {

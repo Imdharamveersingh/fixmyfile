@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo2 from '../assets/logo 2.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,16 +10,15 @@ export default function Footer() {
       <div className="footer-container">
         {/* Brand Block */}
         <div className="footer-col brand-col">
-          <div className="footer-brand">
+          <Link to="/" className="footer-brand" aria-label="FixMyFile Home">
             <img
-              src="/logo.png"
-              alt="FixMyFile Logo"
+              src={logo2}
+              alt="FixMyFile"
               className="footer-logo-img brand-logo-img"
-              width="32"
-              height="32"
+              width="140"
+              height="57"
             />
-            <span className="brand-title brand-name">FixMyFile</span>
-          </div>
+          </Link>
           <p className="footer-desc">
             Fast, browser-based file utilities built with simplicity, privacy, and practical workflows in mind.
           </p>

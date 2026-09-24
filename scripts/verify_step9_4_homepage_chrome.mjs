@@ -140,9 +140,9 @@ async function runChromeAudit() {
 
         // Check header and footer brand logo
         const headerLogo = document.querySelector('.site-header .brand-logo-img');
-        const headerBrandText = document.querySelector('.site-header .brand-name')?.textContent?.trim();
+        const headerBrandText = document.querySelector('.site-header .brand-name')?.textContent?.trim() || '';
         const footerLogo = document.querySelector('.site-footer .footer-logo-img');
-        const footerBrandText = document.querySelector('.site-footer .brand-title, .site-footer .brand-name')?.textContent?.trim();
+        const footerBrandText = document.querySelector('.site-footer .brand-title, .site-footer .brand-name')?.textContent?.trim() || '';
 
         return {
           hasHero: !!hero,
@@ -172,8 +172,8 @@ async function runChromeAudit() {
     });
     console.log('   Total Active Tool Cards:', auditData.totalCards);
     console.log('   Unique Tool Cards:', auditData.uniqueCards);
-    console.log('   Header Brand:', auditData.headerLogoSrc, auditData.headerBrandText);
-    console.log('   Footer Brand:', auditData.footerLogoSrc, auditData.footerBrandText);
+    console.log('   Header Brand:', auditData.headerLogoSrc, auditData.headerBrandText || '(no separate text)');
+    console.log('   Footer Brand:', auditData.footerLogoSrc, auditData.footerBrandText || '(no separate text)');
 
     assert.ok(auditData.hasHero, 'Hero section must exist');
     assert.ok(!auditData.hasStatsRow, 'Stats row must be completely absent');
@@ -191,10 +191,10 @@ async function runChromeAudit() {
     assert.strictEqual(auditData.categories[3].title, 'Media Tools');
     assert.strictEqual(auditData.categories[3].cardCount, 4);
 
-    assert.strictEqual(auditData.headerLogoSrc, '/logo.png');
-    assert.strictEqual(auditData.headerBrandText, 'FixMyFile');
-    assert.strictEqual(auditData.footerLogoSrc, '/logo.png');
-    assert.strictEqual(auditData.footerBrandText, 'FixMyFile');
+    assert.ok(auditData.headerLogoSrc.includes('logo%202') || auditData.headerLogoSrc.includes('logo 2') || auditData.headerLogoSrc.includes('logo_2') || auditData.headerLogoSrc.includes('assets/'), 'Header uses logo 2');
+    assert.strictEqual(auditData.headerBrandText, '', 'Header has no separate text beside logo');
+    assert.ok(auditData.footerLogoSrc.includes('logo%202') || auditData.footerLogoSrc.includes('logo 2') || auditData.footerLogoSrc.includes('logo_2') || auditData.footerLogoSrc.includes('assets/'), 'Footer uses logo 2');
+    assert.strictEqual(auditData.footerBrandText, '', 'Footer has no separate text beside logo');
 
     console.log('   ✓ DOM and category counts verified.\n');
 

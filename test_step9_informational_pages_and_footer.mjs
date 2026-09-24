@@ -70,7 +70,7 @@ test('=== FixMyFile Step 9: Informational Pages, Blog Architecture & Footer Rede
     const footerContent = fs.readFileSync('src/components/Footer.jsx', 'utf8');
 
     // Brand and Trust Badge
-    assert.match(footerContent, /FixMyFile Logo/);
+    assert.match(footerContent, /alt="FixMyFile"/);
     assert.match(footerContent, /100% Private & Browser-Based/);
     assert.match(footerContent, /<svg\s+aria-hidden="true"/, 'Trust badge SVG is aria-hidden');
 

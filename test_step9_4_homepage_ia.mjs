@@ -155,16 +155,18 @@ test('=== FIXMYFILE STEP 9.4: HOMEPAGE DISCOVERY & BRAND POLISH TEST SUITE ===',
     }
   });
 
-  // 8. Logo & Brand Mark Parity
-  await t.test('8. Brand lockup and logo parity across Header and Footer', () => {
-    assert.match(headerJsx, /src="\/logo\.png"/, 'Header uses /logo.png');
-    assert.match(footerJsx, /src="\/logo\.png"/, 'Footer uses /logo.png');
-    assert.match(headerJsx, /alt="FixMyFile Logo"/, 'Header has alt text');
-    assert.match(footerJsx, /alt="FixMyFile Logo"/, 'Footer has alt text');
-    assert.match(headerJsx, /brand-logo-img/, 'Header has brand-logo-img');
-    assert.match(footerJsx, /brand-logo-img/, 'Footer has brand-logo-img');
-    assert.match(headerJsx, /brand-name/, 'Header has brand-name');
-    assert.match(footerJsx, /brand-name/, 'Footer has brand-name');
+  // 8. Logo & Brand Mark Parity with Logo 2
+  await t.test('8. Brand lockup and logo 2 parity across Header and Footer', () => {
+    assert.match(headerJsx, /logo\s*2\.png/, 'Header imports logo 2');
+    assert.match(footerJsx, /logo\s*2\.png/, 'Footer imports logo 2');
+    assert.match(headerJsx, /alt="FixMyFile"/, 'Header has alt="FixMyFile"');
+    assert.match(footerJsx, /alt="FixMyFile"/, 'Footer has alt="FixMyFile"');
+    assert.match(headerJsx, /brand-logo-img/, 'Header has brand-logo-img class');
+    assert.match(footerJsx, /footer-logo-img/, 'Footer has footer-logo-img class');
+
+    // No separate visible text branding beside the logo in Header or Footer
+    assert.ok(!headerJsx.includes('>FixMyFile<'), 'Header must not render separate visible FixMyFile text');
+    assert.ok(!footerJsx.includes('>FixMyFile<'), 'Footer must not render separate visible FixMyFile text');
 
     // index.html favicon references
     assert.ok(indexHtml.includes('href="/logo.png"'), 'index.html has logo.png favicon');
