@@ -12,6 +12,12 @@ export const TOOL_ICON_DEFS = {
     { tag: 'line', attrs: { x1: '8', y1: '17', x2: '14', y2: '17' } }
   ],
 
+  // Mail envelope icon for Contact
+  mail: [
+    { tag: 'rect', attrs: { x: '2', y: '4', width: '20', height: '16', rx: '2' } },
+    { tag: 'path', attrs: { d: 'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7' } }
+  ],
+
   // --- Phase 1: PDF Tools ---
   'jpg-to-pdf': [
     { tag: 'rect', attrs: { x: '2', y: '3', width: '13', height: '13', rx: '2' } },

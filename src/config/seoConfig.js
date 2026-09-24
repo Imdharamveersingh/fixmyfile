@@ -128,8 +128,8 @@ export function getPageSEO(pathname) {
       description: 'Learn why FixMyFile uses client-side WebAssembly and Canvas to process PDFs, images, and videos directly in your browser with zero server uploads.'
     },
     '/contact': {
-      title: 'Contact & Support — FixMyFile',
-      description: 'Get in touch with the FixMyFile team. Report issues, request new file tools, or contribute via our open GitHub repository.'
+      title: 'Contact FixMyFile — Get in Touch',
+      description: 'Contact FixMyFile for questions, feedback, bug reports, suggestions, and partnership inquiries.'
     },
     '/privacy': {
       title: 'Privacy Policy — FixMyFile',
