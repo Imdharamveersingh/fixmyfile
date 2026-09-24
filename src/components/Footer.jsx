@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo2 from '../assets/logo 2.png';
+import logo from '../assets/logo.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <Link to="/" className="footer-brand" aria-label="FixMyFile Home">
             <img
-              src={logo2}
+              src={logo}
               alt="FixMyFile"
               className="footer-logo-img brand-logo-img"
-              width="140"
-              height="57"
+              width="784"
+              height="318"
             />
           </Link>
           <p className="footer-desc">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import logo2 from '../assets/logo 2.png';
+import logo from '../assets/logo.png';
 
 export default function Header() {
   const location = useLocation();
@@ -77,11 +77,11 @@ export default function Header() {
       <div className="header-container">
         <Link to="/" className="brand-logo" aria-label="FixMyFile Home">
           <img
-            src={logo2}
+            src={logo}
             alt="FixMyFile"
             className="brand-logo-img"
-            width="140"
-            height="57"
+            width="784"
+            height="318"
           />
         </Link>
 

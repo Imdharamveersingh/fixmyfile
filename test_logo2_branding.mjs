@@ -2,18 +2,18 @@ import { test } from 'node:test';
 import assert from 'node:assert';
 import fs from 'node:fs';
 
-test('=== FIXMYFILE: LOGO 2 BRANDING REPLACEMENT TEST SUITE ===', async (t) => {
+test('=== FIXMYFILE: LOGO BRANDING REPLACEMENT TEST SUITE ===', async (t) => {
   const headerJsx = fs.readFileSync('src/components/Header.jsx', 'utf8');
   const footerJsx = fs.readFileSync('src/components/Footer.jsx', 'utf8');
   const logoJsx = fs.readFileSync('src/components/Logo.jsx', 'utf8');
   const appCss = fs.readFileSync('src/App.css', 'utf8');
 
   // 1. Asset existence and import in Header and Footer
-  await t.test('1. logo 2 asset exists and is imported in Header and Footer', () => {
-    assert.ok(fs.existsSync('src/assets/logo 2.png'), 'src/assets/logo 2.png must exist');
-    assert.match(headerJsx, /import\s+logo2\s+from\s+['"]\.\.\/assets\/logo 2\.png['"]/, 'Header imports logo 2');
-    assert.match(footerJsx, /import\s+logo2\s+from\s+['"]\.\.\/assets\/logo 2\.png['"]/, 'Footer imports logo 2');
-    assert.match(logoJsx, /import\s+logo2\s+from\s+['"]\.\.\/assets\/logo 2\.png['"]/, 'Logo.jsx imports logo 2');
+  await t.test('1. logo asset exists and is imported in Header and Footer', () => {
+    assert.ok(fs.existsSync('src/assets/logo.png'), 'src/assets/logo.png must exist');
+    assert.match(headerJsx, /import\s+logo\s+from\s+['"]\.\.\/assets\/logo\.png['"]/, 'Header imports logo.png');
+    assert.match(footerJsx, /import\s+logo\s+from\s+['"]\.\.\/assets\/logo\.png['"]/, 'Footer imports logo.png');
+    assert.match(logoJsx, /import\s+logo\s+from\s+['"]\.\.\/assets\/logo\.png['"]/, 'Logo.jsx imports logo.png');
   });
 
   // 2. Removal of separately rendered visible FixMyFile text
@@ -40,14 +40,15 @@ test('=== FIXMYFILE: LOGO 2 BRANDING REPLACEMENT TEST SUITE ===', async (t) => {
   });
 
   // 5. CSS Responsive Sizing Rules
-  await t.test('5. CSS responsive sizing rules for logo 2 in Header and Footer', () => {
-    assert.match(appCss, /\.brand-logo-img\s*\{[^}]*height:\s*38px;/, 'Desktop header logo height is 38px');
+  await t.test('5. CSS responsive sizing rules for logo in Header and Footer', () => {
+    assert.match(appCss, /\.brand-logo-img\s*\{[^}]*height:\s*48px;/, 'Desktop header logo height is 48px');
     assert.match(appCss, /\.brand-logo-img\s*\{[^}]*object-fit:\s*contain;/, 'Header logo uses object-fit: contain');
-    assert.match(appCss, /\.footer-logo-img\s*\{[^}]*height:\s*44px;/, 'Footer logo height is 44px');
+    assert.match(appCss, /\.footer-logo-img\s*\{[^}]*height:\s*58px;/, 'Footer logo height is 58px');
     assert.match(appCss, /\.footer-logo-img\s*\{[^}]*object-fit:\s*contain;/, 'Footer logo uses object-fit: contain');
 
     // Mobile overrides
-    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.brand-logo-img\s*\{[^}]*height:\s*30px;/, 'Mobile header logo height scaled to 30px');
-    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.footer-logo-img\s*\{[^}]*height:\s*36px;/, 'Mobile footer logo height scaled to 36px');
+    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.brand-logo-img\s*\{[^}]*height:\s*41px;/, 'Mobile header logo height scaled to 41px');
+    assert.match(appCss, /@media\s*\(max-width:\s*640px\)\s*\{[^}]*\.footer-logo-img\s*\{[^}]*height:\s*48px;/, 'Mobile footer logo height scaled to 48px');
   });
 });
+

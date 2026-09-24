@@ -6,7 +6,7 @@ const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 const BASE_URL = 'http://localhost:5173';
 
 const VIEWPORTS = [
-  { name: 'Mobile 375x667', width: 375, height: 667 },
+  { name: 'Mobile 375x844', width: 375, height: 844 },
   { name: 'Mobile 390x844', width: 390, height: 844 },
   { name: 'Tablet 768x1024', width: 768, height: 1024 },
   { name: 'Desktop 1024x768', width: 1024, height: 768 },
@@ -15,7 +15,7 @@ const VIEWPORTS = [
 ];
 
 async function runChromeAudit() {
-  console.log('=== Starting Real Chrome CDP Verification for Logo 2 Branding ===\n');
+  console.log('=== Starting Real Chrome CDP Verification for Logo Branding ===\n');
 
   const port = 9355;
   const chrome = spawn(CHROME_PATH, [
@@ -170,18 +170,18 @@ async function runChromeAudit() {
     assert.ok(auditData.hasHeaderLink, 'Header logo link must exist');
     assert.strictEqual(auditData.headerHref, '/', 'Header logo must link to /');
     assert.strictEqual(auditData.headerImgAlt, 'FixMyFile', 'Header logo alt must be "FixMyFile"');
-    assert.strictEqual(auditData.headerImgNaturalW, 1967, 'Header logo must use the 1967x800 logo 2 asset');
-    assert.strictEqual(auditData.headerImgNaturalH, 800, 'Header logo must use the 1967x800 logo 2 asset');
+    assert.strictEqual(auditData.headerImgNaturalW, 784, 'Header logo must use the 784x318 logo.png asset');
+    assert.strictEqual(auditData.headerImgNaturalH, 318, 'Header logo must use the 784x318 logo.png asset');
     assert.strictEqual(auditData.headerTextBesideLogo, '', 'Header must have zero separate text beside logo');
 
     assert.ok(auditData.hasFooterLink, 'Footer logo link must exist');
     assert.strictEqual(auditData.footerHref, '/', 'Footer logo must link to /');
     assert.strictEqual(auditData.footerImgAlt, 'FixMyFile', 'Footer logo alt must be "FixMyFile"');
-    assert.strictEqual(auditData.footerImgNaturalW, 1967, 'Footer logo must use the 1967x800 logo 2 asset');
-    assert.strictEqual(auditData.footerImgNaturalH, 800, 'Footer logo must use the 1967x800 logo 2 asset');
+    assert.strictEqual(auditData.footerImgNaturalW, 784, 'Footer logo must use the 784x318 logo.png asset');
+    assert.strictEqual(auditData.footerImgNaturalH, 318, 'Footer logo must use the 784x318 logo.png asset');
     assert.strictEqual(auditData.footerTextBesideLogo, '', 'Footer must have zero separate text beside logo');
 
-    console.log('   ✓ Logo 2 branding structure verified.\n');
+    console.log('   ✓ Logo branding structure verified.\n');
 
     // 2. Multi-viewport testing
     console.log('2. Testing layout, rendering and horizontal overflow across 6 viewports...');
@@ -215,15 +215,15 @@ async function runChromeAudit() {
       const status = vpMetrics.hasOverflow ? `FAIL (doc: ${vpMetrics.docW}px, win: ${vpMetrics.winW}px)` : 'PASS';
       console.log(`   ${vp.name.padEnd(20)} : Overflow = ${status} | Header Logo: ${vpMetrics.hW}x${vpMetrics.hH}px | Footer Logo: ${vpMetrics.fW}x${vpMetrics.fH}px`);
       assert.ok(!vpMetrics.hasOverflow, `Horizontal overflow detected at ${vp.name}`);
-      assert.ok(vpMetrics.hW > 50 && vpMetrics.hH >= 28, 'Header logo rendered with clean dimensions');
-      assert.ok(vpMetrics.fW > 50 && vpMetrics.fH >= 34, 'Footer logo rendered with clean dimensions');
+      assert.ok(vpMetrics.hW >= 95 && vpMetrics.hW <= 130, `Header logo width in expected range: got ${vpMetrics.hW}px`);
+      assert.ok(vpMetrics.fW >= 110 && vpMetrics.fW <= 155, `Footer logo width in expected range: got ${vpMetrics.fW}px`);
     }
 
     console.log('\n3. Checking for Console Errors / Runtime Exceptions...');
     console.log('   Errors recorded:', consoleErrors.length);
     assert.strictEqual(consoleErrors.length, 0, `Expected 0 console errors, got ${consoleErrors.length}`);
 
-    console.log('\n=== ALL CHROME CDP CHECKS PASSED FOR LOGO 2 BRANDING ===');
+    console.log('\n=== ALL CHROME CDP CHECKS PASSED FOR LOGO BRANDING ===');
     ws.close();
   } finally {
     chrome.kill('SIGTERM');

@@ -55,9 +55,9 @@
 }
 
 .brand-logo-img {
-  height: 38px;
+  height: 48px;
   width: auto;
-  max-width: 140px;
+  max-width: 130px;
   object-fit: contain;
   flex-shrink: 0;
   display: block;
@@ -65,8 +65,8 @@
 
 @media (max-width: 640px) {
   .brand-logo-img {
-    height: 30px;
-    max-width: 110px;
+    height: 41px;
+    max-width: 105px;
   }
 }
 
@@ -6704,17 +6704,17 @@
 }
 
 .footer-logo-img {
-  height: 44px;
+  height: 58px;
   width: auto;
-  max-width: 160px;
+  max-width: 155px;
   object-fit: contain;
   display: block;
 }
 
 @media (max-width: 640px) {
   .footer-logo-img {
-    height: 36px;
-    max-width: 130px;
+    height: 48px;
+    max-width: 125px;
   }
 }
 

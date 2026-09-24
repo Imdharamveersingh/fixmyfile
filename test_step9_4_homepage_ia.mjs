@@ -155,10 +155,10 @@ test('=== FIXMYFILE STEP 9.4: HOMEPAGE DISCOVERY & BRAND POLISH TEST SUITE ===',
     }
   });
 
-  // 8. Logo & Brand Mark Parity with Logo 2
-  await t.test('8. Brand lockup and logo 2 parity across Header and Footer', () => {
-    assert.match(headerJsx, /logo\s*2\.png/, 'Header imports logo 2');
-    assert.match(footerJsx, /logo\s*2\.png/, 'Footer imports logo 2');
+  // 8. Logo & Brand Mark Parity with logo.png
+  await t.test('8. Brand lockup and logo asset parity across Header and Footer', () => {
+    assert.match(headerJsx, /import\s+logo\s+from\s+['"]\.\.\/assets\/logo\.png['"]/, 'Header imports logo.png');
+    assert.match(footerJsx, /import\s+logo\s+from\s+['"]\.\.\/assets\/logo\.png['"]/, 'Footer imports logo.png');
     assert.match(headerJsx, /alt="FixMyFile"/, 'Header has alt="FixMyFile"');
     assert.match(footerJsx, /alt="FixMyFile"/, 'Footer has alt="FixMyFile"');
     assert.match(headerJsx, /brand-logo-img/, 'Header has brand-logo-img class');

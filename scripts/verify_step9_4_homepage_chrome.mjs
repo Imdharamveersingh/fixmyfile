@@ -191,9 +191,9 @@ async function runChromeAudit() {
     assert.strictEqual(auditData.categories[3].title, 'Media Tools');
     assert.strictEqual(auditData.categories[3].cardCount, 4);
 
-    assert.ok(auditData.headerLogoSrc.includes('logo%202') || auditData.headerLogoSrc.includes('logo 2') || auditData.headerLogoSrc.includes('logo_2') || auditData.headerLogoSrc.includes('assets/'), 'Header uses logo 2');
+    assert.ok(auditData.headerLogoSrc.includes('logo') || auditData.headerLogoSrc.includes('assets/'), 'Header uses logo');
     assert.strictEqual(auditData.headerBrandText, '', 'Header has no separate text beside logo');
-    assert.ok(auditData.footerLogoSrc.includes('logo%202') || auditData.footerLogoSrc.includes('logo 2') || auditData.footerLogoSrc.includes('logo_2') || auditData.footerLogoSrc.includes('assets/'), 'Footer uses logo 2');
+    assert.ok(auditData.footerLogoSrc.includes('logo') || auditData.footerLogoSrc.includes('assets/'), 'Footer uses logo');
     assert.strictEqual(auditData.footerBrandText, '', 'Footer has no separate text beside logo');
 
     console.log('   ✓ DOM and category counts verified.\n');
