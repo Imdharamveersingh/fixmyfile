@@ -21,7 +21,7 @@ assert(headerJsx.includes('Image Tools'), 'Header must contain Image Tools');
 assert(headerJsx.includes('Media Tools'), 'Header must contain Media Tools');
 assert(headerJsx.includes('Generators'), 'Header must contain Generators');
 assert(headerJsx.includes('All Tools'), 'Header must contain All Tools');
-assert(headerJsx.includes('Explore Tools'), 'Header must contain Explore Tools');
+assert(!headerJsx.includes('Explore Tools'), 'Header must not contain Explore Tools button');
 assert(!headerJsx.includes('Phase 7 Complete'), 'Header must not contain Phase 7 Complete badge');
 console.log('  ✓ All 5 major nav categories present without development badges in Header.jsx');
 

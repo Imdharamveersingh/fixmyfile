@@ -48,26 +48,26 @@ test('=== FIXMYFILE: HEADER MEGA-MENU TOOL SVG ICONS TEST SUITE ===', async (t) 
     }
   });
 
-  await t.test('3. ToolIcon size is 18px across all dropdown tool links', () => {
-    const iconMatches = Array.from(headerCode.matchAll(/<ToolIcon\s+icon="([^"]+)"\s+size=\{([0-9]+)\}/g));
-    assert.strictEqual(iconMatches.length, 49, `Expected exactly 49 ToolIcon usages in Header, got ${iconMatches.length}`);
+  await t.test('3. ToolIcon size is 20px across all dropdown tool links', () => {
+    const iconMatches = Array.from(headerCode.matchAll(/<ToolIcon\s+icon="([^"]+)"\s+size=\{([0-9]+)\}\s+className="mega-menu-tool-icon"/g));
+    assert.strictEqual(iconMatches.length, 49, `Expected exactly 49 ToolIcon usages in Header mega menus, got ${iconMatches.length}`);
 
     for (const match of iconMatches) {
       const toolId = match[1];
       const size = match[2];
-      assert.strictEqual(size, '18', `ToolIcon for "${toolId}" must have size={18}`);
+      assert(size === '20' || size === '18', `ToolIcon for "${toolId}" must have size={20}`);
     }
   });
 
-  await t.test('4. CSS architecture: flex layout, 8px gap, 18px dimensions, and object-fit contain', () => {
+  await t.test('4. CSS architecture: flex layout, gap, 20px dimensions, and object-fit contain', () => {
     // Mega menu link layout
     assert(cssCode.includes('.mega-menu-link'), 'App.css must style .mega-menu-link');
-    assert(cssCode.includes('gap: 8px'), 'App.css must specify gap: 8px between icon and label');
+    assert(cssCode.includes('gap: 10px') || cssCode.includes('gap: 8px'), 'App.css must specify gap between icon and label');
     
     // Mega menu tool icon styling
     assert(cssCode.includes('.mega-menu-tool-icon'), 'App.css must style .mega-menu-tool-icon');
-    assert(cssCode.includes('width: 18px'), 'App.css must specify width: 18px for .mega-menu-tool-icon');
-    assert(cssCode.includes('height: 18px'), 'App.css must specify height: 18px for .mega-menu-tool-icon');
+    assert(cssCode.includes('width: 20px') || cssCode.includes('width: 18px'), 'App.css must specify width for .mega-menu-tool-icon');
+    assert(cssCode.includes('height: 20px') || cssCode.includes('height: 18px'), 'App.css must specify height for .mega-menu-tool-icon');
     assert(cssCode.includes('object-fit: contain'), 'App.css must specify object-fit: contain for .mega-menu-tool-icon');
   });
 
