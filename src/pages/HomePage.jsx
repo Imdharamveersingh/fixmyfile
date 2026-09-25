@@ -127,6 +127,7 @@ export default function HomePage() {
       {HOMEPAGE_CATEGORIES.map((category) => {
         const tools = getHomepageCategoryTools(category.id);
         const isGenerators = category.id === 'generators';
+        const categoryKey = category.id === 'generators' ? 'generators' : category.id.replace('-tools', '');
         return (
           <section key={category.id} id={category.id} className="tools-section">
             <div className="section-header">
@@ -138,7 +139,7 @@ export default function HomePage() {
 
             <div className={`tools-grid ${isGenerators ? 'phase3-grid generators-grid' : ''}`}>
               {tools.map((tool) => (
-                <ToolCard key={tool.id} tool={tool} />
+                <ToolCard key={tool.id} tool={tool} category={categoryKey} />
               ))}
             </div>
           </section>
