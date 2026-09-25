@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
-import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import { analyzeText } from './wordEngine';
 
@@ -59,7 +58,6 @@ export default function WordCounterTool() {
 
       <div className="word-counter-app-layout">
         <div className="word-counter-card">
-          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="word-counter" size={48} /></div>
           {/* Top Quick Stats Grid */}
           <div className="counter-stats-grid">
             <div className="counter-stat-box primary-stat">

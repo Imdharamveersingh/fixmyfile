@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
-import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   SUPPORTED_CURRENCIES,
@@ -142,7 +141,6 @@ export default function CurrencyConverterTool() {
 
       <div className="currency-app-layout">
         <div className="currency-card">
-          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="currency-converter" size={48} /></div>
           {/* Status / Source Bar */}
           <div className="currency-status-bar" id="currency-rate-source">
             <div className="rate-source-info">

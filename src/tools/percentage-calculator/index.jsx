@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
-import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   PERCENTAGE_MODES,
@@ -81,7 +80,6 @@ export default function PercentageCalculatorTool() {
 
       <div className="percentage-app-layout">
         <div className="percentage-card">
-          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="percentage-calculator" size={48} /></div>
           {/* Mode Tabs */}
           <div className="percentage-mode-tabs" id="percentage-mode-tabs" role="tablist">
             {PERCENTAGE_MODES.map((mode) => (

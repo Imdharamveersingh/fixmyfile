@@ -253,7 +253,6 @@ export default function UnlockPdfTool() {
             </p>
             <div className="dropzone-tags">
               <span className="dropzone-tag">Max file size: 50MB</span>
-              <span className="dropzone-tag">100% Private (No upload)</span>
             </div>
           </div>
         ) : (

@@ -312,7 +312,6 @@ export default function ExtractPdfPagesTool() {
             </p>
             <div className="dropzone-tags">
               <span className="dropzone-tag">Max file size: 100MB</span>
-              <span className="dropzone-tag">100% Private (Client-Side)</span>
             </div>
           </div>
         ) : (

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
-import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   BARCODE_FORMATS,
@@ -215,7 +214,6 @@ export default function BarcodeGeneratorTool() {
       <div className="barcode-app-layout">
         {/* ── LEFT: Configuration ────────────────────────────── */}
         <div className="barcode-config-panel">
-          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="barcode-generator" size={48} /></div>
 
           {/* Format Selector */}
           <div className="barcode-section">

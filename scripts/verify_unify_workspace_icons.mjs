@@ -57,14 +57,22 @@ async function runProgrammaticVerification() {
     assert.ok(TOOL_SVG_MAP[tool.icon], `Tool Card icon for ${tool.id} (${tool.icon}) must exist in TOOL_SVG_MAP`);
     toolCardSvgsCount++;
 
-    // Check Tool Workspace renders ToolIcon with tool.id and size={48}
-    const hasWorkspaceToolIcon = upper.includes(`icon="${tool.id}"`) && upper.includes(`size={48}`);
-    assert.ok(hasWorkspaceToolIcon, `Tool ${tool.id} must render <ToolIcon icon="${tool.id}" size={48} /> in workspace`);
-    workspaceSvgsCount++;
+    // Check Tool Workspace renders ToolIcon for non-generators, and NOT for generators
+    const isGen = [
+      'qr-code-generator', 'barcode-generator', 'password-generator',
+      'currency-converter', 'percentage-calculator', 'emi-calculator', 'word-counter'
+    ].includes(tool.id);
 
-    // Check same SVG is used (tool.id is mapped to same SVG asset in TOOL_SVG_MAP)
-    assert.equal(TOOL_SVG_MAP[tool.id], TOOL_SVG_MAP[tool.icon], `Tool ${tool.id} Card and Workspace must use identical SVG`);
-    sameSvgCount++;
+    const hasWorkspaceToolIcon = upper.includes(`icon="${tool.id}"`) && upper.includes(`size={48}`);
+    if (isGen) {
+      assert.ok(!hasWorkspaceToolIcon, `Generator tool ${tool.id} must NOT render workspace ToolIcon`);
+    } else {
+      assert.ok(hasWorkspaceToolIcon, `Tool ${tool.id} must render <ToolIcon icon="${tool.id}" size={48} /> in workspace`);
+      workspaceSvgsCount++;
+      // Check same SVG is used (tool.id is mapped to same SVG asset in TOOL_SVG_MAP)
+      assert.equal(TOOL_SVG_MAP[tool.id], TOOL_SVG_MAP[tool.icon], `Tool ${tool.id} Card and Workspace must use identical SVG`);
+      sameSvgCount++;
+    }
 
     // Check for old primary dropzone icons (emojis or legacy svgs inside the dropzone icon container)
     const legacyDropzoneEmoji = /<div\s+className=["'](?:dropzone-icon|upload-icon-wrap|dropzone-icon-wrapper)["'][^>]*>(?:(?!<\/div>)[\s\S])*?[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/u.test(upper);
@@ -237,15 +245,24 @@ async function runProgrammaticVerification() {
         })()
       `);
 
+      const isGenRoute = [
+        'qr-code-generator', 'barcode-generator', 'password-generator',
+        'currency-converter', 'percentage-calculator', 'emi-calculator', 'word-counter'
+      ].some(g => route.includes(g));
+
       assert(data.h1 && data.h1.endsWith('Free'), `Route ${route} H1 must end with "Free": got "${data.h1}"`);
       assert(!data.breadcrumb.includes('Free'), `Route ${route} breadcrumb must NOT contain "Free": got "${data.breadcrumb}"`);
-      assert(data.hasWorkspaceIcon, `Route ${route} must have primary workspace tool icon`);
-      assert(data.isLoaded, `Route ${route} workspace icon must be loaded: ${data.src}`);
-      assert.equal(data.ariaHidden, 'true', `Route ${route} workspace icon must have aria-hidden="true"`);
-      assert.equal(data.renderedWidth, 48, `Route ${route} workspace icon width must be 48px: got ${data.renderedWidth}px`);
-      assert.equal(data.renderedHeight, 48, `Route ${route} workspace icon height must be 48px: got ${data.renderedHeight}px`);
-
-      console.log(`  ✓ ${route.padEnd(23)} | H1: "${data.h1}" | Breadcrumb: "${data.breadcrumb}" | Icon: 48×48px SVG loaded`);
+      if (isGenRoute) {
+        assert(!data.hasWorkspaceIcon, `Generator Route ${route} must NOT have workspace tool icon`);
+        console.log(`  ✓ ${route.padEnd(23)} | H1: "${data.h1}" | Breadcrumb: "${data.breadcrumb}" | Generator Icon: absent`);
+      } else {
+        assert(data.hasWorkspaceIcon, `Route ${route} must have primary workspace tool icon`);
+        assert(data.isLoaded, `Route ${route} workspace icon must be loaded: ${data.src}`);
+        assert.equal(data.ariaHidden, 'true', `Route ${route} workspace icon must have aria-hidden="true"`);
+        assert.equal(data.renderedWidth, 48, `Route ${route} workspace icon width must be 48px: got ${data.renderedWidth}px`);
+        assert.equal(data.renderedHeight, 48, `Route ${route} workspace icon height must be 48px: got ${data.renderedHeight}px`);
+        console.log(`  ✓ ${route.padEnd(23)} | H1: "${data.h1}" | Breadcrumb: "${data.breadcrumb}" | Icon: 48×48px SVG loaded`);
+      }
     }
 
     // Verify 6 Viewports for horizontal overflow

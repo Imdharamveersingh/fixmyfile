@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import ToolDetailHeader from '../../components/ToolDetailHeader';
-import ToolIcon from '../../components/ToolIcon';
 import ToolDetailContent from '../../components/ToolDetailContent';
 import {
   Link as LinkIcon,
@@ -367,7 +366,6 @@ export default function QrCodeGeneratorTool() {
       <div className="qr-app-layout">
         {/* LEFT COLUMN: Input Tabs & Settings Cards */}
         <div className="qr-controls-column">
-          <div className="workspace-tool-icon-wrap" aria-hidden="true"><ToolIcon icon="qr-code-generator" size={48} /></div>
           {/* Content Type Selector Tabs */}
           <div className="qr-card">
             <div className="qr-card-header">
