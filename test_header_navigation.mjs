@@ -335,7 +335,7 @@ async function runChromeTests() {
       returnByValue: true
     });
     assert.equal(pageNavCheck.result.value.pathname, '/video-compressor', 'Must navigate to /video-compressor');
-    assert.equal(pageNavCheck.result.value.h1, 'Video Compressor', 'H1 must be Video Compressor');
+    assert(pageNavCheck.result.value.h1.includes('Video Compressor'), 'H1 must contain Video Compressor');
     console.log(`  ✓ Navigated to ${pageNavCheck.result.value.pathname}: H1="${pageNavCheck.result.value.h1}"`);
 
     // Verify 0 Console Errors

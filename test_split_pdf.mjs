@@ -55,7 +55,7 @@ test('=== Split PDF Automated Test Suite ===', async (t) => {
     assert.match(appContent, /path="split-pdf"/);
 
     const headerContent = fs.readFileSync(path.resolve('src/components/Header.jsx'), 'utf8');
-    assert.match(headerContent, /<Link to="\/split-pdf">Split PDF<\/Link>/);
+    assert.match(headerContent, /<Link[^>]*to="\/split-pdf"[^>]*>[\s\S]*?Split PDF[\s\S]*?<\/Link>/);
 
     const footerContent = fs.readFileSync(path.resolve('src/components/Footer.jsx'), 'utf8');
     assert.match(footerContent, /PDF Tools/);

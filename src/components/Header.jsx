@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import ToolIcon from './ToolIcon';
 
 export default function Header() {
   const location = useLocation();
@@ -144,12 +145,30 @@ export default function Header() {
                     <span>PDF Conversion</span>
                     <span className="mega-menu-col-badge">6</span>
                   </div>
-                  <Link to="/jpg-to-pdf">JPG to PDF</Link>
-                  <Link to="/pdf-to-word">PDF to Word</Link>
-                  <Link to="/pdf-to-jpg">PDF to JPG</Link>
-                  <Link to="/word-to-pdf">Word to PDF</Link>
-                  <Link to="/pdf-to-excel">PDF to Excel</Link>
-                  <Link to="/pdf-to-powerpoint">PDF to PowerPoint</Link>
+                  <Link to="/jpg-to-pdf" className="mega-menu-link">
+                    <ToolIcon icon="jpg-to-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">JPG to PDF</span>
+                  </Link>
+                  <Link to="/pdf-to-word" className="mega-menu-link">
+                    <ToolIcon icon="pdf-to-word" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF to Word</span>
+                  </Link>
+                  <Link to="/pdf-to-jpg" className="mega-menu-link">
+                    <ToolIcon icon="pdf-to-jpg" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF to JPG</span>
+                  </Link>
+                  <Link to="/word-to-pdf" className="mega-menu-link">
+                    <ToolIcon icon="word-to-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Word to PDF</span>
+                  </Link>
+                  <Link to="/pdf-to-excel" className="mega-menu-link">
+                    <ToolIcon icon="pdf-to-excel" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF to Excel</span>
+                  </Link>
+                  <Link to="/pdf-to-powerpoint" className="mega-menu-link">
+                    <ToolIcon icon="pdf-to-powerpoint" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF to PowerPoint</span>
+                  </Link>
                 </div>
 
                 {/* Column 2: PDF Edit & Security */}
@@ -158,12 +177,30 @@ export default function Header() {
                     <span>Edit & Security</span>
                     <span className="mega-menu-col-badge">6</span>
                   </div>
-                  <Link to="/merge-pdf">Merge PDF</Link>
-                  <Link to="/compress-pdf">Compress PDF</Link>
-                  <Link to="/split-pdf">Split PDF</Link>
-                  <Link to="/rotate-pdf">Rotate PDF</Link>
-                  <Link to="/protect-pdf">Protect PDF</Link>
-                  <Link to="/unlock-pdf">Unlock PDF</Link>
+                  <Link to="/merge-pdf" className="mega-menu-link">
+                    <ToolIcon icon="merge-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Merge PDF</span>
+                  </Link>
+                  <Link to="/compress-pdf" className="mega-menu-link">
+                    <ToolIcon icon="compress-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Compress PDF</span>
+                  </Link>
+                  <Link to="/split-pdf" className="mega-menu-link">
+                    <ToolIcon icon="split-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Split PDF</span>
+                  </Link>
+                  <Link to="/rotate-pdf" className="mega-menu-link">
+                    <ToolIcon icon="rotate-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Rotate PDF</span>
+                  </Link>
+                  <Link to="/protect-pdf" className="mega-menu-link">
+                    <ToolIcon icon="protect-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Protect PDF</span>
+                  </Link>
+                  <Link to="/unlock-pdf" className="mega-menu-link">
+                    <ToolIcon icon="unlock-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Unlock PDF</span>
+                  </Link>
                 </div>
 
                 {/* Column 3: Pages & Text OCR */}
@@ -172,12 +209,30 @@ export default function Header() {
                     <span>Pages & OCR</span>
                     <span className="mega-menu-col-badge">6</span>
                   </div>
-                  <Link to="/extract-pdf-pages">Extract PDF Pages</Link>
-                  <Link to="/delete-pdf-pages">Delete PDF Pages</Link>
-                  <Link to="/reorder-pdf-pages">Reorder PDF Pages</Link>
-                  <Link to="/pdf-to-text">PDF to Text</Link>
-                  <Link to="/pdf-ocr">PDF OCR</Link>
-                  <Link to="/extract-text-from-pdf">Extract Text from PDF</Link>
+                  <Link to="/extract-pdf-pages" className="mega-menu-link">
+                    <ToolIcon icon="extract-pdf-pages" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Extract PDF Pages</span>
+                  </Link>
+                  <Link to="/delete-pdf-pages" className="mega-menu-link">
+                    <ToolIcon icon="delete-pdf-pages" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Delete PDF Pages</span>
+                  </Link>
+                  <Link to="/reorder-pdf-pages" className="mega-menu-link">
+                    <ToolIcon icon="reorder-pdf-pages" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Reorder PDF Pages</span>
+                  </Link>
+                  <Link to="/pdf-to-text" className="mega-menu-link">
+                    <ToolIcon icon="pdf-to-text" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF to Text</span>
+                  </Link>
+                  <Link to="/pdf-ocr" className="mega-menu-link">
+                    <ToolIcon icon="pdf-ocr" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PDF OCR</span>
+                  </Link>
+                  <Link to="/extract-text-from-pdf" className="mega-menu-link">
+                    <ToolIcon icon="extract-text-from-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Extract Text from PDF</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -231,13 +286,34 @@ export default function Header() {
                     <span>Edit & Optimize</span>
                     <span className="mega-menu-col-badge">7</span>
                   </div>
-                  <Link to="/image-compressor">Image Compressor</Link>
-                  <Link to="/image-resizer">Image Resizer</Link>
-                  <Link to="/image-cropper">Image Cropper</Link>
-                  <Link to="/background-remover">Background Remover</Link>
-                  <Link to="/image-rotate-flip">Image Rotate / Flip</Link>
-                  <Link to="/image-watermark">Image Watermark</Link>
-                  <Link to="/image-upscaler">Image Upscaler</Link>
+                  <Link to="/image-compressor" className="mega-menu-link">
+                    <ToolIcon icon="image-compressor" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Compressor</span>
+                  </Link>
+                  <Link to="/image-resizer" className="mega-menu-link">
+                    <ToolIcon icon="image-resizer" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Resizer</span>
+                  </Link>
+                  <Link to="/image-cropper" className="mega-menu-link">
+                    <ToolIcon icon="image-cropper" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Cropper</span>
+                  </Link>
+                  <Link to="/background-remover" className="mega-menu-link">
+                    <ToolIcon icon="background-remover" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Background Remover</span>
+                  </Link>
+                  <Link to="/image-rotate-flip" className="mega-menu-link">
+                    <ToolIcon icon="image-rotate-flip" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Rotate / Flip</span>
+                  </Link>
+                  <Link to="/image-watermark" className="mega-menu-link">
+                    <ToolIcon icon="image-watermark" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Watermark</span>
+                  </Link>
+                  <Link to="/image-upscaler" className="mega-menu-link">
+                    <ToolIcon icon="image-upscaler" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Upscaler</span>
+                  </Link>
                 </div>
 
                 {/* Column 2: Image Conversion */}
@@ -246,14 +322,38 @@ export default function Header() {
                     <span>Conversion</span>
                     <span className="mega-menu-col-badge">8</span>
                   </div>
-                  <Link to="/image-converter">Image Converter</Link>
-                  <Link to="/jpg-to-png">JPG to PNG</Link>
-                  <Link to="/png-to-jpg">PNG to JPG</Link>
-                  <Link to="/heic-to-jpg">HEIC to JPG</Link>
-                  <Link to="/webp-to-jpg">WebP to JPG</Link>
-                  <Link to="/jpg-to-webp">JPG to WebP</Link>
-                  <Link to="/webp-to-png">WebP to PNG</Link>
-                  <Link to="/image-to-pdf">Image to PDF</Link>
+                  <Link to="/image-converter" className="mega-menu-link">
+                    <ToolIcon icon="image-converter" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image Converter</span>
+                  </Link>
+                  <Link to="/jpg-to-png" className="mega-menu-link">
+                    <ToolIcon icon="jpg-to-png" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">JPG to PNG</span>
+                  </Link>
+                  <Link to="/png-to-jpg" className="mega-menu-link">
+                    <ToolIcon icon="png-to-jpg" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PNG to JPG</span>
+                  </Link>
+                  <Link to="/heic-to-jpg" className="mega-menu-link">
+                    <ToolIcon icon="heic-to-jpg" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">HEIC to JPG</span>
+                  </Link>
+                  <Link to="/webp-to-jpg" className="mega-menu-link">
+                    <ToolIcon icon="webp-to-jpg" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">WebP to JPG</span>
+                  </Link>
+                  <Link to="/jpg-to-webp" className="mega-menu-link">
+                    <ToolIcon icon="jpg-to-webp" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">JPG to WebP</span>
+                  </Link>
+                  <Link to="/webp-to-png" className="mega-menu-link">
+                    <ToolIcon icon="webp-to-png" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">WebP to PNG</span>
+                  </Link>
+                  <Link to="/image-to-pdf" className="mega-menu-link">
+                    <ToolIcon icon="image-to-pdf" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image to PDF</span>
+                  </Link>
                 </div>
 
                 {/* Column 3: OCR & Utilities */}
@@ -262,11 +362,26 @@ export default function Header() {
                     <span>OCR & Utilities</span>
                     <span className="mega-menu-col-badge">5</span>
                   </div>
-                  <Link to="/image-to-text">Image to Text</Link>
-                  <Link to="/jpg-to-text">JPG to Text</Link>
-                  <Link to="/png-to-text">PNG to Text</Link>
-                  <Link to="/screenshot-to-text">Screenshot to Text</Link>
-                  <Link to="/image-to-base64">Image to Base64</Link>
+                  <Link to="/image-to-text" className="mega-menu-link">
+                    <ToolIcon icon="image-to-text" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image to Text</span>
+                  </Link>
+                  <Link to="/jpg-to-text" className="mega-menu-link">
+                    <ToolIcon icon="jpg-to-text" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">JPG to Text</span>
+                  </Link>
+                  <Link to="/png-to-text" className="mega-menu-link">
+                    <ToolIcon icon="png-to-text" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">PNG to Text</span>
+                  </Link>
+                  <Link to="/screenshot-to-text" className="mega-menu-link">
+                    <ToolIcon icon="screenshot-to-text" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Screenshot to Text</span>
+                  </Link>
+                  <Link to="/image-to-base64" className="mega-menu-link">
+                    <ToolIcon icon="image-to-base64" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Image to Base64</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -320,7 +435,10 @@ export default function Header() {
                     <span>Audio</span>
                     <span className="mega-menu-col-badge">1</span>
                   </div>
-                  <Link to="/mp4-to-mp3">MP4 to MP3</Link>
+                  <Link to="/mp4-to-mp3" className="mega-menu-link">
+                    <ToolIcon icon="mp4-to-mp3" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">MP4 to MP3</span>
+                  </Link>
                 </div>
 
                 {/* Column 2: Video & Animation */}
@@ -329,9 +447,18 @@ export default function Header() {
                     <span>Video & Animation</span>
                     <span className="mega-menu-col-badge">3</span>
                   </div>
-                  <Link to="/video-compressor">Video Compressor</Link>
-                  <Link to="/video-to-gif">Video to GIF</Link>
-                  <Link to="/gif-maker">GIF Maker</Link>
+                  <Link to="/video-compressor" className="mega-menu-link">
+                    <ToolIcon icon="video-compressor" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Video Compressor</span>
+                  </Link>
+                  <Link to="/video-to-gif" className="mega-menu-link">
+                    <ToolIcon icon="video-to-gif" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Video to GIF</span>
+                  </Link>
+                  <Link to="/gif-maker" className="mega-menu-link">
+                    <ToolIcon icon="gif-maker" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">GIF Maker</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -385,9 +512,18 @@ export default function Header() {
                     <span>Generators</span>
                     <span className="mega-menu-col-badge">3</span>
                   </div>
-                  <Link to="/qr-code-generator">QR Code Generator</Link>
-                  <Link to="/barcode-generator">Barcode Generator</Link>
-                  <Link to="/password-generator">Password Generator</Link>
+                  <Link to="/qr-code-generator" className="mega-menu-link">
+                    <ToolIcon icon="qr-code-generator" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">QR Code Generator</span>
+                  </Link>
+                  <Link to="/barcode-generator" className="mega-menu-link">
+                    <ToolIcon icon="barcode-generator" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Barcode Generator</span>
+                  </Link>
+                  <Link to="/password-generator" className="mega-menu-link">
+                    <ToolIcon icon="password-generator" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Password Generator</span>
+                  </Link>
                 </div>
 
                 {/* Column 2: Calculators & Utilities */}
@@ -396,10 +532,22 @@ export default function Header() {
                     <span>Calculators & Text</span>
                     <span className="mega-menu-col-badge">4</span>
                   </div>
-                  <Link to="/currency-converter">Currency Converter</Link>
-                  <Link to="/percentage-calculator">Percentage Calculator</Link>
-                  <Link to="/emi-calculator">EMI Calculator</Link>
-                  <Link to="/word-counter">Word Counter</Link>
+                  <Link to="/currency-converter" className="mega-menu-link">
+                    <ToolIcon icon="currency-converter" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Currency Converter</span>
+                  </Link>
+                  <Link to="/percentage-calculator" className="mega-menu-link">
+                    <ToolIcon icon="percentage-calculator" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Percentage Calculator</span>
+                  </Link>
+                  <Link to="/emi-calculator" className="mega-menu-link">
+                    <ToolIcon icon="emi-calculator" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">EMI Calculator</span>
+                  </Link>
+                  <Link to="/word-counter" className="mega-menu-link">
+                    <ToolIcon icon="word-counter" size={18} className="mega-menu-tool-icon" />
+                    <span className="mega-menu-tool-name">Word Counter</span>
+                  </Link>
                 </div>
               </div>
             </div>

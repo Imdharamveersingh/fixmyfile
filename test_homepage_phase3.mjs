@@ -127,8 +127,8 @@ test('=== Homepage Phase 3 Integration Test Suite ===', async (t) => {
     const headerPath = path.resolve('src/components/Header.jsx');
     const headerContent = fs.readFileSync(headerPath, 'utf8');
     assert.match(headerContent, /FixMyFile/);
-    assert.match(headerContent, /<Link to="\/qr-code-generator">QR Code Generator<\/Link>/);
-    assert.match(headerContent, /<Link to="\/emi-calculator">EMI Calculator<\/Link>/);
+    assert.match(headerContent, /<Link[^>]*to="\/qr-code-generator"[^>]*>[\s\S]*?QR Code Generator[\s\S]*?<\/Link>/);
+    assert.match(headerContent, /<Link[^>]*to="\/emi-calculator"[^>]*>[\s\S]*?EMI Calculator[\s\S]*?<\/Link>/);
 
     const footerPath = path.resolve('src/components/Footer.jsx');
     const footerContent = fs.readFileSync(footerPath, 'utf8');
