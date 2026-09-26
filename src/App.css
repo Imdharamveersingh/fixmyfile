@@ -1195,7 +1195,7 @@
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--tool-border-color, var(--border-subtle));
   border-top: 3px solid var(--cat-accent, var(--primary));
   border-radius: 18px;
   padding: 24px;
@@ -1210,7 +1210,8 @@
 
 .tool-card:hover {
   transform: translateY(-3px);
-  border-color: var(--cat-border, var(--primary-border));
+  border-color: var(--tool-hover-border-color, var(--cat-border, var(--primary-border)));
+  border-top-color: var(--cat-accent, var(--primary));
   box-shadow: 0 12px 24px -4px var(--cat-hover-shadow, var(--shadow-card-hover)), 0 4px 8px -2px rgba(15, 23, 42, 0.04);
 }
 
@@ -10534,7 +10535,6 @@
 .emi-calculator-layout,
 .dropzone-container,
 .tool-main-card,
-.tool-card,
 [class*="tool-view-container"] > .tool-section,
 [class*="tool-page"] > .tool-section,
 [class*="tool-view-container"] > .tool-card {
@@ -10559,7 +10559,6 @@
   .emi-calculator-layout,
   .dropzone-container,
   .tool-main-card,
-  .tool-card,
   [class*="tool-view-container"] > .tool-section,
   [class*="tool-page"] > .tool-section,
   [class*="tool-view-container"] > .tool-card {

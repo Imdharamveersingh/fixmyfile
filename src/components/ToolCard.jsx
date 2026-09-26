@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ToolIcon from './ToolIcon';
+import { getToolAccentColor, getToolBorderColor, getToolHoverBorderColor } from './toolAccentMap.js';
 
 const PDF_TOOL_IDS = new Set([
   'jpg-to-pdf', 'pdf-to-word', 'pdf-to-jpg', 'word-to-pdf', 'merge-pdf',
@@ -44,9 +45,16 @@ export function getToolCategory(tool) {
 export default function ToolCard({ tool, category }) {
   const { name, path, icon, id, description } = tool;
   const cat = category || getToolCategory(tool);
+  const accentColor = getToolAccentColor(id);
+  const borderColor = getToolBorderColor(id);
+  const hoverBorderColor = getToolHoverBorderColor(id);
 
   return (
-    <Link to={path} className="tool-card" data-category={cat} aria-label={`Open ${name} tool`}>
+    <Link to={path} className="tool-card" data-category={cat} data-tool-id={id} style={{
+      '--tool-accent-color': accentColor,
+      '--tool-border-color': borderColor,
+      '--tool-hover-border-color': hoverBorderColor,
+    }} aria-label={`Open ${name} tool`}>
       <div className="tool-card-icon-wrap">
         <ToolIcon icon={icon || id} />
       </div>

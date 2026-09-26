@@ -1,36 +1,32 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
-import ToolIcon from '../components/ToolIcon';
+import { CATEGORY_SVG_MAP } from '../components/categorySvgMap';
 import { HOMEPAGE_CATEGORIES, getHomepageCategoryTools } from '../data/homepageCategories';
 
 const CATEGORY_CARDS = [
   {
     id: 'pdf-tools',
     title: 'PDF Tools',
-    icon: 'merge-pdf',
     accentName: 'pdf',
-    shortDesc: 'Convert, merge, split, compress, protect, and extract.'
+    shortDesc: 'Convert, merge, compress, protect, and extract PDF files.'
   },
   {
     id: 'image-tools',
     title: 'Image Tools',
-    icon: 'image-converter',
     accentName: 'image',
-    shortDesc: 'Convert, compress, resize, crop, and enhance images.'
+    shortDesc: 'Convert, compress, resize, crop, and enhance image files.'
   },
   {
     id: 'media-tools',
     title: 'Media Tools',
-    icon: 'video-compressor',
     accentName: 'media',
-    shortDesc: 'Convert and optimize audio, video, and animated GIFs.'
+    shortDesc: 'Convert and optimize video, audio, and animated GIF files.'
   },
   {
     id: 'generators',
     title: 'Generators',
-    icon: 'qr-code-generator',
     accentName: 'generators',
-    shortDesc: 'Create QR codes, barcodes, passwords, and utilities.'
+    shortDesc: 'Create QR codes, barcodes, passwords, and useful calculators.'
   }
 ];
 
@@ -80,6 +76,7 @@ export default function HomePage() {
         <div className="category-discovery-grid">
           {CATEGORY_CARDS.map((cat) => {
             const count = getHomepageCategoryTools(cat.id).length;
+            const catSvg = CATEGORY_SVG_MAP[cat.id];
             return (
               <a
                 key={cat.id}
@@ -89,7 +86,15 @@ export default function HomePage() {
               >
                 <div className="category-card-top">
                   <div className="category-card-icon-wrap">
-                    <ToolIcon icon={cat.icon} size={38} className="category-card-icon" />
+                    <img
+                      src={catSvg}
+                      alt=""
+                      aria-hidden="true"
+                      focusable="false"
+                      width={38}
+                      height={38}
+                      className="category-card-icon"
+                    />
                   </div>
                   <span className="category-card-badge">{count} tools</span>
                 </div>
