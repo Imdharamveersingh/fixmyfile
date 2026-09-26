@@ -171,4 +171,42 @@ test('=== FIXMYFILE: TOOL CARD ACCENTS & HOMEPAGE CATEGORY CARDS TEST SUITE ==='
     assert.ok(appCss.includes('.tool-card:focus-visible'), 'ToolCard has focus-visible treatment');
     assert.ok(appCss.includes('@media (prefers-reduced-motion: reduce)'), 'App.css respects prefers-reduced-motion');
   });
+
+  // 12. Homepage Collection Section Headings
+  await t.test('12. Collection Section Headings render inline category SVGs with semantic H2s', () => {
+    const headingJsx = fs.readFileSync('src/components/CategorySectionHeading.jsx', 'utf8');
+
+    // Component architecture
+    assert.ok(homeJsx.includes('<CategorySectionHeading category={category}'), 'HomePage renders CategorySectionHeading');
+    assert.ok(headingJsx.includes('getCategorySvg'), 'CategorySectionHeading resolves SVG through getCategorySvg');
+    assert.ok(headingJsx.includes('className="tool-section-title-row"'), 'Title row container exists');
+    assert.ok(headingJsx.includes('className="tool-section-category-icon"'), 'Category icon styled');
+    assert.ok(headingJsx.includes('<h2 className="section-title">'), 'Semantic H2 preserved');
+    assert.ok(headingJsx.includes('aria-hidden="true"'), 'Heading SVG is aria-hidden="true"');
+    assert.ok(headingJsx.includes('focusable="false"'), 'Heading SVG is focusable="false"');
+    assert.ok(headingJsx.includes('alt=""'), 'Heading SVG has empty alt');
+
+    // Exactly 4 collection SVGs mapped
+    assert.ok(getCategorySvg('pdf-tools').includes('pdf-tool.svg'), 'PDF heading has pdf-tool.svg');
+    assert.ok(getCategorySvg('image-tools').includes('image-tool.svg'), 'Image heading has image-tool.svg');
+    assert.ok(getCategorySvg('media-tools').includes('media-tool.svg'), 'Media heading has media-tool.svg');
+    assert.ok(getCategorySvg('generators').includes('generator-tool.svg'), 'Generators heading has generator-tool.svg');
+
+    // CSS architecture
+    assert.ok(appCss.includes('.tool-section-title-row'), 'App.css styles .tool-section-title-row');
+    assert.ok(appCss.includes('.tool-section-category-icon'), 'App.css styles .tool-section-category-icon');
+    assert.ok(appCss.includes('width: 32px;'), 'Desktop icon is 32px');
+    assert.ok(appCss.includes('gap: 10px;'), 'Desktop gap is 10px');
+  });
+
+  // 13. Preserved Homepage Anchors & Destinations
+  await t.test('13. Preserved anchors and destinations', () => {
+    assert.ok(homeJsx.includes('id={category.id}'), 'Section has id={category.id}');
+    assert.ok(homeJsx.includes('href="#pdf-tools"'), 'Explore All Tools links to #pdf-tools');
+    assert.ok(homeJsx.includes('href="#categories"'), 'Browse Categories links to #categories');
+    assert.ok(homeJsx.includes('href={`#${cat.id}`}'), 'Category cards link to their respective section anchors');
+    const catIds = HOMEPAGE_CATEGORIES.map((c) => c.id);
+    assert.deepEqual(catIds, ['pdf-tools', 'image-tools', 'generators', 'media-tools'], 'Category IDs include all four sections');
+  });
 });
+

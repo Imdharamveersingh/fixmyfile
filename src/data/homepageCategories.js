@@ -38,7 +38,7 @@ export const HOMEPAGE_CATEGORIES = [
   {
     id: 'image-tools',
     title: 'Image Tools',
-    subtitle: 'Convert, compress, resize, crop, enhance, and extract content from images.',
+    subtitle: 'Convert, compress, resize, crop, and enhance image files.',
     toolIds: [
       'background-remover',
       'image-compressor',
@@ -65,7 +65,7 @@ export const HOMEPAGE_CATEGORIES = [
   {
     id: 'generators',
     title: 'Generators',
-    subtitle: 'Create QR codes, barcodes, passwords, calculations, and other useful utilities.',
+    subtitle: 'Create QR codes, barcodes, passwords, and useful calculators.',
     toolIds: [
       'qr-code-generator',
       'barcode-generator',
@@ -79,7 +79,7 @@ export const HOMEPAGE_CATEGORIES = [
   {
     id: 'media-tools',
     title: 'Media Tools',
-    subtitle: 'Convert and optimize common audio, video, and animated media files.',
+    subtitle: 'Convert and optimize video, audio, and animated GIF files.',
     toolIds: [
       'mp4-to-mp3',
       'video-compressor',

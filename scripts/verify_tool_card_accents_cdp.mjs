@@ -241,6 +241,63 @@ async function main() {
       assert.equal(actual.focusable, 'false', `Category SVG has focusable="false"`);
     }
 
+    // 2.5. Verify 4 Collection Section Headings & Inline SVGs
+    console.log('\n2.5. Verifying 4 Collection Section Headings & Inline SVGs:');
+    const headingEval = await send('Runtime.evaluate', {
+      expression: `
+        (() => {
+          const sections = ['pdf-tools', 'image-tools', 'generators', 'media-tools'];
+          return sections.map(id => {
+            const sec = document.getElementById(id);
+            const titleRow = sec ? sec.querySelector('.tool-section-title-row') : null;
+            const h2 = titleRow ? titleRow.querySelector('h2.section-title') : null;
+            const img = titleRow ? titleRow.querySelector('img.tool-section-category-icon') : null;
+            const desc = sec ? sec.querySelector('.section-subtitle') : null;
+            const style = img ? window.getComputedStyle(img) : null;
+            return {
+              id,
+              hasTitleRow: !!titleRow,
+              h2Text: h2 ? h2.textContent.trim() : null,
+              descText: desc ? desc.textContent.trim() : null,
+              imgSrc: img ? img.getAttribute('src') : null,
+              imgComplete: img ? img.complete : false,
+              imgNaturalWidth: img ? img.naturalWidth : 0,
+              renderedWidth: style ? style.width : null,
+              renderedHeight: style ? style.height : null,
+              ariaHidden: img ? img.getAttribute('aria-hidden') : null,
+              focusable: img ? img.getAttribute('focusable') : null
+            };
+          });
+        })()
+      `,
+      returnByValue: true
+    });
+
+    const collectionHeadings = headingEval.result.value;
+    assert.equal(collectionHeadings.length, 4, 'Exactly 4 collection section headings rendered');
+
+    const expectedHeadings = {
+      'pdf-tools': { title: 'PDF Tools', desc: 'Convert, organize, compress, protect, and extract content from PDF files.', svg: 'pdf-tool.svg' },
+      'image-tools': { title: 'Image Tools', desc: 'Convert, compress, resize, crop, and enhance image files.', svg: 'image-tool.svg' },
+      'generators': { title: 'Generators', desc: 'Create QR codes, barcodes, passwords, and useful calculators.', svg: 'generator-tool.svg' },
+      'media-tools': { title: 'Media Tools', desc: 'Convert and optimize video, audio, and animated GIF files.', svg: 'media-tool.svg' }
+    };
+
+    for (const h of collectionHeadings) {
+      const exp = expectedHeadings[h.id];
+      assert.ok(h.hasTitleRow, `Section ${h.id} has .tool-section-title-row`);
+      assert.equal(h.h2Text, exp.title, `Section ${h.id} H2 title is "${exp.title}"`);
+      assert.equal(h.descText, exp.desc, `Section ${h.id} subtitle matches`);
+      assert.ok(h.imgSrc.includes(exp.svg), `Section ${h.id} SVG matches ${exp.svg}`);
+      assert.ok(h.imgComplete, `Section ${h.id} SVG completed loading`);
+      assert.ok(h.imgNaturalWidth > 0, `Section ${h.id} SVG naturalWidth > 0`);
+      assert.equal(h.renderedWidth, '32px', `Section ${h.id} desktop icon width is 32px`);
+      assert.equal(h.renderedHeight, '32px', `Section ${h.id} desktop icon height is 32px`);
+      assert.equal(h.ariaHidden, 'true', `Section ${h.id} SVG aria-hidden="true"`);
+      assert.equal(h.focusable, 'false', `Section ${h.id} SVG focusable="false"`);
+      console.log(`   ✓ [${h.h2Text.padEnd(12)}] Icon: ${exp.svg.padEnd(18)} (${h.renderedWidth}x${h.renderedHeight}) | Desc: "${h.descText.substring(0, 38)}..."`);
+    }
+
     // 3. Verify all 49 Tool Cards and their borders
     console.log('\n3. Verifying 49 Tool Cards and Border Accents:');
     const toolsEval = await send('Runtime.evaluate', {

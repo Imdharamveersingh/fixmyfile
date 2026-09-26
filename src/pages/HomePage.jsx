@@ -1,5 +1,6 @@
 import React from 'react';
 import ToolCard from '../components/ToolCard';
+import CategorySectionHeading from '../components/CategorySectionHeading';
 import { CATEGORY_SVG_MAP } from '../components/categorySvgMap';
 import { HOMEPAGE_CATEGORIES, getHomepageCategoryTools } from '../data/homepageCategories';
 
@@ -136,10 +137,7 @@ export default function HomePage() {
         return (
           <section key={category.id} id={category.id} className="tools-section">
             <div className="section-header">
-              <div>
-                <h2 className="section-title">{category.title}</h2>
-                <p className="section-subtitle">{category.subtitle}</p>
-              </div>
+              <CategorySectionHeading category={category} />
             </div>
 
             <div className={`tools-grid ${isGenerators ? 'phase3-grid generators-grid' : ''}`}>

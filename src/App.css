@@ -1094,17 +1094,53 @@
   gap: 12px;
 }
 
+.section-header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-section-category-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.tools-section .section-title,
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.25;
 }
 
 .section-subtitle {
   font-size: 0.95rem;
   color: var(--text-muted);
-  margin-top: 4px;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .tool-section-title-row {
+    gap: 8px;
+  }
+  .tool-section-category-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .tools-section .section-title {
+    font-size: 1.35rem;
+  }
 }
 
 .phase-indicator {
