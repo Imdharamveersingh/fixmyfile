@@ -35,6 +35,7 @@ test('=== FIXMYFILE: HOMEPAGE VISUAL REDESIGN & HERO UX TEST SUITE ===', async (
       'Hero title uses text-gradient for everyday files'
     );
     assert.ok(
+      homeJsx.includes('Free, fast, and private tools. Your files stay on your device — we never store your data.') ||
       homeJsx.includes('Free, fast, and privacy-first tools. Everything is processed on your device — we never store your data on our servers.') ||
       homeJsx.includes('A focused collection of browser-based tools for PDFs, images, generators, and media.'),
       'Hero description matches approved factual text'
