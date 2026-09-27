@@ -2,25 +2,7 @@ import React from 'react';
 import ToolCard from '../components/ToolCard';
 import CategorySectionHeading from '../components/CategorySectionHeading';
 import { CATEGORY_SVG_MAP } from '../components/categorySvgMap';
-import { TOOL_SVG_MAP } from '../components/toolSvgMap';
 import { HOMEPAGE_CATEGORIES, getHomepageCategoryTools } from '../data/homepageCategories';
-
-const FLOATING_HERO_TOOLS = [
-  // Left flank
-  { id: 'merge-pdf', className: 'tool-float-1', tier: 'all' },
-  { id: 'pdf-to-word', className: 'tool-float-2', tier: 'laptop-up' },
-  { id: 'image-compressor', className: 'tool-float-3', tier: 'tablet-up' },
-  { id: 'video-compressor', className: 'tool-float-4', tier: 'all' },
-  { id: 'jpg-to-pdf', className: 'tool-float-5', tier: 'desktop-up' },
-  { id: 'image-cropper', className: 'tool-float-6', tier: 'desktop-up' },
-  // Right flank
-  { id: 'image-converter', className: 'tool-float-7', tier: 'all' },
-  { id: 'barcode-generator', className: 'tool-float-8', tier: 'laptop-up' },
-  { id: 'gif-maker', className: 'tool-float-9', tier: 'tablet-up' },
-  { id: 'qr-code-generator', className: 'tool-float-10', tier: 'all' },
-  { id: 'video-to-gif', className: 'tool-float-11', tier: 'desktop-up' },
-  { id: 'password-generator', className: 'tool-float-12', tier: 'desktop-up' }
-];
 
 const CATEGORY_CARDS = [
   {
@@ -53,24 +35,6 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        {/* Decorative Floating Tool SVGs Layer */}
-        <div className="hero-floating-tools" aria-hidden="true">
-          {FLOATING_HERO_TOOLS.map((item) => {
-            const svgUrl = TOOL_SVG_MAP[item.id];
-            if (!svgUrl) return null;
-            return (
-              <img
-                key={item.id}
-                src={svgUrl}
-                alt=""
-                aria-hidden="true"
-                focusable="false"
-                className={`hero-floating-tool ${item.className} float-tier-${item.tier}`}
-              />
-            );
-          })}
-        </div>
-
         <div className="hero-content">
           <h1 className="hero-title">
             Simple tools for <span className="text-gradient">everyday files</span>.
