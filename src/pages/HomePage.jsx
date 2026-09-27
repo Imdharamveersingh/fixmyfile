@@ -35,35 +35,37 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        <h1 className="hero-title">
-          Simple tools for <span className="text-gradient">everyday files</span>.
-        </h1>
-        <p className="hero-description">
-          A focused collection of browser-based tools for PDFs, images, generators, and media.
-          Everything is processed directly on your device with complete privacy.
-        </p>
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Simple tools for <span className="text-gradient">everyday files</span>.
+          </h1>
+          <p className="hero-description">
+            A focused collection of browser-based tools for PDFs, images, generators, and media.
+            Everything is processed directly on your device with complete privacy.
+          </p>
 
-        <div className="hero-actions">
-          <a href="#pdf-tools" className="btn-hero-primary" id="hero-explore-tools">
-            Explore All Tools
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
-          <a href="#categories" className="btn-hero-secondary" id="hero-browse-categories">
-            Browse Categories
-          </a>
+          <div className="hero-actions">
+            <a href="#pdf-tools" className="btn-hero-primary" id="hero-explore-tools">
+              Explore All Tools
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#categories" className="btn-hero-secondary" id="hero-browse-categories">
+              Browse Categories
+            </a>
+          </div>
         </div>
       </section>
 
