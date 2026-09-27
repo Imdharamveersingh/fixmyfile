@@ -2,7 +2,6 @@ import React from 'react';
 import ToolCard from '../components/ToolCard';
 import CategorySectionHeading from '../components/CategorySectionHeading';
 import { CATEGORY_SVG_MAP } from '../components/categorySvgMap';
-import { TOOL_SVG_MAP } from '../components/toolSvgMap';
 import { HOMEPAGE_CATEGORIES, getHomepageCategoryTools } from '../data/homepageCategories';
 
 const CATEGORY_CARDS = [
@@ -32,150 +31,10 @@ const CATEGORY_CARDS = [
   }
 ];
 
-const FLOATING_HERO_ICONS = [
-  // PDF tools
-  {
-    id: 'merge-pdf',
-    x: '3%',
-    y: '10%',
-    size: 34,
-    rotation: -6,
-    delay: 0.2,
-    duration: 5.6,
-    opacity: 0.14,
-    deviceClass: 'float-all'
-  },
-  {
-    id: 'pdf-to-word',
-    x: '6%',
-    y: '38%',
-    size: 30,
-    rotation: 4,
-    delay: 1.4,
-    duration: 6.2,
-    opacity: 0.12,
-    deviceClass: 'float-tablet-up'
-  },
-  {
-    id: 'jpg-to-pdf',
-    x: '3%',
-    y: '68%',
-    size: 36,
-    rotation: -4,
-    delay: 2.5,
-    duration: 5.2,
-    opacity: 0.14,
-    deviceClass: 'float-all'
-  },
-  // Image tools
-  {
-    id: 'image-compressor',
-    x: '7%',
-    y: '88%',
-    size: 32,
-    rotation: 5,
-    delay: 0.8,
-    duration: 6.5,
-    opacity: 0.12,
-    deviceClass: 'float-desktop-only'
-  },
-  {
-    id: 'image-converter',
-    x: '93%',
-    y: '10%',
-    size: 36,
-    rotation: 6,
-    delay: 0.5,
-    duration: 5.8,
-    opacity: 0.14,
-    deviceClass: 'float-all'
-  },
-  {
-    id: 'image-cropper',
-    x: '94%',
-    y: '64%',
-    size: 34,
-    rotation: 7,
-    delay: 2.8,
-    duration: 5.4,
-    opacity: 0.13,
-    deviceClass: 'float-desktop-only'
-  },
-  // Media tools
-  {
-    id: 'video-compressor',
-    x: '90%',
-    y: '86%',
-    size: 36,
-    rotation: -6,
-    delay: 1.1,
-    duration: 6.4,
-    opacity: 0.14,
-    deviceClass: 'float-tablet-up'
-  },
-  {
-    id: 'gif-maker',
-    x: '88%',
-    y: '92%',
-    size: 28,
-    rotation: 4,
-    delay: 3.2,
-    duration: 5.0,
-    opacity: 0.11,
-    deviceClass: 'float-desktop-only'
-  },
-  // Generators
-  {
-    id: 'qr-code-generator',
-    x: '90%',
-    y: '38%',
-    size: 32,
-    rotation: -5,
-    delay: 1.8,
-    duration: 6.0,
-    opacity: 0.13,
-    deviceClass: 'float-all'
-  }
-];
-
 export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        {/* Background artwork layer */}
-        <div className="hero-background-art" aria-hidden="true" />
-
-        {/* Floating SVG decoration layer */}
-        <div className="hero-floating-icons" aria-hidden="true">
-          {FLOATING_HERO_ICONS.map((icon) => (
-            <span
-              key={icon.id}
-              className={`hero-floating-icon hero-floating-icon-${icon.id} ${icon.deviceClass}`}
-              style={{
-                '--float-x': icon.x,
-                '--float-y': icon.y,
-                '--float-size': `${icon.size}px`,
-                '--float-rot': `${icon.rotation}deg`,
-                '--float-delay': `${icon.delay}s`,
-                '--float-duration': `${icon.duration}s`,
-                '--float-opacity': icon.opacity
-              }}
-              aria-hidden="true"
-            >
-              <img
-                src={TOOL_SVG_MAP[icon.id]}
-                alt=""
-                aria-hidden="true"
-                focusable="false"
-                width={icon.size}
-                height={icon.size}
-                loading="eager"
-                decoding="async"
-              />
-            </span>
-          ))}
-        </div>
-
         <h1 className="hero-title">
           Simple tools for <span className="text-gradient">everyday files</span>.
         </h1>
