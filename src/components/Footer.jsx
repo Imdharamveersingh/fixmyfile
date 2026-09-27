@@ -7,6 +7,9 @@ export default function Footer() {
 
   return (
     <footer className="site-footer">
+      {/* Subtle decorative background artwork layer */}
+      <div className="footer-background-art" aria-hidden="true" />
+
       <div className="footer-container">
         {/* Brand Block */}
         <div className="footer-col brand-col">

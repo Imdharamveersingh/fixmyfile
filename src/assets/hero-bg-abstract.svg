@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Soft blue gradient -->
+    <linearGradient id="blueGradSoft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#60a5fa" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#93c5fd" stop-opacity="0.08" />
+    </linearGradient>
+
+    <!-- Lavender / Purple gradient -->
+    <linearGradient id="purpleGradSoft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.30" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.08" />
+    </linearGradient>
+
+    <!-- Blue to Purple smooth diagonal gradient -->
+    <linearGradient id="bluePurpleGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.24" />
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.24" />
+    </linearGradient>
+
+    <!-- Stroke gradients for thin curved lines -->
+    <linearGradient id="lineGradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="lineGradPurple" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.05" />
+    </linearGradient>
+
+    <!-- Dotted decorative patterns -->
+    <pattern id="dotPatternLavender" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="#8b5cf6" fill-opacity="0.22" />
+    </pattern>
+
+    <pattern id="dotPatternBlue" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="#0284c7" fill-opacity="0.20" />
+    </pattern>
+
+    <!-- Radial blur / soft mask for central reading area -->
+    <radialGradient id="centerWhiteGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.65" />
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Left flank: Large flowing abstract shapes (Blue & Purple) -->
+  <g class="abstract-shapes-left">
+    <!-- Outer flowing wave 1 -->
+    <path d="M-80,-60 C80,-20 180,80 140,240 C100,400 -20,460 -100,520 Z" fill="url(#blueGradSoft)" />
+    <!-- Inner flowing wave 2 -->
+    <path d="M-40,60 C110,120 160,260 90,380 C30,480 -60,510 -90,560 Z" fill="url(#purpleGradSoft)" />
+    <!-- Gentle bottom-left wave -->
+    <path d="M-60,380 C60,340 180,440 220,580 L-60,620 Z" fill="url(#bluePurpleGrad)" opacity="0.7" />
+  </g>
+
+  <!-- Right flank: Large flowing abstract shapes (Purple & Blue) -->
+  <g class="abstract-shapes-right">
+    <!-- Outer flowing wave 1 -->
+    <path d="M1520,-60 C1360,-20 1260,80 1300,240 C1340,400 1460,460 1540,520 Z" fill="url(#purpleGradSoft)" />
+    <!-- Inner flowing wave 2 -->
+    <path d="M1480,60 C1330,120 1280,260 1350,380 C1410,480 1500,510 1530,560 Z" fill="url(#blueGradSoft)" />
+    <!-- Gentle bottom-right wave -->
+    <path d="M1500,380 C1380,340 1260,440 1220,580 L1500,620 Z" fill="url(#bluePurpleGrad)" opacity="0.7" />
+  </g>
+
+  <!-- Subtle circles on left flank -->
+  <g class="subtle-circles-left">
+    <circle cx="160" cy="180" r="110" stroke="url(#lineGradBlue)" stroke-width="1.2" stroke-dasharray="4 6" fill="none" opacity="0.6" />
+    <circle cx="190" cy="210" r="65" stroke="url(#lineGradPurple)" stroke-width="1" fill="none" opacity="0.45" />
+    <circle cx="110" cy="460" r="85" stroke="url(#lineGradBlue)" stroke-width="1" stroke-dasharray="3 5" fill="none" opacity="0.5" />
+    <circle cx="70" cy="110" r="28" fill="#38bdf8" fill-opacity="0.08" />
+  </g>
+
+  <!-- Subtle circles on right flank -->
+  <g class="subtle-circles-right">
+    <circle cx="1280" cy="180" r="110" stroke="url(#lineGradPurple)" stroke-width="1.2" stroke-dasharray="4 6" fill="none" opacity="0.6" />
+    <circle cx="1250" cy="210" r="65" stroke="url(#lineGradBlue)" stroke-width="1" fill="none" opacity="0.45" />
+    <circle cx="1330" cy="460" r="85" stroke="url(#lineGradPurple)" stroke-width="1" stroke-dasharray="3 5" fill="none" opacity="0.5" />
+    <circle cx="1370" cy="110" r="28" fill="#c084fc" fill-opacity="0.08" />
+  </g>
+
+  <!-- Dotted decorative patterns -->
+  <g class="dotted-patterns">
+    <!-- Left dotted rectangular accent -->
+    <rect x="70" y="80" width="132" height="99" fill="url(#dotPatternBlue)" rx="8" />
+    <rect x="180" y="380" width="110" height="77" fill="url(#dotPatternLavender)" rx="8" />
+    <!-- Right dotted rectangular accent -->
+    <rect x="1238" y="80" width="132" height="99" fill="url(#dotPatternLavender)" rx="8" />
+    <rect x="1150" y="380" width="110" height="77" fill="url(#dotPatternBlue)" rx="8" />
+  </g>
+
+  <!-- Thin curved decorative spline lines -->
+  <g class="thin-curved-lines">
+    <path d="M-20,140 C140,160 220,60 340,110 C420,145 470,220 520,200" fill="none" stroke="url(#lineGradBlue)" stroke-width="1.2" opacity="0.5" />
+    <path d="M-10,320 C110,290 200,380 320,350 C380,335 430,360 480,390" fill="none" stroke="url(#lineGradPurple)" stroke-width="1" stroke-dasharray="6 4" opacity="0.45" />
+    <path d="M1460,140 C1300,160 1220,60 1100,110 C1020,145 970,220 920,200" fill="none" stroke="url(#lineGradPurple)" stroke-width="1.2" opacity="0.5" />
+    <path d="M1450,320 C1330,290 1240,380 1120,350 C1060,335 1010,360 960,390" fill="none" stroke="url(#lineGradBlue)" stroke-width="1" stroke-dasharray="6 4" opacity="0.45" />
+  </g>
+
+  <!-- Soft white central area glow to guarantee 100% text contrast -->
+  <rect x="0" y="0" width="1440" height="600" fill="url(#centerWhiteGlow)" />
+</svg>
