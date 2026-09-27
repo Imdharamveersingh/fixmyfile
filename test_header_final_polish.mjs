@@ -141,10 +141,10 @@ test('=== FIXMYFILE: FINAL HEADER NAVIGATION & MEGA-MENU POLISH TEST SUITE ===',
   });
 
   // 11. Desktop 3-Zone Layout
-  await t.test('11. Desktop 3-zone layout: auto 1fr auto grid with centered nav and logo at left', () => {
+  await t.test('11. Desktop 3-zone layout: auto 1fr auto grid with nav and logo at left', () => {
     assert(cssCode.includes('grid-template-columns: auto 1fr auto'), 'Header container uses auto 1fr auto grid');
     assert(cssCode.includes('justify-self: start'), 'Logo aligned to start of grid');
-    assert(cssCode.includes('justify-self: center'), 'Nav centered in grid');
+    assert(cssCode.includes('justify-self: end'), 'Nav aligned naturally in grid');
     assert(cssCode.includes('justify-self: end'), 'Right controls aligned to end of grid');
   });
 

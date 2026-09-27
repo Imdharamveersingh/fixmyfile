@@ -120,8 +120,8 @@
 .site-nav {
   display: flex;
   align-items: center;
-  justify-self: center;
-  gap: 6px;
+  justify-self: end;
+  gap: 12px;
   flex-wrap: nowrap;
 }
 
@@ -686,14 +686,17 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 44px 16px 20px;
+  padding: 48px 16px 24px;
   width: 100%;
   max-width: none;
   margin: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -742,6 +745,10 @@
   letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: 16px;
+  width: fit-content;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .text-gradient {
@@ -754,7 +761,8 @@
   font-size: 1.12rem;
   color: #64748B;
   line-height: 1.6;
-  max-width: 840px;
+  max-width: 800px;
+  width: fit-content;
   margin: 0 auto 26px;
 }
 
@@ -765,6 +773,9 @@
   gap: 12px;
   margin-bottom: 8px;
   flex-wrap: wrap;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-hero-primary {
@@ -808,6 +819,277 @@
   background: var(--bg-surface-secondary);
   border-color: var(--text-muted);
   transform: translateY(-1px);
+}
+
+/* Hero Floating Tool SVGs Layer */
+.hero-floating-tools {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-floating-tool {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  opacity: 1;
+  filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.08));
+  will-change: transform;
+}
+
+@keyframes heroToolFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) translateX(2px) rotate(calc(var(--rot, 0deg) + 2deg));
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(var(--rot, 0deg));
+  }
+}
+
+@keyframes heroToolFloatAlt {
+  0% {
+    transform: translateY(0) translateX(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-6px) translateX(-2px) rotate(calc(var(--rot, 0deg) - 2deg));
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(var(--rot, 0deg));
+  }
+}
+
+/* Individual Icon Coordinates, Sizing, and Keyframe Bindings */
+/* Left flank */
+.tool-float-1 {
+  top: 8%;
+  left: 1.5%;
+  width: 42px;
+  height: 42px;
+  --rot: -5deg;
+  animation: heroToolFloat 5.6s ease-in-out infinite;
+  animation-delay: 0s;
+  z-index: 1;
+}
+
+.tool-float-2 {
+  top: 28%;
+  left: 5%;
+  width: 36px;
+  height: 36px;
+  --rot: 4deg;
+  animation: heroToolFloatAlt 6.4s ease-in-out infinite;
+  animation-delay: -1.8s;
+  z-index: 0;
+}
+
+.tool-float-3 {
+  top: 50%;
+  left: 1.5%;
+  width: 44px;
+  height: 44px;
+  --rot: -4deg;
+  animation: heroToolFloat 7.0s ease-in-out infinite;
+  animation-delay: -3.2s;
+  z-index: 1;
+}
+
+.tool-float-4 {
+  top: 72%;
+  left: 5.5%;
+  width: 40px;
+  height: 40px;
+  --rot: 6deg;
+  animation: heroToolFloatAlt 5.8s ease-in-out infinite;
+  animation-delay: -1.0s;
+  z-index: 1;
+}
+
+.tool-float-5 {
+  top: 18%;
+  left: 6.5%;
+  width: 32px;
+  height: 32px;
+  --rot: -3deg;
+  animation: heroToolFloat 6.8s ease-in-out infinite;
+  animation-delay: -2.4s;
+  z-index: 0;
+}
+
+.tool-float-6 {
+  top: 88%;
+  left: 2%;
+  width: 36px;
+  height: 36px;
+  --rot: 4deg;
+  animation: heroToolFloatAlt 5.4s ease-in-out infinite;
+  animation-delay: -4.0s;
+  z-index: 1;
+}
+
+/* Right flank */
+.tool-float-7 {
+  top: 8%;
+  right: 1.5%;
+  width: 42px;
+  height: 42px;
+  --rot: 5deg;
+  animation: heroToolFloatAlt 6.2s ease-in-out infinite;
+  animation-delay: -0.8s;
+  z-index: 1;
+}
+
+.tool-float-8 {
+  top: 18%;
+  right: 6.5%;
+  width: 32px;
+  height: 32px;
+  --rot: -4deg;
+  animation: heroToolFloat 7.2s ease-in-out infinite;
+  animation-delay: -2.6s;
+  z-index: 0;
+}
+
+.tool-float-9 {
+  top: 50%;
+  right: 1.5%;
+  width: 44px;
+  height: 44px;
+  --rot: 4deg;
+  animation: heroToolFloatAlt 5.6s ease-in-out infinite;
+  animation-delay: -1.5s;
+  z-index: 1;
+}
+
+.tool-float-10 {
+  top: 72%;
+  right: 5.5%;
+  width: 40px;
+  height: 40px;
+  --rot: -5deg;
+  animation: heroToolFloat 6.4s ease-in-out infinite;
+  animation-delay: -3.5s;
+  z-index: 1;
+}
+
+.tool-float-11 {
+  top: 30%;
+  right: 5%;
+  width: 36px;
+  height: 36px;
+  --rot: 3deg;
+  animation: heroToolFloatAlt 7.4s ease-in-out infinite;
+  animation-delay: -1.2s;
+  z-index: 0;
+}
+
+.tool-float-12 {
+  top: 88%;
+  right: 2%;
+  width: 36px;
+  height: 36px;
+  --rot: -6deg;
+  animation: heroToolFloat 6.0s ease-in-out infinite;
+  animation-delay: -2.2s;
+  z-index: 1;
+}
+
+/* Responsive Visibility & Placement Tiers */
+@media (max-width: 1199px) {
+  .float-tier-desktop-up {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .float-tier-laptop-up {
+    display: none !important;
+  }
+
+  .hero-description {
+    max-width: 580px;
+  }
+
+  .tool-float-1 {
+    top: 10px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  .tool-float-7 {
+    top: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  .tool-float-3 {
+    top: 48%;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  .tool-float-9 {
+    top: 48%;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  .tool-float-4 {
+    top: auto;
+    bottom: 10px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+  }
+  .tool-float-10 {
+    top: auto;
+    bottom: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-section {
+    padding: 44px 16px 44px;
+  }
+
+  .float-tier-tablet-up {
+    display: none !important;
+  }
+
+  .tool-float-1 {
+    top: 8px;
+    left: 8px;
+    width: 26px;
+    height: 26px;
+  }
+  .tool-float-7 {
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+  }
+  .tool-float-4 {
+    top: auto;
+    bottom: 8px;
+    left: 8px;
+    width: 26px;
+    height: 26px;
+  }
+  .tool-float-10 {
+    top: auto;
+    bottom: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+  }
 }
 
 .category-anchor {
@@ -10912,6 +11194,11 @@
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
+  }
+
+  .hero-floating-tool {
+    animation: none !important;
+    transform: rotate(var(--rot, 0deg)) !important;
   }
 }
 
