@@ -1186,6 +1186,12 @@
   gap: 20px;
 }
 
+@media (max-width: 560px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Generators Centered Final Card on Desktop */
 @media (min-width: 1040px) {
   .phase3-grid > :nth-child(7):last-child,
@@ -1658,150 +1664,6 @@
   color: var(--text-secondary);
   max-width: 480px;
   margin: 0 auto 28px;
-}
-
-/* Site Footer */
-.site-footer {
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-subtle);
-  margin-top: auto;
-}
-
-.footer-container {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 48px 20px 36px;
-  display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1.2fr 1.2fr;
-  gap: 32px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.brand-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.footer-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  max-width: 280px;
-}
-
-.footer-trust-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--success-text);
-  background-color: var(--success-bg);
-  border: 1px solid var(--success-border);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  margin-top: 14px;
-}
-
-.footer-heading {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-  margin-bottom: 14px;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.footer-links a {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  transition: color 0.15s ease;
-}
-
-.footer-links a:hover {
-  color: var(--primary);
-}
-
-.footer-subtext {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.footer-pill {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--badge-text);
-  background-color: var(--badge-bg);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--border-subtle);
-  padding: 20px 0;
-}
-
-.footer-bottom-container {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.footer-bottom-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-bottom-links a:hover {
-  color: var(--text-primary);
-}
-
-.footer-tag {
-  color: var(--text-muted);
-}
-
-/* Responsive adjustments */
-@media (max-width: 960px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-}
-
-@media (max-width: 560px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .tools-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ============================================================
@@ -2386,64 +2248,6 @@
   font-size: 0.92rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin: 0;
-}
-
-/* Related Tools Grid */
-.related-tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.related-tool-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  box-shadow: var(--shadow-xs);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.related-tool-card:hover {
-  border-color: var(--primary-border);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.related-tool-card:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .related-tool-card:hover {
-    transform: none;
-  }
-}
-
-.related-badge {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.related-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.related-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
   margin: 0;
 }
 

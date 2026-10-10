@@ -9,7 +9,7 @@ import { PDFDocument, StandardFonts } from 'pdf-lib';
  * PDF to Word Pipeline Regression Test Suite
  */
 
-const FIXTURE_PATH = path.resolve('fixmyfile-pdf-to-word-difficult-test.pdf');
+const FIXTURE_PATH = path.resolve('test-fixtures/fixmyfile-pdf-to-word-difficult-test.pdf');
 
 // Helper to ensure benchmark PDF fixture exists deterministically
 async function ensureBenchmarkFixture() {

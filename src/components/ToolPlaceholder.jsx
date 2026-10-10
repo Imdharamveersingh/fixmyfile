@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ToolPlaceholder({ tool }) {
-  const { name, path, category, description, phase, id } = tool;
+  const { name, path, category, description, id } = tool;
 
   return (
     <div className="tool-placeholder-view">

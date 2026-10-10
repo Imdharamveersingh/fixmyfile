@@ -13,8 +13,8 @@ const BASE_URL = 'http://localhost:5173';
 async function runDifficultHeicBenchmark() {
   console.log('=== STARTING DIFFICULT HEIC TO JPG BENCHMARK ===\n');
 
-  const largeHeicPath = path.resolve('fixtures/sample2.heic');
-  const unsupportedHeicPath = path.resolve('fixtures/sample1.heic');
+  const largeHeicPath = path.resolve('test-fixtures/sample2.heic');
+  const unsupportedHeicPath = path.resolve('test-fixtures/sample1.heic');
 
   assert(fs.existsSync(largeHeicPath), `Large HEIC fixture must exist at ${largeHeicPath}`);
   assert(fs.existsSync(unsupportedHeicPath), `Unsupported HEIC fixture must exist at ${unsupportedHeicPath}`);

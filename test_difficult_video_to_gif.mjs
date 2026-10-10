@@ -109,7 +109,7 @@ async function runDifficultTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     // Load fixtures
-    const sampleBytes = fs.readFileSync('test_fixtures/sample_high_bitrate.mp4');
+    const sampleBytes = fs.readFileSync('test-fixtures/sample_high_bitrate.mp4');
     const sampleB64 = sampleBytes.toString('base64');
 
     console.log('GROUP 1: Framerate & Resolution Scaling Parity');

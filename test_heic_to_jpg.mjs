@@ -74,15 +74,15 @@ let testsPassed = 0;
 // Test 4: Real HEIC binary signature / ftyp box detection
 {
   console.log('Test 4: Real HEIC binary signature & ftyp box detection...');
-  const sample1Path = path.resolve('fixtures/sample1.heic');
-  assert(fs.existsSync(sample1Path), 'Sample HEIC fixture fixtures/sample1.heic must exist');
+  const sample1Path = path.resolve('test-fixtures/sample1.heic');
+  assert(fs.existsSync(sample1Path), 'Sample HEIC fixture test-fixtures/sample1.heic must exist');
 
   const sample1Bytes = fs.readFileSync(sample1Path);
   assert(sample1Bytes.length > 100000, 'Sample HEIC fixture must contain real image bytes');
   assert(isHeicSignature(sample1Bytes), 'Sample HEIC fixture must have a valid ftypheic signature');
 
-  const sample2Path = path.resolve('fixtures/sample2.heic');
-  assert(fs.existsSync(sample2Path), 'Sample HEIC fixture fixtures/sample2.heic must exist');
+  const sample2Path = path.resolve('test-fixtures/sample2.heic');
+  assert(fs.existsSync(sample2Path), 'Sample HEIC fixture test-fixtures/sample2.heic must exist');
   const sample2Bytes = fs.readFileSync(sample2Path);
   assert(sample2Bytes.length > 100000, 'Sample HEIC fixture 2 must contain real image bytes');
   assert(isHeicSignature(sample2Bytes), 'Sample HEIC fixture 2 must have a valid ftypheic signature');

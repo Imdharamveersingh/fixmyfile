@@ -25,7 +25,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 export default function ExtractTextFromPdfTool() {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [fileBuffer, setFileBuffer] = useState(null);
   const [pdfMeta, setPdfMeta] = useState(null);
 
   // View options
@@ -58,7 +57,6 @@ export default function ExtractTextFromPdfTool() {
     if (file.size === 0) {
       setErrorMessage('The selected file is empty (0 bytes). Please choose a valid PDF file.');
       setSelectedFile(null);
-      setFileBuffer(null);
       setPdfMeta(null);
       return;
     }
@@ -66,7 +64,6 @@ export default function ExtractTextFromPdfTool() {
     if (file.size > MAX_PDF_FILE_SIZE) {
       setErrorMessage(`The selected file exceeds the maximum size limit of ${formatBytes(MAX_PDF_FILE_SIZE)}.`);
       setSelectedFile(null);
-      setFileBuffer(null);
       setPdfMeta(null);
       return;
     }
@@ -85,7 +82,6 @@ export default function ExtractTextFromPdfTool() {
       const pdfDoc = await loadingTask.promise;
 
       setSelectedFile(file);
-      setFileBuffer(buffer);
       setPdfMeta({
         name: file.name,
         size: file.size,
@@ -94,7 +90,6 @@ export default function ExtractTextFromPdfTool() {
     } catch (err) {
       setErrorMessage(err.message || 'Failed to open PDF document. Please verify the file is a valid, uncorrupted PDF.');
       setSelectedFile(null);
-      setFileBuffer(null);
       setPdfMeta(null);
     }
   };

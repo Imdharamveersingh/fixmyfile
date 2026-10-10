@@ -136,15 +136,15 @@ assert(engineSrc.includes('-loop'), 'Engine includes -loop 0 for infinite GIF an
 console.log('\nGROUP 3: Validation, Signatures & Dimension Calculations');
 
 // Valid MP4 fixture
-const validFixture = fs.readFileSync('test_fixtures/sample_with_audio.mp4');
+const validFixture = fs.readFileSync('test-fixtures/sample_with_audio.mp4');
 assert(isValidVideoSignature(validFixture), 'Valid MP4 fixture matches video container signature');
 
 // Invalid dummy text fixture
-const invalidFixture = fs.readFileSync('test_fixtures/invalid.txt');
+const invalidFixture = fs.readFileSync('test-fixtures/invalid.txt');
 assert(!isValidVideoSignature(invalidFixture), 'Text file rejected by video signature validator');
 
 // Empty buffer
-const emptyFixture = fs.readFileSync('test_fixtures/empty.mp4');
+const emptyFixture = fs.readFileSync('test-fixtures/empty.mp4');
 assert(!isValidVideoSignature(emptyFixture), 'Zero-byte file rejected by video signature validator');
 
 // Maximum file size and duration ceiling
@@ -229,7 +229,7 @@ async function runBrowserConversionTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     // High bitrate fixture for real GIF conversion
-    const sampleFixture = fs.readFileSync('test_fixtures/sample_high_bitrate.mp4');
+    const sampleFixture = fs.readFileSync('test-fixtures/sample_high_bitrate.mp4');
     const sampleB64 = sampleFixture.toString('base64');
 
     const conversionResult = await send('Runtime.evaluate', {

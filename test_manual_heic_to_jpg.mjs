@@ -10,7 +10,7 @@ const BASE_URL = 'http://localhost:5173';
 async function runHeicToJpgChromeTest() {
   console.log('=== Starting Real Chrome CDP HEIC to JPG Manual Test ===\n');
 
-  const fixturePath = path.resolve('fixtures/sample2.heic');
+  const fixturePath = path.resolve('test-fixtures/sample2.heic');
   assert(fs.existsSync(fixturePath), `Fixture must exist at ${fixturePath}`);
 
   const chrome = spawn(CHROME_PATH, [
@@ -121,7 +121,7 @@ async function runHeicToJpgChromeTest() {
     assert(dRes.hasDropzone, 'Dropzone must be visible');
     assert(dRes.hasFileInput, 'File input must exist');
 
-    console.log('3. Uploading real HEIC fixture (fixtures/sample2.heic)...');
+    console.log('3. Uploading real HEIC fixture (test-fixtures/sample2.heic)...');
     const docRoot = await send('DOM.getDocument');
     const fileInputNode = await send('DOM.querySelector', {
       nodeId: docRoot.root.nodeId,

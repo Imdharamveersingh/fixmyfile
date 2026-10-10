@@ -27,8 +27,12 @@ The platform's scope is defined by the authoritative **55-Tool Master Roadmap** 
 7. **Phase 7 — OCR / Text / Advanced File Tools:** 7 tools (Complete, including Phase 7.7 Image Cropper)
 
 **Master Counts:**
-- **Currently Implemented & Active:** 49 unique tools (Phases 1–7)
-- **Future Planned / Deferred:** 6 tools (Phase 6 Media Tools)
+- **Currently Implemented & Active:** 49 unique tools across 4 canonical user-facing categories:
+  - PDF Tools: 18 active tools
+  - Image Tools: 20 active tools
+  - Media Tools: 4 active tools
+  - Generators: 7 active tools
+- **Future Planned / Deferred:** 6 tools (Phase 6 Media Tools: Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4)
 - **Total Master Roadmap:** 55 tools
 
 > **Authoritative Scope Reference:** `tool-build-strategy.md` serves as the authoritative source of truth for the complete 55-tool list, phase assignments, and build order. Image Cropper is canonicalized as Phase 7.7.
@@ -40,7 +44,7 @@ The platform's scope is defined by the authoritative **55-Tool Master Roadmap** 
 ### Current Scope (49 Implemented & Active Tools)
 - **Application Foundation:** Vite 8 + React 19 + React Router v7 application shell with route-level code splitting (`React.lazy`), `LoadingFallback`, and `ErrorBoundary`.
 - **Design System:** Responsive Vanilla CSS design tokens with dark theme, fluid typography, `:focus-visible` styling, and `prefers-reduced-motion` support.
-- **Platform Shell:** Persistent `Header` (with compact multi-column dropdowns for PDF, Image, and Media Tools), `Footer`, and container `Layout` with a skip-to-content bypass link (`#main-content`).
+- **Platform Shell:** Persistent `Header` (with compact multi-column dropdowns for PDF Tools, Image Tools, Media Tools, and Generators), `Footer`, and container `Layout` with a skip-to-content bypass link (`#main-content`).
 - **Home Directory:** Landing view (`/`) displaying all 49 active tools with categorized grids and search filtering (clean presentation with 0 public roadmap phase badges).
 - **Production Deployment:** Deployed at `https://fixmyfile.netlify.app` with dynamic canonical URL generation via `VITE_SITE_URL`.
 - **Phase 1 (PDF Foundation — 6/6 Complete):**

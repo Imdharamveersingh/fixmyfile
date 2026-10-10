@@ -130,7 +130,7 @@ async function runViewportTest(label, width, height, debugPort) {
     else fail('Dropzone missing');
 
     // 3. Upload real MP4 fixture
-    const sampleBytes = fs.readFileSync('test_fixtures/sample_with_audio.mp4');
+    const sampleBytes = fs.readFileSync('test-fixtures/sample_with_audio.mp4');
     const sampleB64 = sampleBytes.toString('base64');
 
     await send('Runtime.evaluate', {

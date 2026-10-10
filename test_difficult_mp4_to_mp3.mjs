@@ -99,9 +99,9 @@ async function runDifficultTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     // Load fixture bytes
-    const sampleBytes = fs.readFileSync('test_fixtures/sample_with_audio.mp4');
+    const sampleBytes = fs.readFileSync('test-fixtures/sample_with_audio.mp4');
     const sampleB64 = sampleBytes.toString('base64');
-    const noAudioBytes = fs.readFileSync('test_fixtures/sample_no_audio.mp4');
+    const noAudioBytes = fs.readFileSync('test-fixtures/sample_no_audio.mp4');
     const noAudioB64 = noAudioBytes.toString('base64');
 
     console.log('GROUP 1: Complex Audio Stream Decoding & Header Verification');

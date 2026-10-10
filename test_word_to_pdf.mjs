@@ -1,5 +1,7 @@
 import { spawn } from 'child_process';
 import http from 'http';
+import fs from 'fs';
+import path from 'path';
 import { PDFDocument } from 'pdf-lib';
 
 async function runRegressionSuite() {
@@ -66,6 +68,9 @@ async function runRegressionSuite() {
   async function testConvertFile(fileName, expectedPages) {
     console.log(`\n--- Testing: ${fileName} (expected: ${expectedPages} pages) ---`);
 
+    const fixturePath = path.resolve('test-fixtures', fileName);
+    const fixtureBase64 = fs.readFileSync(fixturePath).toString('base64');
+
     // Reset app state if needed
     await send('Runtime.evaluate', {
       awaitPromise: true,
@@ -82,16 +87,23 @@ async function runRegressionSuite() {
 
     await new Promise((r) => setTimeout(r, 500));
 
-    // Load file and dispatch change event
+    // Load file from base64 and dispatch change event
     const triggerRes = await send('Runtime.evaluate', {
       awaitPromise: true,
       returnByValue: true,
       expression: `
         (async () => {
           try {
-            const resp = await fetch('/${fileName}');
-            if (!resp.ok) throw new Error('Failed to fetch ' + '/${fileName}' + ': ' + resp.statusText);
-            const blob = await resp.blob();
+            const b64 = '${fixtureBase64}';
+            const byteChars = atob(b64);
+            const byteNumbers = new Array(byteChars.length);
+            for (let i = 0; i < byteChars.length; i++) {
+              byteNumbers[i] = byteChars.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], {
+              type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            });
             const file = new File([blob], '${fileName}', {
               type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
             });

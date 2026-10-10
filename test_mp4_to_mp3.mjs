@@ -118,15 +118,15 @@ assert(engineSrc.includes('-vn'), 'Engine includes -vn flag to disable video ren
 console.log('\nGROUP 3: Validation, Signatures & Constraints');
 
 // Valid MP4 fixture
-const validFixture = fs.readFileSync('test_fixtures/sample_with_audio.mp4');
+const validFixture = fs.readFileSync('test-fixtures/sample_with_audio.mp4');
 assert(isValidMp4Signature(validFixture), 'Valid MP4 fixture matches ISO-BMFF (ftyp) signature');
 
 // Invalid dummy text fixture
-const invalidFixture = fs.readFileSync('test_fixtures/invalid.txt');
+const invalidFixture = fs.readFileSync('test-fixtures/invalid.txt');
 assert(!isValidMp4Signature(invalidFixture), 'Text file rejected by signature validator');
 
 // Empty buffer
-const emptyFixture = fs.readFileSync('test_fixtures/empty.mp4');
+const emptyFixture = fs.readFileSync('test-fixtures/empty.mp4');
 assert(!isValidMp4Signature(emptyFixture), 'Zero-byte file rejected by signature validator');
 
 // Maximum file size ceiling
@@ -186,7 +186,7 @@ async function runBrowserConversionTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     const sampleBase64 = validFixture.toString('base64');
-    const noAudioFixture = fs.readFileSync('test_fixtures/sample_no_audio.mp4');
+    const noAudioFixture = fs.readFileSync('test-fixtures/sample_no_audio.mp4');
     const noAudioBase64 = noAudioFixture.toString('base64');
 
     const conversionResult = await send('Runtime.evaluate', {

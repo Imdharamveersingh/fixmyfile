@@ -9,20 +9,22 @@ All operations execute client-side whenever technically practical using WebAssem
 ## Current Status
 
 - **Project Stage:** Production-Ready & Verified · Pre-Launch Audit Complete
-- **Active Tools:** **49 Unique Active Tools** across 7 internal phases
-  - Phase 1 — PDF Foundation: **6 / 6**
-  - Phase 2 — Image Foundation: **6 / 6**
-  - Phase 3 — Calculators & Generators: **7 / 7**
-  - Phase 4 — PDF Expansion: **10 / 10**
-  - Phase 5 — Image Expansion: **9 / 9**
-  - Phase 6 — Media Tools: **4 Active** (6 deferred)
-  - Phase 7 — OCR / Text / Advanced File Tools: **7 / 7** (including Phase 7.7 Image Cropper)
+- **Active Tools:** **49 Unique Active Tools** (100% Client-Side)
+  - **4 User-Facing Categories:** PDF Tools (18), Image Tools (20), Media Tools (4), Generators & Calculators (7)
+  - **7 Internal Phases:**
+    - Phase 1 — PDF Foundation: **6 / 6**
+    - Phase 2 — Image Foundation: **6 / 6**
+    - Phase 3 — Calculators & Generators: **7 / 7**
+    - Phase 4 — PDF Expansion: **10 / 10**
+    - Phase 5 — Image Expansion: **9 / 9**
+    - Phase 6 — Media Tools: **4 Active** (6 deferred)
+    - Phase 7 — OCR / Text / Advanced File Tools: **7 / 7** (including Phase 7.7 Image Cropper)
 - **Deferred Future Tools:** **6** (Phase 6 audio/video tools: Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4)
 - **Master Strategy Scope:** **55 Planned Tools** (`tool-build-strategy.md`)
 - **Production URL:** [https://fixmyfile.netlify.app](https://fixmyfile.netlify.app)
 - **GitHub Repository:** [https://github.com/imdharamveersingh/fixmyfile](https://github.com/imdharamveersingh/fixmyfile)
 - **Branch:** `master`
-- **Automated Tests:** **55 test suites / 55 passed (100%)**
+- **Automated Tests:** **14 automated test suites passing** (`npm test`)
 - **Performance:** Route-level code splitting (`React.lazy`), entry bundle ~313 KB uncompressed (~94 KB gzip)
 - **Accessibility:** Skip-to-content bypass, single `<main>` landmark, ARIA-enabled dropdowns, keyboard focus restoration
 - **SEO Foundation:** 50 sitemap URLs (1 homepage + 49 tool routes), canonical Netlify domain, per-route OpenGraph and JSON-LD
@@ -65,6 +67,9 @@ npm install
 ```bash
 # Start local development server (default: http://localhost:5173/)
 npm run dev
+
+# Run automated regression & architecture guardrails test suite
+npm test
 
 # Run Oxlint for code quality
 npm run lint

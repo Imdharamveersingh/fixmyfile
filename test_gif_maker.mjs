@@ -152,19 +152,19 @@ function bufToArrayBuffer(buf) {
 }
 
 // PNG detection
-const pngBytes = fs.readFileSync('test_fixtures/frame_red.png');
+const pngBytes = fs.readFileSync('test-fixtures/frame_red.png');
 assert(detectImageSignature(bufToArrayBuffer(pngBytes)) === 'png', 'PNG file detected as png signature');
 
 // JPEG detection
-const jpegBytes = fs.readFileSync('test_fixtures/frame_red.jpg');
+const jpegBytes = fs.readFileSync('test-fixtures/frame_red.jpg');
 assert(detectImageSignature(bufToArrayBuffer(jpegBytes)) === 'jpeg', 'JPEG file detected as jpeg signature');
 
 // WebP detection
-const webpBytes = fs.readFileSync('test_fixtures/frame_webp.webp');
+const webpBytes = fs.readFileSync('test-fixtures/frame_webp.webp');
 assert(detectImageSignature(bufToArrayBuffer(webpBytes)) === 'webp', 'WebP file detected as webp signature');
 
 // Fake JPEG (text content)
-const fakeBytes = fs.readFileSync('test_fixtures/fake_image.jpg');
+const fakeBytes = fs.readFileSync('test-fixtures/fake_image.jpg');
 assert(detectImageSignature(bufToArrayBuffer(fakeBytes)) === null, 'Fake JPEG text file returns null signature');
 
 // Empty buffer
@@ -347,11 +347,11 @@ async function runBrowserTests() {
     assert(indexSrc.includes('id="btn-generate-gif"'), 'Source: btn-generate-gif exists in component');
 
     // ── Real 4-frame GIF generation ──────────────────────────────────────────
-    const redPng = fs.readFileSync('test_fixtures/frame_red.png').toString('base64');
-    const greenPng = fs.readFileSync('test_fixtures/frame_green.png').toString('base64');
-    const bluePng = fs.readFileSync('test_fixtures/frame_blue.png').toString('base64');
-    const yellowPng = fs.readFileSync('test_fixtures/frame_yellow.png').toString('base64');
-    const jpegFrame = fs.readFileSync('test_fixtures/frame_red.jpg').toString('base64');
+    const redPng = fs.readFileSync('test-fixtures/frame_red.png').toString('base64');
+    const greenPng = fs.readFileSync('test-fixtures/frame_green.png').toString('base64');
+    const bluePng = fs.readFileSync('test-fixtures/frame_blue.png').toString('base64');
+    const yellowPng = fs.readFileSync('test-fixtures/frame_yellow.png').toString('base64');
+    const jpegFrame = fs.readFileSync('test-fixtures/frame_red.jpg').toString('base64');
 
     const gifResult = await send('Runtime.evaluate', {
       awaitPromise: true,
@@ -522,7 +522,7 @@ async function runBrowserTests() {
     assert(fpsParsed.bothValid === true, 'Both FPS variants produce image/gif MIME type');
 
     // ── Corrupted image rejection ────────────────────────────────────────────
-    const fakeJpeg = fs.readFileSync('test_fixtures/fake_image.jpg').toString('base64');
+    const fakeJpeg = fs.readFileSync('test-fixtures/fake_image.jpg').toString('base64');
     const corruptResult = await send('Runtime.evaluate', {
       awaitPromise: true,
       returnByValue: true,

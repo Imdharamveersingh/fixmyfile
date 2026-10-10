@@ -113,27 +113,55 @@ export default function App() {
 
 ---
 
-## 5. Active Tool Categories (49 Unique Tools)
+## 5. Active Tool Categories & Registry (49 Unique Tools)
 
-FixMyFile features **49 unique active tools** organized across 7 internal phases:
+FixMyFile provides **49 unique active tools** organized into **4 canonical user-facing categories** (defined in `src/data/homepageCategories.js` and reflected across the navigation header, homepage grids, and sitemap):
 
-1. **PDF Tools (Phase 1 & Phase 4 — 16 tools):**
-   - Core conversions (`/jpg-to-pdf`, `/pdf-to-word`, `/pdf-to-jpg`, `/word-to-pdf`)
-   - Organization (`/merge-pdf`, `/compress-pdf`, `/split-pdf`, `/rotate-pdf`, `/extract-pdf-pages`, `/delete-pdf-pages`, `/reorder-pdf-pages`)
-   - Security (`/protect-pdf`, `/unlock-pdf`)
-   - Office conversions (`/pdf-to-excel`, `/pdf-to-powerpoint`, `/pdf-to-text`)
-2. **Image Tools (Phase 2, Phase 5 & Phase 7.7 — 16 tools):**
-   - Core editing & optimization (`/background-remover`, `/image-compressor`, `/image-resizer`, `/image-converter`, `/jpg-to-png`, `/png-to-jpg`)
-   - Extended formats & transforms (`/heic-to-jpg`, `/webp-to-jpg`, `/jpg-to-webp`, `/webp-to-png`, `/image-rotate-flip`, `/image-watermark`, `/image-to-pdf`, `/image-upscaler`, `/image-to-base64`)
-   - Phase 7.7 Canvas Studio (`/image-cropper`)
-3. **Calculators & Generators (Phase 3 — 7 tools):**
-   - High-utility generation (`/qr-code-generator`, `/barcode-generator`, `/password-generator`)
-   - Calculation & analytics (`/currency-converter`, `/percentage-calculator`, `/word-counter`, `/emi-calculator`)
-4. **Media Tools (Phase 6 — 4 active tools):**
-   - Audio & video processing (`/mp4-to-mp3`, `/video-compressor`, `/video-to-gif`, `/gif-maker`)
-   - Note: 6 Phase 6 tools (Audio Converter, M4A to MP3, WAV to MP3, MP3 Cutter, Video Trimmer, Video to MP4) are deferred for future release.
-5. **OCR / Text / Advanced File Tools (Phase 7 — 7 tools):**
-   - In-browser text recognition (`/image-to-text`, `/pdf-ocr`, `/jpg-to-text`, `/png-to-text`, `/screenshot-to-text`, `/extract-text-from-pdf`, `/image-cropper`)
+### Canonical User-Facing Categories
+
+1. **PDF Tools (18 active tools):**
+   - **Conversion (6):** JPG to PDF (`/jpg-to-pdf`), PDF to Word (`/pdf-to-word`), PDF to JPG (`/pdf-to-jpg`), Word to PDF (`/word-to-pdf`), PDF to Excel (`/pdf-to-excel`), PDF to PowerPoint (`/pdf-to-powerpoint`)
+   - **Edit & Security (6):** Merge PDF (`/merge-pdf`), Compress PDF (`/compress-pdf`), Split PDF (`/split-pdf`), Rotate PDF (`/rotate-pdf`), Protect PDF (`/protect-pdf`), Unlock PDF (`/unlock-pdf`)
+   - **Page Operations, Text & OCR (6):** PDF to Text (`/pdf-to-text`), Extract PDF Pages (`/extract-pdf-pages`), Delete PDF Pages (`/delete-pdf-pages`), Reorder PDF Pages (`/reorder-pdf-pages`), PDF OCR (`/pdf-ocr`), Extract Text from PDF (`/extract-text-from-pdf`)
+
+2. **Image Tools (20 active tools):**
+   - **Core Editing & Optimization (6):** Background Remover (`/background-remover`), Image Compressor (`/image-compressor`), Image Resizer (`/image-resizer`), Image Converter (`/image-converter`), JPG to PNG (`/jpg-to-png`), PNG to JPG (`/png-to-jpg`)
+   - **Format Conversion & Transform (5):** HEIC to JPG (`/heic-to-jpg`), WebP to JPG (`/webp-to-jpg`), JPG to WebP (`/jpg-to-webp`), WebP to PNG (`/webp-to-png`), Image to Base64 (`/image-to-base64`)
+   - **Editing & Studio (5):** Image Rotate & Flip (`/image-rotate-flip`), Image Watermark (`/image-watermark`), Image to PDF (`/image-to-pdf`), Image Upscaler (`/image-upscaler`), Image Cropper (`/image-cropper`)
+   - **Image OCR & Extraction (4):** Image to Text (`/image-to-text`), JPG to Text (`/jpg-to-text`), PNG to Text (`/png-to-text`), Screenshot to Text (`/screenshot-to-text`)
+
+3. **Media Tools (4 active tools):**
+   - Audio Extraction: MP4 to MP3 (`/mp4-to-mp3`)
+   - Video Optimization: Video Compressor (`/video-compressor`)
+   - Animation: Video to GIF (`/video-to-gif`), GIF Maker (`/gif-maker`)
+
+4. **Generators & Calculators (7 active tools):**
+   - Generation: QR Code Generator (`/qr-code-generator`), Barcode Generator (`/barcode-generator`), Password Generator (`/password-generator`)
+   - Calculation: Currency Converter (`/currency-converter`), Percentage Calculator (`/percentage-calculator`), Word Counter (`/word-counter`), EMI Calculator (`/emi-calculator`)
+
+### Internal Implementation Phases (Historical Reference)
+
+- **Phase 1 — PDF Foundation (6 tools):** Core PDF conversions, merge, compress
+- **Phase 2 — Image Foundation (6 tools):** Background remover, compressor, resizer, converter, JPG/PNG interchange
+- **Phase 3 — Calculators & Generators (7 tools):** QR code, barcode, currency, percentage, password, word counter, EMI
+- **Phase 4 — PDF Expansion (10 tools):** Split, Excel, PowerPoint, rotate, protect, unlock, text, page extractions
+- **Phase 5 — Image Expansion (9 tools):** HEIC, WebP, rotate/flip, watermark, image-to-PDF, upscaler, Base64
+- **Phase 6 — Media Tools (4 active / 6 deferred):** MP4 to MP3, video compressor, video-to-GIF, GIF maker
+- **Phase 7 — OCR, Text & Advanced File Tools (7 tools):**
+  - OCR & Text Extraction (6): `/image-to-text`, `/pdf-ocr`, `/jpg-to-text`, `/png-to-text`, `/screenshot-to-text`, `/extract-text-from-pdf`
+  - Canvas Studio (1): `/image-cropper` (Phase 7.7)
+
+### Deferred Tools (Phase 6 Planned Media Scope — 6 Tools)
+
+The following 6 tools from the master strategy scope (`tool-build-strategy.md`) are **deferred and not active** in the current build:
+- Audio Converter (`/audio-converter`)
+- M4A to MP3 (`/m4a-to-mp3`)
+- WAV to MP3 (`/wav-to-mp3`)
+- MP3 Cutter (`/mp3-cutter`)
+- Video Trimmer (`/video-trimmer`)
+- Video to MP4 (`/video-to-mp4`)
+
+These deferred tools have zero routes in `App.jsx`, zero active entries in `toolsRegistry.js`, zero mega-menu links, and zero sitemap entries.
 
 ---
 

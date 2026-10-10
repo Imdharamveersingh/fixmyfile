@@ -128,15 +128,15 @@ assert(engineSrc.includes('+faststart'), 'Engine includes +faststart movflags fo
 console.log('\nGROUP 3: Validation, Constraints & Dimension Calculations');
 
 // Valid MP4 fixture
-const validFixture = fs.readFileSync('test_fixtures/sample_with_audio.mp4');
+const validFixture = fs.readFileSync('test-fixtures/sample_with_audio.mp4');
 assert(isValidVideoSignature(validFixture), 'Valid MP4 fixture matches video container signature');
 
 // Invalid dummy text fixture
-const invalidFixture = fs.readFileSync('test_fixtures/invalid.txt');
+const invalidFixture = fs.readFileSync('test-fixtures/invalid.txt');
 assert(!isValidVideoSignature(invalidFixture), 'Text file rejected by video signature validator');
 
 // Empty buffer
-const emptyFixture = fs.readFileSync('test_fixtures/empty.mp4');
+const emptyFixture = fs.readFileSync('test-fixtures/empty.mp4');
 assert(!isValidVideoSignature(emptyFixture), 'Zero-byte file rejected by video signature validator');
 
 // Maximum file size ceiling
@@ -218,7 +218,7 @@ async function runBrowserCompressionTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     // High bitrate fixture for real compression testing
-    const highBitrateFixture = fs.readFileSync('test_fixtures/sample_high_bitrate.mp4');
+    const highBitrateFixture = fs.readFileSync('test-fixtures/sample_high_bitrate.mp4');
     const highBitrateB64 = highBitrateFixture.toString('base64');
     const origSize = highBitrateFixture.length;
 

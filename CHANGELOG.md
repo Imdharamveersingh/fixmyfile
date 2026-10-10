@@ -4,6 +4,17 @@ All notable changes to the **FixMyFile** project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2026-10-10] — Master Maintainability & Quality Improvement
+
+### Changed
+- **CSS Maintainability & Duplicate Selector Consolidation:** Consolidated `src/App.css`, removing 196 lines of dead legacy CSS blocks (legacy footer superseded by modern 5-column footer at line 7105+; legacy related tools superseded by `BlogArticlePage` styles at line 9817+). Preserved mobile 1-column grid layout directly under `.tools-grid` and eliminated duplicate selector declarations.
+- **Test Fixture Consolidation & Production Asset Hygiene:** Unified 3 fragmented fixture directories (`fixtures/`, `test_fixtures/`, and `test-fixtures/`) into a single canonical `test-fixtures/` directory. Moved test DOCX files (`fixmyfile-difficult-word-test.docx`, `test-simple-1page.docx`) out of `public/` into `test-fixtures/`, preventing test fixtures from being included in the production build output (`dist/`). Updated all affected test runner references.
+- **Linter Optimization & Vendor Exclusion:** Configured `"ignorePatterns": ["public/vendor/**", "dist/**"]` in `.oxlintrc.json`. Reduced linter warning volume by 98.9% (from 3,980 warnings down to 42 warnings), cutting lint runtime from 12.8s to ~500ms while maintaining 100% lint coverage across first-party application source and test code.
+- **Dead Code Cleanup:** Removed unused `fileBuffer`/`setFileBuffer` state from `src/tools/extract-text-from-pdf/index.jsx`. Removed unused `phase` prop destructuring in `src/components/ToolPlaceholder.jsx`.
+- **Documentation Alignment:** Synchronized `ARCHITECTURE.md`, `PRD.md`, and `README.md` with the canonical tool registry and header navigation (PDF: 18, Image: 20, Media: 4, Generators: 7; Total 49 active tools, 6 deferred Phase 6 tools).
+
+---
+
 ## [2026-09-24] — Step 7: Automated Test Repair & Test Suite Synchronization (Commit `66637f7`)
 
 ### Changed

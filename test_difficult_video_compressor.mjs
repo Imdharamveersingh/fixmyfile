@@ -107,9 +107,9 @@ async function runDifficultTests() {
     await new Promise((r) => setTimeout(r, 1500));
 
     // Load fixtures
-    const highBitrateBytes = fs.readFileSync('test_fixtures/sample_high_bitrate.mp4');
+    const highBitrateBytes = fs.readFileSync('test-fixtures/sample_high_bitrate.mp4');
     const highBitrateB64 = highBitrateBytes.toString('base64');
-    const silentBytes = fs.readFileSync('test_fixtures/sample_no_audio.mp4');
+    const silentBytes = fs.readFileSync('test-fixtures/sample_no_audio.mp4');
     const silentB64 = silentBytes.toString('base64');
 
     console.log('GROUP 1: Complex Media Stream & Audio Preservation vs Mute');
