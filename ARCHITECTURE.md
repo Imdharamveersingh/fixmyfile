@@ -144,3 +144,39 @@ FixMyFile features **49 unique active tools** organized across 7 internal phases
 - **WebAssembly & Web Workers:** CPU-intensive tasks (FFmpeg video encoding, Tesseract neural OCR, ONNX background removal) execute inside dedicated Web Workers with local WASM binaries (`public/vendor/`).
 - **Performance Budget:** Initial homepage footprint is ~313 KB uncompressed (~94 KB gzip). Heavy assets are loaded solely on route access.
 - **Production Deployment:** Hosted on Netlify at `https://fixmyfile.netlify.app`.
+
+---
+
+## 7. Future Tool Architecture & 10-Point Integration Contract (Phase 10)
+
+To ensure the platform remains stable, performant, accessible, and search-optimized as new tools are developed, all future tools must adhere strictly to the **10-Point Architectural Integration Contract**.
+
+This contract is automatically enforced at build and test time by `scripts/validate_tool_architecture.mjs` and `test_tool_architecture_guardrails.mjs`.
+
+### 10-Point Integration Contract
+
+| Step | Layer | File Target | Requirement & Contract Rules |
+| :--- | :--- | :--- | :--- |
+| **1** | **Tool Component** | `src/tools/<tool-id>/index.jsx` | Implement the tool module inside its isolated folder. Must use client-side browser processing (Canvas, Web Workers, WASM). Must render `ToolDetailHeader` and `ToolDetailContent`. |
+| **2** | **Central Registry** | `src/tools/toolsRegistry.js` | Declare tool metadata in `ALL_TOOLS`: `{ id: '<kebab-id>', name: 'Tool Name', path: '/<kebab-id>', icon: '<kebab-id>', category: '<Category>', description: '<100-165 char desc>', status: 'Ready', phase: '<Phase>' }`. |
+| **3** | **Route Splitting** | `src/App.jsx` | Add lazy import: `const <Name>Tool = lazy(() => import('./tools/<tool-id>'));` and route `<Route path="<tool-id>" element={<<Name>Tool />} />`. **Never import tool components synchronously.** |
+| **4** | **SVG Icon Asset** | `src/components/toolSvgMap.js` | Add entry in `TOOL_SVG_MAP`: `'<tool-id>': new URL('../assets/.../<tool-id>.svg', import.meta.url).href`. The SVG must exist, be valid XML, and include a `viewBox`. |
+| **5** | **Accent Tokens** | `src/components/toolAccentMap.js` | Add deterministic color tokens: `{ primary: '#HEX', border: 'rgba(r,g,b,0.3)', hoverBorder: 'rgba(r,g,b,0.65)' }` matching the primary SVG hue. |
+| **6** | **Category Grouping**| `src/data/homepageCategories.js`| Add `<tool-id>` to the `toolIds` array of exactly **ONE** category in `HOMEPAGE_CATEGORIES`. Zero orphaned tools, zero duplicate cross-category assignments. |
+| **7** | **Documentation** | `src/data/toolContent.js` | Add complete dictionary entry: `toolId`, technical `privacyNote`, `howTo` (title + 3–5 steps with title and description), and `faqs` (3–5 Q&A pairs with question ending in `?`). |
+| **8** | **Related Cross-Links**| `src/data/toolContent.js` | In the same entry, define `relatedTools` containing 3–4 valid active tool IDs. Zero self-references, zero broken cross-links to nonexistent or deferred tools. |
+| **9** | **SEO & Sitemap** | `scripts/generate_sitemap.mjs` | Regenerate sitemap: `node scripts/generate_sitemap.mjs`. The tool URL is dynamically included in `public/sitemap.xml` with canonical tag verified by `seoConfig.js`. |
+| **10**| **Guardrail Check** | Pipeline Execution | Run verification: `node scripts/validate_tool_architecture.mjs && npm test && npm run lint && npm run build`. All automated checks must pass with zero errors. |
+
+### Automated Architecture Guardrails Pipeline
+
+The guardrail suite (`scripts/validate_tool_architecture.mjs`) automatically tests all 10 contract items across every tool in the registry:
+1. **Registry & Routes Parity:** Asserts 1:1 bidirectional mapping between `toolsRegistry.js` and `App.jsx`.
+2. **Code Splitting Enforcement:** Prevents accidental static tool imports from regressing entry bundle performance.
+3. **SVG File Validity:** Confirms physical SVG assets exist on disk with valid dimensions.
+4. **Color Token Validation:** Validates hex and rgba color syntax.
+5. **Categorical Integrity:** Enforces partition consistency across the 4 canonical categories.
+6. **Content Completeness:** Guarantees comprehensive How-To and FAQ coverage for every tool.
+7. **Referential Integrity:** Guarantees all related-tool suggestions point to valid active routes.
+8. **SEO Compliance:** Checks title and description length thresholds and canonical tags.
+9. **Sitemap Synchronization:** Ensures sitemap.xml stays 100% synchronized with active routes.
